@@ -9,4 +9,20 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Biomodis::Application.config.secret_key_base = '51063ba5d8f1ed314ffebb4c4d292579dea666626d4cab9e82793af6281180270c9d65a94a6a35dd08383d5e43237116fef9f9d8aefa1fa73ba512512df0a0bd'
+
+require 'securerandom'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    # Use the existing token.
+    File.read(token_file).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
+Biomodis::Application.config.secret_key_base = secure_token
