@@ -1,0 +1,10 @@
+
+<h1>Modelos de Distribución de Especies</h1>
+<%= render 'search_form' %>
+<div id="btnPanel">
+	<button type="button" id="editBtn" class="btn">Edicion</button><br /><br />
+	<button type="button" id="saveBtn" class="btn">Guardar</button>
+</div>
+<div id="map"></div>
+<%= javascript_include_tag 'leaflet.draw' %>
+<%= javascript_include_tag 'mapEditor' %>

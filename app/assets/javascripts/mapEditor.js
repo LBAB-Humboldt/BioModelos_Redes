@@ -1,7 +1,8 @@
 
 var _mapVisorModule = function() {
 
-	var drawnItems, layerControl, modelOverlay, currentLayer,
+	var map, drawnItems, layerControl, modelOverlay, currentLayer,
+		isEditOn = false,
 		commentForm = '<div class="commentForm"><form id="inputform" enctype="multipart/form-data" class="well">' +
         '<label><strong>Observación:</strong></label><br />' +
         '<textarea rows="4" cols="30" placeholder="Required" id="comment"></textarea><br><br>' +
@@ -45,9 +46,18 @@ var _mapVisorModule = function() {
 	    //loadModel();
 	}
 
-	var loadModel = function () {
-		var imageUrl = 'abu_aburri0.png',
-        	imageBounds = [[12.675003791, -60.4833271], [-13.841664259, -82.949994938]];
+	var loadModel = function (modelUrl) {
+
+		var imageUrl = modelUrl,
+        	//imageBounds = [[12.675003791, -60.4833271], [-13.841664259, -82.949994938]];
+        	imageBounds = [[12.675, -60.48333], [-13.84166, -82.94999]];
+
+       /* Dispose older model if it exists */
+       if(map.hasLayer(modelOverlay)) {
+       		map.removeLayer(modelOverlay);
+       		layerControl.removeLayer(modelOverlay);
+       }
+       	
     
 	    modelOverlay = new L.ImageOverlay(imageUrl, imageBounds);
 	    map.addLayer(modelOverlay, true);
@@ -63,43 +73,46 @@ var _mapVisorModule = function() {
 	var activateEdition = function () {
 
 		//disableEditButton();
-    
-	    /* Control */
-	    drawControl = new L.Control.Draw({
-	        draw: {
-	            position: 'topright',
-	            circle: false,
-	            rectangle: false
-	        },
-	        edit: {
-	            featureGroup: drawnItems
-	        }
-	    });
+    	if(!isEditOn) {
 
-	    map.addControl(drawControl);
-	    layerControl.addOverlay(drawnItems, "Edición");
-	    map.addLayer(drawnItems);
+    		isEditOn = true;
+		    /* Control */
+		    drawControl = new L.Control.Draw({
+		        draw: {
+		            position: 'topright',
+		            circle: false,
+		            rectangle: false
+		        },
+		        edit: {
+		            featureGroup: drawnItems
+		        }
+		    });
 
-	    /* Draw Created Event Listener */
-	    map.on('draw:created', function(e) {
-	        var popup = new L.Popup({
-	            closeButton: false,
-	            closeOnClick: false
-	        }).setContent(commentForm); //Toma el html de un div con id commentForm
+		    map.addControl(drawControl);
+		    layerControl.addOverlay(drawnItems, "Edición");
+		    map.addLayer(drawnItems);
 
-	        var layer = e.layer;
+		    /* Draw Created Event Listener */
+		    map.on('draw:created', function(e) {
+		        var popup = new L.Popup({
+		            closeButton: false,
+		            closeOnClick: false
+		        }).setContent(commentForm); 
 
-	        layer.bindPopup(popup);
+		        var layer = e.layer;
 
-	        drawnItems.addLayer(layer);
+		        layer.bindPopup(popup);
 
-	        layer.openPopup();
-	    });
-	    
-	    /* Popup Open Event Listener*/
-	    map.on('popupopen', function(e) {
-	        currentPopupID = e.popup._leaflet_id;
-	    });
+		        drawnItems.addLayer(layer);
+
+		        layer.openPopup();
+		    });
+		    
+		    /* Popup Open Event Listener*/
+		    map.on('popupopen', function(e) {
+		        currentPopupID = e.popup._leaflet_id;
+		    });
+		}   
 
 	}
 

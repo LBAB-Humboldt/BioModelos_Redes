@@ -2,3 +2,5 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+$("#model_model_id").change ->
+  alert $(this).val()
