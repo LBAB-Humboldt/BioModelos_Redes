@@ -13,6 +13,12 @@
 
 ActiveRecord::Schema.define(version: 20131003220055) do
 
+  create_table "classes", force: true do |t|
+    t.string   "class_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "comments", force: true do |t|
     t.string   "title"
     t.string   "body"
@@ -26,7 +32,7 @@ ActiveRecord::Schema.define(version: 20131003220055) do
 
   create_table "models", force: true do |t|
     t.integer  "species_id"
-    t.string   "url"
+    t.string   "img_url"
     t.date     "model_date"
     t.string   "author"
     t.text     "description"
@@ -49,7 +55,10 @@ ActiveRecord::Schema.define(version: 20131003220055) do
   add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
 
   create_table "species", force: true do |t|
+    t.integer  "class_id"
     t.string   "species_name"
+    t.string   "sib_url"
+    t.integer  "ocurrence_records"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -60,6 +69,7 @@ ActiveRecord::Schema.define(version: 20131003220055) do
     t.string   "username"
     t.string   "role"
     t.string   "location"
+    t.string   "organization"
     t.text     "bio"
     t.datetime "created_at"
     t.datetime "updated_at"

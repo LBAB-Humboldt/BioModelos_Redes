@@ -1,0 +1,211 @@
+* {
+	margin:0;
+	padding:0;
+}
+
+html, body {
+  height: 100%;
+}
+
+@font-face {
+    font-family: 'bebas_neueregular';
+    src: url('BebasNeue-webfont.eot');
+    src: url('BebasNeue-webfont.eot?#iefix') format('embedded-opentype'),
+         url('BebasNeue-webfont.woff') format('woff'),
+         url('BebasNeue-webfont.ttf') format('truetype'),
+         url('BebasNeue-webfont.svg#bebas_neueregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background-image: url(<%= asset_path 'fondobla.jpg' %>);
+    font: 14px/24px 'Lato', sans-serif;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+header {
+	width: 100%;
+	background-color: #76CCC5;
+	border-bottom: 6px solid #9AE8E1;
+	padding: 0 10px;
+}
+
+.contenedor {
+    margin: 0 auto;
+}
+
+
+nav {
+    font-family: 'bebas_neueregular', sans-serif;
+    text-transform: uppercase;
+    font-size: 1em;
+    letter-spacing: 1.2px;
+    float: right;
+    margin-right: 30px;
+}
+
+nav li {
+    list-style: none;
+    float: left;
+}
+
+nav li a {
+    display: block;
+    text-decoration: none;
+    color: #30302e;
+    padding: 40px 15px 15px;
+}
+
+nav li a.current {
+    background: #fff;
+    color: #FFC717;
+}
+
+nav a:hover,
+nav a:active {
+    background: #fff;
+    color: #FFC717;
+}
+
+.lbabimg {
+    padding:0 0 5px 55px;
+    margin-top: 15px;
+    margin-left: 30px;
+    float: left;
+    background: url(<%= asset_path 'logolbab.png' %>) no-repeat;
+    font-family: 'bebas_neueregular', sans-serif;
+    text-transform: uppercase;
+    font-size: 1.04em;
+    color: #fff;
+    letter-spacing: 1.6px;
+    line-height: 1;
+}
+
+footer {
+    width: 100%;
+    height: 82px;
+    background: url(<%= asset_path 'fondo4.png' %>);
+    border-top: 1px dashed #76CCC5;
+    padding: 0 10px;
+    position: fixed;
+    bottom:0;
+}
+
+footer nav {
+    font-size: 0.857em;
+    letter-spacing: 1.2px;
+    float: right;
+    margin-right: 30px;
+}
+
+footer nav li a {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    padding:15px !important;
+}
+
+footer nav li a.current {
+    background: none;
+    color: #5D5D5D;
+}
+
+footer nav a:hover,
+footer nav a:active {
+    background: none;
+    color: #5D5D5D;
+}
+
+.lbabfooter {
+    padding:0 0 5px 55px;
+    margin-top: 15px;
+    margin-left: 30px;
+    float: left;
+    font-family: 'bebas_neueregular', sans-serif;
+    text-transform: uppercase;
+    font-size: 1.04em;
+    color: #fff;
+    letter-spacing: 1.6px;
+    line-height: 1;
+}
+
+/* Media */
+
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+/* Styles */
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen and (min-width : 321px) {
+/* Styles */
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width : 320px) {
+/* Styles */
+}
+
+@media only screen and (min-device-width : 768px) {
+
+    .contenedor {
+        width: 768px;
+    }
+
+}
+
+@media only screen and (max-device-width : 1024px) {
+
+    .contenedor {
+        width: 1024px;
+    }
+
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width : 1224px) {
+    
+    .contenedor {
+        width: 1224px;
+    }
+
+}
+
+/* Large screens ----------- */
+@media only screen and (min-width : 1824px) {
+    
+    .contenedor {
+        width: 1424px;
+    }
+
+}
+
+/* iPhone 4 ----------- */
+@media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5) {
+/* Styles */
+}
+
+/* clases de ayuda */
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+

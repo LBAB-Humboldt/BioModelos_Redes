@@ -17,3 +17,4 @@
 //= require typeahead.min
 //= require leaflet
 //= require_tree ./controllers
+//= require_tree ./jsstyling
