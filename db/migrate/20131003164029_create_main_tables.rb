@@ -5,16 +5,34 @@ class CreateMainTables < ActiveRecord::Migration
     	t.string :username
     	t.string :role
     	t.string :location
+        t.string :organization
     	t.text :bio
 
     	t.timestamps
     end
 
+    create_table :classes do |t|
+        t.string :class_name
+        t.timestamps
+    end
+
+    create_table :species do |t|
+        t.references :class
+        t.string :species_name
+        t.string :sib_url
+        t.integer :ocurrence_records
+        t.timestamps
+    end
+
+    add_index :species, :species_name, :unique => true
+
+  end
+
     create_table :models do |t|
 
-    	t.integer :species_id
-    	t.string :url
-    	t.date :mode_date
+    	t.references :species
+    	t.string :img_url
+    	t.date :model_date
     	t.string :author
     	t.text :description
     	t.integer :rating
@@ -27,8 +45,8 @@ class CreateMainTables < ActiveRecord::Migration
 
     create_table :reviews do |t|
 
-    	t.integer :user_id
-    	t.integer :model_id
+    	t.references :user
+    	t.references :model
     	t.text :geoJSON
     	t.timestamps
     end
@@ -48,13 +66,4 @@ class CreateMainTables < ActiveRecord::Migration
 
     add_index :comments, [:commentable_id, :commentable_type]
 
-    create_table :species do |t|
-
-    	t.string :species_name
-    	t.timestamps
-    end
-
-    add_index :species, :species_name, :unique => true
-
-  end
 end

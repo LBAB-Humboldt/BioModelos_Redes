@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20131003220055) do
   create_table "models", force: true do |t|
     t.integer  "species_id"
     t.string   "url"
-    t.date     "mode_date"
+    t.date     "model_date"
     t.string   "author"
     t.text     "description"
     t.integer  "rating"

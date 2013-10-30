@@ -1,9 +1,19 @@
 
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
 <h1>Modelos de Distribución de Especies</h1>
 <%= render 'search_form' %>
 <div id="btnPanel">
-	<button type="button" id="editBtn" class="btn">Edicion</button><br /><br />
-	<button type="button" id="saveBtn" class="btn">Guardar</button>
+	<button type="button" id="editBtn" class="btn">Edicion</button><br />
+	<%= simple_form_for @review do |f| %>
+	  <%= f.hidden_field :model_id %>
+	  <%= f.hidden_field :user_id, :value => get_current_user_id %>
+	  <%= f.hidden_field :geoJSON %>
+	  <p><%= f.submit "Save", :id => 'saveBtn' %></p>
+	<% end %>
+	<!-- <button type="button" id="editBtn" class="btn">Edicion</button><br /><br /> -->
+	<!-- <button type="button" id="saveBtn" class="btn">Guardar</button> -->
 </div>
 <div id="map"></div>
 <%= javascript_include_tag 'leaflet.draw' %>

@@ -1,11 +1,13 @@
 Biomodis::Application.routes.draw do
   devise_for :users
   get "models/visor"
+  get "models/search"
   resources :comments, :only => [:index, :show, :new, :create]
   resources :home, :only => [:show]
   resources :reviews, :only => [:index, :show, :create]
   resources :users, :only => [:index, :show, :edit, :update]
   resources :models, :only => [:index, :new, :create]
+  # connect '/models/search', :controller => 'models', :action => 'search'
   #get "models/index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

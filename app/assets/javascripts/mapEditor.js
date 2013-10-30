@@ -222,8 +222,10 @@ var _mapVisorModule = function() {
 	}
 
 	var saveEdition = function () {
-	    if (!areEmptyComments())
-	        $("#txtGeoJSON").append(toGeoJSON());
+	    if (!areEmptyComments()){
+	    	$("#review_geoJSON").val(toGeoJSON());
+	    	$("#review_model_id").val($('#model_model_id option:selected').text());
+	    }  
 	    else {
 	        alert("Hay observaciones sin completar");
     }

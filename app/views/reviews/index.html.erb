@@ -1,2 +1,17 @@
 <h1>Reviews#index</h1>
-<p>Find me in app/views/reviews/index.html.erb</p>
+
+<table>
+	<tr>
+	   	<th><%= "User ID" %></th>
+	    <th><%= "Model ID" %></th>
+	    <th><%= "GeoJSON" %></th>
+	</tr>
+	<%= @reviews.find_each do |review| %>
+		<tr>
+	      <td><%= User.find(review.user_id).email %></td>
+	      <td><%= review.model_id %></td>
+	      <td><%= review.geoJSON %></td>
+    	</tr>
+	<% end %>
+</table>
+

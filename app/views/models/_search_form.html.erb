@@ -1,1 +1,7 @@
-<%= collection_select(:model, :model_id, @models, :url, :species, :prompt => true) %>
+<%= collection_select(:model, :model_id, @models, :url, :species_id, :prompt => true) %>
+
+<%= form_tag models_search_path :method => 'get' do %>
+      <%= text_field_tag :query, params[:query], :id => 'search_field' %>
+      <%= submit_tag "Search", :name => nil %> 
+      <%= link_to_function "Clear", "$('search_field').clear()" %>
+<% end %> 
