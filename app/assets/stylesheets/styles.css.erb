@@ -33,6 +33,7 @@ header {
 }
 
 .contenedor {
+    width: 99%;
     margin: 0 auto;
 }
 
@@ -85,7 +86,7 @@ nav a:active {
 
 footer {
     width: 100%;
-    height: 82px;
+    min-height: 82px;
     background: url(<%= asset_path 'fondo4.png' %>);
     border-top: 1px dashed #76CCC5;
     padding: 0 10px;
@@ -104,7 +105,8 @@ footer nav li a {
     display: block;
     text-decoration: none;
     color: #fff;
-    padding:15px !important;
+    padding:0px 10px !important;
+    line-height: 1;
 }
 
 footer nav li a.current {
@@ -118,46 +120,70 @@ footer nav a:active {
     color: #5D5D5D;
 }
 
-.lbabfooter {
-    padding:0 0 5px 55px;
-    margin-top: 15px;
+.faq a {
+    text-decoration: none;
+    color: #919191;
+    padding:0px 10px;
+    line-height: 2;
+    float: right;
+}
+
+.faq a:hover,
+.faq a:active {
+    color: #00A1AD;
+}
+
+.lbabfooter {   
+    margin-top: 10px;
     margin-left: 30px;
+}
+
+.lbabfooter img {
+    padding-right: 10px;
+    border-right: 1px solid #5D5D5D;
     float: left;
-    font-family: 'bebas_neueregular', sans-serif;
-    text-transform: uppercase;
-    font-size: 1.04em;
-    color: #fff;
-    letter-spacing: 1.6px;
-    line-height: 1;
+}
+.textft {
+    margin-left: 10px;
+    float: left;
+}
+.lbabfooter h1, .lbabfooter p {
+    font-family: 'lato', sans-serif;
+    font-size: 0.714em;
+    color: #5D5D5D;
+    letter-spacing: 1.1px;
+    line-height: 1.1;
+}
+
+.lbabfooter h1 {
+    font-weight: 600;
+    color: #3d3d3d;
+}
+
+.lbabfooter h1 strong {
+    color: #008D96;
 }
 
 /* Media */
-
-
-/* Smartphones (portrait and landscape) ----------- */
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-/* Styles */
-}
 
 /* Smartphones (landscape) ----------- */
 @media only screen and (min-width : 321px) {
 /* Styles */
 }
 
-/* Smartphones (portrait) ----------- */
-@media only screen and (max-width : 320px) {
-/* Styles */
-}
-
-@media only screen and (min-device-width : 768px) {
-
-    .contenedor {
-        width: 768px;
+@media only screen and (max-width : 631px) {
+    .lbabimg {
+        clear:both;
+        margin-bottom: 10px;
     }
 
 }
 
-@media only screen and (max-device-width : 1024px) {
+@media only screen and (min-width : 768px) {
+/* Styles */
+}
+
+@media only screen and (min-width : 1024px) {
 
     .contenedor {
         width: 1024px;
