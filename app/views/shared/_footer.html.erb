@@ -1,6 +1,14 @@
 <footer>
-	<div class="contenedor clearfix">
+	<div class="contenedor">
 		<div class="lbabfooter">
+				<%= image_tag ('Humboldt.png') %>
+				<div class="textft">
+				<h1><strong>Programa de Gestión de Información y Conocimiento (GIC)</strong></h1>
+				<h1>Laboratorio de Biogeografía Aplicada y Bioacústica</h1>
+				<p><strong>Dirección</strong> calle 28A no. 15-09 Bogotá D.C., Colombia.</br>
+				<strong>Teléfono</strong> pbx 57(1) 320 2767</br>
+				lbab@humboldt.org.co</p>
+				</div>
 		</div>
 		<nav>
 			<ul id="subnav">
@@ -16,7 +24,8 @@
 			  <% else %>
 			    <li><%= link_to 'ingresar', new_user_session_path %></li>
 			    <li><%= link_to 'Registrarse', new_user_registration_path %></li>
-			  <% end %>
+			  <% end %></br>	
+			  <div class="faq"><%= link_to 'faq', new_user_registration_path %></div>
 			</ul>
 		</nav>
 	</div>
