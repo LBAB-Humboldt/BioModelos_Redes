@@ -27,8 +27,6 @@ class CreateMainTables < ActiveRecord::Migration
     add_index :species, :class_id
     add_index :species, :sci_name, :unique => true
 
-  end
-
     create_table :models do |t|
 
     	t.references :species
@@ -36,7 +34,7 @@ class CreateMainTables < ActiveRecord::Migration
     	t.date :model_date
     	t.string :author
     	t.text :description
-    	t.integer :rating, default => 0
+    	t.integer :rating, :default => 0
         t.boolean :validated, :default => false 
 
     	t.timestamps
@@ -67,5 +65,7 @@ class CreateMainTables < ActiveRecord::Migration
     end
 
     add_index :comments, [:commentable_id, :commentable_type]
+
+    end
 
 end
