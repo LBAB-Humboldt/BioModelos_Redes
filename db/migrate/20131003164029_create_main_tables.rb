@@ -2,7 +2,7 @@ class CreateMainTables < ActiveRecord::Migration
   def change
     create_table :users do |t|
 
-    	t.string :username
+    	t.string :name
     	t.string :role
     	t.string :location
         t.string :organization
@@ -18,13 +18,14 @@ class CreateMainTables < ActiveRecord::Migration
 
     create_table :species do |t|
         t.references :class
-        t.string :species_name
+        t.string :sci_name
         t.string :sib_url
         t.integer :ocurrence_records
         t.timestamps
     end
 
-    add_index :species, :species_name, :unique => true
+    add_index :species, :class_id
+    add_index :species, :sci_name, :unique => true
 
   end
 
@@ -35,7 +36,8 @@ class CreateMainTables < ActiveRecord::Migration
     	t.date :model_date
     	t.string :author
     	t.text :description
-    	t.integer :rating
+    	t.integer :rating, default => 0
+        t.boolean :validated, :default => false 
 
     	t.timestamps
 
