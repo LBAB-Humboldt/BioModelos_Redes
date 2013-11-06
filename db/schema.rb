@@ -36,7 +36,8 @@ ActiveRecord::Schema.define(version: 20131003220055) do
     t.date     "model_date"
     t.string   "author"
     t.text     "description"
-    t.integer  "rating"
+    t.integer  "rating",      default: 0
+    t.boolean  "validated",   default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -56,17 +57,18 @@ ActiveRecord::Schema.define(version: 20131003220055) do
 
   create_table "species", force: true do |t|
     t.integer  "class_id"
-    t.string   "species_name"
+    t.string   "sci_name"
     t.string   "sib_url"
     t.integer  "ocurrence_records"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "species", ["species_name"], name: "index_species_on_species_name", unique: true
+  add_index "species", ["class_id"], name: "index_species_on_class_id"
+  add_index "species", ["sci_name"], name: "index_species_on_sci_name", unique: true
 
   create_table "users", force: true do |t|
-    t.string   "username"
+    t.string   "name"
     t.string   "role"
     t.string   "location"
     t.string   "organization"
