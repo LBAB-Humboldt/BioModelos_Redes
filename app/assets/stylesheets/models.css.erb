@@ -1,0 +1,57 @@
+#map {
+	width: 100%rotate(-90deg);
+	height: -webkit-calc(100% - 166px);
+	height: -moz-calc(100% - 166px);
+	height: calc(100% - 166px);
+}
+
+.selectores {
+	width: 100%;
+    position: absolute;
+    bottom: 120px;
+    z-index:100;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.selectores a img {
+	width: 10%;
+	display: inline-block;
+	margin: 1%;
+}
+
+.titulomapa {
+	width: 130px;
+	margin: 5px auto;
+    padding: 3px;
+    font-size: 12px;
+    background-color: #fff;
+    color:#E88B14;
+    z-index:100;
+}
+
+.findbar {
+	font-family: 'bebas_neueregular', sans-serif;
+	font-size: 16px;
+	line-height: 1;
+	letter-spacing: 1px;
+	text-align: center;
+    padding: 5px 35px 5px 10px;
+    background-color: #E88B14;
+    position: absolute;
+    min-width: 185px;
+    top: 240px;
+	right:-100px;   
+	color:#fff;
+    z-index:100;
+    border-top: 3px solid #F9A848;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    background-image: url(<%= asset_path 'lupa.png' %>);
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
