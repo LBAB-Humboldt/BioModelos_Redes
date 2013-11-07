@@ -3,8 +3,15 @@
   <div class="alert alert-<%= key %>"><%= value %></div>
 <% end %>
 
-<div class="mapasmod" id="map"></div>
+<div id="map"></div>
 <div class="findbar">Busqueda de Modelos</div>
+<div class="cajabusqueda">
+	<%= form_tag models_search_path :method => 'get' do %>
+      <%= text_field_tag :query, params[:query], :id => 'search_field' %>
+      <%= submit_tag "Search", :name => nil %> 
+      <%= link_to_function "Clear", "$('search_field').clear()" %>
+	<% end %> 
+</div>
 <div class="selectores">
 	<p class="titulomapa">Selecciona una categoría</p>
 	<a href="#"><%= image_tag("anfibiosg.png", :title => 'Anfibios') %></a>
