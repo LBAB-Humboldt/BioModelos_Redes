@@ -40,11 +40,10 @@
     background-color: #E88B14;
     position: absolute;
     min-width: 155px;
-    top: 226px;
-	right:-86px;   
+    top: 227px;
+	right:-88px;   
 	color:#fff;
     z-index:110;
-    border-top: 3px solid #F9A848;
     -webkit-transform: rotate(-90deg);
     -moz-transform: rotate(-90deg);
     -ms-transform: rotate(-90deg);
@@ -62,9 +61,150 @@
 	border-left: 5px solid #F9A848;
 	position: absolute;
 	top: 140px;
-	right: 28px;
+	right: 25px;
 	z-index: 120;
 	background: rgb(232, 139, 20); 
-	background: rgba(232, 139, 20, 0.7); 
+	background: rgba(232, 139, 20, 0.7);
 }
 
+#search_field {
+	width: 220px;
+	height: 14px;
+	border: none;
+	padding: 3px;
+	color:#5d5d5d;
+}
+
+.searchbtn {
+	width: 20px;
+	height: 20px;
+	background-color:#76CCC5;
+	background-image: url(<%= asset_path 'lupabtn.png' %>);
+	border: none;
+	vertical-align: bottom;
+	margin-left: -3px;
+	cursor: pointer;
+}
+
+.cajabusqueda p {
+	line-height: 1;
+	font-size: 11px;
+	color:#fff;
+	list-style: 1;
+	margin-bottom: 10px;
+	margin-top: 5px;
+}
+
+.searchcateg {
+	float: right;
+	padding:15px 65px 15px 0;
+	font-family: 'bebas_neueregular', sans-serif;
+	font-size: 23px;
+	font-weight: 400;
+	letter-spacing: 2px;
+	color:#915A1E;
+	vertical-align: middle;
+	background-position: top right;
+	-webkit-background-size: contain;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.srchaves {
+	background-image: url(<%= asset_path 'avesg.png' %>);
+}
+.srchinvertebrados {
+	background-image: url(<%= asset_path 'invertebradosg.png' %>);
+}
+.srchanfibios {
+	background-image: url(<%= asset_path 'anfibiosg.png' %>);
+}
+.srchmamiferos {
+	background-image: url(<%= asset_path 'mamiferosg.png' %>);
+}
+.srchplantas {
+	background-image: url(<%= asset_path 'plantasg.png' %>);
+}
+.srchreptiles {
+	background-image: url(<%= asset_path 'reptilesg.png' %>);
+}
+.srchpeces {
+	background-image: url(<%= asset_path 'pecesg.png' %>);
+}
+
+.resultados {
+	width: 100%;
+	height: 105px;
+	background-color: #fff;
+	padding: 5px 5px 0;
+}
+
+.mbton {
+	position: absolute;
+	text-align: center;
+	bottom: 0;
+	right: 0;
+	padding: 1px 10px;
+	background-color: #CAD82C;
+	color:#fff;
+	font-family: 'bebas_neueregular', sans-serif;
+  	text-transform: uppercase;
+  	font-size: 1em;
+  	letter-spacing: 2px;
+  	border:none;
+  	float: right;
+  	cursor:pointer;
+  	margin: 13px 10px;
+}
+
+.resbusqueda {
+	float: left;
+	font-size: 12px;
+	line-height: 1.2;
+}
+
+.familia {
+	color: #BBCC42;
+	font-weight: 700;
+}
+
+.genero {
+	color: #3d3d3d;
+	font-weight: 700;
+}
+
+.especie {
+	color: #5d5d5d;
+}
+
+.resbusqueda a {
+	font-size: 12px;
+	line-height: 3;
+	color: #76CCC5;
+}
+
+.comun {
+	color: #5d5d5d;
+}
+
+.comun strong {
+	color: #3d3d3d;
+	font-weight: 700;
+}
+
+.registros {
+	float: right;
+	text-align: right;
+	font-size: 12px;
+	line-height: 1.2;
+}
+
+.registros h4 {
+	font-weight: 700;
+	color: #FAC205;
+}
+
+.noreg {
+	font-weight: 700;
+	color: #3d3d3d;
+}

@@ -1,4 +1,5 @@
-<section class="contenedor">
+<div class="fondo2">
+	<section class="contenedor">
 	<%= simple_form_for(resource, :html => {:class => 'formalogin' }, :as => resource_name, :url => session_path(resource_name)) do |f| %>
     <%= f.input :email, :required => true, :autofocus => true, label: false, :placeholder => "Usuario*", :input_html => { :class => "inputforma" } %>
     <%= f.input :password, :required => true, label: false, :placeholder => "Contraseña", :input_html => { :class => "inputforma" } %>
@@ -8,3 +9,4 @@
 	<%= render "devise/shared/links" %>
 <% end %>
 </section>
+</div>

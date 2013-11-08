@@ -1,4 +1,5 @@
-<section class="contenedor">
+<div class="fondo1">
+    <section class="contenedor">
 
 <%= simple_form_for(resource, :html => {:class => 'formasignin' }, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
@@ -18,3 +19,4 @@ los siguientes datos para generar tu perfil.</p>
 	<%= render "devise/shared/links" %>
 <% end %>
 </section>
+</div>
