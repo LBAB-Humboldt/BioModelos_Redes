@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-
 //= require typeahead.min
 //= require leaflet
 //= require_tree ./controllers

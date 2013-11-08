@@ -1,1 +1,2 @@
-$('#interactionContainer').html('<%=j render 'models/search_form', locals: { search: @models } %>')
+// $('#interactionContainer').html('<%=j render 'shared/sign_in', locals: { search: @models } %>')
+$('#interactionContainer').w2overlay('<%=j render 'shared/sign_in', locals: { search: @models } %>')

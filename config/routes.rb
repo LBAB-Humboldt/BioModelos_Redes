@@ -1,5 +1,6 @@
 Biomodis::Application.routes.draw do
   devise_for :users
+  #devise_for :users
   get "models/visor"
   get "models/search"
   resources :comments, :only => [:index, :show, :new, :create]
