@@ -1,20 +1,38 @@
 
-<% flash.each do |key, value| %>
-  <div class="alert alert-<%= key %>"><%= value %></div>
-<% end %>
-<h1>Modelos de Distribución de Especies</h1>
-<%= render 'search_form' %>
-<div id="btnPanel">
-	<button type="button" id="editBtn" class="btn">Edicion</button><br />
-	<%= simple_form_for @review do |f| %>
-	  <%= f.hidden_field :model_id %>
-	  <%= f.hidden_field :user_id, :value => get_current_user_id %>
-	  <%= f.hidden_field :geoJSON %>
-	  <p><%= f.submit "Save", :id => 'saveBtn' %></p>
-	<% end %>
-	<!-- <button type="button" id="editBtn" class="btn">Edicion</button><br /><br /> -->
-	<!-- <button type="button" id="saveBtn" class="btn">Guardar</button> -->
-</div>
+
 <div id="map"></div>
+<div class="findbar">Busqueda de Modelos</div>
+<div class="cajabusqueda">
+	<div class="searchcateg srchaves">Aves</div>
+	<%= form_tag models_search_path :method => 'get' do %>
+      <%= text_field_tag :query, params[:query], :id => 'search_field' %>
+      <%= submit_tag "", :name => nil, :class => 'searchbtn' %> 
+	<% end %> 
+	<p class="clearfix">Busqueda por nombre científico o común.</p>
+	<section class="resultados">
+		<div class="mbton">ver modelos</div>
+		<div class="resbusqueda">
+			<div class="familia">Phylum Chordata</div>
+			<div class="genero">Order Piciformes</div>
+			<div class="especie">Familia Ramphastidae</div>
+			<a href="#" class="linksib">http://www.siac.net.co/sib/catalogoespecies/</a>
+			<div class="comun">Nombre Común:<strong>Tucán</strong></div>
+		</div>
+		<div class="registros">
+			<h4>No. Registros LBAB</h4>
+			<div class="noreg">86</div>
+		</div>
+	</section>
+</div>
+<div class="selectores">
+	<p class="titulomapa">Selecciona una categoría</p>
+	<a href="#"><%= image_tag("anfibiosg.png", :title => 'Anfibios') %></a>
+	<a href="#"><%= image_tag("avesg.png", :title => 'Aves') %></a>
+	<a href="#"><%= image_tag("invertebradosg.png", :title => 'Invertebrados') %></a>
+	<a href="#"><%= image_tag("mamiferosg.png", :title => 'Mamiferos') %></a>
+	<a href="#"><%= image_tag("pecesg.png", :title => 'Peces') %></a>
+	<a href="#"><%= image_tag("reptilesg.png", :title => 'Reptiles') %></a>
+	<a href="#"><%= image_tag("plantasg.png", :title => 'Plantas') %></a>
+</div>
 <%= javascript_include_tag 'leaflet.draw' %>
 <%= javascript_include_tag 'mapEditor' %>

@@ -21,8 +21,9 @@ html, body {
 body {
     background-image: url(<%= asset_path 'fondobla.jpg' %>);
     font: 14px/24px 'Lato', sans-serif;
-    font-size: 1em;
+    font-size: 1em; 
     line-height: 1.4;
+
 }
 
 .main {
@@ -48,7 +49,7 @@ li {
 nav {
     font-family: 'bebas_neueregular', sans-serif;
     text-transform: uppercase;
-    font-size: 0.857em;
+    font-size: 1em;
     letter-spacing: 1.2px;
     float: right;
     margin-right: 30px;
@@ -106,7 +107,7 @@ footer {
 }
 
 footer nav {
-    font-size: 0.82em;
+    font-size: 0.87em;
     letter-spacing: 1.2px;
     float: right;
     margin-right: 30px;
@@ -176,15 +177,26 @@ footer nav a:active {
     color: #008D96;
 }
 
-.formalogin {
-    position: relative;
-    z-index: 20;
+.alert {
+    padding: 5px;
+    font-size: 12px;
+    background-color: #E88B14;
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    color:#fff;
+    z-index:100;
+    border-bottom: 3px solid #F9A848;
 }
 
 /* Media */
 
 /* Smartphones (landscape) ----------- */
 @media only screen and (min-width : 321px) {
+
+    .contenedor {
+        width: 98%;
+    }
 /* Styles */
 }
 
@@ -203,7 +215,7 @@ footer nav a:active {
 @media only screen and (min-width : 1024px) {
 
     .contenedor {
-        width: 1024px;
+        width: 1000px;
     }
 
 }
@@ -217,7 +229,7 @@ footer nav a:active {
 @media only screen and (min-width : 1224px) {
     
     .contenedor {
-        width: 1224px;
+        width: 1200px;
     }
 
 }
@@ -226,7 +238,7 @@ footer nav a:active {
 @media only screen and (min-width : 1824px) {
     
     .contenedor {
-        width: 1424px;
+        width: 1400px;
     }
 
 }
@@ -252,3 +264,11 @@ footer nav a:active {
     *zoom: 1;
 }
 
+.nofl {
+    float: none;
+}
+
+.invisible {
+    display: none;
+    visibility: hidden;
+}
