@@ -14,11 +14,21 @@
 	</head>
 	<body>
 		<% flash.each do |key, value| %>
-  		<div class="alert alert-<%= key %>"><%= value %></div>
+  		<div class="alert alert-<%= key %>" id="flashm"><%= value %></div>
 		<% end %>
 
 	    <%= render 'shared/header' %>
 		<%= yield %>
 	    <%= render 'shared/footer' %>
 	</body>
+
+<!-- desaparece las alertas despues de 4 seg-->
+<script type="text/javascript">
+$(document).ready(function(){
+  setTimeout(function(){
+    $('#flashm').remove();
+  }, 4000);
+ })
+</script>
+
 </html>
