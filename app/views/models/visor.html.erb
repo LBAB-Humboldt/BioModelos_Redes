@@ -46,6 +46,37 @@
 <div class="showmodels">
 	<h1>Familia Ramphastidae · Tucán</h1>
 	<p>Seleccionar modelo, o comentar sobre los distintos modelos</br>(sobre uno específico decir número del modelo o el autor).<p>
+	
+	<div class="selector">
+		<ul class="modelost">
+			<li class="modelothumb">
+				<h3>1.</h3>
+				<a href="#"><%= image_tag("mod1.png") %></a>
+			</li>
+			<li class="modelothumb">
+				<h3>2.</h3>
+				<a href="#"><%= image_tag("mod2.png") %></a>
+			</li>
+			<li class="modelothumb">
+				<h3>3.</h3>
+				<a href="#"><%= image_tag("mod3.png") %></a>
+			</li>
+			<li class="modelothumb">
+				<h3>4.</h3>
+				<a href="#"><%= image_tag("mod4.png") %></a>
+			</li>
+		</ul>
+	</div>
+
+	<div class="commentspace">
+	<h1>Comentarios</h1>
+	<form>
+	<input type="text" placeholder="Nombre" class="commeinput"></input>
+	<textarea placeholder="Commentario" rows="3" columns="30" class="commeinput"></textarea>
+	<input type="submit" class="cbton" value="comentar">
+	</form>
+	</div>
+	
 			<ul class="comperfil padmodelos">
 				<li>
 					<div class="minavatar"><%= image_tag("minavatar.png") %></div>
