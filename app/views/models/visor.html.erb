@@ -1,9 +1,6 @@
-
-
-<div id="map"></div>
+<a class="editbtn" id="editBtn"></a>
 <a href="" class="findbar">Busqueda de Modelos</a>
 <div id="allsearchers">
-
 	<div class="cajabusqueda">
 		<div class="searchcateg srchanfibios" id="cajasearch1">Anfibios</div>
 		<div class="searchcateg srchaves" id="cajasearch2">Aves</div>
@@ -112,6 +109,7 @@
 		        </li>
 			</ul>
 </div>
+<div id="map"></div>
 <%= javascript_include_tag 'leaflet.draw' %>
 <%= javascript_include_tag 'mapEditor' %>
 <script>
@@ -160,6 +158,10 @@ $(document).ready(function(){
   $(".findbar").click(function(e){
   	$('.showmodels').hide('slow');
   	$('#allsearchers').show('slow');
+  	e.preventDefault();
+  });
+  $("#editBtn").click(function(e){
+  	$('.showmodels, #allsearchers').hide('slow');
   	e.preventDefault();
   });
 });

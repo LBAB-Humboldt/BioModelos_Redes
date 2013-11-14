@@ -84,7 +84,7 @@
 	background-color: #919187;
 	border-left: 1px solid #AAA;
 	color: #FFF;
-	font: 11px/19px "Helvetica Neue", Arial, Helvetica, sans-serif;
+	font: 11px/19px 'lato' sans-serif;
 	line-height: 28px;
 	text-decoration: none;
 	padding-left: 10px;
@@ -165,10 +165,10 @@
 	background: rgb(54, 54, 54);
 	background: rgba(0, 0, 0, 0.5);
 	border: 1px solid transparent;
-	-webkit-border-radius: 4px;
-	        border-radius: 4px;
+	-webkit-border-radius: 0px;
+	        border-radius: 0px;
 	color: #fff;
-	font: 12px/18px "Helvetica Neue", Arial, Helvetica, sans-serif;
+	font: 12px/18px 'lato', sans-serif;
 	margin-left: 20px;
 	margin-top: -21px;
 	padding: 4px 8px;
@@ -221,8 +221,8 @@
 .leaflet-edit-marker-selected {
 	background: rgba(254, 87, 161, 0.1);
 	border: 4px dashed rgba(254, 87, 161, 0.6);
-	-webkit-border-radius: 4px;
-	        border-radius: 4px;
+	-webkit-border-radius: 0px;
+	        border-radius: 0px;
 }
 
 .leaflet-edit-move {
@@ -233,6 +233,56 @@
 	cursor: pointer;
 }
 
+/* modificaciones */
+
 .leaflet-bottom {
 	display:none;
 }
+
+.leaflet-top {
+	margin-top: 86px;
+}
+
+.leaflet-draw-tooltip-subtext {
+	color:#9ae8e1;
+}
+
+.leaflet-popup-content-wrapper {
+	-webkit-border-radius: 4px;
+	        border-radius: 4px;
+	box-shadow: none;
+	background-color: #ffc72d;
+}
+
+.commentForm {
+	background-color: #ffc72d;
+	clear: both;
+	font-family: 'lato', sans-serif;
+	font-size: 12px;
+	letter-spacing: 1px;
+	color:#fff;
+}
+
+.btn {
+	padding: 1px 7px;
+	margin: -13px 10px 0 0;
+	background-color: #76CCC5;
+	color:#fff;
+	font-family: 'bebas_neueregular', sans-serif;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    letter-spacing: 2px;
+    border:none;
+    float: left;
+    cursor:pointer;
+}
+
+.leaflet-popup-tip-container {
+	clear: both;
+}
+
+.leaflet-popup-tip {
+	box-shadow: none;
+	background-color: #ffc72d;
+}
+
