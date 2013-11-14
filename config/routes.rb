@@ -7,6 +7,7 @@ Biomodis::Application.routes.draw do
   resources :reviews, :only => [:index, :show, :create]
   resources :users, :only => [:index, :show, :edit, :update]
   resources :models, :only => [:index, :new, :create]
+  resources :faq, :only => [:index]
   # connect '/models/search', :controller => 'models', :action => 'search'
   #get "models/index"
   # The priority is based upon order of creation: first created -> highest priority.

@@ -152,8 +152,14 @@ $(document).ready(function(){
     $('#cajasearch2,#cajasearch3,#cajasearch4,#cajasearch5,#cajasearch6,#cajasearch1').hide('slow');
      e.preventDefault();
   });
-  $(".mbton,.findbar").click(function(e){
-  	$('#allsearchers,.showmodels').toggle('slow');
+  $(".mbton").click(function(e){
+  	$('#allsearchers').hide('slow');
+  	$('.showmodels').show('slow');
+  	e.preventDefault();
+  });
+  $(".findbar").click(function(e){
+  	$('.showmodels').hide('slow');
+  	$('#allsearchers').show('slow');
   	e.preventDefault();
   });
 });
