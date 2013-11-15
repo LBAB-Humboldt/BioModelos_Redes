@@ -7,8 +7,8 @@ var _mapVisorModule = function() {
         '<label><strong>Observación:</strong></label><br />' +
         '<textarea rows="4" cols="30" placeholder="Required" id="comment"></textarea><br><br>' +
         '<div class="row-fluid">' +
-        '<div class="span6" style="text-align:center;"><button id="popUpCancelBtn" type="button" class="btn">Cancelar</button></div>' +
-        '<div class="span6" style="text-align:center;"><button id="popUpSubmitBtn" type="button" class="btn btn-primary">Enviar</button></div>' +
+        '<div class="span6" style="text-align:center;"><button id="popUpCancelBtn" type="button" class="btn2">Cancelar</button></div>' +
+        '<div class="span6" style="text-align:center;"><button id="popUpSubmitBtn" type="button" class="btn2 btn-primary">Enviar</button></div>' +
         '</div>' +
         '</form></div>';
 
