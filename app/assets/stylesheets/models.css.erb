@@ -214,11 +214,15 @@
 
 .showmodels {
 	width: 80%;
+	height: -webkit-calc(100% - 167px);
+	height: -moz-calc(100% - 167px);
+	height: calc(100% - 167px);
 	position: absolute;
 	top: 83px;
 	left:10%;
 	z-index: 120;
 	background-image: url(<%= asset_path 'fondobla.jpg' %>);
+	overflow:auto;
 }
 
 .showmodels h1 {
@@ -238,10 +242,11 @@
 }
 
 .padmodelos {
+	margin-top: 10px;
 	padding: 10px;
-	height: 120px !important;
 	width: 80%;
 	margin-bottom: 20px;
+	overflow:auto;
 }
 
 .commentspace h3 {
@@ -304,5 +309,16 @@
 	font-size: 1em;
 	letter-spacing: 2px;
 	cursor: pointer;
+}
+
+.rankmod {
+	border-bottom: 1px dashed #FAE49B;
+}
+
+.rankmod img {
+	float:left;
+	margin: 5px 5px 5px 0;
+	padding: 0;
+	border:none;
 }
 
