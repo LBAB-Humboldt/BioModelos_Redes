@@ -7,7 +7,7 @@ module ModelsHelper
 		end
 	end	
 
-	def get_species_name
+	def get_models_name
   		Model.uniq.pluck(:species)    
 	end
 end

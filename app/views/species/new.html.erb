@@ -1,0 +1,10 @@
+<h2>Agregar una nueva Especie</h2>
+<%= simple_form_for @species do |f| %>
+    <%= f.input :class_id %>
+    <%= f.input :sci_name %>
+    <%= f.input :order %> 
+    <%= f.input :family %> 
+    <%= f.input :sib_url %> 
+    <%= f.input :ocurrence_records %>
+    <%= f.submit "Agregar" %>
+<% end %>

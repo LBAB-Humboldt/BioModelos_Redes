@@ -1,0 +1,12 @@
+<div class="mbton">ver modelos</div>
+<div class="resbusqueda">
+			<div class="familia"><%= @species.family %></div>
+			<div class="genero"><%= @species.order %></div>
+			<div class="especie"><%= @species.sci_name %></div>
+			<a href="#" class="linksib"><%= @species.sib_url %></a>
+			<div class="comun">Nombre Común:<strong>Tucán</strong></div>
+</div>
+<div class="registros">
+	<h4>No. Registros LBAB</h4>
+	<div class="noreg"><%= @species.ocurrence_records %></div>
+</div>

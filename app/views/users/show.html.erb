@@ -14,14 +14,14 @@
 				<%= image_tag("fotoperfil.png") %>
 			</div>
 			<section class="perfilexp">
-				<h1>Petet Díaz</h1>
+				<h1><%= @user.name %></h1>
 				<h2>Especialista en Aves y microorganismos</h2>
-				<h3>Universidad Nacional de Colombia · Sede Amazonas</h3>
-				<h4>Leticia, Colombia</h4>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse semper placerat nisl, et dapibus leo. Vivamus velit metus, mollis sed libero non, suscipit facilisis erat. In lobortis, nisl vel gravida fringilla, velit lacus tincidunt urna, pretium sagittis risus mauris at velit. Pellentesque pharetra enim tristique sem feugiat, quis viverra urna blandit. Aliquam molestie nisi non laoreet sagittis. Maecenas id enim felbibendum diam in tempus. Quisque facilisis nec est eu auctor. pharetra iaculis.</p>
+				<h3><%= @user.organization %></h3>
+				<h4><%= @user.location %></h4>
+				<p><%= @user.bio %></p>
 			</section>
 		</article>
-
+			<div class="clearfix"></div>
 			<section class="aportes">
 				<div class="medallas">
 					<div class="medalla1"></div>

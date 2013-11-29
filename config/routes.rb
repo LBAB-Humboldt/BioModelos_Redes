@@ -3,11 +3,15 @@ Biomodis::Application.routes.draw do
   #devise_for :users
   get "models/visor"
   get "models/search"
+  get "species/species_content"
   resources :comments, :only => [:index, :show, :new, :create]
   resources :home, :only => [:show]
   resources :reviews, :only => [:index, :show, :create]
   resources :users, :only => [:index, :show, :edit, :update]
   resources :models, :only => [:index, :new, :create]
+  resources :species, :only => [:index, :show, :new, :create, :edit, :update] do
+    get :autocomplete, :on => :collection
+  end 
   # connect '/models/search', :controller => 'models', :action => 'search'
   #get "models/index"
   # The priority is based upon order of creation: first created -> highest priority.

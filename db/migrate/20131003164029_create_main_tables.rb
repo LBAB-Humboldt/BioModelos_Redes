@@ -19,6 +19,8 @@ class CreateMainTables < ActiveRecord::Migration
     create_table :species do |t|
         t.references :class
         t.string :sci_name
+        t.string :order
+        t.string :family
         t.string :sib_url
         t.integer :ocurrence_records
         t.timestamps

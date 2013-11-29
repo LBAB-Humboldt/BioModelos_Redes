@@ -1,28 +1,10 @@
 
-
 <div id="map"></div>
 <div class="findbar">Busqueda de Modelos</div>
 <div class="cajabusqueda">
 	<div class="searchcateg srchaves">Aves</div>
-	<%= form_tag models_search_path :method => 'get' do %>
-      <%= text_field_tag :query, params[:query], :id => 'search_field' %>
-      <%= submit_tag "", :name => nil, :class => 'searchbtn' %> 
-	<% end %> 
-	<p class="clearfix">Busqueda por nombre científico o común.</p>
-	<section class="resultados">
-		<div class="mbton">ver modelos</div>
-		<div class="resbusqueda">
-			<div class="familia">Phylum Chordata</div>
-			<div class="genero">Order Piciformes</div>
-			<div class="especie">Familia Ramphastidae</div>
-			<a href="#" class="linksib">http://www.siac.net.co/sib/catalogoespecies/</a>
-			<div class="comun">Nombre Común:<strong>Tucán</strong></div>
-		</div>
-		<div class="registros">
-			<h4>No. Registros LBAB</h4>
-			<div class="noreg">86</div>
-		</div>
-	</section>
+	<%= render 'species/search_form' %>
+	<section class="resultados"></section> 
 </div>
 <div class="selectores">
 	<p class="titulomapa">Selecciona una categoría</p>
