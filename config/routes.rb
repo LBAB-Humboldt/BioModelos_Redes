@@ -12,6 +12,8 @@ Biomodis::Application.routes.draw do
   resources :species, :only => [:index, :show, :new, :create, :edit, :update] do
     get :autocomplete, :on => :collection
   end 
+  resources :faq, :only => [:index]
+
   # connect '/models/search', :controller => 'models', :action => 'search'
   #get "models/index"
   # The priority is based upon order of creation: first created -> highest priority.

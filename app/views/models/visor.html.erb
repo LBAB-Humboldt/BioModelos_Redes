@@ -1,20 +1,181 @@
+<a href="" class="findbar">Busqueda de Modelos</a>
+<div id="allsearchers">
+        <div class="cajabusqueda">
+                <div class="searchcateg srchanfibios" id="cajasearch1">Anfibios</div>
+                <div class="searchcateg srchaves" id="cajasearch2">Aves</div>
+                <%= render 'species/search_form' %>
+                <div class="searchcateg srchinvertebrados" id="cajasearch3">Invertebrados</div>
+                <div class="searchcateg srchmamiferos" id="cajasearch4">Mamiferos</div>
+                <div class="searchcateg srchpeces" id="cajasearch5">Peces</div>
+                <div class="searchcateg srchreptiles" id="cajasearch6">Reptiles</div>
+                <div class="searchcateg srchplantas" id="cajasearch7">Plantas</div>
+                
+                <section class="resultados"></section>
+        </div>
+        <div class="selectores">
+                <p class="titulomapa">Selecciona una categoría</p>
+                <a href="#" id="anfsh"><%= image_tag("anfibiosg.png", :title => 'Anfibios') %></a>
+                <a href="#" id="avessh"><%= image_tag("avesg.png", :title => 'Aves') %></a>
+                <a href="#" id="invsh"><%= image_tag("invertebradosg.png", :title => 'Invertebrados') %></a>
+                <a href="#" id="mamsh"><%= image_tag("mamiferosg.png", :title => 'Mamiferos') %></a>
+                <a href="#" id="pecsh"><%= image_tag("pecesg.png", :title => 'Peces') %></a>
+                <a href="#" id="repsh"><%= image_tag("reptilesg.png", :title => 'Reptiles') %></a>
+                <a href="#" id="plash"><%= image_tag("plantasg.png", :title => 'Plantas') %></a>
+        </div>
+</div>
+<div class="showmodels">
+        <h1>Familia Ramphastidae · Tucán</h1>
+        <p>Seleccionar modelo, o comentar sobre los distintos modelos</br>(sobre uno específico decir número del modelo o el autor).<p>
+        
+        <div class="selector">
+		<a class="editbtn" id="editBtn">editar</a>
+                <ul class="modelost">
+                        <li class="modelothumb">
+                                <h3>1.</h3>
+                                <a href="#"><%= image_tag("mod1.png") %></a>
+                                <div class="rankmod clearfix">
+                                    <%= image_tag("rankpos.png") %>
+                                    <%= image_tag("rankpos.png") %>
+                                    <%= image_tag("rankpos.png") %>
+                                    <%= image_tag("rankneg.png") %>
+                                    <%= image_tag("rankneg.png") %>
+                                </div>
+                        </li>
+                        <li class="modelothumb">
+                                <h3>2.</h3>
+                                <a href="#"><%= image_tag("mod2.png") %></a>
+                                    <div class="rankmod clearfix">
+                                    <%= image_tag("rankpos.png") %>
+                                    <%= image_tag("rankneg.png") %>
+                                    <%= image_tag("rankneg.png") %>
+                                    <%= image_tag("rankneg.png") %>
+                                    <%= image_tag("rankneg.png") %>
+                                </div>
+                        </li>
+                        <li class="modelothumb">
+                                <h3>3.</h3>
+                                <a href="#"><%= image_tag("mod3.png") %></a>
+                                    <div class="rankmod clearfix">
+                                    <%= image_tag("rankpos.png") %>
+                                    <%= image_tag("rankpos.png") %>
+                                    <%= image_tag("rankneg.png") %>
+                                    <%= image_tag("rankneg.png") %>
+                                    <%= image_tag("rankneg.png") %>
+                                </div>
+                        </li>
+                        <li class="modelothumb">
+                                <h3>4.</h3>
+                                <a href="#"><%= image_tag("mod4.png") %></a>
+                                    <div class="rankmod clearfix">
+                                    <%= image_tag("rankpos.png") %>
+                                    <%= image_tag("rankpos.png") %>
+                                    <%= image_tag("rankpos.png") %>
+                                    <%= image_tag("rankpos.png") %>
+                                    <%= image_tag("rankneg.png") %>
+                                </div>
+                        </li>
+                </ul>
+        </div>
 
+        <div class="commentspace">
+        <h3>Comentarios</h3>
+        <form>
+        <input type="text" placeholder="Nombre" class="commeinput"></input>
+        <textarea placeholder="Commentario" rows="3" columns="30" class="commeinput"></textarea>
+        <input type="submit" class="cbton" value="comentar">
+        </form>
+        </div>
+        
+                         <ul class="padmodelos">
+                         <li>
+                         <div class="minavatar"><%= image_tag("minavatar.png") %></div>
+                         <div class="clearfix">
+                         <a class="feeduserp" href="#">LBAB</a>
+                         <div class="feedtimep">hace 1 hora</div>
+                         <p class="feedcontentp">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse semper placerat nisl, et dapibus leo.</p>
+                         </div>
+                 		 </li>
+                         <li>
+                         <div class="minavatar"><%= image_tag("minavatar.png") %></div>
+                         <div class="clearfix">
+                         <a class="feeduserp" href="#">LBAB</a>
+                         <div class="feedtimep">hace 1 hora</div>
+                         <p class="feedcontentp">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse semper placerat nisl, et dapibus leo. Vivamus velit metus, mollis sed libero non, suscipit facilisis erat. In lobortis, nisl vel gravida fringilla, velit lacus tincidunt urna, pretium sagittis risus mauris at velit. Pellentesque pharetra enim tristique sem feugiat, quis viverra urna blandit. Aliquam molestie nisi non laoreet sagittis.</p>
+                         </div>
+                 		 </li>
+                         <li>
+                         <div class="minavatar"><%= image_tag("minavatar.png") %></div>
+                         <div class="clearfix">
+                         <a class="feeduserp" href="#">LBAB</a>
+                         <div class="feedtimep">hace 1 hora</div>
+                         <p class="feedcontentp">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse semper placerat nisl, et dapibus leo. Vivamus velit metus, mollis sed libero non, suscipit facilisis erat. In lobortis, nisl vel gravida fringilla, velit lacus tincidunt urna, pretium sagittis risus mauris at velit. Pellentesque pharetra enim tristique sem feugiat, quis viverra urna blandit. Aliquam molestie nisi non laoreet sagittis.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse semper placerat nisl, et dapibus leo. Vivamus velit metus, mollis sed libero non, suscipit facilisis erat. In lobortis, nisl vel gravida fringilla, velit lacus tincidunt urna, pretium sagittis risus mauris at velit. Pellentesque pharetra enim tristique sem feugiat, quis viverra urna blandit. Aliquam molestie nisi non laoreet sagittis.</p>
+                         </div>
+                 		 </li>
+                         <li>
+                         <div class="minavatar"><%= image_tag("minavatar.png") %></div>
+                         <div class="clearfix">
+                         <a class="feeduserp" href="#">LBAB</a>
+                         <div class="feedtimep">hace 1 hora</div>
+                         <p class="feedcontentp">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse semper placerat nisl, et dapibus leo.</p>
+                         </div>
+                 		</li>
+                        </ul>
+</div>
 <div id="map"></div>
-<div class="findbar">Busqueda de Modelos</div>
-<div class="cajabusqueda">
-	<div class="searchcateg srchaves">Aves</div>
-	<%= render 'species/search_form' %>
-	<section class="resultados"></section> 
-</div>
-<div class="selectores">
-	<p class="titulomapa">Selecciona una categoría</p>
-	<a href="#"><%= image_tag("anfibiosg.png", :title => 'Anfibios') %></a>
-	<a href="#"><%= image_tag("avesg.png", :title => 'Aves') %></a>
-	<a href="#"><%= image_tag("invertebradosg.png", :title => 'Invertebrados') %></a>
-	<a href="#"><%= image_tag("mamiferosg.png", :title => 'Mamiferos') %></a>
-	<a href="#"><%= image_tag("pecesg.png", :title => 'Peces') %></a>
-	<a href="#"><%= image_tag("reptilesg.png", :title => 'Reptiles') %></a>
-	<a href="#"><%= image_tag("plantasg.png", :title => 'Plantas') %></a>
-</div>
+
+<script>
+$(document).ready(function(){
+  $('.searchcateg,.showmodels').hide();
+  $("#anfsh").click(function(e){
+    $('#cajasearch1').toggle('slow');
+    $('#cajasearch2,#cajasearch3,#cajasearch4,#cajasearch5,#cajasearch6,#cajasearch7').hide('slow');
+     e.preventDefault();
+  });
+  $("#avessh").click(function(e){
+    $('#cajasearch2').toggle('slow');
+    $('#cajasearch1,#cajasearch3,#cajasearch4,#cajasearch5,#cajasearch6,#cajasearch7').hide('slow');
+     e.preventDefault();
+  });
+  $("#invsh").click(function(e){
+    $('#cajasearch3').toggle('slow');
+    $('#cajasearch2,#cajasearch1,#cajasearch4,#cajasearch5,#cajasearch6,#cajasearch7').hide('slow');
+     e.preventDefault();
+  });
+  $("#mamsh").click(function(e){
+    $('#cajasearch4').toggle('slow');
+    $('#cajasearch2,#cajasearch3,#cajasearch1,#cajasearch5,#cajasearch6,#cajasearch7').hide('slow');
+     e.preventDefault();
+  });
+  $("#pecsh").click(function(e){
+    $('#cajasearch5').toggle('slow');
+    $('#cajasearch2,#cajasearch3,#cajasearch4,#cajasearch1,#cajasearch6,#cajasearch7').hide('slow');
+     e.preventDefault();
+  });
+  $("#repsh").click(function(e){
+    $('#cajasearch6').toggle('slow');
+    $('#cajasearch2,#cajasearch3,#cajasearch4,#cajasearch5,#cajasearch1,#cajasearch7').hide('slow');
+     e.preventDefault();
+  });
+  $("#plash").click(function(e){
+    $('#cajasearch7').toggle('slow');
+    $('#cajasearch2,#cajasearch3,#cajasearch4,#cajasearch5,#cajasearch6,#cajasearch1').hide('slow');
+     e.preventDefault();
+  });
+  $(".mbton").click(function(e){
+          $('#allsearchers').hide('slow');
+          $('.showmodels').show('slow');
+          e.preventDefault();
+  });
+  $(".findbar").click(function(e){
+          $('.showmodels').hide('slow');
+          $('#allsearchers').show('slow');
+          e.preventDefault();
+  });
+  $("#editBtn").click(function(e){
+          $('.showmodels, #allsearchers').hide('slow');
+          e.preventDefault();
+  });
+});
+</script>
 <%= javascript_include_tag 'leaflet.draw' %>
 <%= javascript_include_tag 'mapEditor' %>

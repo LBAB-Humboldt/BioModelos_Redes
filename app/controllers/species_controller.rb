@@ -12,7 +12,7 @@ class SpeciesController < ApplicationController
   end  
 
   def species_content
-    @species = Species.find(params[:query])
+    @species = Species.find(params[:species_id])
 
     respond_to do |format|
       format.js
