@@ -1,7 +1,6 @@
 class ModelsController < ApplicationController
   
   def visor
-    @models = Model.all
     @review = Review.new
   end
 
@@ -40,6 +39,6 @@ class ModelsController < ApplicationController
   private
 
     def model_params
-      params.require(:model).permit(:species_id, :url, :model_date, :rating, :author, :description)
+      params.require(:model).permit(:species_id, :img_url, :model_date, :rating, :author, :description)
     end
 end

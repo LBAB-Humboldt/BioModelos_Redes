@@ -4,6 +4,7 @@ Biomodis::Application.routes.draw do
   get "models/visor"
   get "models/search"
   get "species/species_content"
+  get "species/species_models"
   resources :comments, :only => [:index, :show, :new, :create]
   resources :home, :only => [:show]
   resources :reviews, :only => [:index, :show, :create]

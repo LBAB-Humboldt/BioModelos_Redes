@@ -1,15 +1,15 @@
-<h1>Reviews#index</h1>
+<h1>Anotaciones</h1>
 
 <table>
 	<tr>
-	   	<th><%= "User ID" %></th>
-	    <th><%= "Model ID" %></th>
-	    <th><%= "GeoJSON" %></th>
+	   	<th><strong><%= "User ID" %></strong></th>
+	    <th><strong><%= "Model ID" %></strong></th>
+	    <th><strong><%= "GeoJSON" %></strong></th>
 	</tr>
 	<%= @reviews.find_each do |review| %>
 		<tr>
 	      <td><%= User.find(review.user_id).email %></td>
-	      <td><%= review.model_id %></td>
+	      <td><%= Model.find(review.model_id) %></td>
 	      <td><%= review.geoJSON %></td>
     	</tr>
 	<% end %>

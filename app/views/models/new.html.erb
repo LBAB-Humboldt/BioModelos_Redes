@@ -4,7 +4,7 @@
 <h2>Agregar un nuevo Modelo</h2>
 <%= simple_form_for @model, html: {class: 'form-horizontal' } do |f| %>
     <%= f.input :species_id %>
-    <%= f.input :url %>
+    <%= f.input :img_url %>
     <%= f.input :model_date %>
     <%= f.input :rating, collection: 0..5 %>
     <%= f.input :author %>

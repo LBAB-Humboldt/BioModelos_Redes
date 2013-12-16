@@ -1,0 +1,76 @@
+<h1><%= @species_name %></h1>
+        <p>Seleccionar modelo, o comentar sobre los distintos modelos</br>(sobre uno específico decir número del modelo o el autor).<p>
+        
+        <div class="selector">
+                <ul class="modelost">
+                    <% @models.each_with_index do |model, i| %>
+                        <li class="modelothumb">
+                            <h3><%= i+1 %></h3>
+                            <%= link_to "#", :class => 'model_link' do%>
+                                <%= image_tag(model.img_url, :height => 205, :width => 145, :id => model.id) %>
+                            <% end %>
+                            <div class="rankmod clearfix">
+                                    <%= image_tag("rankpos.png") %>
+                                    <%= image_tag("rankpos.png") %>
+                                    <%= image_tag("rankpos.png") %>
+                                    <%= image_tag("rankneg.png") %>
+                                    <%= image_tag("rankneg.png") %>
+                            </div>
+                        </li>   
+                    <% end %>
+                </ul>
+        </div>
+
+        <div class="commentspace">
+        <h3>Comentarios</h3>
+        <form>
+        <input type="text" placeholder="Nombre" class="commeinput"></input>
+        <textarea placeholder="Commentario" rows="3" columns="30" class="commeinput"></textarea>
+        <input type="submit" class="cbton" value="comentar">
+        </form>
+        </div>
+        
+                         <ul class="padmodelos">
+                         <li>
+                         <div class="minavatar"><%= image_tag("minavatar.png") %></div>
+                         <div class="clearfix">
+                         <a class="feeduserp" href="#">LBAB</a>
+                         <div class="feedtimep">hace 1 hora</div>
+                         <p class="feedcontentp">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse semper placerat nisl, et dapibus leo.</p>
+                         </div>
+                 		 </li>
+                         <li>
+                         <div class="minavatar"><%= image_tag("minavatar.png") %></div>
+                         <div class="clearfix">
+                         <a class="feeduserp" href="#">LBAB</a>
+                         <div class="feedtimep">hace 1 hora</div>
+                         <p class="feedcontentp">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse semper placerat nisl, et dapibus leo. Vivamus velit metus, mollis sed libero non, suscipit facilisis erat. In lobortis, nisl vel gravida fringilla, velit lacus tincidunt urna, pretium sagittis risus mauris at velit. Pellentesque pharetra enim tristique sem feugiat, quis viverra urna blandit. Aliquam molestie nisi non laoreet sagittis.</p>
+                         </div>
+                 		 </li>
+                         <li>
+                         <div class="minavatar"><%= image_tag("minavatar.png") %></div>
+                         <div class="clearfix">
+                         <a class="feeduserp" href="#">LBAB</a>
+                         <div class="feedtimep">hace 1 hora</div>
+                         <p class="feedcontentp">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse semper placerat nisl, et dapibus leo. Vivamus velit metus, mollis sed libero non, suscipit facilisis erat. In lobortis, nisl vel gravida fringilla, velit lacus tincidunt urna, pretium sagittis risus mauris at velit. Pellentesque pharetra enim tristique sem feugiat, quis viverra urna blandit. Aliquam molestie nisi non laoreet sagittis.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse semper placerat nisl, et dapibus leo. Vivamus velit metus, mollis sed libero non, suscipit facilisis erat. In lobortis, nisl vel gravida fringilla, velit lacus tincidunt urna, pretium sagittis risus mauris at velit. Pellentesque pharetra enim tristique sem feugiat, quis viverra urna blandit. Aliquam molestie nisi non laoreet sagittis.</p>
+                         </div>
+                 		 </li>
+                         <li>
+                         <div class="minavatar"><%= image_tag("minavatar.png") %></div>
+                         <div class="clearfix">
+                         <a class="feeduserp" href="#">LBAB</a>
+                         <div class="feedtimep">hace 1 hora</div>
+                         <p class="feedcontentp">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse semper placerat nisl, et dapibus leo.</p>
+                         </div>
+                 		</li>
+                        </ul>
+
+<script>
+        $('.model_link').click(function (event) {
+            _mapVisorModule.loadModel($(this).find('img').attr('src'));
+            $("#review_model_id").val($(this).find('img').attr('id'));
+            $('.editControls').show('slow');
+            $('.showmodels, .cajabusqueda, .selectores').hide ('slow');
+            event.preventDefault(); // Prevent link from following its href
+        });
+</script>

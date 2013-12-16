@@ -7,27 +7,14 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.new(review_params)
-    
     if @review.save
-      flash[:model_id] = 'Review created!!!'
+      flash[:success] = 'Anotación guardada con éxito.'
     else
-      flash[:model_id] = 'Error!!!'
+      flash[:error] = 'Ha ocurrido un error mientras se guardaba la anotación.'
     end
-
-    redirect_to models_visor_path
-    #    flash[:model_id] = 'Review created!!!'
-    #    redirect_to models_visor_path
-    # else
-    #    redirect_to root
-    # end
-
-    # respond_to do |format|
-    #   format.html { 
-    #     @review.save ? redirect_to(@review, :notice => "Su correción ha sido guardada con éxito.") : render "models/visor"
-    #   }
-    #   format.js
-    # end
+    respond_to do |format|
+        format.html {redirect_to controller: "models", action: "visor"}
+    end
   end
 
   private
@@ -37,3 +24,4 @@ class ReviewsController < ApplicationController
     end
 
 end
+

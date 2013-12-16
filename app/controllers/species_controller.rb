@@ -19,6 +19,16 @@ class SpeciesController < ApplicationController
     end
   end
 
+  def species_models
+
+    @species_name = params[:name]
+    @models = Model.where(:species_id => params[:id]).limit(4)
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def show
     @species = Species.find(params[:id])
     # render :partial=>'show'

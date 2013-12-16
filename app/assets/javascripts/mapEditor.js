@@ -5,10 +5,11 @@ var _mapVisorModule = function() {
 		isEditOn = false,
 		commentForm = '<div class="commentForm"><form id="inputform" enctype="multipart/form-data" class="well">' +
         '<label><strong>Observación:</strong></label><br />' +
-        '<textarea rows="4" cols="30" placeholder="Required" id="comment"></textarea><br><br>' +
-        '<div class="row-fluid">' +
-        '<div class="span6" style="text-align:center;"><button id="popUpCancelBtn" type="button" class="btn2">Cancelar</button></div>' +
-        '<div class="span6" style="text-align:center;"><button id="popUpSubmitBtn" type="button" class="btn2 btn-primary">Enviar</button></div>' +
+        '<textarea rows="4" cols="30" placeholder="Required" id="comment"></textarea>' +
+        '<div class="row-fluid clearfix">' +
+        '<label class="labelcom clearfix"><strong>Acción:</strong></label><input type="radio" name="EditType" value="Add" class="radiogaga">Agregar</input><input type="radio" name="EditType" value="Cut" class="radiogaga">Remover</input><input type="radio" name="EditType" value="Other" class="radiogaga" checked>Otra</input>'+
+        '<button id="popUpCancelBtn" type="button" class="btn2">Cancelar</button>' +
+        '<button id="popUpSubmitBtn" type="button" class="btn2">Enviar</button>' +
         '</div>' +
         '</form></div>';
 
@@ -141,8 +142,9 @@ var _mapVisorModule = function() {
 	    currentLayer = getCurrentLayer(currentPopupID);
 
 	    if (currentLayer !== undefined && currentLayer !== null) {
+	    	var editType = $('input[name="EditType"]:checked').val();
 	        currentLayer.closePopup();
-	        currentLayer.bindPopup(comment);
+	        currentLayer.bindPopup( editType + ': ' + comment);
 	        currentLayer.openPopup();
 	    }
 	    else {
@@ -223,8 +225,7 @@ var _mapVisorModule = function() {
 
 	var saveEdition = function () {
 	    if (!areEmptyComments()){
-	    	$("#review_geoJSON").val(toGeoJSON());
-	    	$("#review_model_id").val($('#model_model_id option:selected').text());
+	    	return toGeoJSON();
 	    }  
 	    else {
 	        alert("Hay observaciones sin completar");
@@ -254,9 +255,9 @@ $(document).ready(function() {
     	_mapVisorModule.activateEdition();
     });
 
-	$("#saveBtn").click(function(){
+	/*$("#saveBtn").click(function(){
 		_mapVisorModule.saveEdition();
-	});
+	});*/
 
 
 	$("body").on("click", "#popUpSubmitBtn", function(){
