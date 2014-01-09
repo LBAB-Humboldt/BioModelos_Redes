@@ -12,7 +12,12 @@ class SpeciesController < ApplicationController
   end  
 
   def species_content
-    @species = Species.find(params[:species_id])
+
+    if params[:species_id].blank?
+      @species = nil
+    else
+      @species = Species.find(params[:species_id])
+    end
 
     respond_to do |format|
       format.js

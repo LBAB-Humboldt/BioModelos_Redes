@@ -1,16 +1,21 @@
-<div class="mbton">ver modelos</div>
-<%= link_to 'ver modelos', species_species_models_path(:id => @species.id, :name => @species.sci_name), :remote => true, :class => "mbton"%>
-<div class="resbusqueda">
-			<div class="familia"><%= @species.family %></div>
-			<div class="genero"><%= @species.order %></div>
-			<div class="especie"><%= @species.sci_name %></div>
-			<a href="#" class="linksib"><%= @species.sib_url %></a>
-			<!-- <div class="comun">Nombre Común:<strong>Tucán</strong></div> -->
-</div>
-<div class="registros">
-	<h4>No. Registros LBAB</h4>
-	<div class="noreg"><%= @species.ocurrence_records %></div>
-</div>
+<% if @species.blank? %>
+	No se encontraron resultados.
+<% else %>
+	<div class="mbton">ver modelos</div>
+	<%= link_to 'ver modelos', species_species_models_path(:id => @species.id, :name => @species.sci_name), :remote => true, :class => "mbton"%>
+	<div class="resbusqueda">
+				<div class="familia"><%= @species.family %></div>
+				<div class="genero"><%= @species.order %></div>
+				<div class="especie"><%= @species.sci_name %></div>
+				<a href="#" class="linksib"><%= @species.sib_url %></a>
+				<!-- <div class="comun">Nombre Común:<strong>Tucán</strong></div> -->
+	</div>
+	<div class="registros">
+		<h4>No. Registros LBAB</h4>
+		<div class="noreg"><%= @species.ocurrence_records %></div>
+	</div>	
+<% end %>
+
 
 <script>
 	$(".mbton").click(function(e){

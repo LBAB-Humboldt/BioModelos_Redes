@@ -1,7 +1,7 @@
 
 var _mapVisorModule = function() {
 
-	var map, drawnItems, layerControl, modelOverlay, currentLayer,
+	var map, drawnItems, layerControl, modelOverlay, currentLayer, drawControl,
 		isEditOn = false,
 		commentForm = '<div class="commentForm"><form id="inputform" enctype="multipart/form-data" class="well">' +
         '<label><strong>Observación:</strong></label><br />' +
@@ -20,15 +20,15 @@ var _mapVisorModule = function() {
         	/* Layer */
 	    	osm = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 	            {
-	                minZoom: 1,
-	                maxZoom: 12,
+	                minZoom: 2,
+	                maxZoom: 8,
 	                attribution: 'Map data © OpenStreetMap contributors'
 	            }),
 	    	/* Layers to add to Layers Control */
 	    	baseLayers = {
 	        	"OpenStreetMap": osm
 	    	},
-	    	 overlays = {
+	    	overlays = {
 		        //"Modelo": kmlayer,
 		        //"Edición": drawnItems
 	    	};
@@ -37,8 +37,6 @@ var _mapVisorModule = function() {
     	map = L.map('map').setView(latlng, zoom);
     
 	    //var modelOverlay;
-
-	    drawnItems = new L.FeatureGroup(); //Capa editable
 	    map.addLayer(osm);
 	    /* autoZIndex controls the layer order */
 	    layerControl = L.control.layers(baseLayers, overlays, {autoZIndex: true});
@@ -77,6 +75,8 @@ var _mapVisorModule = function() {
     	if(!isEditOn) {
 
     		isEditOn = true;
+
+    		drawnItems = new L.FeatureGroup(); //Capa editable
 		    /* Control */
 		    drawControl = new L.Control.Draw({
 		        draw: {
@@ -114,6 +114,22 @@ var _mapVisorModule = function() {
 		        currentPopupID = e.popup._leaflet_id;
 		    });
 		}   
+
+	}
+
+	var deactivateEdition = function () {
+		if(drawnItems != null && drawControl != null && layerControl != null){
+			isEditOn = false;
+			map.removeLayer(drawnItems);
+		 	map.removeControl(drawControl);
+		 	layerControl.removeLayer(drawnItems);
+		}
+	}
+
+	var cancelLayer = function () {
+
+		currentLayer = getCurrentLayer(currentPopupID);
+		drawnItems.removeLayer(currentLayer);
 
 	}
 
@@ -238,10 +254,10 @@ var _mapVisorModule = function() {
 		init: init,
 		loadModel: loadModel,
 		activateEdition: activateEdition,
+		deactivateEdition: deactivateEdition,
+		cancelLayer: cancelLayer,
 		saveEdition: saveEdition,
 		submitComment: submitComment
-
-
 	}
 
 }();
@@ -255,17 +271,12 @@ $(document).ready(function() {
     	_mapVisorModule.activateEdition();
     });
 
-	/*$("#saveBtn").click(function(){
-		_mapVisorModule.saveEdition();
-	});*/
-
-
 	$("body").on("click", "#popUpSubmitBtn", function(){
 		_mapVisorModule.submitComment();
 	});
 
 	$("body").on("click", "#popUpCancelBtn", function(){
-		console.log("ClickCancel");
+		_mapVisorModule.cancelLayer();
 	});
 
 	_mapVisorModule.init();
