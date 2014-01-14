@@ -3,7 +3,7 @@ class SpeciesController < ApplicationController
   end
 
   def autocomplete
-    species = Species.search(params[:query])
+    species = Species.search(params[:query], params[:classId])
     result = species.collect do |t|
       { value: t.sci_name, id: t.id }
     end

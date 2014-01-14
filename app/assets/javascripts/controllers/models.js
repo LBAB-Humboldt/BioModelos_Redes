@@ -9,42 +9,49 @@ $( document ).ready(function() {
   $('.searchcateg,.showmodels,.editControls,#saveBtn,.cajabusqueda,.selectores,.showmodels').hide();
   $("#anfsh").click(function(e){
     $('#cajasearch1').show('slow');
+    $('#class_id').val(1);
     $('#cajasearch2,#cajasearch3,#cajasearch4,#cajasearch5,#cajasearch6,#cajasearch7').hide('slow');
     clearShowBox();
     e.preventDefault();
   });
   $("#avessh").click(function(e){
     $('#cajasearch2').show('slow');
+    $('#class_id').val(2);
     $('#cajasearch1,#cajasearch3,#cajasearch4,#cajasearch5,#cajasearch6,#cajasearch7').hide('slow');
     clearShowBox();
     e.preventDefault();
   });
   $("#invsh").click(function(e){
     $('#cajasearch3').show('slow');
+    $('#class_id').val(3);
     $('#cajasearch2,#cajasearch1,#cajasearch4,#cajasearch5,#cajasearch6,#cajasearch7').hide('slow');
     clearShowBox();
      e.preventDefault();
   });
   $("#mamsh").click(function(e){
     $('#cajasearch4').show('slow');
+    $('#class_id').val(4);
     $('#cajasearch2,#cajasearch3,#cajasearch1,#cajasearch5,#cajasearch6,#cajasearch7').hide('slow');
     clearShowBox();
      e.preventDefault(); 
   });
   $("#pecsh").click(function(e){
     $('#cajasearch5').show('slow');
+    $('#class_id').val(5);
     $('#cajasearch2,#cajasearch3,#cajasearch4,#cajasearch1,#cajasearch6,#cajasearch7').hide('slow');
     clearShowBox();
      e.preventDefault();
   });
   $("#repsh").click(function(e){
     $('#cajasearch6').show('slow');
+    $('#class_id').val(6);
     $('#cajasearch2,#cajasearch3,#cajasearch4,#cajasearch5,#cajasearch1,#cajasearch7').hide('slow');
     clearShowBox();
      e.preventDefault();
   });
   $("#plash").click(function(e){
     $('#cajasearch7').show('slow');
+    $('#class_id').val(7);
     $('#cajasearch2,#cajasearch3,#cajasearch4,#cajasearch5,#cajasearch6,#cajasearch1').hide('slow');
     clearShowBox();
      e.preventDefault();

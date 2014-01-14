@@ -1,8 +1,8 @@
 class Species < ActiveRecord::Base
 	has_many :models
 
-	def self.search(query)
-		where("sci_name like ?", "%#{query}%").limit(10)
+	def self.search(query, classId)
+		where("sci_name like ? and class_id = ?", "%#{query}%", "#{classId}").limit(10)
 	end
 
 end
