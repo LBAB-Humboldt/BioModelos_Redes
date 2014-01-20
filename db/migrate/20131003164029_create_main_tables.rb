@@ -49,7 +49,7 @@ class CreateMainTables < ActiveRecord::Migration
 
     	t.references :user
     	t.references :model
-    	t.text :geoJSON
+    	t.text :geoJSON, :limit => 2.megabytes
     	t.timestamps
     end
 

@@ -21,7 +21,7 @@ var _mapVisorModule = function() {
 	    	osm = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 	            {
 	                minZoom: 2,
-	                maxZoom: 8,
+	                maxZoom: 12,
 	                attribution: 'Map data © OpenStreetMap contributors'
 	            }),
 	    	/* Layers to add to Layers Control */
@@ -58,7 +58,7 @@ var _mapVisorModule = function() {
        }
        	
     
-	    modelOverlay = new L.ImageOverlay(imageUrl, imageBounds);
+	    modelOverlay = new L.ImageOverlay(imageUrl, imageBounds, {opacity: 0.7});
 	    map.addLayer(modelOverlay, true);
 	    layerControl.addOverlay(modelOverlay, "Modelo");
 	    

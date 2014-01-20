@@ -7,6 +7,9 @@ class ReviewsController < ApplicationController
   end
 
   def create
+
+    @review = Review.new(review_params)
+
     if @review.save
       flash[:success] = 'Anotación guardada con éxito.'
     else

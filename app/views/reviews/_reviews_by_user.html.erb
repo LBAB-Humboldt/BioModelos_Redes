@@ -1,5 +1,15 @@
 <ul class="comperfil" id="altcomp">
-				<li>
+	<%= @reviews.find_each do |review| %>
+    <a href="#" class="vermodelo"><%= image_tag "borrar.png", title:"Borrar" %></a>
+    <a href="#" class="vermodelo"><%= image_tag "ver.png", title:"Ver" %></a>
+	<div class="minavatar2"><%= image_tag("editicon.png") %></div>
+		<li class="datosaportes">
+	      <a class="feeduserp" href="#"><%= Species.find(Model.find(review.model_id).species_id).sci_name %></a>
+	      <div class="feedtimep"><%= review.created_at %></div>
+	      <p class="feedcontentp"><%= Model.find(review.model_id).description %></p>
+    	</li>
+	<% end %>
+				<!-- <li>
 					<div class="minavatar"><%= image_tag("minavatar.png") %></div>
 		        	<div class="clearfix">
 			            <a class="feeduserp" href="#">LBAB</a>
@@ -30,5 +40,5 @@
 			            <div class="feedtimep">hace 1 hora</div>
 		            	<p class="feedcontentp">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse semper placerat nisl, et dapibus leo.</p>
 			        </div>
-		        </li>
+		        </li> -->
 </ul>
