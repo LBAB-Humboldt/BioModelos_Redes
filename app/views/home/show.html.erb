@@ -64,11 +64,14 @@
 	</article>
 		
 	<article class="opciones">
-		<div class="op">
+		<%= link_to new_user_session_path do %>
+		<div class="op" >
 			<h2>1.</h2>
 			<div class="imginicio"><%= image_tag("ingresabg.png") %></div>
 			<p>Ingresa o Registrate</p>
 		</div>
+		<% end %>
+		<%= link_to models_visor_path do %>
 		<div class="op">
 			<h2>2.</h2>
 			<div class="imginicio"><%= image_tag("seleccionabg.png") %></div>
@@ -79,6 +82,7 @@
 			<div class="imginicio"><%= image_tag("consultabg.png") %></div>
 			<p>Consulta modelos</p>
 		</div>
+		<% end %>
 	</article>
 		<div class="lineop">
 			<h3 class="usu">opciones como usuario</h3>
