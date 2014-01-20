@@ -15,29 +15,34 @@ var _mapVisorModule = function() {
 
 	var init = function() {
 
+		var googleTerrain = new L.Google('TERRAIN');
+		var googleSatellite = new L.Google('SATELLITE');
+
 		var latlng = new L.LatLng(4, -72),
         	zoom = 6,
-        	/* Layer */
+        	/* Base Layers */
 	    	osm = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 	            {
 	                minZoom: 2,
-	                maxZoom: 12,
+	                maxZoom: 8,
 	                attribution: 'Map data © OpenStreetMap contributors'
 	            }),
 	    	/* Layers to add to Layers Control */
 	    	baseLayers = {
-	        	"OpenStreetMap": osm
+	    		"Google Terrain": googleTerrain,
+	    		"Google Satellite": googleSatellite,
+	        	"OpenStreetMap": osm	
 	    	},
+
 	    	overlays = {
-		        //"Modelo": kmlayer,
-		        //"Edición": drawnItems
+
 	    	};
 
     	
     	map = L.map('map').setView(latlng, zoom);
     
 	    //var modelOverlay;
-	    map.addLayer(osm);
+	    map.addLayer(googleTerrain);
 	    /* autoZIndex controls the layer order */
 	    layerControl = L.control.layers(baseLayers, overlays, {autoZIndex: true});
 	    layerControl.addTo(map);

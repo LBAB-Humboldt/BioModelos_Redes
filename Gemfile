@@ -25,7 +25,7 @@ gem 'coffee-rails', '4.0.0'
 gem 'jquery-rails', '2.2.1'
 gem 'turbolinks', '1.1.1'
 gem 'jbuilder', '1.0.2'
-gem "leaflet-rails", "~> 0.6.2"
+gem "leaflet-rails", "~> 0.7.1"
 gem "simple_form", "~> 3.0.0.rc"
 gem "devise", "~> 3.1.1"
 
