@@ -239,10 +239,6 @@
 	display:none;
 }
 
-.leaflet-top {
-	margin-top: 86px;
-}
-
 .leaflet-draw-tooltip-subtext {
 	color:#9ae8e1;
 }
@@ -303,8 +299,4 @@
 .leaflet-popup-tip {
 	box-shadow: none;
 	background-color: #ffc72d;
-}
-
-.leaflet-map-pane, .leaflet-tile, .leaflet-marker-icon, .leaflet-marker-shadow, .leaflet-tile-pane, .leaflet-tile-container, .leaflet-overlay-pane, .leaflet-shadow-pane, .leaflet-marker-pane, .leaflet-popup-pane, .leaflet-overlay-pane, .leaflet-zoom-box, .leaflet-image-layer, .leaflet-layer {
-	top:17px !important;
 }
