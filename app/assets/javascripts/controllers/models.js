@@ -6,7 +6,7 @@ var clearShowBox = function() {
 }
 
 $( document ).ready(function() {
-  $('.searchcateg,.showmodels,.editControls,#saveBtn,.cajabusqueda,.selectores,.showmodels').hide();
+  $('.searchcateg,.showmodels,.editControls,#saveBtn,.cajabusqueda,.showmodels').hide();
   $("#anfsh").click(function(e){
     $('#cajasearch1').show('slow');
     $('#class_id').val(1);

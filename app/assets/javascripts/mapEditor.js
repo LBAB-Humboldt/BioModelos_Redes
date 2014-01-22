@@ -15,34 +15,60 @@ var _mapVisorModule = function() {
 
 	var init = function() {
 
-		var googleTerrain = new L.Google('TERRAIN');
-		var googleSatellite = new L.Google('SATELLITE');
-
 		var latlng = new L.LatLng(4, -72),
         	zoom = 6,
+        	mZoom = 2,
+        	mxZoom = 9;
+
         	/* Base Layers */
-	    	osm = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+        	var googleTerrain = new L.Google('TERRAIN', {minZoom:mZoom, maxZoom: mxZoom}),
+				googleSatellite = new L.Google('SATELLITE', {minZoom:mZoom, maxZoom: mxZoom}),
+	    		osmBase = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 	            {
-	                minZoom: 2,
-	                maxZoom: 8,
+	                minZoom: mZoom,
+	                maxZoom: mxZoom,
 	                attribution: 'Map data © OpenStreetMap contributors'
 	            }),
-	    	/* Layers to add to Layers Control */
-	    	baseLayers = {
+	            mapQuestBase= new L.TileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/{type}/{z}/{x}/{y}.png',{
+	    			minZoom: mZoom,
+	                maxZoom: mxZoom,
+	    			subdomains: '1234',
+					type: 'osm',
+					attribution: 'Map data ' + L.TileLayer.OSM_ATTR + ', Tiles &copy; <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png" />'
+		
+	    		}),
+	    		mapQuestSatBase= new L.TileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/{type}/{z}/{x}/{y}.png',{
+	    			minZoom: mZoom,
+	                maxZoom: mxZoom,
+	    			subdomains: '1234',
+					type: 'sat',
+					attribution: 'Map data ' + L.TileLayer.OSM_ATTR + ', Tiles &copy; <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png" />'
+		
+	    		});
+	    		thunderForestLand= new L.TileLayer('http://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png',{
+	    			minZoom: mZoom,
+	                maxZoom: mxZoom,
+					attribution: 'Map data ' + L.TileLayer.OSM_ATTR + ', Tiles &copy; <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png" />'
+		
+	    		});
+
+
+	    var	baseLayers = {
 	    		"Google Terrain": googleTerrain,
 	    		"Google Satellite": googleSatellite,
-	        	"OpenStreetMap": osm	
+	        	"OpenStreetMap": osmBase,
+	        	"MapQuest Open": mapQuestBase,
+	        	"MapQuest Aerial": mapQuestSatBase,
+	        	"Thunderforest Landscape": thunderForestLand
 	    	},
 
-	    	overlays = {
-
-	    	};
+	    	overlays = {};
 
     	
     	map = L.map('map').setView(latlng, zoom);
-    
-	    //var modelOverlay;
+   
 	    map.addLayer(googleTerrain);
+
 	    /* autoZIndex controls the layer order */
 	    layerControl = L.control.layers(baseLayers, overlays, {autoZIndex: true});
 	    layerControl.addTo(map);
@@ -62,7 +88,6 @@ var _mapVisorModule = function() {
        		layerControl.removeLayer(modelOverlay);
        }
        	
-    
 	    modelOverlay = new L.ImageOverlay(imageUrl, imageBounds, {opacity: 0.7});
 	    map.addLayer(modelOverlay, true);
 	    layerControl.addOverlay(modelOverlay, "Modelo");
@@ -76,7 +101,6 @@ var _mapVisorModule = function() {
 
 	var activateEdition = function () {
 
-		//disableEditButton();
     	if(!isEditOn) {
 
     		isEditOn = true;

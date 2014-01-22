@@ -1,5 +1,7 @@
+<div class="editform"></div>
 <div class="contenedor botonesperfil clearfix">
-	<a href="#" class="editperfil">
+	<%= link_to '', {:action => 'edit_profile'}, :remote => true, :class =>"editperfil" %>
+	<!-- <a href="#" class="editperfil"> -->
 	</a>
 	<div class="funcperfil">
 		<a href="#"></a>
@@ -15,7 +17,9 @@
 			</div>
 			<section class="perfilexp">
 				<h1><%= @user.name %></h1>
-				<h2>Especialista en Aves y microorganismos</h2>
+				<% if !@user.interestGroups.blank? %>
+					<h2>Especialista en <%= @user.interestGroups %></h2>
+				<% end %>	
 				<h3><%= @user.organization %></h3>
 				<h4><%= @user.location %></h4>
 				<p><%= @user.bio %></p>
@@ -90,11 +94,11 @@
 				<div class="medalla1"></div>
 			</section>
 		</div>
-		<form>
+		<!-- <form>
 			<input type="text" placeholder="Nombre" class="commeinput"></input>
 			<textarea placeholder="Commentario" rows="3" columns="30" class="commeinput"></textarea>
 			<input type="submit" class="cbton" value="comentar">
-		</form>
+		</form> -->
 	</div>
 </div>
 

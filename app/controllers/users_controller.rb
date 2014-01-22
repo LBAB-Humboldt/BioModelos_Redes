@@ -15,7 +15,10 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
+  def edit_profile
+    respond_to do |format|
+      format.js
+    end
   end
 
   def update
