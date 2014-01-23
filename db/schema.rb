@@ -58,8 +58,6 @@ ActiveRecord::Schema.define(version: 20140121214433) do
   create_table "species", force: true do |t|
     t.integer  "class_id"
     t.string   "sci_name"
-    t.string   "order"
-    t.string   "family"
     t.string   "sib_url"
     t.integer  "ocurrence_records"
     t.datetime "created_at"
