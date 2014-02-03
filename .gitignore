@@ -25,3 +25,4 @@ doc/
 .idea
 .secret
 /app/assets/images/models/*.png
+*.sql
