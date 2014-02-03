@@ -1,6 +1,11 @@
 <h1><%= @species_name %></h1>
-        <p>Seleccionar modelo, o comentar sobre los distintos modelos</br>(sobre uno específico decir número del modelo o el autor).<p>
-        
+                    <div class="registros">
+                    <h4>No. Registros LBAB</h4>
+                    <div class="noreg">122</div>
+                    </div>  
+                    <div class="resbusqueda familia">Familia Lorem Ipsum</div>
+                    <div class="resbusqueda genero clearfix">Genero Lorem Ipsum</br>
+                    <a href="http://www.biodiversidad.co/" class="linksib">www.biodiversidad.co</a></div>
         <div class="selector">
                 <ul class="modelost">
                     <% @models.each_with_index do |model, i| %>
@@ -19,10 +24,12 @@
                         </li>   
                     <% end %>
                 </ul>
+        
+        <p>Seleccionar modelo, calificar o comentar sobre los distintos modelos.</br>Sobre uno específico decir nombre del modelo.</br>Las capas de modelos pueden cambiarse en el controlador de capas.<p>
         </div>
 
         <div class="commentspace">
-        <h3>Comentarios</h3>
+        <h3>Comentarios sobre esta especie y sus modelos</h3>
         <form>
         <input type="text" placeholder="Nombre" class="commeinput"></input>
         <textarea placeholder="Commentario" rows="3" columns="30" class="commeinput"></textarea>
