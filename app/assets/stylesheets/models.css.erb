@@ -43,6 +43,13 @@
     background-position: center;
     padding: 3px;
     margin-left: 10px;
+    -webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.botonmodelos:hover {
+	background-color: #5C5C58;
 }
 
 .findbar {
@@ -331,6 +338,11 @@
 	text-transform: uppercase;
 }
 
+.reply {
+	color:#81e0e3;
+	font-size: 10px;
+}
+
 .commeinput {
 	width: 60%;
 	padding: 3px;
@@ -354,7 +366,9 @@
 	border:none;
 	cursor:pointer;
 	vertical-align: top;
+	margin-top: 10px;
 }
+
 .modelothumb {
 	display: inline-block;
 	margin: 10px;
@@ -376,11 +390,9 @@
 }
 
 .editbtn {
-	padding: 10px;
-	min-width: 70px;
-	display: inline-block;
+	padding: 5px 10px 7px 0;
 	text-align: center;
-	background-color: #E73A00;
+	background-color: #FCAD26;
 	color: #fff;
 	font-family: 'bebas_neueregular', sans-serif;
 	font-size: 1em;
@@ -391,7 +403,44 @@
 	left:80px; 
     z-index:220;
     border:none;
-    border-bottom: 2px solid #F9A848;
+    border-bottom: 2px solid #FAE49B;
+    -webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.editbtn:before {
+	padding: 7px 15px 8px;
+    background: url(<%= asset_path 'editbtnicon.png' %>) no-repeat center rgba(0, 0, 0, 0.1);
+    margin-right: 10px;
+    height: 100%;
+    content: '';
+}
+
+.editbtn:hover {
+	background: #f29e0d;
+}
+
+.sbtn {
+	padding: 7px 10px 7px 35px;
+	text-align: center;
+	background: url(<%= asset_path 'savebtnicon.png' %>) no-repeat left;
+	background-color: #FCAD26;
+	color: #fff;
+	font-family: 'bebas_neueregular', sans-serif;
+	font-size: 1em;
+	letter-spacing: 3px;
+	cursor: pointer;
+	position: absolute;
+    top: 81px;
+	left:80px; 
+    z-index:220;
+    border:none;
+    border-bottom: 2px solid #FAE49B;
+}
+
+.sbtn:hover {
+	background-color: #ffa100;
 }
 
 .rankmod {
@@ -404,4 +453,3 @@
 	padding: 0;
 	border:none;
 }
-

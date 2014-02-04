@@ -1,10 +1,11 @@
 <%= content_tag :div, :id => "comment-#{comment.id}", :class => 'comment-tab' do %>
-	<%= User.find(comment.user_id).email %>
-	<small><%= comment.updated_at %></small>
-	<small><%= link_to 'Reply', comments_child_comments_path(:post_id => comment.commentable_id, :p_id => comment.id), :remote => true %></small>
-	<p><%= comment.body %></p>
+	<div class="minavatar"><%= image_tag("minavatar.png") %></div>
+		<div class="feeduserp"><%= User.find(comment.user_id).email %></div>
+		<div class="feedtimep"><%= comment.updated_at %></div>
+		<%= link_to 'Reply', comments_child_comments_path(:post_id => comment.commentable_id, :p_id => comment.id), :remote => true, :class => 'reply' %>
+		<p class="feedcontentp"><%= comment.body %></p>
 
-	<% if comment.has_children? %>
-		<%= render :partial => 'comments/show', :collection => comment.children %>
-	<% end %>
+		<% if comment.has_children? %>
+			<%= render :partial => 'comments/show', :collection => comment.children %>
+		<% end %>
 <% end %>
