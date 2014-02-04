@@ -6,7 +6,7 @@ var clearShowBox = function() {
 }
 
 $( document ).ready(function() {
-  $('.searchcateg,.showmodels,.editControls,#saveBtn,.cajabusqueda,.showmodels').hide();
+  $('.searchcateg,.showmodels,.editControls,#saveBtn,.cajabusqueda,.showmodels,.cajaediciones,.edicionbar,.botonmodelos').hide();
   $("#anfsh").click(function(e){
     $('#cajasearch1').show('slow');
     $('#class_id').val(1);
@@ -57,12 +57,22 @@ $( document ).ready(function() {
      e.preventDefault();
   });
   $(".findbar").click(function(e){
-          $('.showmodels, .cajabusqueda, .editControls').hide('slow');
+          $('.showmodels, .cajabusqueda, .editControls, .edicionbar, .cajabusqueda, .botonmodelos').hide('slow');
           $("#editBtn").show();
           $("#saveBtn").hide();
           _mapVisorModule.deactivateEdition();
           $('.selectores').show('slow');
           e.preventDefault();
+  });
+  $(".edicionbar").click(function(e){
+      if($(".cajaediciones").is(":visible")){
+        $(".cajaediciones").hide();
+      }
+      else{
+        $(".cajaediciones").show();
+      }
+      
+      e.preventDefault();
   });
   $("#editBtn").click(function(e){
           $("#editBtn").hide();
@@ -76,6 +86,25 @@ $( document ).ready(function() {
         else
           return false; 
   });
+
+   $(".botonmodelos").click(function(e){
+      if($(".showmodels").is(":visible")){
+        $(".showmodels").hide();
+      }
+      else{
+        $(".showmodels").show();
+      }
+      
+      e.preventDefault();
+  });
+
+
+
+  // $("#species_src_btn").click(function(e){
+  //         $('.selectores,.cajabusqueda').hide('slow');
+  //         $('.showmodels').show('slow');
+  //         //e.preventDefault();
+  // });
   
   $('.searchcateg').click(function(e){
     $('.cajabusqueda').show('slow');

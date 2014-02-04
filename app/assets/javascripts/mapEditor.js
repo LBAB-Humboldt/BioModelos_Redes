@@ -88,7 +88,7 @@ var _mapVisorModule = function() {
        		layerControl.removeLayer(modelOverlay);
        }
        	
-	    modelOverlay = new L.ImageOverlay(imageUrl, imageBounds, {opacity: 0.7});
+	    modelOverlay = new L.ImageOverlay(imageUrl, imageBounds, {opacity: 0.6});
 	    map.addLayer(modelOverlay, true);
 	    layerControl.addOverlay(modelOverlay, "Modelo");
 	    
@@ -98,6 +98,24 @@ var _mapVisorModule = function() {
 	            modelOverlay.bringToBack();
 	    });
 	}
+
+	var loadReview = function (reviewGeoJSON) {
+
+		var reviewLayer = new L.GeoJSON(reviewGeoJSON, {
+        	onEachFeature: function (feature, layer) {
+            	if (feature.properties.popupContent) {
+                	var popupString = '<div class="popup">'+feature.properties.popupContent+'</div>';
+                	layer.bindPopup(popupString, { maxHeight: 200 });
+            	}
+    		}
+    	});
+
+    	map.addLayer(reviewLayer);
+    	layerControl.addOverlay(reviewLayer,"Anotación");
+
+	}
+
+
 
 	var activateEdition = function () {
 

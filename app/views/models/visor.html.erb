@@ -11,13 +11,12 @@
                 <%= render 'species/search_form' %>
                 <section class="resultados"></section>
         </div>
-<a href="" class="edicionbar">Ediciones realizadas</a>
+<% if user_signed_in? %>
+    <a href="" class="edicionbar">Ediciones realizadas</a>
         <div class="cajaediciones">
-                <section class="resultados2">
-                        
-                </section>
+                
         </div>
-
+<% end %>
         <a href="" class="botonmodelos"></a>    
         <div class="selectores">
                 <p class="titulomapa">Selecciona una categoría</p>

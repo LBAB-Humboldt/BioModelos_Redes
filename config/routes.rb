@@ -6,7 +6,8 @@ Biomodis::Application.routes.draw do
   get "species/species_content"
   get "species/species_models"
   get "users/edit_profile"
-  resources :comments, :only => [:index, :show, :new, :create]
+  get "comments/child_comments"
+  resources :comments, :only => [:create, :destroy]
   resources :home, :only => [:show]
   resources :reviews, :only => [:index, :show, :create]
   resources :users, :only => [:index, :show, :edit, :update]

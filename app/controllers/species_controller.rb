@@ -26,9 +26,19 @@ class SpeciesController < ApplicationController
 
   def species_models
 
-    @species_name = params[:name]
-    @models = Model.where(:species_id => params[:id]).limit(4)
+    # @species_name = params[:name]
+    @species =  Species.find(params[:species_id])
+    @models = Model.where(:species_id => params[:species_id]).limit(4)
 
+    @all_comments = @species.root_comments.order('created_at desc')
+
+
+    #@species_reviews = Review.where({ model_id: @models.id})
+
+    if user_signed_in?
+      @new_comment = Comment.build_from(@species, current_user.id, '')
+    end
+  
     respond_to do |format|
       format.js
     end
