@@ -23,9 +23,9 @@ class CommentsController < ApplicationController
   end
 
   def child_comments
-  	@id_post = params[:p_id]
-  	@post = Post.find(params[:post_id])
-  	@new_comment = Comment.build_from(@post, current_user, '')
+  	@id_parent = params[:parent_id]
+  	#@post = Post.find(params[:post_id])
+  	#@new_comment = Comment.build_from(@post, current_user, '')
 
   	respond_to do |format|
   		format.html

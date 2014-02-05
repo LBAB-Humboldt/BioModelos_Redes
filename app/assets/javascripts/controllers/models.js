@@ -57,7 +57,7 @@ $( document ).ready(function() {
      e.preventDefault();
   });
   $(".findbar").click(function(e){
-          $('.showmodels, .cajabusqueda, .editControls, .edicionbar, .cajabusqueda, .botonmodelos').hide('slow');
+          $('.showmodels, .cajabusqueda, .editControls, .edicionbar, .cajabusqueda, .botonmodelos, .cajaediciones').hide('slow');
           $("#editBtn").show();
           $("#saveBtn").hide();
           _mapVisorModule.deactivateEdition();

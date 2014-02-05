@@ -17,3 +17,4 @@
 //= require leaflet
 //= require_tree ./controllers
 //= require_tree ./jsstyling
+//= require jquery.raty.min

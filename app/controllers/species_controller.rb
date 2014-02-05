@@ -32,8 +32,13 @@ class SpeciesController < ApplicationController
 
     @all_comments = @species.root_comments.order('created_at desc')
 
+    arr =[]
 
-    #@species_reviews = Review.where({ model_id: @models.id})
+    @models.each do |m|
+      arr.push(m.id)
+    end
+    
+    @species_reviews = Review.where({ model_id: arr})
 
     if user_signed_in?
       @new_comment = Comment.build_from(@species, current_user.id, '')

@@ -29,22 +29,6 @@ var _mapVisorModule = function() {
 	                maxZoom: mxZoom,
 	                attribution: 'Map data © OpenStreetMap contributors'
 	            }),
-	            mapQuestBase= new L.TileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/{type}/{z}/{x}/{y}.png',{
-	    			minZoom: mZoom,
-	                maxZoom: mxZoom,
-	    			subdomains: '1234',
-					type: 'osm',
-					attribution: 'Map data ' + L.TileLayer.OSM_ATTR + ', Tiles &copy; <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png" />'
-		
-	    		}),
-	    		mapQuestSatBase= new L.TileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/{type}/{z}/{x}/{y}.png',{
-	    			minZoom: mZoom,
-	                maxZoom: mxZoom,
-	    			subdomains: '1234',
-					type: 'sat',
-					attribution: 'Map data ' + L.TileLayer.OSM_ATTR + ', Tiles &copy; <a href="http://www.mapquest.com/" target="_blank">MapQuest</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png" />'
-		
-	    		});
 	    		thunderForestLand= new L.TileLayer('http://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png',{
 	    			minZoom: mZoom,
 	                maxZoom: mxZoom,
@@ -57,8 +41,6 @@ var _mapVisorModule = function() {
 	    		"Google Terrain": googleTerrain,
 	    		"Google Satellite": googleSatellite,
 	        	"OpenStreetMap": osmBase,
-	        	"MapQuest Open": mapQuestBase,
-	        	"MapQuest Aerial": mapQuestSatBase,
 	        	"Thunderforest Landscape": thunderForestLand
 	    	},
 
@@ -101,7 +83,15 @@ var _mapVisorModule = function() {
 
 	var loadReview = function (reviewGeoJSON) {
 
-		var reviewLayer = new L.GeoJSON(reviewGeoJSON, {
+		var reviewLayer = null;
+
+		/* Dispose older review if it exists */
+       if(map.hasLayer(reviewLayer)) {
+       		map.removeLayer(reviewLayer);
+       		layerControl.removeLayer(reviewLayer);
+       }
+
+		reviewLayer = new L.GeoJSON(JSON.parse(reviewGeoJSON), {
         	onEachFeature: function (feature, layer) {
             	if (feature.properties.popupContent) {
                 	var popupString = '<div class="popup">'+feature.properties.popupContent+'</div>';
@@ -304,7 +294,8 @@ var _mapVisorModule = function() {
 		deactivateEdition: deactivateEdition,
 		cancelLayer: cancelLayer,
 		saveEdition: saveEdition,
-		submitComment: submitComment
+		submitComment: submitComment,
+		loadReview: loadReview
 	}
 
 }();

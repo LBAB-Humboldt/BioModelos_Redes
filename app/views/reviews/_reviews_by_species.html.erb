@@ -1,3 +1,23 @@
 <section class="resultados2">
 	<%= @species.sci_name %> 
+
+	<% @species_reviews.each do |sr| %>
+		<%= sr.user_id %>
+		<%= sr.updated_at %>
+		<%= sr.model_id %>
+		<a href='#' id='load-link-review'>Link</a>
+		<%= hidden_field(:sp_review, :geoJSON, :value => sr.geoJSON) %>
+	<% end %>
+
 </section>
+
+<script>
+	 	$('#load-link-review').click(function (e) {
+            //_mapVisorModule.loadReview($('#sp_review_geoJSON').val());
+            // $('.editControls,.edicionbar').show('slow');
+            // $('.showmodels, .cajabusqueda, .selectores').hide ('slow');
+            e.preventDefault(); // Prevent link from following its href
+            _mapVisorModule.deactivateEdition();
+            _mapVisorModule.loadReview($('#sp_review_geoJSON').val());
+     	});
+</script>
