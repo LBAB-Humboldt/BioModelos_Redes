@@ -1,14 +1,16 @@
 <section class="resultados2">
-	<%= @species.sci_name %> 
+	<div class="titulosp"><%= @species.sci_name %></div>
 
 	<% @species_reviews.each do |sr| %>
-		<%= sr.user_id %>
-		<%= sr.updated_at %>
-		<%= sr.model_id %>
-		<a href='#' id='load-link-review'>Link</a>
+		<a href="#" class="vermodelo" id="load-link-review"><%= image_tag "ver.png", title:"Ver" %></a>
+	<div class="minavatar2"><%= image_tag("editicon.png") %></div>
+	<li class="datosaportes">
+		<a class="feeduserp"><%= sr.user_id %></a>
+		<div class="feedtimep"><%= sr.updated_at %></div>
+		<p class="feedcontentp"><%= sr.model_id %></p>
 		<%= hidden_field(:sp_review, :geoJSON, :value => sr.geoJSON) %>
 	<% end %>
-
+	</li>
 </section>
 
 <script>
