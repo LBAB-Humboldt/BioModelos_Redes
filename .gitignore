@@ -25,4 +25,5 @@ doc/
 .idea
 .secret
 /app/assets/images/models/*.png
+/pubic/modelos/*.png
 *.sql

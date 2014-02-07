@@ -26,24 +26,28 @@ class SpeciesController < ApplicationController
 
   def species_models
 
-    # @species_name = params[:name]
-    @species =  Species.find(params[:species_id])
-    @models = Model.where(:species_id => params[:species_id]).limit(4)
+    if params[:species_id].blank?
+      @species = nil
+    else
+      @species = Species.find(params[:species_id])
+      @models = Model.where(:species_id => params[:species_id]).limit(4)
+      @all_comments = @species.root_comments.order('created_at desc')
 
-    @all_comments = @species.root_comments.order('created_at desc')
+      @models_tag = ['min', 'min_cut', '10p', '10p_cut']
 
-    arr =[]
+      arr =[]
 
-    @models.each do |m|
-      arr.push(m.id)
+      @models.each do |m|
+        arr.push(m.id)
+      end
+
+      @species_reviews = Review.where({ model_id: arr})
+
+      if user_signed_in?
+        @new_comment = Comment.build_from(@species, current_user.id, '')
+      end
     end
-    
-    @species_reviews = Review.where({ model_id: arr})
 
-    if user_signed_in?
-      @new_comment = Comment.build_from(@species, current_user.id, '')
-    end
-  
     respond_to do |format|
       format.js
     end

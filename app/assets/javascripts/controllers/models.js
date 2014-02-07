@@ -61,6 +61,8 @@ $( document ).ready(function() {
           $("#editBtn").show();
           $("#saveBtn").hide();
           _mapVisorModule.deactivateEdition();
+          _mapVisorModule.unloadReview();
+          $('#species_id').val('');
           $('.selectores').show('slow');
           e.preventDefault();
   });

@@ -35,7 +35,7 @@
 <div class="editControls">
     <% if user_signed_in? %>
         <a class="editbtn" id="editBtn">editar</a>
-        <%= simple_form_for @review do |f| %>
+        <%= simple_form_for @review, :remote => true do |f| %>
            <%= f.hidden_field :model_id %>
            <%= f.hidden_field :user_id, :value => get_current_user_id %>
            <%= f.hidden_field :geoJSON %>

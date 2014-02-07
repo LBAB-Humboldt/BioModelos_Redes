@@ -17,6 +17,7 @@ class ReviewsController < ApplicationController
     end
     respond_to do |format|
         format.html {redirect_to controller: "models", action: "visor"}
+        format.js
     end
   end
 

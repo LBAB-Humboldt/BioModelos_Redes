@@ -1,11 +1,11 @@
 <h1><%= @species.sci_name %></h1>
                     <div class="registros">
                     <h4>No. Registros LBAB</h4>
-                    <div class="noreg">122</div>
+                    <div class="noreg"><%= @species.ocurrence_records %></div>
                     </div>  
                     <div class="resbusqueda genero clearfix"><%= @species.order %></br>
                     <div class="familia"><%= @species.family %></div>
-                    <a href="http://www.biodiversidad.co/" class="linksib">www.biodiversidad.co</a></div>
+                    <a href="http://www.biodiversidad.co/" class="linksib" target="_blank">www.biodiversidad.co</a></div>
         <div class="selector">
                 <ul class="modelost">
                     <% @models.each_with_index do |model, i| %>

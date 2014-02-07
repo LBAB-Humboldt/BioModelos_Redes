@@ -1,7 +1,7 @@
 
 var _mapVisorModule = function() {
 
-	var map, drawnItems, layerControl, modelOverlay, currentLayer, drawControl,
+	var map, drawnItems, layerControl, modelOverlay, currentLayer, drawControl, reviewLayer,
 		isEditOn = false,
 		commentForm = '<div class="commentForm"><form id="inputform" enctype="multipart/form-data" class="well">' +
         '<label><strong>Observación:</strong></label><br />' +
@@ -81,15 +81,50 @@ var _mapVisorModule = function() {
 	    });
 	}
 
-	var loadReview = function (reviewGeoJSON) {
+	var loadAllModels = function (modelsUrls) {
+		var modelOver1 = null, modelOver2 = null, modelOver3 = null, modelOver4 = null;
 
-		var reviewLayer = null;
+		if(map.hasLayer(modelOver1)){
+			map.removeLayer(modelOver1);
+			layerControl.removeLayer(modelOver1);
+		}
+		if(map.hasLayer(modelOver2)){
+			map.removeLayer(modelOver1);
+			layerControl.removeLayer(modelOver1);
+		}
+		if(map.hasLayer(modelOver3)){
+			map.removeLayer(modelOver1);
+			layerControl.removeLayer(modelOver1);
+		}
+		if(map.hasLayer(modelOver4)){
+			map.removeLayer(modelOver1);
+			layerControl.removeLayer(modelOver1);
+		}
 
-		/* Dispose older review if it exists */
-       if(map.hasLayer(reviewLayer)) {
+		modelOver1 = new L.ImageOverlay(modelsUrls[1], imageBounds, {opacity: 0.6});
+		modelOver2 = new L.ImageOverlay(modelsUrls[2], imageBounds, {opacity: 0.6});
+		modelOver3 = new L.ImageOverlay(modelsUrls[3], imageBounds, {opacity: 0.6});
+		modelOver4 = new L.ImageOverlay(modelsUrls[4], imageBounds, {opacity: 0.6});
+		map.addLayer(modelOver1);
+		map.addLayer(modelOver2);
+		map.addLayer(modelOver3);
+		map.addLayer(modelOver4);
+		layerControl.addOverlay({"Modelo 1": modelOver1, "Modelo 2": modelOver2, "Modelo 3": modelOver3, "Modelo 4": modelOver4});
+
+	}
+
+	var unloadReview = function ()
+	{
+		if(map.hasLayer(reviewLayer)) {
        		map.removeLayer(reviewLayer);
        		layerControl.removeLayer(reviewLayer);
        }
+	}
+
+	var loadReview = function (reviewGeoJSON) {
+
+		/* Dispose older review if it exists */
+       unloadReview();
 
 		reviewLayer = new L.GeoJSON(JSON.parse(reviewGeoJSON), {
         	onEachFeature: function (feature, layer) {
@@ -105,9 +140,9 @@ var _mapVisorModule = function() {
 
 	}
 
-
-
 	var activateEdition = function () {
+
+		unloadReview();
 
     	if(!isEditOn) {
 
@@ -295,7 +330,8 @@ var _mapVisorModule = function() {
 		cancelLayer: cancelLayer,
 		saveEdition: saveEdition,
 		submitComment: submitComment,
-		loadReview: loadReview
+		loadReview: loadReview,
+		unloadReview: unloadReview
 	}
 
 }();
