@@ -3,6 +3,7 @@ Biomodis::Application.routes.draw do
   #devise_for :users
   get "models/visor"
   get "models/search"
+  get "models/download_model"
   get "species/species_content"
   get "species/species_models"
   get "users/edit_profile"

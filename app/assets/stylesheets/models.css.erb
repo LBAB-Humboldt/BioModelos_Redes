@@ -31,7 +31,7 @@
 }
 
 .botonmodelos{
-    background-color: #30302E;
+    /*background-color: #30302E;
     position: absolute;
     width: 20px;
     height: 33px;
@@ -45,7 +45,29 @@
     margin-left: 10px;
     -webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
-	transition: all 0.3s;
+	transition: all 0.3s;*/
+
+	font-family: 'bebas_neueregular', sans-serif;
+	font-size: 16px;
+	line-height: 1;
+	letter-spacing: 1px;
+	text-align: center;
+    padding: 5px 35px 5px 10px;
+    background-color: #30302E;
+    position: absolute;
+    min-width: 155px;
+    top: 400px;
+	left:-78px;
+	color:#fff;
+    z-index:110;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    background-image: url(<%= asset_path 'btnmod.png' %>);
+    background-repeat: no-repeat;
+    background-position: right;
 }
 
 .botonmodelos:hover {
@@ -74,6 +96,10 @@
     background-image: url(<%= asset_path 'lupa.png' %>);
     background-repeat: no-repeat;
     background-position: right;
+}
+
+.findbar:hover {
+	background-color: #f29e0d;
 }
 
 .cajabusqueda {
@@ -111,6 +137,10 @@
     background-image: url(<%= asset_path 'lapiz.png' %>);
     background-repeat: no-repeat;
     background-position: right;
+}
+
+.edicionbar:hover {
+	background-color: #FFD85C;
 }
 
 .cajaediciones {
@@ -465,4 +495,9 @@
 
 .user_star {
 	min-width: 130px;
+	float: left;
+}
+
+.download {
+	float: right;
 }

@@ -36,6 +36,10 @@ class ModelsController < ApplicationController
     end
   end
 
+  def download_model
+    send_file Rails.root.join('public/'+ Model.find(params[:m_id]).img_url), :type => 'image/png', :disposition => 'attachment'
+  end
+
   private
 
     def model_params

@@ -9,7 +9,7 @@
                 <div class="searchcateg srchreptiles" id="cajasearch6">Reptiles</div>
                 <div class="searchcateg srchplantas" id="cajasearch7">Plantas</div>
                 <%= render 'species/search_form' %>
-                <section class="resultados"></section>
+                <section class="resultados"><a href='/listado.html' target='_blank'>Listado de especies</a></section>
         </div>
 <% if user_signed_in? %>
     <a href="" class="edicionbar">Ediciones realizadas</a>
@@ -17,7 +17,7 @@
                 
         </div>
 <% end %>
-        <a href="" class="botonmodelos"></a>    
+        <a href="" class="botonmodelos">modelos de especie</a>    
         <div class="selectores">
                 <p class="titulomapa">Selecciona una categoría</p>
                 <a href="#" id="anfsh"><%= image_tag("anfibiosg.png", :title => 'Anfibios') %></a>

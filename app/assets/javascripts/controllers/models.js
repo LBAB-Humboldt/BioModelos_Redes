@@ -1,7 +1,7 @@
 var clearShowBox = function() {
   $('#search_field').val('');
   $('#search_field').typeahead('setQuery', '');
-  $('.resultados').html("");
+  $('.resultados').html("<small><a href='/listado.html' target='_blank'>Listado de especies</a></small>");
   $('.cajabusqueda').show('slow');
 }
 
