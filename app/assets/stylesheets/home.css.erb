@@ -1,80 +1,3 @@
-.maincol{
-    width: 225px;
-    padding-right: 25px;
-    margin:20px 20px 20px 40px;
-    border-right: 1px dashed #1ab0b5;
-    float: left;
-}
-
-.lbabimg {
-    padding:0 0 5px 55px;
-    background: url(<%= asset_path 'logolbab.png' %>) no-repeat;
-    font-family: 'bebas_neueregular', sans-serif;
-    text-transform: uppercase;
-    font-size: 1.04em;
-    color: #008d96;
-    letter-spacing: 1.6px;
-    line-height: 1;
-}
-
-.BioM {
-    width: 205px;
-    border: 1px solid #1ab0b5;
-    border-bottom: 5px solid #1ab0b5;
-    padding: 10px;
-    line-height: 1;
-    margin-bottom: 5px;
-}
-
-.BioM h1 {
-    color: #3d3d3d;
-    font-size: 25px !important;
-    width: 700px;
-    margin-bottom: 3px;
-}
-
-.BioM p {
-    font-size: 12px;
-    font-weight: 700;
-    color: #ff7742;
-}
-
-.intro {
-    padding: 5px;
-    font-size: 12px;
-    color: #5D5D5D;
-    font-weight: 700 !important;
-}
-
-.intro strong {
-    color: #008D96;
-}
-
-.intro h5 {
-    font-size: 11px;
-    line-height: 1.2;
-    letter-spacing: .3px;
-}
-
-.activity {
-    width: 205px;
-    border: 1px solid #FFC72D;
-    border-bottom: 5px solid #FAE49B;
-    padding: 0 10px 10px;
-    margin: 10px 0 5px;
-}
-
-.activity h5 {
-    display: inline-block;
-	font-family: 'bebas_neueregular', sans-serif;
-    font-size: 1em;
-    font-weight: 400;
-    color: #fff;
-    letter-spacing: 1px;
-    padding: 5px 10px;
-    background-color: #FFC72D;
-}
-
 .minavatar {
 	float: left;
 	margin-right: 5px;
@@ -107,9 +30,9 @@
 
 .op {
 	float:left;
-	width: 21%;
+	width: 12%;
 	display: block;
-	margin: 0 6%;
+	margin: 0 2%;
 }
 
 .imginicio img {
@@ -129,7 +52,7 @@
 	border-top: 1px dashed #1ab0b5;
 	border-bottom: 1px dashed #1ab0b5;
 	text-align: center;
-	margin:15px 0 20px;
+	margin: 5px 0 20px;
 }
 
 .lineop h3 {
@@ -186,17 +109,25 @@
 }
 
 .hlcol1 {
+	float: left;
 	width: 360px;
 	margin-right: 30px;
 }
 
 .intro2 {
-	margin-top: 20px;
+	margin-top: -20px;
+	height: 230px;
+	padding: 15px;
+    width: 300px;
+    margin-right: 40px;
+	float: right;
     font-size: 14px;
     color: #2d2d2d;
     font-weight: 700 !important;
-    line-height: 1.2;
+    line-height: 1.1;
     letter-spacing: .3px;
+    position: relative;
+    background-image: url(<%= asset_path 'fondobla.jpg' %>);
 }
 
 .intro2 strong {
@@ -204,14 +135,14 @@
 }
 
 .lbabimg2 {
-    padding: 55px;
+    padding: 55px 0 10px;
     background: url(<%= asset_path 'logolbab.png' %>) no-repeat;
 	margin: 10px 0 0 20px;
 }
 
 .columnaintro {
 	width: 40%;
-	padding: 0 2%;
+	padding: 0 2% 20px;
 	float: left;
 }
 
@@ -257,7 +188,18 @@
 
 .op p {
 	text-align: center;
-	font-size: 11px;
-	color: #1ab0b5;
-	margin-top: 5px;
+	font-size: 20px;
+	color: #E3AF20;
+	font-weight: 400;
+	text-transform: uppercase;
+}
+
+.fondoinicio img {
+	width: 100%;
+	z-index: 2;
+	position: relative;
+}
+
+.hide {
+    display: none;
 }
