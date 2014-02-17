@@ -8,50 +8,9 @@
 			Especies en Colombia</h2>
 			<div class="lbabimg2"></div>
 		</div>
-		<section class="intro2">
-			<h5>El primer objetivo de BioModelos es generar un canal de comunicación entre expertos y el LBAB, para así <strong>verificar</strong> los datos y modelos obtenidos por el LBAB y conseguir resultados robustos que acerquen a todos los usuarios a una información más precisa sobre la distribución de especies en Colombia.</br></br>
-
-			El segundo objetivo es compartir abiertamente los datos y resultados generados por el LBAB al público general, concretamente los modelos de distribución de especies en Colombia, para que sean utilizados como <strong>referencia</strong> en estudios e investigaciones.</h5>
-		</section>
-	</div>
-</div>
-<div class="clearfix"></div>
-<div class="contenedor">
-<article class="opciones">
-		<%= link_to new_user_session_path do %>
-		<div class="op">
-			<div class="imginicio"><%= image_tag("ingresabg.png") %></div>
-			<div class="fondoinicio hide"><%= image_tag("ingresa.png") %></div>
-		</div>
-		<% end %>
-		<%= link_to models_visor_path do %>
-		<div class="op">
-			<div class="imginicio"><%= image_tag("seleccionabg.png") %></div>
-			<div class="fondoinicio hide"><%= image_tag("selecciona.png") %></div>
-		</div>
-		<div class="op">
-			<div class="imginicio"><%= image_tag("consultabg.png") %></div>
-			<div class="fondoinicio hide"><%= image_tag("consulta.png") %></div>
-		</div>
-		<% end %>
-		<div class="op">
-			<div class="imginicio"><%= image_tag("editabg.png") %></div>
-			<div class="fondoinicio hide"><%= image_tag("edita.png") %></div>
-		</div>
-		<div class="op">
-			<div class="imginicio"><%= image_tag("comentabg.png") %></div>
-			<div class="fondoinicio hide"><%= image_tag("comenta.png") %></div>
-		</div>
-		<div class="op">
-			<div class="imginicio"><%= image_tag("redbg.png") %></div>
-			<div class="fondoinicio hide"><%= image_tag("red.png") %></div>
-		</div>
-	</article>
-		<div class="lineop">
-			<h3 class="usu">opciones como usuario</h3>
-			<h3 class="exp">opciones como experto</h3>
-		</div>
-	<div class ="columnaintro fixfooter">
+		<% if user_signed_in? %>
+		
+		<div class ="intro2">
 	<aside class="activity2">
 			<h5>Actividad biomodelos</h5>
 			<ul>
@@ -98,6 +57,52 @@
 		    </ul>
 		</aside>
 	</div>
+	<% else %>
+	<section class="intro2">
+			<h5>El primer objetivo de BioModelos es generar un canal de comunicación entre expertos y el LBAB, para así <strong>verificar</strong> los datos y modelos obtenidos por el LBAB y conseguir resultados robustos que acerquen a todos los usuarios a una información más precisa sobre la distribución de especies en Colombia.</br></br>
+
+			El segundo objetivo es compartir abiertamente los datos y resultados generados por el LBAB al público general, concretamente los modelos de distribución de especies en Colombia, para que sean utilizados como <strong>referencia</strong> en estudios e investigaciones.</h5>
+		</section>
+	<% end %>
+	</div>
+</div>
+<div class="clearfix"></div>
+<div class="contenedor fixfooter">
+<article class="opciones">
+		<%= link_to new_user_session_path do %>
+		<div class="op">
+			<div class="imginicio"><%= image_tag("ingresabg.png") %></div>
+			<div class="fondoinicio hide"><%= image_tag("ingresa.png") %></div>
+		</div>
+		<% end %>
+		<%= link_to models_visor_path do %>
+		<div class="op">
+			<div class="imginicio"><%= image_tag("seleccionabg.png") %></div>
+			<div class="fondoinicio hide"><%= image_tag("selecciona.png") %></div>
+		</div>
+		<div class="op">
+			<div class="imginicio"><%= image_tag("consultabg.png") %></div>
+			<div class="fondoinicio hide"><%= image_tag("consulta.png") %></div>
+		</div>
+		<% end %>
+		<div class="op">
+			<div class="imginicio"><%= image_tag("editabg.png") %></div>
+			<div class="fondoinicio hide"><%= image_tag("edita.png") %></div>
+		</div>
+		<div class="op">
+			<div class="imginicio"><%= image_tag("comentabg.png") %></div>
+			<div class="fondoinicio hide"><%= image_tag("comenta.png") %></div>
+		</div>
+		<div class="op">
+			<div class="imginicio"><%= image_tag("redbg.png") %></div>
+			<div class="fondoinicio hide"><%= image_tag("red.png") %></div>
+		</div>
+	</article>
+		<div class="lineop">
+			<h3 class="usu">opciones como usuario</h3>
+			<h3 class="exp">opciones como experto</h3>
+		</div>
+	
 </div>
 <script>
 

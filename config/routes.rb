@@ -8,6 +8,7 @@ Biomodis::Application.routes.draw do
   get "species/species_models"
   get "users/edit_profile"
   get "comments/child_comments"
+  get "home/feedback"
   resources :comments, :only => [:create, :destroy]
   resources :home, :only => [:show]
   resources :reviews, :only => [:index, :show, :create]

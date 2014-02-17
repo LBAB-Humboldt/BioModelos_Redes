@@ -178,3 +178,92 @@
   color:#1ab0b5;
   font-weight: 700;
 }
+
+.contacto {
+  width: 700px;
+  height: -webkit-calc(100% - 209px);
+  height: -moz-calc(100% - 209px);
+  height: calc(100% - 209px);
+  position: absolute;
+  top: 86px;
+  right:50px;
+  z-index: 250;
+  background-image: url(<%= asset_path 'fondobla.jpg' %>);
+  padding: 20px;
+  overflow: auto;
+}
+
+.mailimg {
+  position: absolute;
+  top:25px;
+  right:25px;
+  width: 191px;
+  height: 196px;
+  background: url(<%= asset_path 'mail.png' %>);
+  z-index:20;
+}
+
+.contacto h2 {
+  width: 80%;
+  font-weight: 300;
+  font-size: 34px;
+  line-height: 1em;
+  color: #333;
+  text-align: left;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+
+.forma {
+  margin-bottom: 25px;
+  border-bottom: 2px dotted #e73a00;
+}
+
+.forma input[type="text"],
+.forma input[type="email"],
+.forma input[type="tel"]  {
+  border:none;
+  border-bottom: 1px solid #e73a00;
+  padding: 3px;
+  width: 400px;
+  margin-bottom: 15px;
+  color: #fff;
+  font-weight: 300;
+  letter-spacing: 1px;
+  display: block;
+  background: url(<%= asset_path 'bg.jpg' %>);
+}
+
+.forma textarea {
+  border: 1px solid #e73a00;
+  padding: 3px;
+  width: 600px;
+  margin: 15px 0;
+  color: #fff;
+  font-weight: 300;
+  letter-spacing: 1px;
+  background: url(<%= asset_path 'bg.jpg' %>);
+}
+
+.boton1 {
+  font-family: 'bebas_neueregular', sans-serif;
+  font-size: 16px;
+  width: 68px;
+  height: 30px;
+    cursor: pointer;
+    float: right;
+    margin-right: 93px;
+    border:none;
+    background-color: #e73a00;
+    letter-spacing: 2px;
+    color: #fff;
+    border-bottom: 3px solid #e75e31;
+}
+
+.bg4 {
+  width: 100%;
+  height: -moz-calc(100% - 166px);
+  height: -webkit-calc(100% - 166px);
+  height: calc(100% - 166px);
+  background-image: url(<%= asset_path 'bg.jpg' %>);
+}

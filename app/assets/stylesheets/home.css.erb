@@ -52,7 +52,7 @@
 	border-top: 1px dashed #1ab0b5;
 	border-bottom: 1px dashed #1ab0b5;
 	text-align: center;
-	margin: 5px 0 20px;
+	margin: 5px 0;
 }
 
 .lineop h3 {
@@ -69,7 +69,9 @@
 
 .fondomaps {
 	width: 100%;
-	height: 100%;
+	height: -webkit-calc(100% - 166px);
+  	height: -moz-calc(100% - 166px);
+  	height: calc(100% - 166px);
 	background-image: url(<%= asset_path 'mapsmaps.png' %>);
 	-webkit-background-size: cover;
 	background-size: cover;
@@ -141,18 +143,18 @@
 }
 
 .columnaintro {
+	display: inline-block;
 	width: 40%;
 	padding: 0 2% 20px;
-	float: left;
 }
 
 .activity2 {
-    margin-top:20px;
     border: 1px solid #FFC72D;
     border-bottom: 5px solid #FAE49B;
     padding: 0 10px 10px;
     overflow: scroll;
-    height: 200px;
+    height: 100%;
+    margin-top: -7px;
 }
 
 .activity2 h5 {
