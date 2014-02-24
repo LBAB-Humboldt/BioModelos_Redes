@@ -18,3 +18,4 @@
 //= require_tree ./controllers
 //= require_tree ./jsstyling
 //= require jquery.raty.min
+//= require jquery-ui-1.10.4.custom.min
