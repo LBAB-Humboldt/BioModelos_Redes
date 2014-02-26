@@ -12,6 +12,7 @@
  *= require leaflet
  *= require leaflet.draw
  *= require reset
- 
+ *= require MarkerCluster
+ *= require MarkerCluster.Default
  *= require_tree .
  */

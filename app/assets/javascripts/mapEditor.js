@@ -1,7 +1,6 @@
-
 var _mapVisorModule = function() {
 
-	var map, drawnItems, layerControl, modelOverlay, currentLayer, drawControl, reviewLayer,
+	var map, drawnItems, layerControl, modelOverlay, currentLayer, drawControl, reviewLayer, csvLayer,
 		isEditOn = false,
 		commentForm = '<div class="commentForm"><form id="inputform" enctype="multipart/form-data" class="well">' +
         '<label><strong>Observación:</strong></label><br />' +
@@ -56,7 +55,7 @@ var _mapVisorModule = function() {
 	    layerControl.addTo(map);
 	    
 	    //loadModel();
-	}
+	};
 
 	var loadModel = function (modelUrl) {
 
@@ -79,7 +78,7 @@ var _mapVisorModule = function() {
 	        if(e.layer === modelOverlay)
 	            modelOverlay.bringToBack();
 	    });
-	}
+	};
 
 	var loadAllModels = function (modelsUrls) {
 		var modelOver1 = null, modelOver2 = null, modelOver3 = null, modelOver4 = null;
@@ -111,20 +110,23 @@ var _mapVisorModule = function() {
 		map.addLayer(modelOver4);
 		layerControl.addOverlay({"Modelo 1": modelOver1, "Modelo 2": modelOver2, "Modelo 3": modelOver3, "Modelo 4": modelOver4});
 
-	}
+	};
 
-	var unloadReview = function ()
-	{
+	var unloadReview = function (){
 		if(map.hasLayer(reviewLayer)) {
        		map.removeLayer(reviewLayer);
        		layerControl.removeLayer(reviewLayer);
        }
-	}
+	};
 
 	var loadReview = function (reviewGeoJSON) {
 
 		/* Dispose older review if it exists */
        unloadReview();
+
+       /* Deactivate edition if it is active */
+       if (isEditOn) 
+       	deactivateEdition();
 
 		reviewLayer = new L.GeoJSON(JSON.parse(reviewGeoJSON), {
         	onEachFeature: function (feature, layer) {
@@ -138,7 +140,47 @@ var _mapVisorModule = function() {
     	map.addLayer(reviewLayer);
     	layerControl.addOverlay(reviewLayer,"Anotación");
 
-	}
+	};
+
+	var loadPoints = function (csvUrl) {
+
+		var csvTitles = ["Localidad","Municipio","Departamento","Altitud","Fecha","Institucion","Colector"];
+
+		csvLayer = L.geoCsv(null, {		
+										onEachFeature: function (feature, layer) {
+												var popup = '';
+												popup += '<b>'+ feature.geometry.coordinates[0]+', '+ feature.geometry.coordinates[1] + '</b><br /><br />';
+												for (var i=0; i < csvTitles.length; i++) {
+													popup += '<b>'+csvTitles[i]+'</b><br />'+ feature.properties[csvLayer.getPropertyName(csvTitles[i])]+'<br /><br />';
+												}
+												layer.bindPopup(popup);
+										},
+										firstLineTitles: true, 
+										fieldSeparator: ','});
+
+
+		$.ajax ({
+			type:'GET',
+			dataType:'text',
+			url: csvUrl,
+			async: false,
+   			error: function() {
+     			alert('No se pudieron cargar los datos');
+   			},
+			success: function(data) {
+     			var cluster = new L.MarkerClusterGroup();
+				csvLayer.addData(data);
+				cluster.addLayer(csvLayer);
+				map.addLayer(cluster);
+				layerControl.addOverlay(cluster,"Registros");
+				map.fitBounds(cluster.getBounds());
+
+			},
+   			complete: function() {
+      			//$('#cargando').delay(500).fadeOut('slow');
+   			}
+		});
+    };
 
 	var activateEdition = function () {
 
@@ -185,9 +227,15 @@ var _mapVisorModule = function() {
 		    map.on('popupopen', function(e) {
 		        currentPopupID = e.popup._leaflet_id;
 		    });
+
+		    map.on('draw:drawstart', function(e) {
+		    	// alert("Hola");
+		    	// console.log("Elegido");
+		    });
+		    
 		}   
 
-	}
+	};
 
 	var deactivateEdition = function () {
 		if(drawnItems != null && drawControl != null && layerControl != null){
@@ -196,14 +244,14 @@ var _mapVisorModule = function() {
 		 	map.removeControl(drawControl);
 		 	layerControl.removeLayer(drawnItems);
 		}
-	}
+	};
 
 	var cancelLayer = function () {
 
 		currentLayer = getCurrentLayer(currentPopupID);
 		drawnItems.removeLayer(currentLayer);
 
-	}
+	};
 
 	var getCurrentLayer = function (popupID) {
 	    var layerRet;
@@ -211,13 +259,13 @@ var _mapVisorModule = function() {
 	        drawnItems.eachLayer(function(layer) {
 	            if (layer._popup._leaflet_id === popupID) {
 	                var count = 0;
-	                console.log(count++);
+	                //console.log(count++);
 	                layerRet = layer;
 	            }
 	        });
 	    }
 	    return layerRet;
-	}
+	};
 
 
 	var submitComment = function () {
@@ -239,7 +287,7 @@ var _mapVisorModule = function() {
 	        alert("No se ha podido enviar el comentario");
 	        return false;
 	    }
-	}
+	};
 
 	var areEmptyComments = function () {
 	    var isEmpty = false;
@@ -250,7 +298,7 @@ var _mapVisorModule = function() {
 	        }
 	    });
 	    return isEmpty;
-	}
+	};
 
 	var toGeoJSON = function () {
 
@@ -307,19 +355,17 @@ var _mapVisorModule = function() {
 	    });
 	    geoJSONLayer += ']}';
 
-	    console.log(geoJSONLayer);
+	    //console.log(geoJSONLayer);
 	    return geoJSONLayer;
-	}
+	};
 
 	var saveEdition = function () {
 	    if (!areEmptyComments()){
 	    	return toGeoJSON();
 	    }  
-	    else {
+	    else
 	        alert("Hay observaciones sin completar");
-    }
-
-}
+    };
 
 	return {
 
@@ -331,11 +377,10 @@ var _mapVisorModule = function() {
 		saveEdition: saveEdition,
 		submitComment: submitComment,
 		loadReview: loadReview,
-		unloadReview: unloadReview
-	}
-
+		unloadReview: unloadReview,
+		loadPoints: loadPoints
+	};
 }();
-
 
 $(document).ready(function() {
 
@@ -354,7 +399,5 @@ $(document).ready(function() {
 	});
 
 	_mapVisorModule.init();
+
 });
-
-
-

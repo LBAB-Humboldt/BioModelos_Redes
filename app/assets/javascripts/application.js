@@ -12,9 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require_tree ./controllers
 //= require turbolinks
 //= require typeahead.min
 //= require leaflet
-//= require_tree ./controllers
-//= require_tree ./jsstyling
 //= require jquery.raty.min
+//= require leaflet/leaflet.markercluster
+//= require leaflet/leaflet.geocsv
+
+

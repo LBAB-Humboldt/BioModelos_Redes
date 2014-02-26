@@ -15,33 +15,3 @@
 	<% end %>
 	</li>
 </section>
-
-<script>
-	 	$('.vermodelo').click(function (e) {
-            // $('.showmodels, .cajabusqueda, .selectores').hide ('slow');
-            e.preventDefault(); // Prevent link from following its href
-            _mapVisorModule.deactivateEdition();
-            $('#saveBtn').hide();
-            $('#editBtn').show();
-            //_mapVisorModule.loadReview($('#sp_review_geoJSON').val());
-            _mapVisorModule.loadReview($(this).find('input').attr('value'));
-     	});
-
-		$(document).ready(function() {     
-		  $('#load-link-review').click(function() {
-		    $('img', this).attr('src', function(i, oldSrc) {
-		        return oldSrc == '/assets/ver.png' ? '/assets/ver2.png' : '/assets/ver.png';
-		    });
-		    return false;
-		  });
-		  $('#like').click(function() {
-		  	e.preventDefault(); 
-		    $('img', this).attr('src', function(i, oldSrc) {
-		        return oldSrc == '/assets/like.png' ? '/assets/like2.png' : '/assets/like.png';
-		    });
-		    return false;
-		  });
-		});
-
-
-</script>

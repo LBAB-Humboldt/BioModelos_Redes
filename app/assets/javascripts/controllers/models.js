@@ -99,19 +99,12 @@ $( document ).ready(function() {
       
       e.preventDefault();
   });
-
-
-
-  // $("#species_src_btn").click(function(e){
-  //         $('.selectores,.cajabusqueda').hide('slow');
-  //         $('.showmodels').show('slow');
-  //         //e.preventDefault();
-  // });
   
   $('.searchcateg').click(function(e){
     $('.cajabusqueda').show('slow');
     $('.resultados').html("");
   });
+
 });
 
 
