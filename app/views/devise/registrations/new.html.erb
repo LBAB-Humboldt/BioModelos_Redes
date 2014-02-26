@@ -10,14 +10,15 @@ los siguientes datos para generar tu perfil.</p>
     <%= f.input :interestGroups, label: false, :placeholder => "Grupo(s) taxonómico(s) de interés", :input_html => { :class => "inputforma inp2", :maxlength => 80 } %>
     <%= f.input :location, label: false, :placeholder => "Ciudad o Municipio", :input_html => { :class => "inputforma inp2", :maxlength => 50 } %>
     <%= f.input :organization, label: false, :placeholder => "Organización", :input_html => { :class => "inputforma inp2", :maxlength => 100 } %>
+<h1>Tu email no será público, es tu usuario.</h1>
     <%= f.input :email, :required => true, label: false, :placeholder => "Mail (será nombre de usuario)*", :input_html => { :class => "inputforma inp2" } %>
     <%= f.input :password, :required => true, label: false, :placeholder => "Contraseña *", :input_html => { :class => "inputforma inp2" } %>
     <%= f.input :password_confirmation, :required => true, label: false, :placeholder => "Confirmar Contraseña *", :input_html => { :class => "inputforma inp2" } %>
-    <%= f.input :bio, :as => :text, label: false, :placeholder => "Biografía resumida (max 1000 caracteres)", :input_html => { :class => "inputforma inp2", :cols => 50, :rows => 8, :maxlength => 1000 } %>
+    <%= f.input :bio, :as => :text, label: false, :placeholder => "Biografía resumida (max 1000 caracteres)", :input_html => { :class => "inputforma inp2", :cols => 50, :rows => 7, :maxlength => 1000 } %>
     <!-- <a class="avatarlink" href="#">foto avatar en gravatar</a> -->
     <%= f.button :button, "registrar", :class => "bbton" %>
-    <div class="clearfix"></div><!--links float-->
 	<%= render "devise/shared/links" %>
+    <div class="clearfix"></div><!--links float-->
 <% end %>
 </section>
 </div>
