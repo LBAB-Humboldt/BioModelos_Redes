@@ -3,7 +3,7 @@
 		<div class="lbabfooter">
 				<div class="textft">
 				<h1><strong>Programa de Gestión de Información y Conocimiento (GIC)</strong></h1>
-				<h1>Laboratorio de Biogeografía Aplicada y Bioacústica</h1>
+				<h1><a href="http://humboldt.org.co/investigacion/centro-de-analisis-y-sintesis/laboratorio-2" target="_blank">Laboratorio de Biogeografía Aplicada y Bioacústica</a></h1>
 				<p><strong>Dirección</strong> calle 28A no. 15-09 Bogotá D.C., Colombia.</br>
 				<strong>Teléfono</strong> pbx 57(1) 320 2767</br>
 				lbab@humboldt.org.co</p>
@@ -23,10 +23,60 @@
 			  <% else %>
 			    <li><%= link_to 'ingresar', new_user_session_path %></li>
 			    <li><%= link_to 'Registrarse', new_user_registration_path %></li>
-			  <% end %></br>	
+			  <% end %></br>
 			  <div class="faq"><%= link_to 'faq', faq_index_path %></div>	
+			  <div class="faq">
+			  	<a data-lightbox="image-1" href="assets/tutorial1.png" id="tututo">TUTORIAL</a>
+			  </div>
 			  <div class="faq"><%= link_to 'contacto', home_feedback_path %></div>
 			</ul>
 		</nav>
 	</div>
+	<a data-lightbox="image-1" href="assets/tutorial2.png"></a>
+	<a data-lightbox="image-1" href="assets/tutorial3.png"></a>
+	<a data-lightbox="image-1" href="assets/tutorial4.png"></a>
+	<a data-lightbox="image-1" href="assets/tutorial5.png"></a>
+	<a data-lightbox="image-1" href="assets/tutorial6.png"></a>
+	<a data-lightbox="image-1" href="assets/tutorial7.png"></a>
+	<link rel="stylesheet" href="assets/lightbox.css" />
+	<script src="assets/lightbox-2.6.min.js"></script>
+	<script type="text/javascript">
+	//<![CDATA[
+
+	function createCookie(name,value,days) {
+	  if (days) {
+	    var date = new Date();
+	    date.setTime(date.getTime()+(days*24*60*60*1000));
+	    var expires = "; expires="+date.toGMTString();
+	  }
+	  else var expires = "";
+	  document.cookie = name+"="+value+expires+"; path=/";
+	}
+
+	function readCookie(name) {
+	  var nameEQ = name + "=";
+	  var ca = document.cookie.split(';');
+	  for(var i=0;i < ca.length;i++) {
+	    var c = ca[i];
+	    while (c.charAt(0)==' ') c = c.substring(1,c.length);
+	    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+	  }
+	  return null;
+	}
+
+	function showModal() {
+	  $("#tututo").click();
+	}
+
+	var visited = readCookie('mypopup');
+
+	if (!visited) {
+	  $(document).ready(function(){
+	    showModal();
+	    createCookie('mypopup','no',0);
+	  });
+	}
+
+	//]]>
+	</script>
 </footer>
