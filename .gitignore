@@ -26,6 +26,9 @@ doc/
 .secret
 /app/assets/images/models/*.png
 modelos/
+kmz/
+thumbs/
+registros/
 public/assets/
 *.sql
 *.csv

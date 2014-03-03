@@ -7,10 +7,19 @@ class Model < ActiveRecord::Base
     validates :rating, inclusion: { in: 0..9 }
 
 	has_many :reviews
+	has_many :ratings
+
 
 	def self.search(query)
 		where(":species_id like ?", "%#{query}%")
 	end
 
+	def average_rating
+		ratings.size == 0 ? 0.0 : ratings.sum(:score) / ratings.size
+	end
+
+	def total_votes
+		ratings.size
+	end
 
 end

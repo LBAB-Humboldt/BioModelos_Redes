@@ -148,11 +148,12 @@ var _mapVisorModule = function() {
 
 		csvLayer = L.geoCsv(null, {		
 										onEachFeature: function (feature, layer) {
-												var popup = '';
+												var popup = '<div class="cajita">';
 												popup += '<b>'+ feature.geometry.coordinates[0]+', '+ feature.geometry.coordinates[1] + '</b><br /><br />';
 												for (var i=0; i < csvTitles.length; i++) {
 													popup += '<b>'+csvTitles[i]+'</b><br />'+ feature.properties[csvLayer.getPropertyName(csvTitles[i])]+'<br /><br />';
 												}
+												popup += '</div>'
 												layer.bindPopup(popup);
 										},
 										firstLineTitles: true, 

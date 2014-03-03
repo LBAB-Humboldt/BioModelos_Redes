@@ -2,13 +2,14 @@ Biomodis::Application.routes.draw do
   devise_for :users
   #devise_for :users
   get "models/visor"
-  get "models/search"
   get "models/download_model"
   get "species/species_content"
   get "species/species_models"
   get "users/edit_profile"
   get "comments/child_comments"
   get "home/feedback"
+  post "ratings/rate_model"
+  resources :ratings, only: :update
   resources :comments, :only => [:create, :destroy]
   resources :home, :only => [:show]
   resources :reviews, :only => [:index, :show, :create]

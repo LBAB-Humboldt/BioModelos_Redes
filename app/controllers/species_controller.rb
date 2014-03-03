@@ -30,15 +30,18 @@ class SpeciesController < ApplicationController
       @species = nil
     else
       @species = Species.find(params[:species_id])
-      @models = Model.where(:species_id => params[:species_id]).limit(4)
+      @models = Model.where(:species_id => params[:species_id], current: true).limit(10)
       @all_comments = @species.root_comments.order('created_at desc')
 
-      @models_tag = ['min', 'min_cut', '10p', '10p_cut']
-
-      arr =[]
+      arr = []
+      @ratings = Hash.new 
 
       @models.each do |m|
         arr.push(m.id)
+        if user_signed_in?
+          @rating = Rating.where(model_id: m.id, user_id: current_user.id).first
+          @ratings[m.id] = @rating.blank? ? 0 : @rating.score
+        end
       end
 
       @species_reviews = Review.where({ model_id: arr})

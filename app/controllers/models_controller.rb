@@ -27,15 +27,6 @@ class ModelsController < ApplicationController
     end
   end
 
-  def search
-    @models = Model.search params[:query]
-
-    respond_to do |format|
-      format.html # show_rec_horses.html.erb
-      format.js   # show_rec_horses.js.erb
-    end
-  end
-
   def download_model
     send_file Rails.root.join('public/'+ Model.find(params[:m_id]).img_url), :type => 'image/png', :disposition => 'attachment'
   end
