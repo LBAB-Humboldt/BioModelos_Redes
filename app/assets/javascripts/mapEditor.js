@@ -1,6 +1,6 @@
 var _mapVisorModule = function() {
 
-	var map, drawnItems, layerControl, modelOverlay, currentLayer, drawControl, reviewLayer, csvLayer,
+	var map, drawnItems, layerControl, modelOverlay, currentLayer, drawControl, reviewLayer, csvLayer, cluster,
 		isEditOn = false,
 		commentForm = '<div class="commentForm"><form id="inputform" enctype="multipart/form-data" class="well">' +
         '<label><strong>Observación:</strong></label><br />' +
@@ -17,7 +17,7 @@ var _mapVisorModule = function() {
 		var latlng = new L.LatLng(4, -72),
         	zoom = 6,
         	mZoom = 2,
-        	mxZoom = 9;
+        	mxZoom = 16;
 
         	/* Base Layers */
         	var googleTerrain = new L.Google('TERRAIN', {minZoom:mZoom, maxZoom: mxZoom}),
@@ -156,6 +156,8 @@ var _mapVisorModule = function() {
 												popup += '</div>'
 												layer.bindPopup(popup);
 										},
+										latitudeTitle: 'latitude',
+										longitudeTitle: 'longitude',
 										firstLineTitles: true, 
 										fieldSeparator: ','});
 
@@ -169,7 +171,7 @@ var _mapVisorModule = function() {
      			alert('No se pudieron cargar los datos');
    			},
 			success: function(data) {
-     			var cluster = new L.MarkerClusterGroup();
+     			cluster = new L.MarkerClusterGroup();
 				csvLayer.addData(data);
 				cluster.addLayer(csvLayer);
 				map.addLayer(cluster);
@@ -182,6 +184,13 @@ var _mapVisorModule = function() {
    			}
 		});
     };
+
+    var unloadPoints = function () {
+		if(map.hasLayer(cluster)) {
+       		map.removeLayer(cluster);
+       		layerControl.removeLayer(cluster);
+       }
+	};
 
 	var activateEdition = function () {
 
@@ -379,7 +388,8 @@ var _mapVisorModule = function() {
 		submitComment: submitComment,
 		loadReview: loadReview,
 		unloadReview: unloadReview,
-		loadPoints: loadPoints
+		loadPoints: loadPoints,
+		unloadPoints: unloadPoints
 	};
 }();
 

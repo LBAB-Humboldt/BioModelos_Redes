@@ -1,5 +1,6 @@
 class Group < ActiveRecord::Base
 
-	has_and_belongs_to_many :users, :species
+	has_and_belongs_to_many :users 
+	has_and_belongs_to_many :species
 
 end

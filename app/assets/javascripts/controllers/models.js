@@ -1,7 +1,7 @@
 var clearShowBox = function() {
   $('#search_field').val('');
   $('#search_field').typeahead('setQuery', '');
-  $('.resultados').html("<small><a href='/listado.html' target='_blank'>Listado de especies</a></small>");
+  //$('.resultados').html("<small><a href='/listado.html' target='_blank'>Listado de especies</a></small>");
   $('.cajabusqueda').show('slow');
 }
 
@@ -12,6 +12,7 @@ $( document ).ready(function() {
     $('#class_id').val(1);
     $('#cajasearch2,#cajasearch3,#cajasearch4,#cajasearch5,#cajasearch6,#cajasearch7').hide('slow');
     clearShowBox();
+    $('.resultados').load('../anflist.html');
     e.preventDefault();
   });
   $("#avessh").click(function(e){
@@ -19,6 +20,7 @@ $( document ).ready(function() {
     $('#class_id').val(2);
     $('#cajasearch1,#cajasearch3,#cajasearch4,#cajasearch5,#cajasearch6,#cajasearch7').hide('slow');
     clearShowBox();
+    $('.resultados').load('../aveslist.html');
     e.preventDefault();
   });
   $("#invsh").click(function(e){
@@ -33,6 +35,7 @@ $( document ).ready(function() {
     $('#class_id').val(4);
     $('#cajasearch2,#cajasearch3,#cajasearch1,#cajasearch5,#cajasearch6,#cajasearch7').hide('slow');
     clearShowBox();
+    $('.resultados').load('../mamlist.html');
      e.preventDefault(); 
   });
   $("#pecsh").click(function(e){
@@ -47,6 +50,7 @@ $( document ).ready(function() {
     $('#class_id').val(6);
     $('#cajasearch2,#cajasearch3,#cajasearch4,#cajasearch5,#cajasearch1,#cajasearch7').hide('slow');
     clearShowBox();
+    $('.resultados').load('../replist.html');
      e.preventDefault();
   });
   $("#plash").click(function(e){
@@ -54,17 +58,19 @@ $( document ).ready(function() {
     $('#class_id').val(7);
     $('#cajasearch2,#cajasearch3,#cajasearch4,#cajasearch5,#cajasearch6,#cajasearch1').hide('slow');
     clearShowBox();
+    $('.resultados').load('../plantlist.html');
      e.preventDefault();
   });
   $(".findbar").click(function(e){
+          e.preventDefault();
           $('.showmodels, .cajabusqueda, .editControls, .edicionbar, .cajabusqueda, .botonmodelos, .cajaediciones').hide('slow');
           $("#editBtn").show();
           $("#saveBtn").hide();
           _mapVisorModule.deactivateEdition();
           _mapVisorModule.unloadReview();
+          _mapVisorModule.unloadPoints();
           $('#species_id').val('');
           $('.selectores').show('slow');
-          e.preventDefault();
   });
   $(".edicionbar").click(function(e){
       if($(".cajaediciones").is(":visible")){

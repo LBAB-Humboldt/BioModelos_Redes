@@ -102,7 +102,7 @@ ActiveRecord::Schema.define(version: 20140226194008) do
   create_table "reviews", force: true do |t|
     t.integer  "user_id"
     t.integer  "model_id"
-    t.text     "geoJSON"
+    t.text     "geoJSON",    limit: 2097152
     t.datetime "created_at"
     t.datetime "updated_at"
   end

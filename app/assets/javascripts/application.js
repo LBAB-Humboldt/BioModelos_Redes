@@ -19,4 +19,4 @@
 //= require jquery.raty.min
 //= require leaflet/leaflet.markercluster
 //= require leaflet/leaflet.geocsv
-//= require jquery-ui-1.10.4.custom.min
+//= require lightbox-2.6.min

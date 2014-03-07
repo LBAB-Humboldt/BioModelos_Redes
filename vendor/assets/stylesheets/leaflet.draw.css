@@ -300,3 +300,7 @@
 	box-shadow: none;
 	background-color: #ffc72d;
 }
+
+.leaflet-container img.leaflet-image-layer {
+   max-width: none !important;
+}

@@ -14,5 +14,6 @@
  *= require reset
  *= require MarkerCluster
  *= require MarkerCluster.Default
+ *= require lightbox
  *= require_tree .
  */

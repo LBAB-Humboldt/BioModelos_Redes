@@ -8,6 +8,7 @@ Biomodis::Application.routes.draw do
   get "users/edit_profile"
   get "comments/child_comments"
   get "home/feedback"
+  post "home/send_message"
   post "ratings/rate_model"
   resources :ratings, only: :update
   resources :comments, :only => [:create, :destroy]
