@@ -40,6 +40,7 @@
            <%= f.hidden_field :user_id, :value => get_current_user_id %>
            <%= f.hidden_field :geoJSON %>
            <%= f.submit "guardar", :id => 'saveBtn', :class => 'sbtn' %>
+           <%= f.submit "cancel", :id => 'cancBtn', :class => 'cbtn' %>
        <% end %>  
     <% end %>
 </div>

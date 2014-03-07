@@ -6,7 +6,7 @@ var clearShowBox = function() {
 }
 
 $( document ).ready(function() {
-  $('.searchcateg,.showmodels,.editControls,#saveBtn,.cajabusqueda,.showmodels,.cajaediciones,.edicionbar,.botonmodelos').hide();
+  $('.searchcateg,.showmodels,.editControls,#saveBtn,#cancBtn,.cajabusqueda,.showmodels,.cajaediciones,.edicionbar,.botonmodelos').hide();
   $("#anfsh").click(function(e){
     $('#cajasearch1').show('slow');
     $('#class_id').val(1);
@@ -66,6 +66,7 @@ $( document ).ready(function() {
           $('.showmodels, .cajabusqueda, .editControls, .edicionbar, .cajabusqueda, .botonmodelos, .cajaediciones').hide('slow');
           $("#editBtn").show();
           $("#saveBtn").hide();
+          $("#cancBtn").hide();
           _mapVisorModule.deactivateEdition();
           _mapVisorModule.unloadReview();
           _mapVisorModule.unloadPoints();
@@ -85,6 +86,7 @@ $( document ).ready(function() {
   $("#editBtn").click(function(e){
           $("#editBtn").hide();
           $("#saveBtn").show();
+          $("#cancBtn").show();
           e.preventDefault();
   });
   $("#saveBtn").click(function(){
