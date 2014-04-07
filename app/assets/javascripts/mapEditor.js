@@ -14,14 +14,14 @@ var _mapVisorModule = function() {
            '<button class="btn2" id="popUpCancelBtn" type="button">cancelar</button></form></div>'; 
         pointForm = '<div class="commentForm"><form id="inputform" enctype="multipart/form-data" class="well"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>' +
            '<input id="review_type" type="hidden">'+
-           '<label><strong>Observación:</strong></label><br />' +
-	       '<label>Lat: </label><input type="text" name="latitude" id="lat" size="7" disabled><label>Lng: </label><input type="text" name="longitude" id="lng" size="7" disabled><br />' +
-	       '<label>Fecha de registro</label><input type="date" id="fecha_registro" name="fecha_registro"><br />' +
-	       '<label>Localidad: </label><input type="text" id="r_localidad" name="localidad"><br />' +
-	       '<label>Tipo: </label><input type="text" name="tipo" id="r_tipo"><br />' +
-	       '<label>Observador: </label><input type="text" name="colector" id="r_observador"><br />' +
-	       '<label>Cita: </label><input type="text" name="cita" id="r_cita"><br />' +
-	       '<textarea rows="4" cols="30" placeholder="Ingrese una observación" id="comment" class="cmtArea"></textarea>' +
+           '<label class="tituloformas">Observación:</label><br />' +
+	       '<label>Lat: </label><input type="text" name="latitude" id="lat" size="7" disabled class="inputforma wauto"><label> Lng: </label><input type="text" name="longitude" id="lng" size="7" class="inputforma wauto" disabled><br />' +
+	       '<input type="date" id="fecha_registro" name="fecha_registro" placeholder="Fecha de registro (mm/dd/aa)" class="inputforma w227"><br />' +
+	       '<input type="text" id="r_localidad" name="localidad" placeholder="Localidad" class="inputforma w227"><br />' +
+	       '<input type="text" name="tipo" id="r_tipo" placeholder="Tipo" class="inputforma w227"><br />' +
+	       '<input type="text" name="colector" id="r_observador" placeholder="Observador" class="inputforma w227"><br />' +
+	       '<input type="text" name="cita" id="r_cita" placeholder="Cita" class="inputforma w227"><br />' +
+	       '<textarea rows="4" cols="30" placeholder="Ingrese una observación" id="comment" class="inputforma w227"></textarea>' +
 	       '<div class="row-fluid clearfix">' +
 	       '<input class="btn2" id="saveBtn" name="commit" type="submit" value="guardar">' +
            '<button class="btn2" id="popUpCancelBtn" type="button">cancelar</button></form></div>'; 

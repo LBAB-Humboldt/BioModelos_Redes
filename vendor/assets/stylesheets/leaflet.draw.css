@@ -304,3 +304,7 @@
 .leaflet-container img.leaflet-image-layer {
    max-width: none !important;
 }
+
+.inputform label {
+	margin-top: 5px;
+}
