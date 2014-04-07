@@ -16,7 +16,8 @@
 //= require turbolinks
 //= require typeahead.min
 //= require leaflet
-//= require jquery.raty.min
+//= require leaflet/Leaflet.Coordinates-0.1.3
 //= require leaflet/leaflet.markercluster
 //= require leaflet/leaflet.geocsv
+//= require jquery.raty.min
 //= require lightbox-2.6.min

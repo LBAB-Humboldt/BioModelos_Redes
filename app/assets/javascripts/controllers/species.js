@@ -11,9 +11,9 @@ $( document ).ready(function() {
     					}
   				},
     	minLength: 2
-  	});
+  });
 
-  	$("#search_field").on("typeahead:selected typeahead:autocompleted", function(e,datum) { 
+  $("#search_field").on("typeahead:selected typeahead:autocompleted", function(e,datum) { 
 		$("#species_id").val(datum.id);
-	});
+	 });
 });

@@ -1,11 +1,18 @@
-var clearShowBox = function() {
-  $('#search_field').val('');
-  $('#search_field').typeahead('setQuery', '');
-  //$('.resultados').html("<small><a href='/listado.html' target='_blank'>Listado de especies</a></small>");
-  $('.cajabusqueda').show('slow');
-}
-
 $( document ).ready(function() {
+
+  var clearShowBox = function() {
+    $('#search_field').val('');
+    $('#search_field').typeahead('setQuery', '');
+    //$('.resultados').html("<small><a href='/listado.html' target='_blank'>Listado de especies</a></small>");
+    $('.cajabusqueda').show('slow');
+  }
+
+  var editButtonsOff = function(){
+    $("#editBtn").show();
+    $("#saveBtn").hide();
+    $("#cancBtn").hide();
+  }
+
   $('.searchcateg,.showmodels,.editControls,#saveBtn,#cancBtn,.cajabusqueda,.showmodels,.cajaediciones,.edicionbar,.botonmodelos').hide();
   $("#anfsh").click(function(e){
     $('#cajasearch1').show('slow');
@@ -64,9 +71,7 @@ $( document ).ready(function() {
   $(".findbar").click(function(e){
           e.preventDefault();
           $('.showmodels, .cajabusqueda, .editControls, .edicionbar, .cajabusqueda, .botonmodelos, .cajaediciones').hide('slow');
-          $("#editBtn").show();
-          $("#saveBtn").hide();
-          $("#cancBtn").hide();
+          editButtonsOff();
           _mapVisorModule.deactivateEdition();
           _mapVisorModule.unloadReview();
           _mapVisorModule.unloadPoints();
@@ -89,15 +94,13 @@ $( document ).ready(function() {
           $("#cancBtn").show();
           e.preventDefault();
   });
-  $("#saveBtn").click(function(){
-        var newGeoJSON = _mapVisorModule.saveEdition();
-        if(newGeoJSON)
-          $("#review_geoJSON").val(_mapVisorModule.saveEdition());
-        else
-          return false; 
+  $("#cancBtn").click(function(e){
+    e.preventDefault();
+    _mapVisorModule.cancelEdition();
+    editButtonsOff();
   });
 
-   $(".botonmodelos").click(function(e){
+  $(".botonmodelos").click(function(e){
       if($(".showmodels").is(":visible")){
         $(".showmodels").hide();
       }

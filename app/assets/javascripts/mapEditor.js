@@ -2,15 +2,29 @@ var _mapVisorModule = function() {
 
 	var map, drawnItems, layerControl, modelOverlay, currentLayer, drawControl, reviewLayer, csvLayer, cluster,
 		isEditOn = false,
-		commentForm = '<div class="commentForm"><form id="inputform" enctype="multipart/form-data" class="well">' +
-        '<label><strong>Observación:</strong></label><br />' +
-        '<textarea rows="4" cols="30" placeholder="Required" id="comment"></textarea>' +
-        '<div class="row-fluid clearfix">' +
-        '<label class="labelcom clearfix"><strong>Acción:</strong></label><input type="radio" name="EditType" value="Add" class="radiogaga">Agregar</input><input type="radio" name="EditType" value="Cut" class="radiogaga">Remover</input><input type="radio" name="EditType" value="Other" class="radiogaga" checked>Otra</input>'+
-        '<button id="popUpCancelBtn" type="button" class="btn2">Cancelar</button>' +
-        '<button id="popUpSubmitBtn" type="button" class="btn2">Enviar</button>' +
-        '</div>' +
-        '</form></div>';
+		commentForm = '<div class="commentForm"><form accept-charset="UTF-8" action="/reviews" class="simple_form well" data-remote="true" id="new_review" method="post" novalidate="novalidate"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>' +
+           '<input id="review_model_id" name="review[model_id]" type="hidden">' +
+           '<input id="review_user_id" name="review[user_id]" type="hidden">' +
+           '<input id="review_geoJSON" name="review[geoJSON]" type="hidden">' +
+           '<label><strong>Observación:</strong></label><br />' +
+	       '<textarea rows="4" cols="30" placeholder="Ingrese una observación" id="comment" class="cmtArea"></textarea>' +
+	       '<div class="row-fluid clearfix">' +
+	       '<label class="labelcom clearfix"><strong>Acción:</strong></label><input type="radio" name="EditType" value="Add" class="radiogaga">Agregar</input><input type="radio" name="EditType" value="Cut" class="radiogaga">Remover</input><input type="radio" name="EditType" value="Other" class="radiogaga" checked>Otra</input>'+
+	       '<input class="btn2" id="saveBtn" name="commit" type="submit" value="guardar">' +
+           '<button class="btn2" id="popUpCancelBtn" type="button">cancelar</button></form></div>'; 
+        pointForm = '<div class="commentForm"><form id="inputform" enctype="multipart/form-data" class="well"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>' +
+           '<input id="review_type" type="hidden">'+
+           '<label><strong>Observación:</strong></label><br />' +
+	       '<label>Lat: </label><input type="text" name="latitude" id="lat" size="7" disabled><label>Lng: </label><input type="text" name="longitude" id="lng" size="7" disabled><br />' +
+	       '<label>Fecha de registro</label><input type="date" id="fecha_registro" name="fecha_registro"><br />' +
+	       '<label>Localidad: </label><input type="text" id="r_localidad" name="localidad"><br />' +
+	       '<label>Tipo: </label><input type="text" name="tipo" id="r_tipo"><br />' +
+	       '<label>Observador: </label><input type="text" name="colector" id="r_observador"><br />' +
+	       '<label>Cita: </label><input type="text" name="cita" id="r_cita"><br />' +
+	       '<textarea rows="4" cols="30" placeholder="Ingrese una observación" id="comment" class="cmtArea"></textarea>' +
+	       '<div class="row-fluid clearfix">' +
+	       '<input class="btn2" id="saveBtn" name="commit" type="submit" value="guardar">' +
+           '<button class="btn2" id="popUpCancelBtn" type="button">cancelar</button></form></div>'; 
 
 	var init = function() {
 
@@ -35,7 +49,6 @@ var _mapVisorModule = function() {
 		
 	    		});
 
-
 	    var	baseLayers = {
 	    		"Google Terrain": googleTerrain,
 	    		"Google Satellite": googleSatellite,
@@ -53,6 +66,17 @@ var _mapVisorModule = function() {
 	    /* autoZIndex controls the layer order */
 	    layerControl = L.control.layers(baseLayers, overlays, {autoZIndex: true});
 	    layerControl.addTo(map);
+
+	    L.control.coordinates({
+    		position:"topleft", //optional default "bootomright"
+		    decimals:2, //optional default 4
+		    decimalSeperator:".", //optional default "."
+		    labelTemplateLat:"Latitud: {y}", //optional default "Lat: {y}"
+		    labelTemplateLng:"Longitud: {x}", //optional default "Lng: {x}"
+		    enableUserInput:false, //optional default true
+		    useDMS:false, //optional default false
+		    useLatLngOrder: true //ordering of labels, default false-> lng-lat
+		}).addTo(map);
 	    
 	    //loadModel();
 	};
@@ -128,12 +152,19 @@ var _mapVisorModule = function() {
        if (isEditOn) 
        	deactivateEdition();
 
+       var 	propTypes = ["Fecha de Registro", "Localidad", "Tipo", "Observador", "Cita"],
+       		popupString = '';
+
+
 		reviewLayer = new L.GeoJSON(JSON.parse(reviewGeoJSON), {
         	onEachFeature: function (feature, layer) {
-            	if (feature.properties.popupContent) {
-                	var popupString = '<div class="popup">'+feature.properties.popupContent+'</div>';
-                	layer.bindPopup(popupString, { maxHeight: 200 });
-            	}
+            	if (feature.geometry.type === 'Point') {
+            		for (var i=0; i < propTypes.length; i++) {
+						popupString += '<b>'+propTypes[i]+'</b><br />'+ feature.properties[propTypes[i]]+'<br /><br />';
+					}
+				}
+				popupString += '<b>Comentario </b><br />'+ feature.properties.Comentario+'<br /><br />';
+                layer.bindPopup(popupString, { maxHeight: 200 });
     		}
     	});
 
@@ -219,18 +250,33 @@ var _mapVisorModule = function() {
 
 		    /* Draw Created Event Listener */
 		    map.on('draw:created', function(e) {
-		        var popup = new L.Popup({
-		            closeButton: false,
-		            closeOnClick: false
-		        }).setContent(commentForm); 
 
-		        var layer = e.layer;
+		    	var type = e.layerType,
+		    		layer = e.layer,
+		    		pLatLng,
+		    		popup = new L.Popup({
+		            	closeButton: false,
+		            	closeOnClick: false
+		       		});
 
-		        layer.bindPopup(popup);
+    			if (type === 'marker') {
+    				pLatLng = layer.getLatLng();
+    				popup.setContent(pointForm);	
+    			}
+    			else {
+    				//popup.setContent($('.editControls').html());
+    				popup.setContent(commentForm);
+    			}
 
+    			layer.bindPopup(popup); 
 		        drawnItems.addLayer(layer);
-
 		        layer.openPopup();
+
+		        if(type === 'marker'){
+		        	$('#lat').val(L.NumberFormatter.round(pLatLng.lat, 2, "."));
+		        	$('#lng').val(L.NumberFormatter.round(pLatLng.lng, 2, "."));
+		        	$('#review_type').val('point');
+		        } 
 		    });
 		    
 		    /* Popup Open Event Listener*/
@@ -241,10 +287,8 @@ var _mapVisorModule = function() {
 		    map.on('draw:drawstart', function(e) {
 		    	// alert("Hola");
 		    	// console.log("Elegido");
-		    });
-		    
+		    });	    
 		}   
-
 	};
 
 	var deactivateEdition = function () {
@@ -278,7 +322,8 @@ var _mapVisorModule = function() {
 	};
 
 
-	var submitComment = function () {
+	var saveEdition = function () {
+		var popupHtml = '';
 		var comment = $("#comment").val();
 	    if (comment.length === 0) {
 	        alert("¡Ingrese una observación!");
@@ -289,26 +334,39 @@ var _mapVisorModule = function() {
 
 	    if (currentLayer !== undefined && currentLayer !== null) {
 	    	var editType = $('input[name="EditType"]:checked').val();
+	    	if($('#review_type').val() === 'point'){
+	    		popupHtml +=	'<label>Fecha de registro: </label><label id="puFechaRegistro">'+ $('#fecha_registro').val() +'</label><br />' +
+	    						'<label>Localidad: </label><label id="puLocalidad">'+ $('#r_localidad').val() +'</label><br />' +
+	    						'<label>Tipo: </label><label id="puTipo">'+ $('#r_tipo').val() +'</label><br />' +
+	    						'<label>Observador: </label><label id="puObservador">'+ $('#r_observador').val() +'</label><br />' +
+	    						'<label>Cita: </label><label id="puCita">'+ $('#r_cita').val() +'</label><br />';
+	    	}
+	    	popupHtml += '<label>Comentario: </label><label id="puComment">'+ $('#comment').val() +'</label><br />';
+	    	
 	        currentLayer.closePopup();
-	        currentLayer.bindPopup( editType + ': ' + comment);
+	        currentLayer.bindPopup(popupHtml);
 	        currentLayer.openPopup();
 	    }
 	    else {
 	        alert("No se ha podido enviar el comentario");
 	        return false;
 	    }
+	    //console.log(toGeoJSON());
+	    $('#review_geoJSON').val(toGeoJSON());
+	    $('#new_review').submit();
 	};
 
-	var areEmptyComments = function () {
-	    var isEmpty = false;
-	    /* TODO: Try to break iteration once it found an empty popup */
-	    drawnItems.eachLayer(function(layer) {
-	        if (layer._popup._content === commentForm) {
-	            isEmpty = true;
-	        }
-	    });
-	    return isEmpty;
+	var cancelEdition = function () {
+		// var cancel = true;
+		// if(confirm('¿Desea cancelar sin guardar los cambios?'))
+		// 	deactivateEdition();
+		// else 
+		// 	cancel = false;
+		
+		// return cancel;
+		deactivateEdition();
 	};
+
 
 	var toGeoJSON = function () {
 
@@ -358,7 +416,19 @@ var _mapVisorModule = function() {
 	        else
 	            geoJSONLayer += '[' + coords + ']';
 
-	        geoJSONLayer += '}, "properties": {"popupContent": "' + layer._popup._content + '"}}';
+	        geoJSONLayer += '}, "properties": {"Comentario": "' + $('#puComment').text();
+	        if (ltG.geometry.type === 'Point'){
+	        	geoJSONLayer += '", "Fecha de Registro": "' + $('#puFechaRegistro').text() + '"' +
+	        					', "Localidad": "' + $('#puLocalidad').text() + '"' +
+	        					', "Tipo": "' + $('#puTipo').text() + '"' +
+	        					', "Observador": "' + $('#puObservador').text() + '"' +
+	        					', "Cita": "' + $('#puCita').text();
+	        }
+	        else
+	        	geoJSONLayer += '", "Accion": "' + $('input[name="EditType"]:checked').val();
+
+	        geoJSONLayer += '"}}';
+
 	        if (layNum > 1 && count < layNum - 1)
 	            geoJSONLayer += ',';
 	        count += 1;
@@ -369,13 +439,6 @@ var _mapVisorModule = function() {
 	    return geoJSONLayer;
 	};
 
-	var saveEdition = function () {
-	    if (!areEmptyComments()){
-	    	return toGeoJSON();
-	    }  
-	    else
-	        alert("Hay observaciones sin completar");
-    };
 
 	return {
 
@@ -385,11 +448,11 @@ var _mapVisorModule = function() {
 		deactivateEdition: deactivateEdition,
 		cancelLayer: cancelLayer,
 		saveEdition: saveEdition,
-		submitComment: submitComment,
 		loadReview: loadReview,
 		unloadReview: unloadReview,
 		loadPoints: loadPoints,
-		unloadPoints: unloadPoints
+		unloadPoints: unloadPoints,
+		cancelEdition: cancelEdition
 	};
 }();
 
@@ -400,6 +463,10 @@ $(document).ready(function() {
 	$("#editBtn").click(function() {
     	_mapVisorModule.activateEdition();
     });
+
+	$("body").on("click", "#saveBtn", function(){
+     	_mapVisorModule.saveEdition();
+	});
 
 	$("body").on("click", "#popUpSubmitBtn", function(){
 		_mapVisorModule.submitComment();
