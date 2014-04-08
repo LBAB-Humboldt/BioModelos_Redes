@@ -235,7 +235,7 @@
 
 /* modificaciones */
 
-.leaflet-bottom {
+.leaflet-control-attribution {
 	display:none;
 }
 
@@ -326,3 +326,6 @@
 	color: #1ab0b5;
 }
 
+.leaflet-control-coordinates {
+	margin-bottom: 30px !important;
+}

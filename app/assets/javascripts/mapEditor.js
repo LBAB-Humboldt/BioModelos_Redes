@@ -68,7 +68,7 @@ var _mapVisorModule = function() {
 	    layerControl.addTo(map);
 
 	    L.control.coordinates({
-    		position:"topleft", //optional default "bootomright"
+    		position:"bottomright", //optional default "bootomright"
 		    decimals:2, //optional default 4
 		    decimalSeperator:".", //optional default "."
 		    labelTemplateLat:"Latitud: {y}", //optional default "Lat: {y}"
