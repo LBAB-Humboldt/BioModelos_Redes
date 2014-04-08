@@ -323,7 +323,7 @@ var _mapVisorModule = function() {
 
 
 	var saveEdition = function () {
-		var popupHtml = '';
+		var popupHtml = '<div class="usuarioreg">';
 		var comment = $("#comment").val();
 	    if (comment.length === 0) {
 	        alert("¡Ingrese una observación!");
@@ -335,13 +335,14 @@ var _mapVisorModule = function() {
 	    if (currentLayer !== undefined && currentLayer !== null) {
 	    	var editType = $('input[name="EditType"]:checked').val();
 	    	if($('#review_type').val() === 'point'){
-	    		popupHtml +=	'<label>Fecha de registro: </label><label id="puFechaRegistro">'+ $('#fecha_registro').val() +'</label><br />' +
-	    						'<label>Localidad: </label><label id="puLocalidad">'+ $('#r_localidad').val() +'</label><br />' +
-	    						'<label>Tipo: </label><label id="puTipo">'+ $('#r_tipo').val() +'</label><br />' +
-	    						'<label>Observador: </label><label id="puObservador">'+ $('#r_observador').val() +'</label><br />' +
-	    						'<label>Cita: </label><label id="puCita">'+ $('#r_cita').val() +'</label><br />';
+	    		popupHtml +=	'<label>Fecha de Registro</label><p id="puFechaRegistro">'+ $('#fecha_registro').val() +'</p>' +
+	    						'<label>Localidad</label><p id="puLocalidad">'+ $('#r_localidad').val() +'</p>' +
+	    						'<label>Tipo</label><p id="puTipo">'+ $('#r_tipo').val() +'</p>' +
+	    						'<label>Observador</label><p id="puObservador">'+ $('#r_observador').val() +'</p>' +
+	    						'<label>Cita</label><p id="puCita">'+ $('#r_cita').val() +'</p>';
 	    	}
-	    	popupHtml += '<label>Comentario: </label><label id="puComment">'+ $('#comment').val() +'</label><br />';
+	    	popupHtml += '<label>Comentario: </label><p id="puComment">'+ $('#comment').val() +'</p></div>';
+
 	    	
 	        currentLayer.closePopup();
 	        currentLayer.bindPopup(popupHtml);

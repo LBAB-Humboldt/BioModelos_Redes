@@ -308,3 +308,21 @@
 .inputform label {
 	margin-top: 5px;
 }
+
+.leaflet-popup-scrolled {
+	border: none;
+}
+
+.leaflet-popup-content {
+	height: auto !important;
+	margin: 15px !important;
+}
+
+.leaflet-popup-content {
+	color: #fff;
+}
+
+.leaflet-popup-content b {
+	color: #1ab0b5;
+}
+
