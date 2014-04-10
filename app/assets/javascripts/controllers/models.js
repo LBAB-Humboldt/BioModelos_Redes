@@ -9,11 +9,10 @@ $( document ).ready(function() {
 
   var editButtonsOff = function(){
     $("#editBtn").show();
-    $("#saveBtn").hide();
     $("#cancBtn").hide();
   }
 
-  $('.searchcateg,.showmodels,.editControls,#saveBtn,#cancBtn,.cajabusqueda,.showmodels,.cajaediciones,.edicionbar,.botonmodelos').hide();
+  $('.searchcateg,.showmodels,.editControls,#cancBtn,.cajabusqueda,.showmodels,.cajaediciones,.edicionbar,.botonmodelos').hide();
   $("#anfsh").click(function(e){
     $('#cajasearch1').show('slow');
     $('#class_id').val(1);
@@ -90,7 +89,6 @@ $( document ).ready(function() {
   });
   $("#editBtn").click(function(e){
           $("#editBtn").hide();
-          $("#saveBtn").show();
           $("#cancBtn").show();
           e.preventDefault();
   });

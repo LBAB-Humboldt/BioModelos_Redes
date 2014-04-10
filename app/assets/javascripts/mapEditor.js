@@ -68,7 +68,7 @@ var _mapVisorModule = function() {
 	    layerControl.addTo(map);
 
 	    L.control.coordinates({
-    		position:"topleft", //optional default "bootomright"
+    		position:"bottomright", //optional default "bootomright"
 		    decimals:2, //optional default 4
 		    decimalSeperator:".", //optional default "."
 		    labelTemplateLat:"Latitud: {y}", //optional default "Lat: {y}"
@@ -278,6 +278,17 @@ var _mapVisorModule = function() {
 		        	$('#review_type').val('point');
 		        } 
 		    });
+
+		    /* Updates lat lng points on popup when edited */
+		    map.on('draw:edited', function (e) {
+    			var layers = e.layers;
+    			layers.eachLayer(function (layer) {
+    				if(layer._latlng != undefined){
+        		  		$('#lat').val(L.NumberFormatter.round(layer.getLatLng().lat, 2, "."));
+		        		$('#lng').val(L.NumberFormatter.round(layer.getLatLng().lng, 2, "."));
+		        	}
+    			});
+			});
 		    
 		    /* Popup Open Event Listener*/
 		    map.on('popupopen', function(e) {
@@ -294,9 +305,12 @@ var _mapVisorModule = function() {
 	var deactivateEdition = function () {
 		if(drawnItems != null && drawControl != null && layerControl != null){
 			isEditOn = false;
-			map.removeLayer(drawnItems);
-		 	map.removeControl(drawControl);
-		 	layerControl.removeLayer(drawnItems);
+			if(drawnItems._map != null)
+				map.removeLayer(drawnItems);
+		 	if(drawControl._map != null)
+		 		map.removeControl(drawControl);
+		 	if(layerControl._map != null)
+		 		layerControl.removeLayer(drawnItems);
 		}
 	};
 
