@@ -275,3 +275,66 @@
 .qya a {
   color: #f3523d;
 }
+
+.pointBox {
+  background-color: #f29e0d;
+  position: absolute;
+  top: 200px;
+  left: -moz-calc(50% - 125px);
+  left: -webkit-calc(50% - 125px);
+  left: calc(50% - 125px);
+  width: 250px;
+  z-index: 200;
+}
+
+.pointcomm {
+    font-family: 'Lato',sans-serif !important;
+    color: #424242;
+    font-size: 12px;
+    padding: 10px;
+}
+
+.pointcomm input {
+  float: none;
+  margin: 5px;
+  }
+
+.commeinput2 {
+    border: 1px dashed #81E0E3;
+    color: #414243;
+    font-family: 'Lato',sans-serif !important;
+    font-size: 12px;
+    font-style: italic;
+    letter-spacing: 1px;
+    margin: 10px 0;
+    padding: 3px;
+    width: 224px;
+}
+
+.wrongbtn {
+  font-size: 1.1em;
+  letter-spacing: 2px;
+  padding: 2px 3px 2px 0;
+  text-align: center;
+  background-color: #e75523;
+  color: #fff !important;
+  font-family: 'bebas_neueregular', sans-serif;
+  cursor: pointer;
+  z-index:220;
+  border:none;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.wrongbtn:before {
+  padding: 2px 10px;
+    background: url(<%= asset_path 'wrong.png' %>) no-repeat center rgba(0, 0, 0, 0.1);
+    margin-right: 4px;
+    height: 100%;
+    content: '';
+}
+
+.wrongbtn:hover {
+  background: #e73a00;
+}

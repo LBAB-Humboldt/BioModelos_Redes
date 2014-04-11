@@ -1,3 +1,7 @@
-<form>
-	<input></input>
+<form class="pointcomm">
+	<input type="checkbox" name="badid" value="iderr">Identificación Erronea</input></br>
+	<input type="checkbox" name="doubtgeo" value="geodud">Georeferencia Dudosa</input>
+	<textarea placeholder="Comentario" rows="5" columns="50" class="commeinput2"></textarea>
+	<input type="submit" class="cbton" value="comentar"></input>
+	<div class="cancterm"><%= link_to 'X', '', {:id => 'cancelo-trm-btn'} %></div>
 </form>
