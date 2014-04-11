@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140226194008) do
+ActiveRecord::Schema.define(version: 20140411144125) do
 
   create_table "activities", force: true do |t|
     t.string "name",        null: false
@@ -91,6 +91,18 @@ ActiveRecord::Schema.define(version: 20140226194008) do
 
   add_index "models", ["species_id", "current"], name: "index_models_on_species_id_and_current"
 
+  create_table "point_comments", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "species_id"
+    t.decimal  "lat"
+    t.decimal  "lon"
+    t.boolean  "wrong_id",    default: false
+    t.boolean  "geo_problem", default: false
+    t.text     "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "ratings", force: true do |t|
     t.integer  "user_id"
     t.integer  "model_id"
@@ -149,5 +161,27 @@ ActiveRecord::Schema.define(version: 20140226194008) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "workshop_tests", force: true do |t|
+    t.integer  "workshop_id"
+    t.integer  "user_id"
+    t.integer  "species_id"
+    t.decimal  "lat"
+    t.decimal  "lon"
+    t.float    "min_ocurrence"
+    t.float    "max_ocurrence"
+    t.float    "best_prob_ocurrence"
+    t.float    "certainty_true_value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "workshops", force: true do |t|
+    t.string   "name"
+    t.boolean  "active",      default: false
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

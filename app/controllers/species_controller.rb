@@ -81,9 +81,29 @@ class SpeciesController < ApplicationController
     end
   end
 
-  def edit
+  def comment_point
+    @point_comment = PointComment.new
 
+    respond_to do |format|
+      format.js
+    end
   end
+
+  def create_comment_point
+    @point_comment = PointComment.new(point_comment_params)
+    if @point_comment.save
+      flash[:success] = 'Anotación guardada con éxito.'
+    else
+      flash[:error] = 'Ha ocurrido un error mientras se guardaba la anotación.'
+    end
+
+     respond_to do |format|
+        format.html
+        format.js
+     end
+  end
+
+
 
   def update
   end
@@ -94,4 +114,11 @@ class SpeciesController < ApplicationController
       params.require(:species).permit(:class_id, :sci_name, :order, :family, :sib_url, :ocurrence_records)
     end
 
+    def point_comment_params
+      params.require(:point_comment).permit()
+    end
+
+    def workshop_test_params
+      params.require(:workshop_test).permit()
+    end
 end

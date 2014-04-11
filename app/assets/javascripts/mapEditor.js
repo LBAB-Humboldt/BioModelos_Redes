@@ -184,7 +184,7 @@ var _mapVisorModule = function() {
 												for (var i=0; i < csvTitles.length; i++) {
 													popup += '<b>'+csvTitles[i]+'</b><br />'+ feature.properties[csvLayer.getPropertyName(csvTitles[i])]+'<br /><br />';
 												}
-												popup += '</div>'
+												popup += '<a href="/species/comment_point" data-method="post" data-remote="true" rel="nofollow">Comentar</a></div>'
 												layer.bindPopup(popup);
 										},
 										latitudeTitle: 'latitude',
@@ -489,6 +489,10 @@ $(document).ready(function() {
 
 	$("body").on("click", "#popUpCancelBtn", function(){
 		_mapVisorModule.cancelLayer();
+	});
+
+	$("body").on("click", "#pointComment", function(){
+		$.ajax({url: "species/comment_point", type: "POST"});
 	});
 
 	_mapVisorModule.init();

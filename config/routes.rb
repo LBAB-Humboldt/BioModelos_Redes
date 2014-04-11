@@ -10,6 +10,7 @@ Biomodis::Application.routes.draw do
   get "home/feedback"
   post "home/send_message"
   post "ratings/rate_model"
+  post "species/comment_point"
   resources :ratings, only: :update
   resources :comments, :only => [:create, :destroy]
   resources :home, :only => [:show]
