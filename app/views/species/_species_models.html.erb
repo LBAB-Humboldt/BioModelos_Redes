@@ -1,7 +1,7 @@
 <h1><%= @species.sci_name %></h1>
         <div class="registros">
                     <h4>No. Registros LBAB</h4>
-                    <%= link_to "Ver", "#", :class => 'verreg' %>
+                    <%= link_to "Metadatos", "#", :class => 'verreg' %>
                     <%= hidden_field(:species, :ocurrence_records_url) %>
                     <!-- <a href="#" class="verreg">Ver</a> -->
                     <div class="noreg"><%= @species.ocurrence_records %></div>
