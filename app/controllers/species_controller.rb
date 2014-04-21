@@ -103,7 +103,28 @@ class SpeciesController < ApplicationController
      end
   end
 
+  def workshop_test
+    @workshop_test = WorkshopTest.new
 
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def create_workshop_test
+    @workshop_test = WorkshopTest.new(workshop_test_params)
+
+    if @workshop_test.save
+      flash[:success] = 'Anotación guardada con éxito.'
+    else
+      flash[:error] = 'Ha ocurrido un error mientras se guardaba la anotación.'
+    end
+
+     respond_to do |format|
+        format.html
+        format.js
+     end
+  end
 
   def update
   end
@@ -119,6 +140,6 @@ class SpeciesController < ApplicationController
     end
 
     def workshop_test_params
-      params.require(:workshop_test).permit()
+      params.require(:workshop_test).permit(:user_id, :species_id, :lat, :lon, :min_ocurrence, :max_ocurrence, :best_prob_ocurrence, :certainty_true_value)
     end
 end

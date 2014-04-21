@@ -184,6 +184,7 @@ var _mapVisorModule = function() {
 													popup += '<b>'+csvTitles[i]+'</b><br />'+ feature.properties[csvLayer.getPropertyName(csvTitles[i])]+'<br /><br />';
 												}
 												popup += '<a href="/species/comment_point" data-method="post" data-remote="true" rel="nofollow" class="wrongbtn">Reportar Error</a></div>'
+												//popup += '<a href="/species/workshop_test" data-method="post" data-remote="true" rel="nofollow" class="wrongbtn">Reportar Error</a></div>'
 												layer.bindPopup(popup);
 										},
 										latitudeTitle: 'latitude',
@@ -213,6 +214,10 @@ var _mapVisorModule = function() {
       			//$('#cargando').delay(500).fadeOut('slow');
    			}
 		});
+    };
+
+    var loadTestPoints = function () {
+
     };
 
     var unloadPoints = function () {

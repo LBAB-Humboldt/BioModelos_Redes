@@ -12,6 +12,8 @@ Biomodis::Application.routes.draw do
   post "ratings/rate_model"
   post "species/comment_point"
   post "species/create_comment_point"
+  post "species/workshop_test"
+  post "species/create_workshop_test"
   resources :ratings, only: :update
   resources :comments, :only => [:create, :destroy]
   resources :home, :only => [:show]

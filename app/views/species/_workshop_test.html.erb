@@ -1,0 +1,12 @@
+<%= simple_form_for @workshop_test, :url => species_create_workshop_test_path, :method => :post, :remote => true, :html => {:class => "pointcomm" } do |f| %>
+	<%= f.input :user_id, :as => :hidden, :input_html => {:value => get_current_user_id} %>
+	<%= f.input :species_id, :as => :hidden %>
+	<%= f.input :lat, :as => :hidden %>
+	<%= f.input :lon, :as => :hidden %>
+	<%= f.input :min_ocurrence, :as => :float, :input_html => {min: 0, max: 1, step: 0.01}, :label => false %>
+	<%= f.input :max_ocurrence, :as => :float, :input_html => {min: 0, max: 1, step: 0.01}, :label => false  %>
+	<%= f.input :best_prob_ocurrence, :as => :float, :input_html => {min: 0, max: 1, step: 0.01}, :label => false  %>
+	<%= f.input :certainty_true_value, :as => :float, :input_html => {min: 0.5, max: 1, step: 0.01}, :label => false  %>
+	<%= f.button :submit, :value => "enviar", :class => 'cbton'%>
+	<%= link_to "X", '', {:id => 'cancel-point-cmt', :class => "cancterm"} %>
+<% end %>
