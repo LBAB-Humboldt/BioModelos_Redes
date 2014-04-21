@@ -14,11 +14,11 @@ var _mapVisorModule = function() {
            '<button class="btn2" id="popUpCancelBtn" type="button">cancelar</button></form></div>'; 
         pointForm = '<div class="commentForm"><form id="inputform" enctype="multipart/form-data" class="well"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>' +
            '<input id="review_type" type="hidden">'+
-           '<label class="tituloformas">Observación:</label><br />' +
+           '<label class="tituloformas">Registro:</label><br />' +
 	       '<label>Lat: </label><input type="text" name="latitude" id="lat" size="7" disabled class="inputforma wauto"><label> Lng: </label><input type="text" name="longitude" id="lng" size="7" class="inputforma wauto" disabled><br />' +
 	       '<input type="date" id="fecha_registro" name="fecha_registro" placeholder="Fecha de registro (mm/dd/aa)" class="inputforma w227"><br />' +
 	       '<input type="text" id="r_localidad" name="localidad" placeholder="Localidad" class="inputforma w227"><br />' +
-	       '<input type="text" name="tipo" id="r_tipo" placeholder="Tipo" class="inputforma w227"><br />' +
+	       '<input type="text" name="tipo" id="r_tipo" placeholder="Tipo de registro" class="inputforma w227"><br />' +
 	       '<input type="text" name="colector" id="r_observador" placeholder="Observador" class="inputforma w227"><br />' +
 	       '<input type="text" name="cita" id="r_cita" placeholder="Cita" class="inputforma w227"><br />' +
 	       '<textarea rows="4" cols="30" placeholder="Ingrese una observación" id="comment" class="inputforma w227"></textarea>' +
@@ -179,7 +179,7 @@ var _mapVisorModule = function() {
 		csvLayer = L.geoCsv(null, {		
 										onEachFeature: function (feature, layer) {
 												var popup = '<div class="cajita">';
-												popup += '<b><div id="point_lat">'+ feature.geometry.coordinates[0]+'</div>,<div id="point_lon"> '+ feature.geometry.coordinates[1] + '</div></b><br /><br />';
+												popup += '<b><div id="point_lat">'+ feature.geometry.coordinates[0]+'</div>, <div id="point_lon"> '+ feature.geometry.coordinates[1] + '</div></b><br /><br />';
 												for (var i=0; i < csvTitles.length; i++) {
 													popup += '<b>'+csvTitles[i]+'</b><br />'+ feature.properties[csvLayer.getPropertyName(csvTitles[i])]+'<br /><br />';
 												}
