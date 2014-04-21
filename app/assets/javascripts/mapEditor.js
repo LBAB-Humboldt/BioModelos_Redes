@@ -174,13 +174,12 @@ var _mapVisorModule = function() {
 	};
 
 	var loadPoints = function (csvUrl) {
-
 		var csvTitles = ["Localidad","Municipio","Departamento","Altitud","Fecha","Institucion","Colector"];
 
 		csvLayer = L.geoCsv(null, {		
 										onEachFeature: function (feature, layer) {
 												var popup = '<div class="cajita">';
-												popup += '<b>'+ feature.geometry.coordinates[0]+', '+ feature.geometry.coordinates[1] + '</b><br /><br />';
+												popup += '<b><div id="point_lat">'+ feature.geometry.coordinates[0]+'</div>,<div id="point_lon"> '+ feature.geometry.coordinates[1] + '</div></b><br /><br />';
 												for (var i=0; i < csvTitles.length; i++) {
 													popup += '<b>'+csvTitles[i]+'</b><br />'+ feature.properties[csvLayer.getPropertyName(csvTitles[i])]+'<br /><br />';
 												}

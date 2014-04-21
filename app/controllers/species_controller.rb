@@ -115,7 +115,7 @@ class SpeciesController < ApplicationController
     end
 
     def point_comment_params
-      params.require(:point_comment).permit()
+      params.require(:point_comment).permit(:user_id, :species_id, :lat, :lon, :wrong_id, :geo_problem, :comment)
     end
 
     def workshop_test_params
