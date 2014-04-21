@@ -3,10 +3,10 @@
 	<%= f.input :species_id, :as => :hidden %>
 	<%= f.input :lat, :as => :hidden %>
 	<%= f.input :lon, :as => :hidden %>
-	<%= f.input :min_ocurrence, :as => :float, :input_html => {min: 0, max: 1, step: 0.01}, :label => false %>
-	<%= f.input :max_ocurrence, :as => :float, :input_html => {min: 0, max: 1, step: 0.01}, :label => false  %>
-	<%= f.input :best_prob_ocurrence, :as => :float, :input_html => {min: 0, max: 1, step: 0.01}, :label => false  %>
-	<%= f.input :certainty_true_value, :as => :float, :input_html => {min: 0.5, max: 1, step: 0.01}, :label => false  %>
+	<%= f.input :min_ocurrence, :as => :string, :placeholder => "valores entre 0 y 1", :label => "1. Probabilidad de ocurrencia mínima" %>
+	<%= f.input :max_ocurrence, :as => :string, :placeholder => "valores entre 0 y 1", :label => "2. Probabilidad de ocurrencia máxima"  %>
+	<%= f.input :best_prob_ocurrence, :as => :string, :placeholder => "valores entre 0 y 1", :label => "3. Mejor estimativo de probabilidad de ocurrencia"  %>
+	<%= f.input :certainty_true_value, :as => :string, :placeholder => "valores entre 0.5 y 1", :label => "4. Certeza que el rango provisto contiene el valor verdadero"  %>
 	<%= f.button :submit, :value => "enviar", :class => 'cbton'%>
 	<%= link_to "X", '', {:id => 'cancel-point-cmt', :class => "cancterm"} %>
 <% end %>
