@@ -205,3 +205,29 @@
 .hide {
     display: none;
 }
+
+
+.minus1024 {
+	display:block;
+	
+}
+
+.minus1024 img {
+	width: 100%;
+	margin: 0 auto;
+}
+
+.w1024 {
+    display:none;
+}
+
+/* if screen size gets wider than 1024 */
+
+@media screen and (min-width:1024px) {
+    .w1024 {
+        display:block;
+    }
+    .minus1024 {
+	display:none;
+}
+}

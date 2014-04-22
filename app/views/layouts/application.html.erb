@@ -13,6 +13,8 @@
 		<%= csrf_meta_tags %>
 	</head>
 	<body>
+	<!--<div class="minus1024"><%= image_tag("w1024.png") %></div>
+	<div class="w1024"></div>-->
 		<% flash.each do |key, value| %>
   		<div class="alert alert-<%= key %>" id="flashm"><%= value %></div>
 		<% end %>
