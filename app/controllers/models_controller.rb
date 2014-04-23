@@ -30,7 +30,7 @@ class ModelsController < ApplicationController
   def download_model
     respond_to do |format|
       format.js {}
-      format.html {send_file Rails.root.join('public/kmz/'+ Model.find(params[:m_id]).img_url.split('.').first + '.kmz'), :type => 'application/octet-stream', :disposition => 'attachment'}
+      format.html { send_file Rails.root.join('public/kmz/'+ Model.find(params[:m_id]).img_url.split('.').first + '.kmz'), :type => 'application/octet-stream', :disposition => 'attachment' }
     end
   end
 

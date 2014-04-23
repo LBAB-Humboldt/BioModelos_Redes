@@ -1,7 +1,7 @@
 <h1><%= @species.sci_name %></h1>
         <div class="registros">
                     <h4>No. Registros LBAB</h4>
-                    <%= link_to "Metadatos", "#", :class => 'verreg' %>
+                    <%= link_to "Metadatos", species_download_metadata_path(:s_id => @species.id), :class => 'verreg',  :method => :post %>
                     <%= hidden_field(:species, :ocurrence_records_url) %>
                     <!-- <a href="#" class="verreg">Ver</a> -->
                     <div class="noreg"><%= @species.ocurrence_records %></div>
@@ -39,8 +39,10 @@
                                         <%= hidden_field_tag('myscore', @ratings[model.id], :class => 'myscore')  %>
                                     </div>
                                 <% end %>
-                                <%= link_to models_download_model_path(:m_id => model.id), :class => 'download', :remote => true do %>
-                                     <%= image_tag("descargar.png") %>
+                                <% if file_exists(model.id) %>
+                                    <%= link_to models_download_model_path(:m_id => model.id), :class => 'download', :remote => true do %>
+                                        <%= image_tag("descargar.png") %>
+                                    <% end %>
                                 <% end %>
                             </div>
                         </li>

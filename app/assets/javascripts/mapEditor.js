@@ -174,7 +174,7 @@ var _mapVisorModule = function() {
 	};
 
 	var loadPoints = function (csvUrl) {
-		var csvTitles = ["Localidad","Municipio","Departamento","Altitud","Fecha","Institucion","Colector"];
+		var csvTitles = ["Localidad","Municipio","Departamento","Altitud","Fecha","Institucion","Colector", "Evidencia"];
 
 		csvLayer = L.geoCsv(null, {		
 										onEachFeature: function (feature, layer) {
@@ -187,8 +187,8 @@ var _mapVisorModule = function() {
 												//popup += '<a href="/species/workshop_test" data-method="post" data-remote="true" rel="nofollow" class="wrongbtn">Reportar Error</a></div>'
 												layer.bindPopup(popup);
 										},
-										latitudeTitle: 'latitude',
-										longitudeTitle: 'longitude',
+										latitudeTitle: 'Latitud',
+										longitudeTitle: 'Longitud',
 										firstLineTitles: true, 
 										fieldSeparator: ','});
 
@@ -199,7 +199,7 @@ var _mapVisorModule = function() {
 			url: csvUrl,
 			async: false,
    			error: function() {
-     			alert('No se pudieron cargar los datos');
+     			alert('No fue posible cargar los puntos de registro');
    			},
 			success: function(data) {
      			cluster = new L.MarkerClusterGroup();
