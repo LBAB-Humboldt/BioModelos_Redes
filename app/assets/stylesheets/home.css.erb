@@ -205,3 +205,30 @@
 .hide {
     display: none;
 }
+
+
+.minus1024 {
+	display:block;
+	position: absolute;
+	z-index: 100;
+	top: 0;
+	margin-left:20px;
+	background-color: #fff;
+	color:#008d96;
+	padding: 5px;
+}
+
+.w1024 {
+    display:none;
+}
+
+/* if screen size gets wider than 1024 */
+
+@media screen and (min-width:1024px) {
+    .w1024 {
+        display:block;
+    }
+    .minus1024 {
+	display:none;
+}
+}

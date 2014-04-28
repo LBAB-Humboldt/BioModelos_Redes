@@ -202,12 +202,12 @@ var _mapVisorModule = function() {
      			alert('No fue posible cargar los puntos de registro');
    			},
 			success: function(data) {
-     			cluster = new L.MarkerClusterGroup();
+     			cluster = new L.MarkerClusterGroup({});
 				csvLayer.addData(data);
 				cluster.addLayer(csvLayer);
 				map.addLayer(cluster);
 				layerControl.addOverlay(cluster,"Registros");
-				map.fitBounds(cluster.getBounds());
+				//map.fitBounds(cluster.getBounds());
 
 			},
    			complete: function() {
