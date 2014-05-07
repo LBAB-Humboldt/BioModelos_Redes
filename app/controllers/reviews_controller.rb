@@ -16,7 +16,6 @@ class ReviewsController < ApplicationController
       flash[:error] = 'Ha ocurrido un error mientras se guardaba la anotación.'
     end
     respond_to do |format|
-        format.html {redirect_to controller: "models", action: "visor"}
         format.js
     end
   end

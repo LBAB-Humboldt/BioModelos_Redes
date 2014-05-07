@@ -27,6 +27,7 @@ gem 'turbolinks', '1.1.1'
 gem 'jbuilder', '1.0.2'
 gem "leaflet-rails", "~> 0.7.1"
 gem "simple_form", "~> 3.0.0.rc"
+gem 'jquery-turbolinks'
 
 # user authentication
 gem "devise", "~> 3.1.1"

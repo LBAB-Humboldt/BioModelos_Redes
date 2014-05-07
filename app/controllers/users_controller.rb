@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
+    @users_by_reviews = @user.users_most_reviews
 
     if @user.blank?
       @reviews = nil

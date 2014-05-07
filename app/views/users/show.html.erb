@@ -38,60 +38,13 @@
 	<div class="perfilcol2 clearfix fixfooter" id="col2p">
 		<div class="cajas">
 			<h5>ranking mensual</h5>
-			<section class="ranking">
-				<h1>1</h1>
-				<p><a href="#">Camilo Buitrago</a> · 10 aportes en este mes</p>
-				<div class="medalla1"></div>
-				<div class="medalla1"></div>
-				<div class="medalla1"></div>
-			</section>
-			<section class="ranking">
-				<h1>2</h1>
-				<p><a href="#">Cesar Gutierrez</a> · 10 aportes en este mes</p>
-				<div class="medalla1"></div>
-				<div class="medalla1"></div>
-			</section>
-			<section class="ranking">
-				<h1>3</h1>
-				<p><a href="#">Daniel Lopez</a> · 9 aportes en este mes</p>
-				<div class="medalla1"></div>
-				<div class="medalla1"></div>
-			</section>
-			<section class="ranking">
-				<h1>4</h1>
-				<p><a href="#">Iván González</a> · 9 aportes en este mes</p>
-				<div class="medalla1"></div>
-			</section>
-			<section class="ranking">
-				<h1>5</h1>
-				<p><a href="#">Felipe Perez</a> · 8 aportes en este mes</p>
-				<div class="medalla1"></div>
-			</section>
-			<section class="ranking">
-				<h1>6</h1>
-				<p><a href="#">Johnn Doe</a> · 7 aportes en este mes</p>
-				<div class="medalla1"></div>
-			</section>
-			<section class="ranking">
-				<h1>7</h1>
-				<p><a href="#">Petet Diaz</a> · 6 aportes en este mes</p>
-				<div class="medalla1"></div>
-			</section>
-			<section class="ranking">
-				<h1>8</h1>
-				<p><a href="#">San Fermin Lopez</a> · 6 aportes en este mes</p>
-				<div class="medalla1"></div>
-			</section>
-			<section class="ranking">
-				<h1>9</h1>
-				<p><a href="#">Adriana Sanchez</a> · 5 aportes en este mes</p>
-				<div class="medalla1"></div>
-			</section>
-			<section class="ranking">
-				<h1>10</h1>
-				<p><a href="#">Alejandra Buitrago</a> · 4 aportes en este mes</p>
-				<div class="medalla1"></div>
-			</section>
+			<% @users_by_reviews.each_with_index do |user, i| %>
+				<section class="ranking">
+					<h1><%= i+1 %></h1>
+					<p><a href="#"><%= user.Name %></a> · <%= user.Ediciones %> aporte(s) </p>
+					<div class="medalla1"></div>
+				</section>
+			<% end %>
 		</div>
 
 	</div>

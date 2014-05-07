@@ -11,13 +11,14 @@
 // about supported directives.
 //
 //= require jquery
+//= require lightbox-2.6.min
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require_tree ./controllers
-//= require turbolinks
 //= require typeahead.min
 //= require leaflet
 //= require leaflet/Leaflet.Coordinates-0.1.3
 //= require leaflet/leaflet.markercluster
 //= require leaflet/leaflet.geocsv
 //= require jquery.raty.min
-//= require lightbox-2.6.min
+//= require turbolinks

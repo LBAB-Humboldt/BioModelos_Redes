@@ -67,35 +67,37 @@
         </div>
 <div class ="termbox"></div>
 <script>
-        $('.model_link').click(function (event) {
-            _mapVisorModule.loadModel("/modelos/"+$(this).find('#imgsrc').val());
-            $("#review_model_id").val($(this).find('img').attr('id'));
-            $('.editControls,.edicionbar').show('slow');
-            $('.showmodels, .cajabusqueda, .selectores').hide ('slow');
-            event.preventDefault(); // Prevent link from following its href
-        });
+$(document).ready(function () {
 
-        $('.verreg').click(function (event) {
-            event.preventDefault();
-            $('.showmodels, .cajabusqueda, .selectores').hide ('slow');
-        });
+            $('.model_link').click(function (event) {
+                _mapVisorModule.loadModel("/modelos/"+$(this).find('#imgsrc').val());
+                $("#review_model_id").val($(this).find('img').attr('id'));
+                $('.editControls,.edicionbar').show('slow');
+                $('.showmodels, .cajabusqueda, .selectores').hide ('slow');
+                event.preventDefault(); // Prevent link from following its href
+            });
 
-        $('.user_star').raty({ 
-            path: '../assets',
-            hints: ['No representa', 'Representa pobremente', 'Representa regularmente', 'Representa adecuadamente', 'Representa muy bien'],
-            score:  function() {
-                        return $(this).find('.myscore').val();
-            },
-            click: function(score, evt) {
-                $.ajax({
-                    type: "POST",
-                    url: "/ratings/rate_model",
-                    data: { mid: $(this).find('.mid').val(), score: score }
-                }); 
-            } 
-        });
+            $('.verreg').click(function (event) {
+                event.preventDefault();
+                $('.showmodels, .cajabusqueda, .selectores').hide ('slow');
+            });
 
+            $('.user_star').raty({ 
+                path: '../assets',
+                hints: ['No representa', 'Representa pobremente', 'Representa regularmente', 'Representa adecuadamente', 'Representa muy bien'],
+                score:  function() {
+                            return $(this).find('.myscore').val();
+                },
+                click: function(score, evt) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/ratings/rate_model",
+                        data: { mid: $(this).find('.mid').val(), score: score }
+                    }); 
+                } 
+            });
 
+});
 </script>
 
 <script type="text/javascript">
