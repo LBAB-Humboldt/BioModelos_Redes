@@ -2,17 +2,14 @@ var _mapVisorModule = function() {
 
 	var map, drawnItems, layerControl, modelOverlay, currentLayer, drawControl, reviewLayer, csvLayer, cluster,
 		isEditOn = false,
-		commentForm = '<div class="commentForm"><form accept-charset="UTF-8" action="/reviews" class="simple_form well" data-remote="true" id="new_review" method="post" novalidate="novalidate"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>' +
-           '<input id="review_model_id" name="review[model_id]" type="hidden">' +
-           '<input id="review_user_id" name="review[user_id]" type="hidden">' +
-           '<input id="review_geoJSON" name="review[geoJSON]" type="hidden">' +
+		commentForm = '<div class="commentForm">' +
            '<label><strong>Observación:</strong></label><br />' +
 	       '<textarea rows="4" cols="30" placeholder="Ingrese una observación" id="comment" class="cmtArea"></textarea>' +
 	       '<div class="row-fluid clearfix">' +
 	       '<label class="labelcom clearfix"><strong>Acción:</strong></label><input type="radio" name="EditType" value="Add" class="radiogaga">Agregar</input><input type="radio" name="EditType" value="Cut" class="radiogaga">Remover</input><input type="radio" name="EditType" value="Other" class="radiogaga" checked>Otra</input>'+
-	       '<input class="btn2" id="saveBtn" name="commit" type="submit" value="guardar">' +
-           '<button class="btn2" id="popUpCancelBtn" type="button">cancelar</button></form></div>'; 
-        pointForm = '<div class="commentForm"><form id="inputform" enctype="multipart/form-data" class="well"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>' +
+	       '<button class="btn2" id="saveBtn" type="button">guardar</button>' +
+           '<button class="btn2" id="popUpCancelBtn" type="button">cancelar</button></div>'; 
+        pointForm = '<div class="commentForm">' +
            '<input id="review_type" type="hidden">'+
            '<label class="tituloformas">Registro:</label><br />' +
 	       '<label>Lat: </label><input type="text" name="latitude" id="lat" size="7" disabled class="inputforma wauto"><label> Lng: </label><input type="text" name="longitude" id="lng" size="7" class="inputforma wauto" disabled><br />' +
@@ -23,8 +20,8 @@ var _mapVisorModule = function() {
 	       '<input type="text" name="cita" id="r_cita" placeholder="Cita" class="inputforma w227"><br />' +
 	       '<textarea rows="4" cols="30" placeholder="Ingrese una observación" id="comment" class="inputforma w227"></textarea>' +
 	       '<div class="row-fluid clearfix">' +
-	       '<input class="btn2" id="saveBtn" name="commit" type="submit" value="guardar">' +
-           '<button class="btn2" id="popUpCancelBtn" type="button">cancelar</button></form></div>'; 
+	       '<button class="btn2" id="saveBtn" type="button">guardar</button>' +
+           '<button class="btn2" id="popUpCancelBtn" type="button">cancelar</button></div>'; 
 
 	var init = function() {
 
@@ -485,10 +482,6 @@ $(document).ready(function() {
 
 	$("body").on("click", "#saveBtn", function(){
      	_mapVisorModule.saveEdition();
-	});
-
-	$("body").on("click", "#popUpSubmitBtn", function(){
-		_mapVisorModule.submitComment();
 	});
 
 	$("body").on("click", "#popUpCancelBtn", function(){
