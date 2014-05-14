@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if @user.blank?
       @reviews = nil
     else 
-      @reviews = Review.where(:user_id => @user.id).limit(15)
+      @reviews = Review.where(:user_id => @user.id).order("created_at DESC").limit(15)
     end
   end
 

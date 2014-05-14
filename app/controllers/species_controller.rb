@@ -44,7 +44,7 @@ class SpeciesController < ApplicationController
         end
       end
 
-      @species_reviews = Review.where({ model_id: arr})
+      @species_reviews = Review.where({ model_id: arr}).order("created_at DESC")
 
       if user_signed_in?
         @new_comment = Comment.build_from(@species, current_user.id, '')
@@ -78,13 +78,6 @@ class SpeciesController < ApplicationController
       redirect_to new_species_path
     else
       render :action => "new"
-    end
-  end
-
-  def download_metadata
-    respond_to do |format|
-      format.js {}
-      format.html { send_file Rails.root.join('public/metadata/'+ Species.find(params[:s_id]).ocurrence_records_url.split('.').first + '.html'), :type => 'text/html', :disposition => 'attachment' }
     end
   end
 
