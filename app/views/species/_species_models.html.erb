@@ -3,7 +3,7 @@
                     <h4>No. Registros</h4>
                     <div class="noreg"><%= @species.ocurrence_records %></div>
                     <div class="clearfix"></div>
-                    <%= link_to "Metadatos", species_download_metadata_path(:s_id => @species.id), :class => 'verreg',  :method => :post %>
+                    <%= link_to "Metadatos", root_url + 'metadata/'+ @species.ocurrence_records_url.split('.').first + '.html', {:target => '_blank', :class => 'verreg' } %>
         </div>  
         <div class="resbusqueda genero clearfix"><%= @species.order %></br>
         <div class="familia"><%= @species.family %></div>
@@ -77,10 +77,10 @@ $(document).ready(function () {
                 event.preventDefault(); // Prevent link from following its href
             });
 
-            $('.verreg').click(function (event) {
-                event.preventDefault();
-                $('.showmodels, .cajabusqueda, .selectores').hide ('slow');
-            });
+            // $('.verreg').click(function (event) {
+            //     event.preventDefault();
+            //     $('.showmodels, .cajabusqueda, .selectores').hide ('slow');
+            // });
 
             $('.user_star').raty({ 
                 path: '../assets',

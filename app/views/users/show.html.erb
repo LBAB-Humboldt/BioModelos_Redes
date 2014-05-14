@@ -41,7 +41,7 @@
 			<% @users_by_reviews.each_with_index do |user, i| %>
 				<section class="ranking">
 					<h1><%= i+1 %></h1>
-					<p><a href="#"><%= user.Name %></a> · <%= user.Ediciones %> aporte(s) </p>
+					<p><a href="/users/<%= user.id %>"><%= user.Name %></a> · <%= user.Ediciones %> aporte(s) </p>
 					<div class="medalla1"></div>
 				</section>
 			<% end %>

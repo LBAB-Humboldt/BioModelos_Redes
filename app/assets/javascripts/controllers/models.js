@@ -34,6 +34,7 @@ $( document ).ready(function() {
     $('#class_id').val(3);
     $('#cajasearch2,#cajasearch1,#cajasearch4,#cajasearch5,#cajasearch6,#cajasearch7').hide('slow');
     clearShowBox();
+    $('.resultados').load('../invlist.html');
      e.preventDefault();
   });
   $("#mamsh").click(function(e){
