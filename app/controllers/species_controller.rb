@@ -84,7 +84,7 @@ class SpeciesController < ApplicationController
   def download_metadata
     respond_to do |format|
       format.js {}
-      format.html { send_file Rails.root.join('public/metadata/'+ Species.find(params[:s_id]).ocurrence_records_url.split('.').first + '.html'), :type => 'text/html', :disposition => 'attachment' }
+      format.html { send_file Rails.root.join('public/metadata/'+ Species.find(params[:s_id]).ocurrence_records_url.split('.').first + '.html'), :type => 'text/html', :disposition => 'inline' }
     end
   end
 

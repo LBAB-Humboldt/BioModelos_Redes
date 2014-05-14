@@ -28,32 +28,78 @@
 	border-bottom: 1px dashed #FAC205;
 }
 
-.op {
-	float:left;
-	width: 12%;
-	display: block;
-	margin: 0 2%;
+.actfeed:last-child {
+	margin-bottom: 10px;
 }
 
-.imginicio img {
-	width: 100%;
+.op {
+	float:left;
+	width: 19%;
+	display: block;
+	margin: 0 3%;
+	height: auto;
+}
+
+.imginicio {
+	background: no-repeat center;
+	-webkit-background-size: cover;
+	background-size: cover;
+	width: 120px;
+	height: 120px;
 	z-index: 2;
 	position: relative;
+	margin: 10px auto;
+}
+
+.op1 {
+	background: url(<%= asset_path 'op1.png' %>);
+}
+
+.op2 {
+	background: url(<%= asset_path 'op2.png' %>);
+}
+
+.op3 {
+	background: url(<%= asset_path 'op3.png' %>);
+}
+
+.op4 {
+	background: url(<%= asset_path 'op4.png' %>);
 }
 
 .opciones {
-	padding: 10px;
-	overflow: auto;
+	width: 100%;
+	background: url(<%= asset_path 'bg.jpg' %>);
+	padding: 45px 0;
+	display: inline-block;
+	text-align: center;
 }
 
-.lineop {
+.fondoinicio h1 {
+	font-size: 20px;
+	letter-spacing: 2px;
+	color: #fff;
+	font-weight: 200;
+	margin-top: 20px;
+}
+
+.fondoinicio h6 {
+	font-size: 15px;
+	text-transform: none;
+	color: #888888;
+	font-weight: 400;
+	margin-top: 10px;
+	letter-spacing: 1px;
+}
+
+/*.lineop {
 	overflow: auto;
 	padding: 3px;
 	border-top: 1px dashed #1ab0b5;
 	border-bottom: 1px dashed #1ab0b5;
 	text-align: center;
 	margin: 5px 0;
-}
+}*/
 
 .lineop h3 {
 	font-family: 'bebas_neueregular', sans-serif;
@@ -68,17 +114,11 @@
 }
 
 .fondomaps {
-	width: 100%;
-	height: -webkit-calc(100% - 132px);
-  	height: -moz-calc(100% - 132px);
-  	height: calc(100% - 132px);
 	background-image: url(<%= asset_path 'mapsmaps.png' %>);
 	-webkit-background-size: cover;
 	background-size: cover;
-	position:absolute;
-	z-index: -2;
-	opacity: 0.3;
-	filter: alpha(opacity=30);
+	background-position: center;
+	padding: 20px;
 }
 
 .homeline {
@@ -118,22 +158,33 @@
 
 .intro2 {
 	margin-top: -20px;
-	height: 230px;
-	padding: 15px;
-    width: 300px;
+	height: 260px;
+	padding: 0 15px;
+    width: 380px;
     margin-right: 40px;
 	float: right;
-    font-size: 14px;
-    color: #2d2d2d;
-    font-weight: 700 !important;
-    line-height: 1.1;
-    letter-spacing: .3px;
     position: relative;
     background-image: url(<%= asset_path 'fondobla.jpg' %>);
 }
 
-.intro2 strong {
-    color: #008D96;
+.introtext {
+	margin:0 auto;
+	font-size: 16px;
+    color: #2d2d2d;
+    font-weight: 700 !important;
+    line-height: 1.1;
+    letter-spacing: .3px;
+}
+
+.introtext strong {
+    color: #e55a2f;
+}
+
+.introtext h5 {
+	margin-right: 1%;
+	width: 48%;
+	display: inline-block;
+	float: left;
 }
 
 .lbabimg2 {
@@ -151,10 +202,9 @@
 .activity2 {
     border: 1px solid #FFC72D;
     border-bottom: 5px solid #FAE49B;
-    padding: 0 10px 10px;
+    padding: 0 10px 5px;
     overflow: scroll;
-    height: 100%;
-    margin-top: -7px;
+    height: 250px;
 }
 
 .activity2 h5 {

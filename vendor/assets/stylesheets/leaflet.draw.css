@@ -11,7 +11,7 @@
 }
 
 .leaflet-draw-toolbar-top {
-	margin-top: 0;
+	margin-top: 10px; /*editado era 0*/
 }
 
 .leaflet-draw-toolbar-notop a:first-child {
@@ -29,6 +29,16 @@
 
 .leaflet-retina .leaflet-draw-toolbar a {
 	background-image: url('leaflet.draw/spritesheet-2x.png');
+	background-size: 210px 30px;
+}
+
+.leaflet-draw-toolbar a:hover {
+	background-image: url('leaflet.draw/spritesheet2.png');
+	background-repeat: no-repeat;
+}
+
+.leaflet-retina .leaflet-draw-toolbar a:hover {
+	background-image: url('leaflet.draw/spritesheet-2x2.png');
 	background-size: 210px 30px;
 }
 
@@ -66,8 +76,8 @@
 }
 
 .leaflet-draw-actions li:last-child a {
-	-webkit-border-radius: 0 4px 4px 0;
-	        border-radius: 0 4px 4px 0;
+	-webkit-border-radius: 0;
+	        border-radius: 0;
 }
 
 .leaflet-right .leaflet-draw-actions li:last-child a {
@@ -76,8 +86,8 @@
 }
 
 .leaflet-right .leaflet-draw-actions li:first-child a {
-	-webkit-border-radius: 4px 0 0 4px;
-	        border-radius: 4px 0 0 4px;
+	-webkit-border-radius: 0;
+	        border-radius: 0;
 }
 
 .leaflet-draw-actions a {
@@ -244,8 +254,8 @@
 }
 
 .leaflet-popup-content-wrapper {
-	-webkit-border-radius: 4px;
-	        border-radius: 4px;
+	-webkit-border-radius: 0px;
+	        border-radius: 0px; /* decia 4 */
 	box-shadow: none;
 	background-color: #ffc72d;
 	height: auto;
@@ -327,5 +337,42 @@
 }
 
 .leaflet-control-coordinates {
-	margin-bottom: 30px !important;
+	margin-bottom: 21px !important;
+	border-radius: 0 !important;
+	background-color: #E48413 !important;
+	color: #fff !important;
+	padding: 4px 8px !important;
 }
+
+.leaflet-bar, .leaflet-control-layers {
+	box-shadow: none;
+	border-radius: 0px !important;
+}
+
+.leaflet-bar a, .leaflet-bar a.leaflet-disabled, .leaflet-control-layers {
+	background-color: #E48413;
+	color: #fff;
+	border-color: #ffa734;
+}
+
+.leaflet-bar a.leaflet-disabled:hover {
+	background-color: #fff;
+}
+
+.leaflet-bar a:first-child, .leaflet-bar a:last-child {
+		border-radius: 0px !important;
+}
+
+.leaflet-control {
+	margin-top: 0 !important;
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+}
+
+.leaflet-control-layers-toggle {
+    height: 45px !important;
+    width: 45px !important;
+    background-position: 61% 48% !important;
+    background-image: url('leaflet.draw/layers.png');
+}
+

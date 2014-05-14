@@ -21,123 +21,113 @@
 }
 
 .titulomapa {
-	width: 200px;
+	width: 300px;
 	margin: 5px auto;
     padding: 4px;
     font-size: 14px;
-    background-color: #e48413;
+    background-color: #c94326;
     color:#fff;
     z-index:100;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .botonmodelos{
-	font-family: 'bebas_neueregular', sans-serif;
-	font-size: 16px;
-	line-height: 1;
-	letter-spacing: 1px;
-	text-align: center;
-    padding: 5px 35px 5px 10px;
-    background-color: #30302E;
     position: absolute;
-    min-width: 155px;
-    top: 400px;
-	left:-78px;
-	color:#fff;
     z-index:110;
-    -webkit-transform: rotate(-90deg);
-    -moz-transform: rotate(-90deg);
-    -ms-transform: rotate(-90deg);
-    -o-transform: rotate(-90deg);
-    transform: rotate(-90deg);
-    background-image: url(<%= asset_path 'btnmod.png' %>);
+    top: 185px;
+    background-image: url(<%= asset_path 'modelff.png' %>);
+    background-color: #186f80;
+    background-position: 50% 50%;
     background-repeat: no-repeat;
-    background-position: right;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    display: block;
 }
 
 .botonmodelos:hover {
-	background-color: #5C5C58;
+	background-color: #104b57;
 }
 
 .findbar {
-	font-family: 'bebas_neueregular', sans-serif;
+	/*font-family: 'bebas_neueregular', sans-serif;
 	font-size: 16px;
 	line-height: 1;
 	letter-spacing: 1px;
 	text-align: center;
     padding: 5px 35px 5px 10px;
     background-color: #e48413;
-    position: absolute;
     min-width: 155px;
-    top: 227px;
 	right:-87px;   
 	color:#fff;
-    z-index:110;
     -webkit-transform: rotate(-90deg);
     -moz-transform: rotate(-90deg);
     -ms-transform: rotate(-90deg);
     -o-transform: rotate(-90deg);
     transform: rotate(-90deg);
-    background-image: url(<%= asset_path 'lupa.png' %>);
     background-repeat: no-repeat;
-    background-position: right;
+    background-position: right;*/
+    position: absolute;
+    z-index:110;
+    top: 140px;
+    background-image: url(<%= asset_path 'lupaff.png' %>);
+    background-color: #c94326;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    display: block;
 }
 
 .findbar:hover {
-	background-color: #f29e0d;
+	background-color: #852c19;
 }
 
 .cajabusqueda {
 	width: 458px;
 	height: 175px;
 	padding: 5px 20px 20px;
-	border-left: 5px solid #F9A848;
+	border-left: 5px solid #c94326;
 	position: absolute;
 	top: 140px;
-	right: 25px;
+	right: 45px;
 	z-index: 120;
-	background: rgb(232, 139, 20); 
-	background: rgba(232, 139, 20, 0.7);
+	background: rgb(229, 108, 71); 
+	background: rgba(229, 108, 71, 0.7);
 }
 
 .edicionbar {
-	font-family: 'bebas_neueregular', sans-serif;
-	font-size: 16px;
-	line-height: 1;
-	letter-spacing: 1px;
-	text-align: center;
-    padding: 5px 35px 5px 10px;
-    background-color: #FFC717;
     position: absolute;
-    min-width: 155px;
-    top: 430px;
-	right:-87px;   
-	color:#fff;
     z-index:110;
-    -webkit-transform: rotate(-90deg);
-    -moz-transform: rotate(-90deg);
-    -ms-transform: rotate(-90deg);
-    -o-transform: rotate(-90deg);
-    transform: rotate(-90deg);
-    background-image: url(<%= asset_path 'lapiz.png' %>);
+    top: 230px;
+    background-image: url(<%= asset_path 'editsff.png' %>);
+    background-color: #c4aa21;
+    background-position: 50% 50%;
     background-repeat: no-repeat;
-    background-position: right;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    display: block;
 }
 
 .edicionbar:hover {
-	background-color: #FFD85C;
+	background-color: #695b14;
 }
 
 .cajaediciones {
 	width: 458px;
 	height: 175px;
 	padding: 5px 20px 20px;
-	border-left: 5px solid #FFC717;
+	border-left: 5px solid #c4aa21;
 	position: absolute;
-	top: 343px;
-	right: 25px;
+	top: 230px;
+	right: 45px;
 	z-index: 120;
-	background: rgb(212, 180, 15); 
-	background: rgba(212, 180, 15, 0.7);
+	background: rgb(229, 211, 84); 
+	background: rgba(229, 211, 84, 0.7);
 }
 
 #search_field, .tt-hint {
@@ -324,11 +314,11 @@
 
 .showmodels {
 	width: 740px;
-	height: -webkit-calc(100% - 128px);
-	height: -moz-calc(100% - 128px);
-	height: calc(100% - 128px);
+	height: -webkit-calc(100% - 131px);
+	height: -moz-calc(100% - 131px);
+	height: calc(100% - 131px);
 	position: absolute;
-	top: 83px;
+	top: 86px;
 	left:40px;
 	z-index: 1001;
 	background-image: url(<%= asset_path 'fondobla.jpg' %>);
@@ -336,11 +326,14 @@
 }
 
 .showmodels h1 {
+	background-image: url(<%= asset_path 'modtit.png' %>);
+	background-position: 98% 50%;
+	background-repeat: no-repeat;
 	padding: 15px 10px 5px;
-	background-color:#e7cb7f;
+	background-color:#186f80;
 	font-family: 'bebas_neueregular', sans-serif;
 	letter-spacing: 2px;
-	color: #e73a00;
+	color: #25b3a0;
 }
 
 .showmodels p {
@@ -426,8 +419,8 @@
 	letter-spacing: 3px;
 	cursor: pointer;
 	position: absolute;
-    top: 81px;
-	left:80px; 
+    top: 86px;
+	left:50px; 
     z-index:220;
     border:none;
     border-bottom: 2px solid #FAE49B;
@@ -459,8 +452,8 @@
 	letter-spacing: 3px;
 	cursor: pointer;
 	position: absolute;
-	top: 81px;
-	left:80px; 
+	top: 86px;
+	left:50px; 
     z-index:220;
     border:none;
     border-bottom: 2px solid #FAE49B;
