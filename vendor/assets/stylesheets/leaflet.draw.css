@@ -376,3 +376,11 @@
     background-image: url('leaflet.draw/layers.png');
 }
 
+.leaflet-marker-icon {
+	margin-left: -11px;
+	margin-top: -20px;
+}
+
+.leaflet-popup-pane {
+	margin-top: -10px;
+}
