@@ -52,18 +52,22 @@
 
 
 <script>
-$(document).ready(function(){
-	function recalcular (){
+var ready;
+ready = function() {
+
+  	function recalcular (){
 		var altura = $('#alturap').height();
 		$('#lineap').height(altura);
 		$('#col1p').css( "margin-top", -altura);
 		$('#col2p').css( "margin-top", -altura);
 	}
 	recalcular();
-$(window).resize(function() {
+	$(window).resize(function() {
 		recalcular();
 	});
-});
 
+};
 
+$(document).ready(ready);
+$(document).on('page:change', ready);
 </script>

@@ -74,21 +74,22 @@ var _mapVisorModule = function() {
 		    useDMS:false, //optional default false
 		    useLatLngOrder: true //ordering of labels, default false-> lng-lat
 		}).addTo(map);
-	    
-	    //loadModel();
 	};
+
+	var unloadModel = function() {
+		if(map.hasLayer(modelOverlay)) {
+       		map.removeLayer(modelOverlay);
+       		layerControl.removeLayer(modelOverlay);
+       }
+	}
 
 	var loadModel = function (modelUrl) {
 
 		var imageUrl = modelUrl,
-        	//imageBounds = [[12.675003791, -60.4833271], [-13.841664259, -82.949994938]];
         	imageBounds = [[12.675, -60.48333], [-13.84166, -82.94999]];
 
        /* Dispose older model if it exists */
-       if(map.hasLayer(modelOverlay)) {
-       		map.removeLayer(modelOverlay);
-       		layerControl.removeLayer(modelOverlay);
-       }
+       unloadModel();
        	
 	    modelOverlay = new L.ImageOverlay(imageUrl, imageBounds, {opacity: 0.6});
 	    map.addLayer(modelOverlay, true);
@@ -99,38 +100,6 @@ var _mapVisorModule = function() {
 	        if(e.layer === modelOverlay)
 	            modelOverlay.bringToBack();
 	    });
-	};
-
-	var loadAllModels = function (modelsUrls) {
-		var modelOver1 = null, modelOver2 = null, modelOver3 = null, modelOver4 = null;
-
-		if(map.hasLayer(modelOver1)){
-			map.removeLayer(modelOver1);
-			layerControl.removeLayer(modelOver1);
-		}
-		if(map.hasLayer(modelOver2)){
-			map.removeLayer(modelOver1);
-			layerControl.removeLayer(modelOver1);
-		}
-		if(map.hasLayer(modelOver3)){
-			map.removeLayer(modelOver1);
-			layerControl.removeLayer(modelOver1);
-		}
-		if(map.hasLayer(modelOver4)){
-			map.removeLayer(modelOver1);
-			layerControl.removeLayer(modelOver1);
-		}
-
-		modelOver1 = new L.ImageOverlay(modelsUrls[1], imageBounds, {opacity: 0.6});
-		modelOver2 = new L.ImageOverlay(modelsUrls[2], imageBounds, {opacity: 0.6});
-		modelOver3 = new L.ImageOverlay(modelsUrls[3], imageBounds, {opacity: 0.6});
-		modelOver4 = new L.ImageOverlay(modelsUrls[4], imageBounds, {opacity: 0.6});
-		map.addLayer(modelOver1);
-		map.addLayer(modelOver2);
-		map.addLayer(modelOver3);
-		map.addLayer(modelOver4);
-		layerControl.addOverlay({"Modelo 1": modelOver1, "Modelo 2": modelOver2, "Modelo 3": modelOver3, "Modelo 4": modelOver4});
-
 	};
 
 	var unloadReview = function (){
@@ -167,6 +136,7 @@ var _mapVisorModule = function() {
 
     	map.addLayer(reviewLayer);
     	layerControl.addOverlay(reviewLayer,"Anotación");
+    	reviewLayer.openPopup();
 
 	};
 
@@ -295,11 +265,7 @@ var _mapVisorModule = function() {
 		    map.on('popupopen', function(e) {
 		        currentPopupID = e.popup._leaflet_id;
 		    });
-
-		    map.on('draw:drawstart', function(e) {
-		    	// alert("Hola");
-		    	// console.log("Elegido");
-		    });	    
+   
 		}   
 	};
 
@@ -373,13 +339,6 @@ var _mapVisorModule = function() {
 	};
 
 	var cancelEdition = function () {
-		// var cancel = true;
-		// if(confirm('¿Desea cancelar sin guardar los cambios?'))
-		// 	deactivateEdition();
-		// else 
-		// 	cancel = false;
-		
-		// return cancel;
 		deactivateEdition();
 	};
 
@@ -460,6 +419,7 @@ var _mapVisorModule = function() {
 
 		init: init,
 		loadModel: loadModel,
+		unloadModel: unloadModel,
 		activateEdition: activateEdition,
 		deactivateEdition: deactivateEdition,
 		cancelLayer: cancelLayer,

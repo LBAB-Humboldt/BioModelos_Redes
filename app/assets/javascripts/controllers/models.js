@@ -3,7 +3,6 @@ $( document ).ready(function() {
   var clearShowBox = function() {
     $('#search_field').val('');
     $('#search_field').typeahead('setQuery', '');
-    //$('.resultados').html("<small><a href='/listado.html' target='_blank'>Listado de especies</a></small>");
     $('.cajabusqueda').show('slow');
   }
 
@@ -50,6 +49,7 @@ $( document ).ready(function() {
     $('#class_id').val(5);
     $('#cajasearch2,#cajasearch3,#cajasearch4,#cajasearch1,#cajasearch6,#cajasearch7').hide('slow');
     clearShowBox();
+    $('.resultados').load('../peceslist.html');
      e.preventDefault();
   });
   $("#repsh").click(function(e){
@@ -73,6 +73,7 @@ $( document ).ready(function() {
           $('.showmodels, .cajabusqueda, .editControls, .edicionbar, .cajabusqueda, .botonmodelos, .cajaediciones').hide('slow');
           editButtonsOff();
           _mapVisorModule.deactivateEdition();
+          _mapVisorModule.unloadModel();
           _mapVisorModule.unloadReview();
           _mapVisorModule.unloadPoints();
           $('#species_id').val('');
