@@ -868,7 +868,6 @@ L.Draw.Marker = L.Draw.Feature.extend({
                         shadowUrl: null,
                         iconUrl: '/assets/marcador.png',
                         iconSize: (22, 20),
-                        iconAnchor: (22, 10)
                 }),
                 repeatMode: false,
                 zIndexOffset: 2000 // This should be > than the highest z-index any markers
