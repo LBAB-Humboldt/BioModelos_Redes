@@ -113,14 +113,6 @@
 	background-position: left;
 }
 
-.fondomaps {
-	background-image: url(<%= asset_path 'mapsmaps.png' %>);
-	-webkit-background-size: cover;
-	background-size: cover;
-	background-position: center;
-	padding: 20px;
-}
-
 .homeline {
 	width: 100%;
 	height: 220px;
@@ -158,8 +150,9 @@
 
 .intro2 {
 	margin-top: -20px;
+	max-height: 260px;
 	height: 260px;
-	padding: 0 15px;
+    max-width: 380px;
     width: 380px;
     margin-right: 40px;
 	float: right;
@@ -168,6 +161,7 @@
 }
 
 .introtext {
+	padding: 20px;
 	margin:0 auto;
 	font-size: 16px;
     color: #2d2d2d;
@@ -181,10 +175,14 @@
 }
 
 .introtext h5 {
-	margin-right: 1%;
 	width: 48%;
 	display: inline-block;
 	float: left;
+	margin-bottom: 20px;
+}
+
+.introtext h5:last-child {
+	float: right;
 }
 
 .lbabimg2 {
@@ -256,28 +254,23 @@
     display: none;
 }
 
-
 .minus1024 {
-	display:block;
+	width: 100%;
+	height: 100%;
+	background-image: url(<%= asset_path 'fondobla.jpg' %>);
 	position: absolute;
-	z-index: 100;
-	top: 0;
-	margin-left:20px;
-	background-color: #fff;
-	color:#008d96;
-	padding: 5px;
+	z-index: 10000;
 }
 
-.w1024 {
-    display:none;
+.minus1024 img {
+	width: 98%;
+	margin: auto;
 }
 
 /* if screen size gets wider than 1024 */
 
 @media screen and (min-width:1024px) {
-    .w1024 {
-        display:block;
-    }
+
     .minus1024 {
 	display:none;
 }

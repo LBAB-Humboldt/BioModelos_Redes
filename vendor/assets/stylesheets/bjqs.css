@@ -11,3 +11,7 @@ ol.bjqs-markers.h-centered{text-align: center;}
 ol.bjqs-markers li{display:inline;}
 ol.bjqs-markers li a{display:inline-block; margin-right: 10px; font-size: 15px; color: #888888; margin-top:0px;}
 p.bjqs-caption{display:none;width:96%;margin:0;padding:2%;position:absolute;bottom:0;}
+.bjqs-wrapper {
+	max-width: 380px;
+	max-height: 260px;
+}
