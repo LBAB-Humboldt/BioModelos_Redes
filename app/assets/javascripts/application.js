@@ -11,8 +11,8 @@
 // about supported directives.
 //
 //= require jquery
-//= require bjqs-1.3
 //= require lightbox-2.6.min
+//= require bjqs-1.3
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require_tree ./controllers
