@@ -9,6 +9,6 @@ class ContactMailer < ActionMailer::Base
   def contact_us(message)
     @message = message
     @datetime = DateTime.now
-    mail to: "dlopez@humboldt.org.co",  subject: "Feedback desde BioModelos"
+    mail to: "biomodelos@humboldt.org.co",  subject: "Feedback desde BioModelos"
   end
 end
