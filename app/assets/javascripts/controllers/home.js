@@ -3,6 +3,5 @@ jQuery(document).ready(function($) {
         'animtype'      : 'slide',
         'height' : 260,
         'width' : 380,
-        'responsive' : true
     });
 });
