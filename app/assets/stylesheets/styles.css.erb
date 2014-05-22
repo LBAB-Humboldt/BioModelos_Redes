@@ -50,25 +50,6 @@ header {
     z-index: 1;
 }
 
-nav {
-    font-family: 'bebas_neueregular', sans-serif;
-    text-transform: uppercase;
-    font-size: 1em;
-    letter-spacing: 1.2px;
-    float: right;
-    margin-right: 30px;
-}
-
-nav li {
-    float: left;
-}
-
-nav li a {
-    display: block;
-    color: #30302e;
-    padding: 40px 15px 18px;
-}
-
 nav li a.current {
     background: #fff;
     color: #FFC717;
@@ -84,57 +65,6 @@ nav a:active {
     position: absolute;
     right:0;
     top: 0;
-}
-
-.humbimg {
-    padding-top: 5px;
-    margin-top: 7px;
-    margin-left: 5px;
-    float: left;
-    font-family: 'lato', sans-serif;
-    font-size: 13px;
-    color: #4d4d4d;
-    letter-spacing: 1.5px;
-    line-height: 1.2;
-}
-
-.humbimg p {
-    margin-top: 15px;
-    float: left;
-    font-family: 'lato', sans-serif;
-    font-size: 11px;
-    color: #5d5d5d;
-    letter-spacing: 1px;
-    line-height: 1;
-}
-
-.humbcolor {
-    float: left;
-    margin-top: 5px;
-    margin-left: 30px;
-}
-
-footer {
-    width: 100%;
-    height: 44px;
-    background-color: #655f57;
-    border-top: 1px dashed #fff;
-    padding: 0 10px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    z-index: 20;
-}
-
-.fixfooter {
-    margin-bottom: 47px !important;
-}
-
-footer nav {
-    font-size: 0.87em;
-    letter-spacing: 1.2px;
-    float: right;
-    margin-right: 30px;
 }
 
 footer nav li a {
@@ -171,21 +101,6 @@ footer nav a:active {
     color: #00A1AD;
 }
 
-.lbabfooter { 
-    text-align: left;
-    margin-top: 10px;
-    margin-left: 15px;
-}
-
-.lbabfooter img {
-    padding-right: 10px;
-    border-right: 1px solid #5D5D5D;
-    float: left;
-}
-
-.textft {
-    float: left;
-}
 .lbabfooter h1, .lbabfooter p, .contacto p {
     font-family: 'lato', sans-serif;
     font-size: 0.7em;
@@ -289,10 +204,186 @@ footer nav a:active {
     .contenedor {
         width: 98%;
     }
-/* Styles */
+
+    .hlcol1 {
+        display: 100%;
+        margin: 0 auto;
+    }
+    
+    .intro2 {
+        display: none;
+    }
+
+    .opciones {
+        margin-top: 20px;
+    }
+
+    .humbcolor {
+        float: left;
+        margin-top: 5px;
+        margin-left: 0;
+    }
+    
+    .humbimg {
+        padding-top: 5px;
+        margin-top: 7px;
+        margin-left: 5px;
+        font-family: 'lato', sans-serif;
+        font-size: 10px;
+        color: #4d4d4d;
+        letter-spacing: 0.8px;
+        line-height: 1.2;
+    }
+
+    .humbimg p {
+        margin-top: 15px;
+        font-family: 'lato', sans-serif;
+        font-size: 9px;
+        color: #5d5d5d;
+        letter-spacing: 0.8px;
+        line-height: 1;
+    }
+
+    nav {
+        font-family: 'bebas_neueregular', sans-serif;
+        text-transform: uppercase;
+        font-size: 1em;
+        letter-spacing: 1.2px;
+        display: inline-block;
+        margin: 0 auto;
+    }
+
+    header nav {
+        font-family: 'bebas_neueregular', sans-serif;
+        text-transform: uppercase;
+        font-size: 1em;
+        letter-spacing: 1.2px;
+        width: 100%;
+        display: inline-block;
+        margin: 0 auto;
+    }
+
+    header nav li {
+        display: inline-block;
+        margin: 0;
+        width: 24.3%;
+        margin-left: -3px;
+    }
+
+    header nav li a {
+        display: inline-block;
+        color: #30302e;
+        text-align: center;
+        width: 100%;
+        font-size: 85%;
+        line-height: 2;
+        margin-left: -3px;
+    }
+
+    .op {
+        width: 94%;
+        display: inline-block;
+        margin: 0 3%;
+        height: auto;
+        margin-top: 20px;
+        vertical-align: top;
+    }
+    
+    .introtext h5 {
+        width: 80%;
+    }
+
+    .lbabfooter { 
+        text-align: center;
+    }
+
+    .textft {
+        float: none;
+    }
+
+    footer {
+        width: 100%;
+        height: 75px;
+        background-color: #655f57;
+        border-top: 1px dashed #fff;
+        padding: 0 10px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 20;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .fixfooter {
+        margin-bottom: 78px !important;
+    }
+
+    footer nav {
+        font-size: 0.87em;
+        letter-spacing: 1.2px;
+        float: none;
+        margin-top: 10px;
+    }
+
+    .minus1024 {
+    height: -webkit-calc(100% - 189px);
+    height: -moz-calc(100% - 189px);
+    height: calc(100% - 189px);
+    }
+
+}
+
+@media only screen and (min-width : 420px) {
+    .humbimg {
+        float: left;
+        font-size: 13px;
+    }
+
+    .humbimg p {
+        float: left;
+        font-size: 11px;
+    }
+        .op {
+        width: 43%;
+    }
+}
+
+@media only screen and (min-width : 600px) {
+
+    footer {
+        height: 44px;
+    }
+
+    .fixfooter {
+        margin-bottom: 47px !important;
+    }
+
+    footer nav {
+        float: right;
+        margin-right: 30px;
+        margin-top: 0;
+    }
+
+    .lbabfooter { 
+        text-align: left;
+        margin-top: 10px;
+        margin-left: 15px;
+    }
+
+    .textft {
+        float: left;
+    }
+
+    .minus1024 {
+    height: -webkit-calc(100% - 158px);
+    height: -moz-calc(100% - 158px);
+    height: calc(100% - 158px);
+    }
 }
 
 @media only screen and (max-width : 631px) {
+
     .lbabimg {
         clear:both;
         margin-bottom: 10px;
@@ -301,13 +392,72 @@ footer nav a:active {
 }
 
 @media only screen and (min-width : 768px) {
-/* Styles */
+
+
+    .humbcolor {
+        margin-left: 30px;
+    }
+
+}
+
+@media only screen and (min-width : 827px) {
+
+    .hlcol1 {
+        float: left;
+        width: 360px;
+        margin-right: 30px;
+    }
+
+    .intro2 {
+        display: block;
+    }
+
+    .opciones {
+        margin-top: 0;
+    }
+
+    header nav {
+        float: right;
+        margin-right: 30px;
+        margin-top: 0;
+        width: auto;
+    }
+
+    header nav li {
+        float: left;
+        width: auto;
+    }
+
+    header nav li a {
+        padding: 30px 15px 18px;
+        text-align: left;
+        border-top: none;
+        width: auto;
+        font-size: 100%;
+    }
+
+    .minus1024 {
+    height: -webkit-calc(100% - 131px);
+    height: -moz-calc(100% - 131px);
+    height: calc(100% - 131px);
+    }
+
 }
 
 @media only screen and (min-width : 1024px) {
 
     .contenedor {
         width: 1000px;
+    }
+    
+    .op {
+        width: 18%;
+        margin: 0 3%;
+        margin-top: 0;
+    }
+
+    .introtext h5 {
+        width: 580px;
     }
 
 }

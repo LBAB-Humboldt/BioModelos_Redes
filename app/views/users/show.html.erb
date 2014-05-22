@@ -1,13 +1,13 @@
 <div class="editform"></div>
-<% if @user.id == get_current_user_id%>	
-	<div class="botonesperfil clearfix">
+<div class="botonesperfil clearfix">
+	<% if @user.id == get_current_user_id%>	
 		<%= link_to '', {:action => 'edit_profile'}, :remote => true, :class =>"editperfil" %>
-		<div class="funcperfil">
-			<a href="#"></a>
-			<a href="#"></a>
-		</div>
+	<% end %>
+	<div class="funcperfil">
+		<a href="#"></a>
+		<a href="#"></a>
 	</div>
-<% end %>
+</div>
 <div class="perfilline" id="lineap"></div>
 <div class="contenedor">
 	<div class="perfilcol1 clearfix fixfooter" id="col1p">

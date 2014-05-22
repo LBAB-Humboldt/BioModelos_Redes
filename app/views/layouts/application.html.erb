@@ -18,9 +18,9 @@
 		<% flash.each do |key, value| %>
   		<div class="alert alert-<%= key %>" id="flashm"><%= value %></div>
 		<% end %>
-	    <div class="w1024"><%= render 'shared/header' %></div>
+		<div><%= render 'shared/header' %></div>
 		<%= yield %>
-	    <div class="w1024"><%= render 'shared/footer' %></div>
+		<div><%= render 'shared/footer' %></div>
 	</body>
 
 <!-- desaparece las alertas despues de 4 seg-->

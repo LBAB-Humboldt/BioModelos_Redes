@@ -32,14 +32,6 @@
 	margin-bottom: 10px;
 }
 
-.op {
-	float:left;
-	width: 19%;
-	display: block;
-	margin: 0 3%;
-	height: auto;
-}
-
 .imginicio {
 	background: no-repeat center;
 	-webkit-background-size: cover;
@@ -92,15 +84,6 @@
 	letter-spacing: 1px;
 }
 
-/*.lineop {
-	overflow: auto;
-	padding: 3px;
-	border-top: 1px dashed #1ab0b5;
-	border-bottom: 1px dashed #1ab0b5;
-	text-align: center;
-	margin: 5px 0;
-}*/
-
 .lineop h3 {
 	font-family: 'bebas_neueregular', sans-serif;
 	font-weight: 400;
@@ -115,14 +98,13 @@
 
 .homeline {
 	width: 100%;
-	height: 220px;
+	height: 260px;
 	background-color: #E3AF20;
 	background-image: url(<%= asset_path 'birdie.png' %>);
 	background-repeat: no-repeat;
 	background-position: center bottom;
 	margin-top: 15px;
 	z-index: -1;
-	padding: 20px 0;
 }
 
 .homeline2 {
@@ -139,46 +121,35 @@
 .homeline h1 {
 	font-size: 60px;
 	font-weight: 700;
-	padding: 20px 0 0 20px;
+	padding: 30px 0 0 20px;
 	color: #fff;
 	letter-spacing: 1px;
 }
 
 .homeline h2 {
     font-size: 18px;
-    margin-top: -15px;
+    margin-top: 10px;
     padding-left: 22px;
     font-weight: 700;
     color: #ff5817;
     letter-spacing: 1px;
 }
 
-.hlcol1 {
-	float: left;
-	width: 360px;
-	margin-right: 30px;
-}
-
 .intro2 {
-	margin-top: -20px;
-	max-height: 260px;
-	height: 260px;
-    max-width: 380px;
+    height: 260px;
     width: 380px;
     margin-right: 40px;
-	float: right;
+    float: right;
     position: relative;
     background-image: url(<%= asset_path 'fondobla.jpg' %>);
     z-index: 2;
 }
-
 
 .introtext strong {
     color: #e55a2f;
 }
 
 .introtext h5 {
-	width: 580px;
 	margin: 20px auto;
 	text-align: justify;
 	padding: 20px;
@@ -213,7 +184,7 @@
 .lbabimg2 {
     padding: 55px 0 10px;
     background: url(<%= asset_path 'logolbab.png' %>) no-repeat;
-	margin: 10px 0 0 20px;
+	margin: 15px 0 0 20px;
 }
 
 .columnaintro {
@@ -280,31 +251,33 @@
     display: none;
 }
 
+@media screen and (min-width:321px) {
+
 .variables {
-	width: 925px;
+	width: 255px;
 	margin: 0 auto !important;
 	line-height: 1;
 	letter-spacing: 0;
 }
 
 .variable1 {
-	float: left;
+	float: none;
 	width: 255px;
-	margin-left: 1%;
-	margin-bottom: 50px;
+	margin: 0 auto;
+	margin-bottom: 10px;
 	text-align: center;
 	font-weight: 900;
 	font-size: 30px;
 }
 
 .variable2 {
-	float: left;
+	float: none;
 	width: 75px;
-	margin: 0 1% 0 2%;
+	margin: 0 auto;
 }
 
 .variable3 {
-	float: left;
+	float: none;
 	width: 290px;
 }
 
@@ -326,7 +299,8 @@
 
 .var2 {
 	background: url(<%= asset_path 'var2a.png' %>)no-repeat center;
-	height: 255px;
+	height: 75px;
+	margin-bottom: 20px;
 }
 
 .var1b {
@@ -360,20 +334,77 @@
 	width: 100%;
 	height: 100%;
 	background-image: url(<%= asset_path 'fondobla.jpg' %>);
-	position: fixed;
-	z-index: 10000;
+	position: absolute;
+	z-index: 20000;
 }
 
 .minus1024 img {
-	width: 98%;
+	width: 100%;
 	margin: auto;
 }
 
+}
 /* if screen size gets wider than 1024 */
+
+@media screen and (min-width:700px) {
+
+	.variables {
+		width: 700px;
+	}
+
+	.variable3 {
+		float: left;
+	}
+
+	.var1b {
+		float: left;
+		margin-left:-webkit-calc(100% - 600px);
+		margin-left: -moz-calc(100% - 600px);
+		margin-left: calc(100% - 600px);
+	}
+
+}
+
+@media screen and (max-width:1023px) {
+
+.plus1024, .leaflet-control-container {
+	display: none;
+}
+
+#map {
+	display: none;
+}
+
+}
 
 @media screen and (min-width:1024px) {
 
-    .minus1024 {
-	display:none;
+.variables {
+	width: 925px;
 }
+
+.variable1 {
+	float: left;
+	margin-bottom: 50px;
+	margin-left: 1%;
+}
+
+.variable2 {
+	float: left;
+	margin: 0 1% 0 2%;
+}
+
+.variable3 {
+	float: left;
+}
+
+.var2 {
+	height: 255px;
+	margin-bottom: 0;
+}
+
+	.minus1024 {
+		display:none;
+	}
+
 }
