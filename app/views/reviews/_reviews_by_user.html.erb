@@ -4,7 +4,8 @@
     <a href="#" class="vermodelo"><%= image_tag "ver.png", title:"Ver" %></a> -->
 	<div class="minavatar2"><%= image_tag("editicon.png") %></div>
 		<li class="datosaportes">
-	      <a class="feeduserp" href="#"><%= Species.find(Model.find(review.model_id).species_id).sci_name %></a>
+		  <% s_id = Model.find(review.model_id).species_id.to_s %>
+	      <%= link_to Species.find(s_id).sci_name, root_url + 'models/visor?species_id='+ s_id, {:class => 'feeduserp' } %>
 	      <div class="feedtimep"><%= review.created_at %></div>
 	      <p class="feedcontentp"><%= Model.find(review.model_id).description %></p>
     	</li>

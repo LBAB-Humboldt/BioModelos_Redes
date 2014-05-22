@@ -9,7 +9,7 @@
 		<a href="#" class="vermodelo" id="like"><%= image_tag "like.png", title:"Apruebo" %></a>
 		<div class="minavatar2"><%= image_tag("editicon.png") %></div>
 		<li class="datosaportes">
-		<a class="feeduserp"><%= User.find(sr.user_id).name %></a>
+		<%= link_to User.find(sr.user_id).name, root_url + 'users/'+ sr.user_id.to_s, {:class => 'feeduserp' } %>
 		<div class="feedtimep"><%= sr.updated_at %></div>
 		<p class="feedcontentp"><%= Model.find(sr.model_id).description %></p>
 	<% end %>
