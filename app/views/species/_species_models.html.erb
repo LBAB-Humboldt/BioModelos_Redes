@@ -10,7 +10,14 @@
         <div class="resbusqueda genero clearfix"><%= @species.order %></br>
         <div class="familia"><%= @species.family %></div>
         <a href="http://www.biodiversidad.co/" class="linksib" target="_blank">www.biodiversidad.co</a></div>
-        <div class="selector hs">
+
+        <div class="hs clearfix" id="tabs">
+                <ul class="tabsnav clearfix">
+                    <li><a href="#tabs-1">Nivel 1</a></li>
+                    <li><a href="#tabs-2">Nivel 2</a></li>
+                </ul>
+                
+        <div id="tabs-1">
             <div class="left-arrow">
                 <a href="#prev">
                 </a>
@@ -27,7 +34,7 @@
                                 <h5>Modelo Nivel 1</h5>
                                 <h6><b>CORTE: </b></br>
                                 <%= model.description %></h6>
-                                <p>Ranking:</p>
+                                <p>Promedio:</p>
                                 <h3><%= model.average_rating %></h3>
                                 <p>Votos: (<%= model.total_votes %>)</p>
                                 </div>
@@ -56,8 +63,14 @@
             </div>
         </div>
 
-        <p>Seleccionar modelo, calificar o comentar sobre los distintos modelos.</br>Para comentar sobre un modelo específico dar el nombre del corte.</br></p>
+        <div id="tabs-2">
+                texto prueba
+        </div>
 
+        </div>
+
+
+        <p>Seleccionar modelo, calificar o comentar sobre los distintos modelos.</br>Para comentar sobre un modelo específico dar el nombre del corte.</br></p>
         <div class="commentspace">
         <h3>Comentarios sobre esta especie y sus modelos</h3>
         <% if user_signed_in? %>
@@ -133,4 +146,21 @@ $(document).ready(function(){
         });
 });
 
+</script>
+
+<script>
+    $(function() {
+        
+        $( "#tabs" ).tabs();
+
+        // Hover states on the static widgets
+        $( "#dialog-link, #icons li" ).hover(
+            function() {
+                $( this ).addClass( "ui-state-hover" );
+            },
+            function() {
+                $( this ).removeClass( "ui-state-hover" );
+            }
+        );
+    });
 </script>

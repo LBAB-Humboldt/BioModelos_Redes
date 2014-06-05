@@ -245,9 +245,7 @@
 
 /* modificaciones */
 
-.leaflet-control-attribution {
-	display:none;
-}
+
 
 .leaflet-draw-tooltip-subtext {
 	color:#9ae8e1;
@@ -266,8 +264,8 @@
 }
 
 .radiogaga {
-	margin: 5px;
-	vertical-align: middle;
+	margin: 3px 5px;
+	vertical-align: baseline;
 }
 
 .radiogaga:first-child {
@@ -275,8 +273,7 @@
 }
 
 .labelcom {
-	color: #76CCC5;
-	margin-top:-25px;
+	color: #e55a2f;
 }
 
 .commentForm {
@@ -337,11 +334,11 @@
 }
 
 .leaflet-control-coordinates {
-	margin-bottom: 21px !important;
 	border-radius: 0 !important;
 	background-color: #E48413 !important;
 	color: #fff !important;
-	padding: 4px 8px !important;
+	padding: 1px 3px !important;
+	font-size: 11px;
 }
 
 .leaflet-bar, .leaflet-control-layers {
