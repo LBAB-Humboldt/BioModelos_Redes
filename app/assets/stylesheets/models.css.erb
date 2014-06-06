@@ -117,6 +117,24 @@
 	background-color: #695b14;
 }
 
+.ecologicas {
+    position: absolute;
+    z-index:110;
+    top: 266px;
+    background-image: url(<%= asset_path 'ecosis.png' %>);
+    background-color: #0a8045;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    display: block;
+}
+
+.ecologicas:hover {
+	background-color: #0e4d3f;
+}
+
 .cajaediciones {
 	width: 458px;
 	height: 175px;
@@ -648,6 +666,24 @@ cursor: pointer;
 
 .tabsnav li:nth-of-type(2):hover {
 	background-color: #cccc00;
+}
+
+
+.ui-tooltip {
+	font-family: 'lato', sans-serif;
+	padding: 4px 4px;
+	position: absolute;
+	z-index: 10005;
+	font-size: 12px;
+	min-width: auto;
+	-webkit-box-shadow: 0 0 5px #5d5d5d;
+	box-shadow: 0 0 5px #5d5d5d;
+	background-color: #fac205;
+	line-height: 1;
+	text-align: center;
+}
+body .ui-tooltip {
+	border-width: 2px;
 }
 
 
