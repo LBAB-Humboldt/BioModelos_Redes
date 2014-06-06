@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require jquery-ui-1.10.4.custom
 //= require lightbox-2.6.min
 //= require bjqs-1.3.min
 //= require_tree ./controllers

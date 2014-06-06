@@ -10,7 +10,7 @@
         });
     </script>
 <% end %>
-<a href="" class="findbar"></a>
+<a href="" class="findbar" title="Búsqueda de Especie"></a>
 <div id="allsearchers">
         <div class="cajabusqueda">
                 <div class="searchcateg srchanfibios" id="cajasearch1">Anfibios</div>
@@ -24,12 +24,14 @@
                 <section class="resultados"></section>
         </div>
 <% if user_signed_in? %>
-    <a href="" class="edicionbar"></a>
-        <div class="cajaediciones">
-                
+    <a href="" class="edicionbar" title="Ediciones Realizadas"></a>
+        <div class="cajaediciones">    
+        </div>
+    <a href="" class="ecologicas" title="Variables Ecológicas"></a>
+        <div class="cajaecolog">    
         </div>
 <% end %>
-        <a href="" class="botonmodelos"></a>    
+        <a href="" class="botonmodelos" title="Modelos y Comentarios"></a>    
         <div class="selectores">
                 <p class="titulomapa">Selecciona una categoría</p>
                 <a href="#" id="anfsh"><%= image_tag("anfibiosg.png", :title => 'Anfibios') %></a>
@@ -62,3 +64,7 @@
 <div class ="pointBox"></div>
 <%= javascript_include_tag 'leaflet/leaflet.draw.0.2.3dev.min' %>
 <%= javascript_include_tag 'mapEditor' %>
+<script>
+$( document ).tooltip();
+</script>
+
