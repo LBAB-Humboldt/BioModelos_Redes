@@ -23,18 +23,18 @@
         var defaults        = {
 
             // w + h to enforce consistency
-            width           : 380,
-            height          : 260,
+            width           : 700,
+            height          : 300,
 
             // transition valuess
             animtype        : 'fade',
-            animduration    : 750,      // length of transition
-            animspeed       : 5000,     // delay between transitions
+            animduration    : 450,      // length of transition
+            animspeed       : 4000,     // delay between transitions
             automatic       : true,     // enable/disable automatic slide rotation
 
             // control and marker configuration
-            showcontrols    : false,     // enable/disable next + previous UI elements
-            centercontrols  : false,     // vertically center controls
+            showcontrols    : true,     // enable/disable next + previous UI elements
+            centercontrols  : true,     // vertically center controls
             nexttext        : 'Next',   // text/html inside next UI element
             prevtext        : 'Prev',   // text/html inside previous UI element
             showmarkers     : true,     // enable/disable individual slide UI markers
@@ -45,9 +45,10 @@
             hoverpause      : true,     // enable/disable pause slides on hover
 
             // presentational options
-            usecaptions     : false,     // enable/disable captions using img title attribute
-            randomstart     : true,     // start from a random slide
+            usecaptions     : true,     // enable/disable captions using img title attribute
+            randomstart     : false,     // start from a random slide
             responsive      : false     // enable responsive behaviour
+
 
         };
 

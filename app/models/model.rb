@@ -15,7 +15,7 @@ class Model < ActiveRecord::Base
 	end
 
 	def average_rating
-		ratings.size == 0 ? 0.0 : ratings.sum(:score) / ratings.size
+		ratings.size == 0 ? 0.0 : ratings.sum(:score).fdiv(ratings.size).round(2)
 	end
 
 	def total_votes

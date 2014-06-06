@@ -3,8 +3,8 @@
 
 <%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post, :class => 'formasignin' }) do |f| %>
   <%= f.error_notification %>
-<p>Olvidaste tu clave?</br></br>
-Danos tu email y te enviaremos un correo con instrucciones</p>
+<p>¿Olvidaste tu clave?</br></br>
+Escribe tu email y te enviaremos un correo con instrucciones</p>
     <%= f.input :email, label: false, :placeholder => "Email", :required => true, :autofocus => true, :input_html => { :class => "inputforma inp2" } %>
     <%= f.button :submit, "Enviar", :class => "bbton" %>
 <%= render "devise/shared/links" %>

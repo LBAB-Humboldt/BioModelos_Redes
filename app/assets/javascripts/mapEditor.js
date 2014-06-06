@@ -6,7 +6,9 @@ var _mapVisorModule = function() {
            '<label><strong>Observación:</strong></label><br />' +
 	       '<textarea rows="4" cols="30" placeholder="Ingrese una observación" id="comment" class="cmtArea"></textarea>' +
 	       '<div class="row-fluid clearfix">' +
-	       '<label class="labelcom clearfix"><strong>Acción:</strong></label><input type="radio" name="EditType" value="Add" class="radiogaga">Agregar</input><input type="radio" name="EditType" value="Cut" class="radiogaga">Remover</input><input type="radio" name="EditType" value="Other" class="radiogaga" checked>Otra</input>'+
+	       '<label class="labelcom clearfix"><strong>Acción:</strong></label><input type="radio" name="EditType" value="Add" class="radiogaga">Agregar al modelo</input></br>' +
+ 	       '<input type="radio" name="EditType" value="Cut" class="radiogaga">Remover del modelo</input></br>' +
+ 	       '<input type="radio" name="EditType" value="Other" class="radiogaga" checked>Otra</input></br>'+
 	       '<button class="btn2" id="saveBtn" type="button">guardar</button>' +
            '<button class="btn2" id="popUpCancelBtn" type="button">cancelar</button></div>'; 
         pointForm = '<div class="commentForm">' +
@@ -37,7 +39,7 @@ var _mapVisorModule = function() {
 	            {
 	                minZoom: mZoom,
 	                maxZoom: mxZoom,
-	                attribution: 'Map data © OpenStreetMap contributors'
+	                attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> Contributors'
 	            }),
 	    		thunderForestLand= new L.TileLayer('http://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png',{
 	    			minZoom: mZoom,
@@ -57,7 +59,7 @@ var _mapVisorModule = function() {
 
     	
     	map = L.map('map').setView(latlng, zoom);
-   
+   		
 	    map.addLayer(googleTerrain);
 
 	    /* autoZIndex controls the layer order */
@@ -391,7 +393,7 @@ var _mapVisorModule = function() {
 	        else
 	            geoJSONLayer += '[' + coords + ']';
 
-	        geoJSONLayer += '}, "properties": {"Comentario": "' + $('#puComment').text();
+	        geoJSONLayer += '}, "properties": {"Comentario": "' + $('#puComment').text().replace(/(?:\r\n|\r|\n)/g, ' ');
 	        if (ltG.geometry.type === 'Point'){
 	        	geoJSONLayer += '", "Fecha de Registro": "' + $('#puFechaRegistro').text() + '"' +
 	        					', "Localidad": "' + $('#puLocalidad').text() + '"' +
@@ -411,6 +413,7 @@ var _mapVisorModule = function() {
 	    geoJSONLayer += ']}';
 
 	    //console.log(geoJSONLayer);
+	    geoJSONLayer.replace();
 	    return geoJSONLayer;
 	};
 

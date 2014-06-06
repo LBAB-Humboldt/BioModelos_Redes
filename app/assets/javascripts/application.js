@@ -14,12 +14,13 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require lightbox-2.6.min
-//= require bjqs-1.3
+//= require bjqs-1.3.min
 //= require_tree ./controllers
 //= require typeahead.min
 //= require leaflet
-//= require leaflet/Leaflet.Coordinates-0.1.3
+//= require leaflet/leaflet.coordinates-0.1.4.min
 //= require leaflet/leaflet.markercluster
-//= require leaflet/leaflet.geocsv
+//= require jquery-csv.min
+//= require leaflet/leaflet.geocsv.min
 //= require jquery.raty.min
 //= require turbolinks
