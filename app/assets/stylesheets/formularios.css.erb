@@ -143,6 +143,17 @@
   background-size: cover;
 }
 
+.fondo4 {
+  width: 100%;
+  height: -moz-calc(100% - 131px);
+  height: -webkit-calc(100% - 131px);
+  height: calc(100% - 131px);
+  background-image: url(<%= asset_path 'ranaf3.jpg' %>);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+}
+
 .faqshow {
   width: 415px;
   height: -moz-calc(100% - 30px);
@@ -205,6 +216,17 @@
   overflow: auto;
 }
 
+.claverec {
+  width: 600px;
+  height: auto;
+  position: relative;
+  margin: 10% auto;
+  z-index: 250;
+  background-image: url(<%= asset_path 'fondobla.jpg' %>);
+  padding: 50px;
+  overflow: auto;
+}
+
 .mailimg {
   position: absolute;
   top:25px;
@@ -215,7 +237,7 @@
   z-index:20;
 }
 
-.contacto h2 {
+.contacto h2, .fondo4 h2 {
   width: 80%;
   font-weight: 300;
   font-size: 30px;
@@ -233,7 +255,8 @@
 
 .forma input[type="text"],
 .forma input[type="email"],
-.forma input[type="tel"]  {
+.forma input[type="tel"] ,
+.forma input[type="password"]  {
   border:none;
   border-bottom: 1px solid #e73a00;
   padding: 3px;
