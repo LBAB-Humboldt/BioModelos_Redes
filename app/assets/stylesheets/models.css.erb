@@ -174,7 +174,9 @@
 	width: 20px;
 	height: 20px;
 	background-color:#FFC72D;
-	background-image: url(<%= asset_path 'lupabtn.png' %>);
+	color: #ef3e59;
+	font-weight: 700;
+	/*background-image: url(<%= asset_path 'lupabtn.png' %>);*/
 	border: none;
 	vertical-align: bottom;
 	margin-left: -3px;
@@ -347,7 +349,7 @@
 	background-image: url(<%= asset_path 'modtit.png' %>);
 	background-position: 98% 50%;
 	background-repeat: no-repeat;
-	padding: 15px 10px 5px;
+	padding: 15px 10px 8px;
 	background-color:#186f80;
 	font-family: 'bebas_neueregular', sans-serif;
 	letter-spacing: 2px;
@@ -361,6 +363,141 @@
 	color: #5D5D5D;
 	margin-bottom: 10px;
 }
+
+.cajaecolog {
+	background-image: url(<%= asset_path 'fondobla.jpg' %>);
+	width: 740px;
+	height: -webkit-calc(100% - 131px);
+	height: -moz-calc(100% - 131px);
+	height: calc(100% - 131px);
+	position: absolute;
+	top: 86px;
+	right:50px;
+	z-index: 1001;
+	overflow:auto;
+}
+
+.cajaecolog h1 {
+	padding: 15px 10px 8px;
+	color: #333333;
+    font-size: 30px;
+    font-weight: 300;
+    line-height: 1em;
+}
+
+.cajaecolog h1 i {
+	color: black;
+}
+
+
+.cajaecolog h2 {
+	margin: 10px 0 0 10px;
+	padding: 5px;
+	background-color: #E73A00;
+	color: #fff;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1em;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cajaecolog p + .ui-slider {
+		margin-top: -24px;
+		margin-right: 15px;
+	}
+
+.cajaecolog h6 {
+	color: #9D9D9D;
+    float: right;
+    font-size: 9px;
+    margin-right: -224px;
+    margin-top: 13px;
+    width: 233px;
+    word-spacing: 8px;
+}
+
+.othermarg {
+	margin-right: 10px !important;
+	margin-top:-14px !important;
+}
+
+.slider {
+	font-size: 12px;
+}
+
+.cajaecolog p {
+	font-size: 13px;
+	padding-left: 10px;
+	letter-spacing: 1px;
+	color: #333333;
+	margin: 10px 5px 5px;
+}
+
+#accordion h3 {
+	background-image: url(<%= asset_path 'bg.jpg' %>);
+	font-family: 'lato', sans-serif;
+	margin: 8px 10px 0;
+	padding: 8px 10px;
+	border-bottom: 1px solid #E73A00;
+	font-size: 13px;
+    letter-spacing: 1px;
+    color: #8d8d8d;
+}
+
+#accordion input[type="checkbox"] + label {
+	vertical-align: baseline;
+	font-size: 12px;
+	color: #333333;
+	margin-left: 5px;
+}
+
+.subcbtn {
+	width: 18px;
+	height: 18px;
+	background-color:#E73A00;
+	color: #fff;
+	font-weight: 700;
+	border: none;
+	vertical-align: top+5;
+	margin-left: 5px;
+	cursor: pointer;
+	font-size: 12px;
+}
+
+.novis {
+	display: none;
+}
+
+.ecobtn {
+	text-align: center;
+	top: 30px;
+	position: absolute;
+	right: 0;
+	margin-right: 10px;
+	width: 85px; 
+}
+
+.categ {
+	margin-bottom: 12px;
+}
+
+#accordion input[type="checkbox"].categ + label{
+	font-size: 14px;
+	color:black;
+	line-height: 1;
+}
+
+.subcateg {
+	margin: 0 0 12px 12px;
+}
+
+.ui-accordion-header-active {
+	background-image: url(<%= asset_path 'bg2.jpg' %>) !important;
+	color: #fff !important;
+}
+
 
 .padmodelos {
 	margin-top: 10px;
@@ -676,14 +813,14 @@ cursor: pointer;
 	z-index: 10005;
 	font-size: 12px;
 	min-width: auto;
+	max-width: 200px;
 	-webkit-box-shadow: 0 0 5px #5d5d5d;
 	box-shadow: 0 0 5px #5d5d5d;
 	background-color: #fac205;
 	line-height: 1;
 	text-align: center;
 }
+
 body .ui-tooltip {
 	border-width: 2px;
 }
-
-

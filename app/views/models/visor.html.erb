@@ -10,7 +10,7 @@
         });
     </script>
 <% end %>
-<a href="" class="findbar" title="Búsqueda de Especie"></a>
+<a href="" class="findbar" title="Búsqueda Especie"></a>
 <div id="allsearchers">
         <div class="cajabusqueda">
                 <div class="searchcateg srchanfibios" id="cajasearch1">Anfibios</div>
@@ -28,7 +28,130 @@
         <div class="cajaediciones">    
         </div>
     <a href="" class="ecologicas" title="Variables Ecológicas"></a>
-        <div class="cajaecolog">    
+        <div class="cajaecolog">
+            <div class="boton1 ecobtn">enviar</div>
+            <h1>Formato Variables Ecológicas<br><i>Amazonia amazonica</i></h1>
+            <h2>variables</h2>
+            <p>Probabilidad de Detección</p><div class="slider"></div><h6 class="othermarg">0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0</h6>
+            <p>Probabilidad Identificacion Erronea</p><div class="slider"></div><h6 class="othermarg">0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0</h6>
+            <h2>ecologicas</h2>
+            <div id="accordion">
+              <h3>1. Territorios artificializados</h3>
+                <div>
+                    <div><input type="checkbox" name="1.1." class="categ"></input><label>1.1. Zonas urbanizadas</label><input type="button" class="subcbtn" id="subcbtn1" value="+"></input><div class="slider"></div><h6>0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0</h6></div>
+                    <div class="novis subcecos1">
+                        <div><input type="checkbox" name="1.1.1." class="subcateg"></input><label>1.1.1. Tejido urbano continuo</label><div class="slider"></div><h6>0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0</h6></div>
+                        <input type="checkbox" name="1.1.2." class="subcateg"></input><label>1.1.2. Tejido urbano discontinuo</label><div class="clearfix"></div>
+                    </div>
+                    <div><input type="checkbox" name="1.2." class="categ"></input><label>1.2. Zonas industriales o comerciales y redes de comunicación</label><input type="button" class="subcbtn" id="subcbtn2" value="+"></input><div class="slider"></div><h6>0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0</h6></div>
+                    <div class="novis subcecos2">
+                        <input type="checkbox" name="1.2.2." class="subcateg"></input><label>1.2.2. Zonas industriales o comerciales</label><div class="clearfix"></div>
+                        <input type="checkbox" name="1.2.2." class="subcateg"></input><label>1.2.2. Red vial, ferroviaria y terrenos asociados</label><div class="clearfix"></div>
+                        <input type="checkbox" name="1.2.3." class="subcateg"></input><label>1.2.3. Zonas portuarias</label><div class="clearfix"></div>
+                        <input type="checkbox" name="1.2.4." class="subcateg"></input><label>1.2.4. Aeropuertos</label><div class="clearfix"></div>
+                        <input type="checkbox" name="1.2.5." class="subcateg"></input><label>1.2.5. Obras hidráulicas</label><div class="clearfix"></div>
+                    </div>
+                    <div><input type="checkbox" name="1.3." class="categ"></input><label>1.3. Zonas de extracción mineras y escombreras</label><input type="button" class="subcbtn" id="subcbtn3" value="+"></input><div class="slider"></div><h6>0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0</h6></div>
+                    <div class="novis subcecos3">
+                        <input type="checkbox" name="1.3.1." class="subcateg"></input><label>1.3.1. Zonas de extracción minera</label><div class="clearfix"></div>
+                        <input type="checkbox" name="1.3.2." class="subcateg"></input><label>1.3.2. Zona de disposición de residuos</label><div class="clearfix"></div>
+                    </div>
+                    <div><input type="checkbox" name="1.4." class="categ"></input><label>1.4. Zonas verdes artificializadas, no agrícolas</label><input type="button" class="subcbtn" id="subcbtn4" value="+"></input><div class="slider"></div><h6>0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0</h6></div>
+                    <div class="novis subcecos4">
+                        <input type="checkbox" name="1.4.1." class="subcateg"></input><label>1.4.1. Zonas verdes urbanas</label><div class="clearfix"></div>
+                        <input type="checkbox" name="1.4.2." class="subcateg"></input><label>1.4.2. Instalaciones recreativas</label><div class="clearfix"></div>
+                    </div>
+                </div>
+              <h3>2. Territorios agrícolas</h3>
+                <div>
+                    <div><input type="checkbox" name="2.1." class="categ"></input><label>2.1. Cultivos transitorios</label><input type="button" class="subcbtn" id="subcbtn5" value="+"></input><div class="slider"></div><h6>0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0</h6></div>
+                    <div class="novis subcecos5">
+                        <input type="checkbox" name="2.1.1." class="subcateg"></input><label>2.1.1. Otros cultivos transitorios</label><div class="clearfix"></div>
+                        <input type="checkbox" name="2.1.2." class="subcateg"></input><label>2.1.2. Cereales</label><div class="clearfix"></div>
+                        <input type="checkbox" name="2.1.3." class="subcateg"></input><label>2.1.3. Oleaginosas y leguminosas</label><div class="clearfix"></div>
+                        <input type="checkbox" name="2.1.4." class="subcateg"></input><label>2.1.4. Hortalizas</label><div class="clearfix"></div>
+                        <input type="checkbox" name="2.1.5." class="subcateg"></input><label>2.2.5. Tubérculos</label><div class="clearfix"></div>
+                    </div>
+                    <div><input type="checkbox" name="2.2." class="categ"></input><label>2.2. Cultivos permanentes</label><input type="button" class="subcbtn" id="subcbtn6" value="+"></input><div class="slider"></div><h6>0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0</h6></div>
+                    <div class="novis subcecos6">
+                        <input type="checkbox" name="2.2.1." class="subcateg"></input><label>2.2.1. Cultivos permanentes herbáceos</label><div class="clearfix"></div>
+                        <input type="checkbox" name="2.2.2." class="subcateg"></input><label>2.2.2. Cultivos permanentes arbustivos</label><div class="clearfix"></div>
+                        <input type="checkbox" name="2.2.3." class="subcateg"></input><label>2.2.3. Cultivos permanentes arbóreos</label><div class="clearfix"></div>
+                        <input type="checkbox" name="2.2.4." class="subcateg"></input><label>2.2.4. Cultivos agroforestales</label><div class="clearfix"></div>
+                        <input type="checkbox" name="2.2.5." class="subcateg"></input><label>2.2.5. Cultivos confinados</label><div class="clearfix"></div>
+                    </div>
+                    <div><input type="checkbox" name="2.3." class="categ"></input><label>2.3. Pastos</label><input type="button" class="subcbtn" id="subcbtn7" value="+"></input><div class="slider"></div><h6>0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0</h6></div>
+                    <div class="novis subcecos7">
+                        <input type="checkbox" name="2.3.1." class="subcateg"></input><label>2.3.1. Pastos Limpios</label><div class="clearfix"></div>
+                        <input type="checkbox" name="2.3.2." class="subcateg"></input><label>2.3.2. Pastos Arbolados</label><div class="clearfix"></div>
+                        <input type="checkbox" name="2.3.3." class="subcateg"></input><label>2.3.3. Pastos Enmalezados</label><div class="clearfix"></div>
+                    </div>
+                    <div><input type="checkbox" name="2.4." class="categ"></input><label>2.4. Áreas agrícolas heterogéneas</label><input type="button" class="subcbtn" id="subcbtn8" value="+"></input><div class="slider"></div><h6>0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0</h6></div>
+                    <div class="novis subcecos8">
+                        <input type="checkbox" name="2.4.1." class="subcateg"></input><label>2.4.1. Mosaico de Cultivos</label><div class="clearfix"></div>
+                        <input type="checkbox" name="2.4.2." class="subcateg"></input><label>2.4.2. Mosaico de Pastos y Cultivos</label><div class="clearfix"></div>
+                        <input type="checkbox" name="2.4.3." class="subcateg"></input><label>2.4.3. Mosaico de Cultivos, Pastos y Espacios Naturales</label><div class="clearfix"></div>
+                        <input type="checkbox" name="2.4.4." class="subcateg"></input><label>2.4.4. Mosaico de Pastos y Espacios Naturales</label><div class="clearfix"></div>
+                        <input type="checkbox" name="2.4.5." class="subcateg"></input><label>2.4.5. Mosaico de Cultivos y Espacios Naturales</label><div class="clearfix"></div>
+                    </div>
+                </div>
+              <h3>3. Bosques y áreas seminaturales</h3>
+                <div>
+                    <div><input type="checkbox" name="3.1." class="categ"></input><label>3.1. Bosques</label><input type="button" class="subcbtn" id="subcbtn9" value="+"></input><div class="slider"></div><h6>0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0</h6></div>
+                    <div class="novis subcecos9">
+                        <input type="checkbox" name="3.1.1." class="subcateg"></input><label>3.1.1. Bosque denso</label><div class="clearfix"></div>
+                        <input type="checkbox" name="3.1.2." class="subcateg"></input><label>3.1.2. Bosque abierto</label><div class="clearfix"></div>
+                        <input type="checkbox" name="3.1.3." class="subcateg"></input><label>3.1.3. Bosque fragmentado</label><div class="clearfix"></div>
+                        <input type="checkbox" name="3.1.4." class="subcateg"></input><label>3.1.4. Bosque de galería y ripario</label><div class="clearfix"></div>
+                        <input type="checkbox" name="3.1.5." class="subcateg"></input><label>3.1.5. Plantación forestal</label><div class="clearfix"></div>
+                    </div>
+                    <div><input type="checkbox" name="3.2." class="categ"></input><label>3.2. Áreas con vegetación herbácea y/o arbustiva</label><input type="button" class="subcbtn" id="subcbtn10" value="+"></input><div class="slider"></div><h6>0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0</h6></div>
+                    <div class="novis subcecos10">
+                        <input type="checkbox" name="3.2.1." class="subcateg"></input><label>3.2.1. Herbazal</label><div class="clearfix"></div>
+                        <input type="checkbox" name="3.2.2." class="subcateg"></input><label>3.2.2. Arbustal</label><div class="clearfix"></div>
+                        <input type="checkbox" name="3.2.3." class="subcateg"></input><label>3.2.3. Vegetación secundaria o en transición</label><div class="clearfix"></div>
+                    </div>
+                    <div><input type="checkbox" name="3.3." class="categ"></input><label>3.3. Áreas abiertas, sin o con poca vegetación</label><input type="button" class="subcbtn" id="subcbtn11" value="+"></input><div class="slider"></div><h6>0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0</h6></div>
+                    <div class="novis subcecos11">
+                        <input type="checkbox" name="3.3.1." class="subcateg"></input><label>3.3.1. Zonas arenosas naturales</label><div class="clearfix"></div>
+                        <input type="checkbox" name="3.3.2." class="subcateg"></input><label>3.3.2. Afloramientos rocosos</label><div class="clearfix"></div>
+                        <input type="checkbox" name="3.3.3." class="subcateg"></input><label>3.3.3. Tierras desnudas y degradadas</label><div class="clearfix"></div>
+                        <input type="checkbox" name="3.3.4." class="subcateg"></input><label>3.3.4. Zonas quemadas</label><div class="clearfix"></div>
+                        <input type="checkbox" name="3.3.5." class="subcateg"></input><label>3.3.5. Zonas glaciares y nivales</label><div class="clearfix"></div>
+                    </div>
+                </div>
+              <h3>4. Áreas húmedas</h3>
+                <div>
+                    <div><input type="checkbox" name="4.1." class="categ"></input><label>4.1. Áreas húmedas continentales</label><input type="button" class="subcbtn" id="subcbtn12" value="+"></input><div class="slider"></div><h6>0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0</h6></div>
+                    <div class="novis subcecos12">
+                        <input type="checkbox" name="4.1.1." class="subcateg"></input><label>4.1.1. Zonas Pantanosas</label><div class="clearfix"></div>
+                        <input type="checkbox" name="4.1.2." class="subcateg"></input><label>4.1.2. Turberas</label><div class="clearfix"></div>
+                        <input type="checkbox" name="4.1.3." class="subcateg"></input><label>4.1.3. Vegetación acuática sobre cuerpos de agua</label><div class="clearfix"></div>
+                    </div>
+                    <div><input type="checkbox" name="4.2." class="categ"></input><label>4.2. Áreas húmedas costeras</label><input type="button" class="subcbtn" id="subcbtn13" value="+"></input><div class="slider"></div><h6>0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0</h6></div>
+                    <div class="novis subcecos13">
+                        <input type="checkbox" name="4.2.1." class="subcateg"></input><label>4.2.1. Pantanos costeros</label><div class="clearfix"></div>
+                        <input type="checkbox" name="4.2.2." class="subcateg"></input><label>4.2.2. Salitral</label><div class="clearfix"></div>
+                        <input type="checkbox" name="4.2.3." class="subcateg"></input><label>4.2.3. Sedimentos expuestos en bajamar</label><div class="clearfix"></div>
+                    </div>
+                </div>
+              <h3>5.Superficies de agua</h3>
+                <div>
+                    <div><input type="checkbox" name="5.1." class="categ"></input><label>5.1. Aguas continentales</label><input type="button" class="subcbtn" id="subcbtn14" value="+"></input><div class="slider"></div><h6>0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0</h6></div>
+                    <div class="novis subcecos14">
+                        <input type="checkbox" name="5.1.1." class="subcateg"></input><label>5.1.1. Ríos (50 m)</label><div class="clearfix"></div>
+                        <input type="checkbox" name="5.1.2." class="subcateg"></input><label>5.1.2. Lagunas, lagos y ciénagas naturales</label><div class="clearfix"></div>
+                        <input type="checkbox" name="5.1.3." class="subcateg"></input><label>5.1.3. Canales</label><div class="clearfix"></div>
+                        <input type="checkbox" name="5.1.4." class="subcateg"></input><label>5.1.4. Cuerpos de agua artificiales</label><div class="clearfix"></div>
+                    </div>
+                    <div><input type="checkbox" name="5.2." class="categ"></input><label>5.2. Aguas marítimas</label><input type="button" class="subcbtn" id="subcbtn15" value="+"></input><div class="slider"></div><h6>0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0</h6></div>
+                    <div class="novis subcecos15">
+                        <input type="checkbox" name="5.2.1." class="subcateg"></input><label>5.2.1. Lagunas costeras</label><div class="clearfix"></div>
+                        <input type="checkbox" name="5.2.2." class="subcateg"></input><label>5.2.2. Mares y océanos</label><div class="clearfix"></div>
+                        <input type="checkbox" name="5.2.3." class="subcateg"></input><label>5.2.3. Estanques para acuicultura marina</label><div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
         </div>
 <% end %>
         <a href="" class="botonmodelos" title="Modelos y Comentarios"></a>    
@@ -66,5 +189,76 @@
 <%= javascript_include_tag 'mapEditor' %>
 <script>
 $( document ).tooltip();
+</script>
+<script>
+$( "#accordion" ).accordion({ heightStyle: "content" });
+</script>
+<script>
+$( ".slider" ).slider({ 
+    step:10,
+    values: [ 0.0, 0.5, 1.0 ]
+ });
+</script>
+<script>
+$('#subcbtn1').click(function() {
+  $('.subcecos1').toggle('slow', function() {
+  });
+});
+$('#subcbtn2').click(function() {
+  $('.subcecos2').toggle('slow', function() {
+  });
+});
+$('#subcbtn3').click(function() {
+  $('.subcecos3').toggle('slow', function() {
+  });
+});
+$('#subcbtn4').click(function() {
+  $('.subcecos4').toggle('slow', function() {
+  });
+});
+$('#subcbtn5').click(function() {
+  $('.subcecos5').toggle('slow', function() {
+  });
+});
+$('#subcbtn6').click(function() {
+  $('.subcecos6').toggle('slow', function() {
+  });
+});
+$('#subcbtn7').click(function() {
+  $('.subcecos7').toggle('slow', function() {
+  });
+});
+$('#subcbtn8').click(function() {
+  $('.subcecos8').toggle('slow', function() {
+  });
+});
+$('#subcbtn9').click(function() {
+  $('.subcecos9').toggle('slow', function() {
+  });
+});
+$('#subcbtn10').click(function() {
+  $('.subcecos10').toggle('slow', function() {
+  });
+});
+$('#subcbtn11').click(function() {
+  $('.subcecos11').toggle('slow', function() {
+  });
+});
+$('#subcbtn12').click(function() {
+  $('.subcecos12').toggle('slow', function() {
+  });
+});
+$('#subcbtn13').click(function() {
+  $('.subcecos13').toggle('slow', function() {
+  });
+});
+$('#subcbtn14').click(function() {
+  $('.subcecos14').toggle('slow', function() {
+  });
+});
+$('#subcbtn15').click(function() {
+  $('.subcecos15').toggle('slow', function() {
+  });
+});
 </script>
 
