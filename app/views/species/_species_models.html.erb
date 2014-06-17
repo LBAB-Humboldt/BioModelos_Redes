@@ -13,8 +13,8 @@
 
         <div class="hs clearfix" id="tabs">
                 <ul class="tabsnav clearfix">
-                    <li><a href="#tabs-1">Nivel 1</a></li>
-                    <li><a href="#tabs-2">Nivel 2</a></li>
+                    <li><a href="#tabs-1" class='tabtn'>Nivel 1</a></li>
+                    <li><a href="#tabs-2" class='tabtn'>Nivel 2</a></li>
                 </ul>
                 
         <div id="tabs-1">
@@ -24,7 +24,7 @@
             </div>
             <div class="showcase">
                 <ul class="modelost">
-                    <% @models.each_with_index do |model, i| %>
+                    <% @models.where(:level => 1).each_with_index do |model, i| %>
                         <li class="modelothumb">
                             <div class="cajadatosm">
                             <%= link_to "#", :class => 'model_link' do%>
@@ -68,9 +68,9 @@
                 <a href="#prev">
                 </a>
             </div>
-            <div class="showcase">
+            <div class="showcase2">
                 <ul class="modelost">
-                    <% @models.each_with_index do |model, i| %>
+                    <% @models.where(:level => 2).each_with_index do |model, i| %>
                         <li class="modelothumb">
                             <div class="cajadatosm">
                             <%= link_to "#", :class => 'model_link' do%>
@@ -110,8 +110,6 @@
         </div>
 
         </div>
-
-
         <p>Seleccionar modelo, calificar o comentar sobre los distintos modelos.</br>Para comentar sobre un modelo específico dar el nombre del corte.</br></p>
         <div class="commentspace">
         <h3>Comentarios sobre esta especie y sus modelos</h3>
@@ -124,46 +122,45 @@
         </div>
 <div class ="termbox"></div>
 <script>
-$(document).ready(function () {
-
-            $('.model_link').click(function (event) {
-                _mapVisorModule.loadModel("/modelos/"+$(this).find('#imgsrc').val());
-                $("#review_model_id").val($(this).find('img').attr('id'));
-                $('.editControls,.edicionbar').show('slow');
-                $('.showmodels, .cajabusqueda, .selectores').hide ('slow');
-                event.preventDefault(); // Prevent link from following its href
-            });
-
-            $('.user_star').raty({ 
+    /* Rating */
+    $('.user_star').raty({ 
                 path: '../assets',
                 hints: ['No representa', 'Representa pobremente', 'Representa regularmente', 'Representa adecuadamente', 'Representa muy bien'],
+                cancel: true,
                 score:  function() {
                             return $(this).find('.myscore').val();
                 },
                 click: function(score, evt) {
+                    alert('score: ' + score);
                     $.ajax({
                         type: "POST",
                         url: "/ratings/rate_model",
                         data: { mid: $(this).find('.mid').val(), score: score }
                     }); 
                 } 
-            });
+    });
+    /* Tabs */
+   $( "#tabs" ).tabs();
 
-});
-</script>
-
-<script type="text/javascript">
-$(document).ready(function () {
-    var div = $('div.showcase');
-    var liNum = $(div).find('ul').children('li').length;
+   (function activate_gallery(){
+    var div = $('div.showcase'),
+        div2 = $('div.showcase2');
+    var liNum = $(div).find('ul').children('li').length,
+         liNum2 = $(div2).find('ul').children('li').length;
     var speed = 1000;
     var containerWidth = 682;
     var itemWidth = 165;
     $(div).css({overflow: 'hidden'});
+    $(div2).css({overflow: 'hidden'});
     $('div.right-arrow').click(function(e){ 
         if(($(div).scrollLeft()+containerWidth)<(liNum*itemWidth)){
             $(div).animate({
-                scrollLeft: '+='+containerWidth
+                  scrollLeft: '+='+containerWidth
+            }, speed);
+        }
+        if(($(div2).scrollLeft()+containerWidth)<(liNum2*itemWidth)){
+            $(div2).animate({
+                  scrollLeft: '+='+containerWidth
             }, speed);
         }
     }); 
@@ -173,36 +170,11 @@ $(document).ready(function () {
                 scrollLeft: '-='+containerWidth
             }, speed);
         }
+        if(($(div2).scrollLeft()+containerWidth)>containerWidth){
+            $(div2).animate({
+                scrollLeft: '-='+containerWidth
+            }, speed);
+        }
     });
-});
-</script>
-
-<script>
-
-$(document).ready(function(){
-    $('.cajadatosm').mouseenter(function(e){
-        $(this).animate({scrollTop:$(".cajadatosm").scrollTop() + $(".modeldata").position().top},600);
-        });
-    $('.cajadatosm').mouseleave(function(e){
-        $(this).animate({scrollTop:$(".cajadatosm").position().top - '20px'},600).finish();
-        });
-});
-
-</script>
-
-<script>
-    $(function() {
-        
-        $( "#tabs" ).tabs();
-
-        // Hover states on the static widgets
-        $( "#dialog-link, #icons li" ).hover(
-            function() {
-                $( this ).addClass( "ui-state-hover" );
-            },
-            function() {
-                $( this ).removeClass( "ui-state-hover" );
-            }
-        );
-    });
+  })();
 </script>

@@ -11,13 +11,21 @@ $( document ).ready(function() {
     $("#cancBtn").hide();
   }
 
+  var ajaxGetSpecies = function(class_id){
+        $.ajax({
+            type: "POST",
+            url: "/species/species_by_class",
+            data: { class_id: class_id}
+        });
+  }
+
   $('.searchcateg,.showmodels,.editControls,#cancBtn,.cajabusqueda,.showmodels,.cajaediciones,.edicionbar,.botonmodelos').hide();
   $("#anfsh").click(function(e){
     $('#cajasearch1').show('slow');
     $('#class_id').val(1);
     $('#cajasearch2,#cajasearch3,#cajasearch4,#cajasearch5,#cajasearch6,#cajasearch7').hide('slow');
     clearShowBox();
-    $('.resultados').load('../anflist.html');
+    ajaxGetSpecies(1);
     e.preventDefault();
   });
   $("#avessh").click(function(e){
@@ -25,7 +33,7 @@ $( document ).ready(function() {
     $('#class_id').val(2);
     $('#cajasearch1,#cajasearch3,#cajasearch4,#cajasearch5,#cajasearch6,#cajasearch7').hide('slow');
     clearShowBox();
-    $('.resultados').load('../aveslist.html');
+    ajaxGetSpecies(2);
     e.preventDefault();
   });
   $("#invsh").click(function(e){
@@ -33,7 +41,7 @@ $( document ).ready(function() {
     $('#class_id').val(3);
     $('#cajasearch2,#cajasearch1,#cajasearch4,#cajasearch5,#cajasearch6,#cajasearch7').hide('slow');
     clearShowBox();
-    $('.resultados').load('../invlist.html');
+    ajaxGetSpecies(3);
      e.preventDefault();
   });
   $("#mamsh").click(function(e){
@@ -41,7 +49,7 @@ $( document ).ready(function() {
     $('#class_id').val(4);
     $('#cajasearch2,#cajasearch3,#cajasearch1,#cajasearch5,#cajasearch6,#cajasearch7').hide('slow');
     clearShowBox();
-    $('.resultados').load('../mamlist.html');
+    ajaxGetSpecies(4);
      e.preventDefault(); 
   });
   $("#pecsh").click(function(e){
@@ -49,7 +57,7 @@ $( document ).ready(function() {
     $('#class_id').val(5);
     $('#cajasearch2,#cajasearch3,#cajasearch4,#cajasearch1,#cajasearch6,#cajasearch7').hide('slow');
     clearShowBox();
-    $('.resultados').load('../peceslist.html');
+    ajaxGetSpecies(5);
      e.preventDefault();
   });
   $("#repsh").click(function(e){
@@ -57,7 +65,7 @@ $( document ).ready(function() {
     $('#class_id').val(6);
     $('#cajasearch2,#cajasearch3,#cajasearch4,#cajasearch5,#cajasearch1,#cajasearch7').hide('slow');
     clearShowBox();
-    $('.resultados').load('../replist.html');
+    ajaxGetSpecies(6);
      e.preventDefault();
   });
   $("#plash").click(function(e){
@@ -65,7 +73,7 @@ $( document ).ready(function() {
     $('#class_id').val(7);
     $('#cajasearch2,#cajasearch3,#cajasearch4,#cajasearch5,#cajasearch6,#cajasearch1').hide('slow');
     clearShowBox();
-    $('.resultados').load('../plantlist.html');
+    ajaxGetSpecies(7);
      e.preventDefault();
   });
   $(".findbar").click(function(e){

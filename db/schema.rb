@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140411144125) do
+ActiveRecord::Schema.define(version: 20140613184940) do
 
   create_table "activities", force: true do |t|
     t.string "name",        null: false
@@ -51,6 +51,24 @@ ActiveRecord::Schema.define(version: 20140411144125) do
   add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
+  create_table "eco_variables", force: true do |t|
+    t.string   "variable"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "eco_variables_species", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "species_id"
+    t.integer  "eco_variable_id"
+    t.float    "min",             default: 0.0
+    t.float    "max",             default: 0.0
+    t.float    "mean",            default: 0.0
+    t.float    "certainty",       default: 0.0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "groups", force: true do |t|
     t.string   "name",        null: false
     t.text     "description"
@@ -87,6 +105,7 @@ ActiveRecord::Schema.define(version: 20140411144125) do
     t.datetime "updated_at"
     t.string   "thumb_url"
     t.boolean  "current",     default: true
+    t.integer  "level",       default: 1
   end
 
   add_index "models", ["species_id", "current"], name: "index_models_on_species_id_and_current"
@@ -161,27 +180,5 @@ ActiveRecord::Schema.define(version: 20140411144125) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-
-  create_table "workshop_tests", force: true do |t|
-    t.integer  "workshop_id"
-    t.integer  "user_id"
-    t.integer  "species_id"
-    t.decimal  "lat"
-    t.decimal  "lon"
-    t.float    "min_ocurrence"
-    t.float    "max_ocurrence"
-    t.float    "best_prob_ocurrence"
-    t.float    "certainty_true_value"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "workshops", force: true do |t|
-    t.string   "name"
-    t.boolean  "active",      default: false
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
 end

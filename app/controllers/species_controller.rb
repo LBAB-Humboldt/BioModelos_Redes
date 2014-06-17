@@ -1,5 +1,14 @@
 class SpeciesController < ApplicationController
-  def index
+  
+  def species_by_class
+    if params[:class_id].blank?
+      @species = nil
+    else
+      @species = Species.where(:class_id => params[:class_id]).order('sci_name ASC')
+    end
+    respond_to do |format|
+      format.js
+    end
   end
 
   def autocomplete
@@ -10,19 +19,6 @@ class SpeciesController < ApplicationController
 
     render json: result
   end  
-
-  def species_content
-
-    if params[:species_id].blank?
-      @species = nil
-    else
-      @species = Species.find(params[:species_id])
-    end
-
-    respond_to do |format|
-      format.js
-    end
-  end
 
   def species_models
 

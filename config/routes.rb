@@ -12,15 +12,14 @@ Biomodis::Application.routes.draw do
   post "ratings/rate_model"
   post "species/comment_point"
   post "species/create_comment_point"
-  #post "species/workshop_test"
-  #post "species/create_workshop_test"
+  post "species/species_by_class"
   resources :ratings, only: :update
   resources :comments, :only => [:create, :destroy]
   resources :home, :only => [:show]
   resources :reviews, :only => [:show, :create]
   resources :users, :only => [:show, :edit, :update]
   resources :models, :only => [:index, :new, :create]
-  resources :species, :only => [:new, :create, :edit, :update] do
+  resources :species, :only => [:new, :create, :edit] do
     get :autocomplete, :on => :collection
   end 
   resources :faq, :only => [:index]

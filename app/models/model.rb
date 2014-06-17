@@ -15,11 +15,11 @@ class Model < ActiveRecord::Base
 	end
 
 	def average_rating
-		ratings.size == 0 ? 0.0 : ratings.sum(:score).fdiv(ratings.size).round(2)
+		ratings.where("score > 0").count == 0 ? 0.0 : ratings.sum(:score).fdiv(ratings.where("score > 0").count).round(2)
 	end
 
 	def total_votes
-		ratings.size
+		ratings.where("score > 0").count
 	end
 
 end
