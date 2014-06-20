@@ -194,10 +194,13 @@ $( document ).tooltip();
 $( "#accordion" ).accordion({ heightStyle: "content" });
 </script>
 <script>
-$( ".slider" ).slider({ 
-    step:10,
-    values: [ 0.0, 0.5, 1.0 ]
- });
+$( ".slider" ).slider({
+   min: 0.0,
+   max: 1.0,
+   step: 0.1,
+   values: [ 0.0, 0.5, 1.0 ],
+   change: function( event, ui ) {alert("Valor: " + ui.value)}
+});
 </script>
 <script>
 $('#subcbtn1').click(function() {
