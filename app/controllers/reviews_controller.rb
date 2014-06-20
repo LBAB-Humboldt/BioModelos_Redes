@@ -20,6 +20,10 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def show_reviews_by_species
+    
+  end
+
   private
 
     def review_params

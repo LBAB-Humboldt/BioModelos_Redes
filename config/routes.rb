@@ -13,6 +13,7 @@ Biomodis::Application.routes.draw do
   post "species/comment_point"
   post "species/create_comment_point"
   post "species/species_by_class"
+  post "species/add_ecological_variable"
   resources :ratings, only: :update
   resources :comments, :only => [:create, :destroy]
   resources :home, :only => [:show]

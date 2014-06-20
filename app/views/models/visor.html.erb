@@ -10,7 +10,7 @@
         });
     </script>
 <% end %>
-<a href="" class="findbar" title="Búsqueda de Especie"></a>
+<a href="" class="findbar" title="Búsqueda Especie"></a>
 <div id="allsearchers">
         <div class="cajabusqueda">
                 <div class="searchcateg srchanfibios" id="cajasearch1">Anfibios</div>
@@ -28,7 +28,8 @@
         <div class="cajaediciones">    
         </div>
     <a href="" class="ecologicas" title="Variables Ecológicas"></a>
-        <div class="cajaecolog">    
+        <div class="cajaecolog">
+            <%= render partial: 'species/ecological_variables' %>
         </div>
 <% end %>
         <a href="" class="botonmodelos" title="Modelos y Comentarios"></a>    
@@ -66,5 +67,100 @@
 <%= javascript_include_tag 'mapEditor' %>
 <script>
 $( document ).tooltip();
+</script>
+<script>
+$( "#accordion" ).accordion({ heightStyle: "content" });
+</script>
+<script>
+//Initialize each
+$(".slider").each(function () {
+  $(this).slider({
+      min: 0.0,
+      max: 1.0, 
+      step: 0.1,
+      values: [ 0.0, 0.5, 1.0 ],
+   });
+});
+
+$('input[type=checkbox]').each(function(e){
+  var $this = $(this);
+  $this.click(function(e){
+      $this.parent('div').find('div.slider').toggle('slow');
+      $this.parent('div').find('h6').toggle('slow');
+  });
+});
+
+$( ".ecobtn" ).click(function(e) {
+  $("input[type=checkbox]").each(function(e) {
+    if($(this).prop("checked")){
+      console.log($(this).parent('div').find('div.slider').slider("values", 0));
+      console.log($(this).parent('div').find('div.slider').slider("values", 1));
+      console.log($(this).parent('div').find('div.slider').slider("values", 2));
+    }
+  });
+});
+
+</script>
+<script>
+$('#subcbtn1').click(function() {
+  $('.subcecos1').toggle('slow', function() {
+  });
+});
+$('#subcbtn2').click(function() {
+  $('.subcecos2').toggle('slow', function() {
+  });
+});
+$('#subcbtn3').click(function() {
+  $('.subcecos3').toggle('slow', function() {
+  });
+});
+$('#subcbtn4').click(function() {
+  $('.subcecos4').toggle('slow', function() {
+  });
+});
+$('#subcbtn5').click(function() {
+  $('.subcecos5').toggle('slow', function() {
+  });
+});
+$('#subcbtn6').click(function() {
+  $('.subcecos6').toggle('slow', function() {
+  });
+});
+$('#subcbtn7').click(function() {
+  $('.subcecos7').toggle('slow', function() {
+  });
+});
+$('#subcbtn8').click(function() {
+  $('.subcecos8').toggle('slow', function() {
+  });
+});
+$('#subcbtn9').click(function() {
+  $('.subcecos9').toggle('slow', function() {
+  });
+});
+$('#subcbtn10').click(function() {
+  $('.subcecos10').toggle('slow', function() {
+  });
+});
+$('#subcbtn11').click(function() {
+  $('.subcecos11').toggle('slow', function() {
+  });
+});
+$('#subcbtn12').click(function() {
+  $('.subcecos12').toggle('slow', function() {
+  });
+});
+$('#subcbtn13').click(function() {
+  $('.subcecos13').toggle('slow', function() {
+  });
+});
+$('#subcbtn14').click(function() {
+  $('.subcecos14').toggle('slow', function() {
+  });
+});
+$('#subcbtn15').click(function() {
+  $('.subcecos15').toggle('slow', function() {
+  });
+});
 </script>
 

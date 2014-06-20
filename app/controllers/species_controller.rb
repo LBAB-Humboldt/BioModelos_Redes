@@ -107,19 +107,19 @@ class SpeciesController < ApplicationController
     end
   end
 
-  def create_workshop_test
-    @workshop_test = WorkshopTest.new(workshop_test_params)
+  def add_ecological_variable
+    @eco_variable = EcoVariablesSpecies.where(:species_id => params[:sid], :user_id => current_user.id, :eco_variable_id => params[:evid]).first
 
-    if @workshop_test.save
-      flash[:success] = 'Anotación guardada con éxito.'
+    if @eco_variable.blank?
+      EcoVariablesSpecies.create({:species_id => params[:sid], :user_id => current_user.id, :eco_variable_id => params[:evid], :min => params[:min], :max => params[:max], :mean => params[:mean]})
     else
-      flash[:error] = 'Ha ocurrido un error mientras se guardaba la anotación.'
+      Rating.update(@eco_variable.id, {:min => params[:min], :max => params[:max], :mean => params[:mean]})
     end
 
-     respond_to do |format|
+    respond_to do |format|
         format.html
         format.js
-     end
+    end
   end
 
   def update
@@ -135,7 +135,7 @@ class SpeciesController < ApplicationController
       params.require(:point_comment).permit(:user_id, :species_id, :lat, :lon, :wrong_id, :geo_problem, :comment)
     end
 
-    def workshop_test_params
-      params.require(:workshop_test).permit(:user_id, :species_id, :lat, :lon, :min_ocurrence, :max_ocurrence, :best_prob_ocurrence, :certainty_true_value)
+    def eco_params
+      params.require(:eco_variables_species).permit(:species_id, :user_id, :eco_variable_id, :max, :min, :mean)
     end
 end

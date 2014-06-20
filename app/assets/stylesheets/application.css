@@ -11,6 +11,7 @@
  *= require_self
  *= require leaflet
  *= require leaflet.draw
+ *= require jquery-ui-1.10.4.custom
  *= require reset
  *= require MarkerCluster
  *= require MarkerCluster.Default
