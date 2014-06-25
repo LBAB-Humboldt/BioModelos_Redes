@@ -19,7 +19,18 @@ $( document ).ready(function() {
         });
   }
 
-  $('.searchcateg,.showmodels,.editControls,#cancBtn,.cajabusqueda,.showmodels,.cajaediciones,.edicionbar,.botonmodelos,.cajaecolog').hide();
+  var resetEcoVariables = function(){
+    $("div.slider").each(function(e) {
+            $(this).slider("values", 0, 0);
+            $(this).slider("values", 1, 0.5);
+            $(this).slider("values", 2, 1);
+     });
+    $("#accordion input[type=checkbox]").each(function(e) {
+            $(this).prop( "checked", false);
+     });
+  }
+
+  $('.searchcateg,.showmodels,.editControls,#cancBtn,.cajabusqueda,.showmodels,.cajaediciones,.edicionbar,.botonmodelos,.cajaecolog,.ecologicas').hide();
   $("#anfsh").click(function(e){
     $('#cajasearch1').show('slow');
     $('#class_id').val(1);
@@ -78,7 +89,7 @@ $( document ).ready(function() {
   });
   $(".findbar").click(function(e){
           e.preventDefault();
-          $('.showmodels, .cajabusqueda, .editControls, .edicionbar, .cajabusqueda, .botonmodelos, .cajaediciones, .cajaecolog').hide('slow');
+          $('.showmodels, .cajabusqueda, .editControls, .edicionbar, .cajabusqueda, .botonmodelos, .cajaediciones, .cajaecolog, .ecologicas').hide('slow');
           editButtonsOff();
           _mapVisorModule.deactivateEdition();
           _mapVisorModule.unloadModel();
@@ -86,6 +97,7 @@ $( document ).ready(function() {
           _mapVisorModule.unloadPoints();
           $('#species_id').val('');
           $('.selectores').show('slow');
+          resetEcoVariables();
   });
   $(".edicionbar").click(function(e){
       if($(".cajaediciones").is(":visible")){
@@ -121,11 +133,11 @@ $( document ).ready(function() {
 
   $(".ecologicas").click(function(e){
         if($(".cajaecolog").is(":visible")){
-        $(".cajaecolog").hide();
-      }
-      else{
-        $('.showmodels, .cajabusqueda, .editControls, .edicionbar, .cajabusqueda, .botonmodelos, .cajaediciones').hide('slow');
-        $(".cajaecolog").show();
+          $(".cajaecolog").hide();
+        }
+        else{
+          $('.showmodels, .cajabusqueda, .editControls, .cajabusqueda, .cajaediciones').hide('slow');
+          $(".cajaecolog").show();
       }
       e.preventDefault();
   });

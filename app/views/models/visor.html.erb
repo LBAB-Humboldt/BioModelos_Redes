@@ -90,14 +90,42 @@ $('input[type=checkbox]').each(function(e){
   });
 });
 
-$( ".ecobtn" ).click(function(e) {
-  $("input[type=checkbox]").each(function(e) {
+$(".ecobtn").click(function(e) {
+  var sp_id = $('#species_id').val();
+
+  $("#othervar div.slider").each(function(e) {
+    
+    var sli_1 = $(this).slider("values", 0),
+        sli_2 = $(this).slider("values", 1),
+        sli_3 = $(this).slider("values", 2),
+        sli_name = $(this).attr("name");
+
+    $.ajax({
+      type: "POST",
+      url: "/species/add_ecological_variable",
+      data: { species_id: sp_id, eco_variable_id: sli_name, min: sli_1, max: sli_3, mean: sli_2}
+    });
+
+  });
+
+  $("#accordion input[type=checkbox]").each(function(e) {
     if($(this).prop("checked")){
-      console.log($(this).parent('div').find('div.slider').slider("values", 0));
-      console.log($(this).parent('div').find('div.slider').slider("values", 1));
-      console.log($(this).parent('div').find('div.slider').slider("values", 2));
+
+      var chck_id = $(this).attr("name"),
+          sli_1 = $(this).parent('div').find('div.slider').slider("values", 0),
+          sli_2 = $(this).parent('div').find('div.slider').slider("values", 1),
+          sli_3 = $(this).parent('div').find('div.slider').slider("values", 2);
+
+      $.ajax({
+        type: "POST",
+        url: "/species/add_ecological_variable",
+        data: { species_id: sp_id, eco_variable_id: chck_id, min: sli_1, max: sli_3, mean: sli_2 }
+      });
     }
   });
+
+  alert("Las variables han sido guardadas con éxito.")
+
 });
 </script>
 <script>

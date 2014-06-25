@@ -1,9 +1,11 @@
 <% if !@species.blank? %>
 	$('.selectores,.cajabusqueda').hide('slow');
 	$('.showmodels').show('slow');
-	$('.botonmodelos').show('slow');
+	$('.botonmodelos, .ecologicas').show('slow');
 	$('.showmodels').html('<%=j render partial: 'species/species_models', locals: { :species => @species } %>');
 	$('.cajaediciones').html('<%=j render partial: 'reviews/reviews_by_species' %>');
+	if($("#species_id").val() == '')
+		$("#species_id").val(<%= @species.id %>);
 	<% if !@species.ocurrence_records_url.blank? %>
 		_mapVisorModule.loadPoints('/registros/' + '<%= @species.ocurrence_records_url %>');
 	<% end %>

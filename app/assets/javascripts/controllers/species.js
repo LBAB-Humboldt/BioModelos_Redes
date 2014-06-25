@@ -26,7 +26,7 @@ $( document ).ready(function() {
 
   $("#search_field").on("typeahead:selected typeahead:autocompleted", function(e,datum) { 
 		$("#species_id").val(datum.id);
-	 });
+	});
 
   /* Model selection */
   $("body").on("click",".model_link",function (event) {
