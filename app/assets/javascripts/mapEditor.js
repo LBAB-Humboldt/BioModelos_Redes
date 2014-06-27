@@ -143,7 +143,7 @@ var _mapVisorModule = function() {
 	};
 
 	var loadPoints = function (csvUrl) {
-		var csvTitles = ["Localidad","Municipio","Departamento","Altitud","Fecha","Institucion","Colector", "Evidencia"];
+		var csvTitles = ["id","EspecieOriginal","Localidad","Municipio","Departamento","Altitud","Fecha","Institucion","Colector","Evidencia"];
 
 		csvLayer = L.geoCsv(null, {		
 										onEachFeature: function (feature, layer) {
@@ -156,8 +156,8 @@ var _mapVisorModule = function() {
 												//popup += '<a href="/species/workshop_test" data-method="post" data-remote="true" rel="nofollow" class="wrongbtn">Reportar Error</a></div>'
 												layer.bindPopup(popup);
 										},
-										latitudeTitle: 'Latitud',
-										longitudeTitle: 'Longitud',
+										latitudeTitle: 'lat',
+										longitudeTitle: 'lon',
 										firstLineTitles: true, 
 										fieldSeparator: ','});
 
