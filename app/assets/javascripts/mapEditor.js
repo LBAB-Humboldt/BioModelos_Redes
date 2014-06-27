@@ -6,9 +6,9 @@ var _mapVisorModule = function() {
            '<label><strong>Observación:</strong></label><br />' +
 	       '<textarea rows="4" cols="30" placeholder="Ingrese una observación" id="comment" class="cmtArea"></textarea>' +
 	       '<div class="row-fluid clearfix">' +
-	       '<label class="labelcom clearfix"><strong>Acción:</strong></label><input type="radio" name="EditType" value="Add" class="radiogaga">Agregar al modelo</input></br>' +
- 	       '<input type="radio" name="EditType" value="Cut" class="radiogaga">Remover del modelo</input></br>' +
- 	       '<input type="radio" name="EditType" value="Other" class="radiogaga" checked>Otra</input></br>'+
+	       '<label class="labelcom clearfix"><strong>Acción:</strong></label><input type="radio" name="EditType" value="Add" class="radiogaga">Extensión de presencia</input></br>' +
+ 	       '<input type="radio" name="EditType" value="Cut" class="radiogaga">Sobrepredicción</input></br>' +
+ 	       '<input type="radio" name="EditType" value="Other" class="radiogaga" checked>Otro</input></br>'+
 	       '<button class="btn2" id="saveBtn" type="button">guardar</button>' +
            '<button class="btn2" id="popUpCancelBtn" type="button">cancelar</button></div>'; 
         pointForm = '<div class="commentForm">' +
