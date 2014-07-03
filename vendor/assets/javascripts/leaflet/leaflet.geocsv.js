@@ -99,7 +99,7 @@ L.GeoCSV = L.GeoJSON.extend({
       //var campos = csv[num_linea].trim().split(regex)
         , lng = parseFloat(campos[titulos.indexOf(this.options.longitudeTitle)])
         , lat = parseFloat(campos[titulos.indexOf(this.options.latitudeTitle)]);
-      if (campos.length==titulos.length && lng<180 && lng>-180 && lat<90 && lat>-90) {
+      if (campos.length==titulos.length && lng<180 && lng>-180 && lat<90 && lat>-90 && campos[14] != 'No') {
         var feature = {};
         feature["type"]="Feature";
         feature["geometry"]={};

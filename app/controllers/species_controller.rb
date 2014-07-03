@@ -108,16 +108,15 @@ class SpeciesController < ApplicationController
   end
 
   def add_ecological_variable
-    @eco_variable = EcoVariablesSpecies.where(:species_id => params[:sid], :user_id => current_user.id, :eco_variable_id => params[:evid]).first
+    @eco_variable = EcoVariablesSpecies.where(:species_id => params[:species_id], :user_id => current_user.id, :eco_variable_id => params[:eco_variable_id]).first
 
     if @eco_variable.blank?
-      EcoVariablesSpecies.create({:species_id => params[:sid], :user_id => current_user.id, :eco_variable_id => params[:evid], :min => params[:min], :max => params[:max], :mean => params[:mean]})
+      EcoVariablesSpecies.create({:species_id => params[:species_id], :user_id => current_user.id, :eco_variable_id => params[:eco_variable_id], :min => params[:min], :max => params[:max], :mean => params[:mean]})
     else
-      Rating.update(@eco_variable.id, {:min => params[:min], :max => params[:max], :mean => params[:mean]})
+      EcoVariablesSpecies.update(@eco_variable.id, {:min => params[:min], :max => params[:max], :mean => params[:mean]})
     end
 
     respond_to do |format|
-        format.html
         format.js
     end
   end
