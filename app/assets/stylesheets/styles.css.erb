@@ -27,8 +27,8 @@ body {
 
 .main {
 	width: 100%;
-    background: url(<%= asset_path 'fondo4.png' %>);
-	border-bottom: 6px solid #e7cb7f;
+    background: url(<%= asset_path 'bg.jpg' %>);
+	border-bottom: 6px solid #E48413;
 }
 
 .contenedor {
@@ -52,13 +52,13 @@ header {
 
 nav li a.current {
     background: #fff;
-    color: #FFC717;
+    color: #424242;
 }
 
 nav a:hover,
 nav a:active {
     background: #fff;
-    color: #FFC717;
+    color: #424242;
 }
 
 .betaimg {
@@ -230,7 +230,7 @@ footer nav a:active {
         margin-left: 5px;
         font-family: 'lato', sans-serif;
         font-size: 10px;
-        color: #4d4d4d;
+        color: #8d8d8d;
         letter-spacing: 0.8px;
         line-height: 1.2;
     }
@@ -239,7 +239,7 @@ footer nav a:active {
         margin-top: 15px;
         font-family: 'lato', sans-serif;
         font-size: 9px;
-        color: #5d5d5d;
+        color: #6d6d6d;
         letter-spacing: 0.8px;
         line-height: 1;
     }
@@ -272,12 +272,34 @@ footer nav a:active {
 
     header nav li a {
         display: inline-block;
-        color: #30302e;
+        color: #6d6d6d;
         text-align: center;
         width: 100%;
         font-size: 85%;
         line-height: 2;
         margin-left: -3px;
+    }
+
+    .usuario {
+        display: inline-block;
+    }
+
+    .usuario a {
+        display: inline-block;
+        font-family: 'lato', sans-serif;
+        font-size: 8px;
+        background-color: none !important;
+        color:#fff;
+        margin-left: 5px;
+        padding: 2px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        max-width: 120px;
+        vertical-align: middle;
+    }
+
+    .xsalir {
+        color: #E48413 !important;
     }
 
     .op {
@@ -347,6 +369,12 @@ footer nav a:active {
         .op {
         width: 43%;
     }
+
+    .usuario a {
+        margin-left: 10px;
+        max-width: 165px;
+    }
+
 }
 
 @media only screen and (min-width : 600px) {
@@ -380,6 +408,12 @@ footer nav a:active {
     height: -moz-calc(100% - 158px);
     height: calc(100% - 158px);
     }
+
+    .usuario a {
+        font-size: 10px;
+        max-width: 190px;
+    }
+
 }
 
 @media only screen and (max-width : 631px) {
@@ -398,9 +432,13 @@ footer nav a:active {
         margin-left: 30px;
     }
 
+    .usuario a {
+        max-width: 180px;
+    }
+
 }
 
-@media only screen and (min-width : 827px) {
+@media only screen and (min-width : 845px) {
 
     .hlcol1 {
         float: left;
@@ -442,6 +480,14 @@ footer nav a:active {
     height: calc(100% - 131px);
     }
 
+    .usuario {
+        padding-top: 35px;
+    }
+
+    .usuario a {
+        max-width: 190px;
+    }
+
 }
 
 @media only screen and (min-width : 1024px) {
@@ -459,7 +505,10 @@ footer nav a:active {
     .introtext h5 {
         width: 580px;
     }
-
+    
+    .usuario a {
+        max-width: 310px;
+    }
 }
 
 /* iPads (portrait) ----------- */
