@@ -122,6 +122,7 @@ class SpeciesController < ApplicationController
   end
 
   def update
+    
   end
 
   private

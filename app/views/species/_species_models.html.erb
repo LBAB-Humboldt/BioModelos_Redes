@@ -131,7 +131,7 @@
                             return $(this).find('.myscore').val();
                 },
                 click: function(score, evt) {
-                    alert('score: ' + score);
+                    //alert('score: ' + score);
                     $.ajax({
                         type: "POST",
                         url: "/ratings/rate_model",

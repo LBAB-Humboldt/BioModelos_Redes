@@ -25,9 +25,16 @@ $( document ).ready(function() {
             $(this).slider("values", 1, 0.5);
             $(this).slider("values", 2, 1);
      });
+    $("#accordion .slider").each(function(e) {
+            $(this).hide();
+    });
+    $("#accordion h6").each(function(e) {
+            $(this).hide();
+    });
+    $("#accordion").accordion( "option", "active", false );
     $("#accordion input[type=checkbox]").each(function(e) {
             $(this).prop( "checked", false);
-     });
+    });
   }
 
   $('.searchcateg,.showmodels,.editControls,#cancBtn,.cajabusqueda,.showmodels,.cajaediciones,.edicionbar,.botonmodelos,.cajaecolog,.ecologicas').hide();
@@ -136,7 +143,7 @@ $( document ).ready(function() {
           $(".cajaecolog").hide();
         }
         else{
-          $('.showmodels, .cajabusqueda, .editControls, .cajabusqueda, .cajaediciones').hide('slow');
+          $('.showmodels, .cajabusqueda, .cajaediciones').hide('slow');
           $(".cajaecolog").show();
       }
       e.preventDefault();

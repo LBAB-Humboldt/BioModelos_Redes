@@ -30,11 +30,13 @@
 
 <!-- desaparece las alertas despues de 4 seg-->
 <script type="text/javascript">
+$( document ).tooltip();
+
 $(document).ready(function(){
   setTimeout(function(){
     $('#flashm').remove();
   }, 4000);
- })
+ });
 </script>
 
 </html>

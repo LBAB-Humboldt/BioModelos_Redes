@@ -32,7 +32,7 @@ $( document ).ready(function() {
   $("body").on("click",".model_link",function (event) {
                 _mapVisorModule.loadModel("/modelos/"+$(this).find('#imgsrc').val());
                 $("#review_model_id").val($(this).find('img').attr('id'));
-                $('.editControls,.edicionbar').show('slow');
+                $('.editControls').show('slow');
                 $('.showmodels, .cajabusqueda, .selectores').hide ('slow');
                 event.preventDefault(); // Prevent link from following its href
   });
