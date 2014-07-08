@@ -16,8 +16,10 @@
 			    <%= link_to 'Modelos', models_visor_path %>
 			  </li>
 			  <% if user_signed_in? %>
-			    <li><%= link_to 'Perfil', user_path(:id => current_user.id) %></li>
-			    <li><%= link_to 'Salir', destroy_user_session_path, :method=>'delete' %></li>
+			  <div class="usuario">
+			    <%= link_to 'cgutierrez@humboldt.org.co', user_path(:id => current_user.id), :title=>'Perfil' %>
+			    <%= link_to 'X', destroy_user_session_path, :method=>'delete', :class=>'xsalir', :title=>'Salir' %>
+			  </div>
 			  <% else %>
 			    <li><%= link_to 'Ingresar', new_user_session_path %></li>
 			    <li><%= link_to 'Registrarse', new_user_registration_path %></li>
