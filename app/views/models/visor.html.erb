@@ -1,15 +1,15 @@
 <div class="minus1024"><%= image_tag("w1024.png")%></div>
 <div class="plus1024">
-<% if !params[:species_id].blank? && is_integer_num(params[:species_id]) %>
-    <script>
-        //Unique URL for each species
-        $.ajax({
-                        type: "GET",
-                        url: "/species/species_models",
-                        data: { species_id: <%=j params[:species_id]%>}
-        });
-    </script>
-<% end %>
+  <% if !params[:species_id].blank? && is_integer_num(params[:species_id]) %>
+      <script>
+          //Unique URL for each species
+          $.ajax({
+                          type: "GET",
+                          url: "/species/species_models",
+                          data: { species_id: <%=j params[:species_id]%>}
+          });
+      </script>
+  <% end %>
 <a href="" class="findbar" title="Búsqueda Especie"></a>
 <div id="allsearchers">
         <div class="cajabusqueda">
@@ -22,7 +22,7 @@
                 <div class="searchcateg srchplantas" id="cajasearch7">Plantas</div>
                 <%= render 'species/search_form' %>
                 <section class="resultados"></section>
-        </div>
+</div>
 <% if user_signed_in? %>
     <a href="" class="edicionbar" title="Ediciones Realizadas"></a>
         <div class="cajaediciones">    
@@ -59,8 +59,8 @@
            <%= f.hidden_field :geoJSON %>
        <% end %>  
     <% end %>
-    <a class="areaespecie">Amazona amazonica</a>
 </div>
+<a class="areaespecie"></a>
 </div>
 <div id="map"></div>
 <div class ="pointBox"></div>

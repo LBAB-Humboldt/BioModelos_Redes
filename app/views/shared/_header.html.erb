@@ -17,7 +17,7 @@
 			  </li>
 			  <% if user_signed_in? %>
 			  <div class="usuario">
-			    <%= link_to 'cgutierrez@humboldt.org.co', user_path(:id => current_user.id), :title=>'Perfil' %>
+			    <%= link_to current_user.email, user_path(:id => current_user.id), :title=>'Perfil' %>
 			    <%= link_to 'X', destroy_user_session_path, :method=>'delete', :class=>'xsalir', :title=>'Salir' %>
 			  </div>
 			  <% else %>

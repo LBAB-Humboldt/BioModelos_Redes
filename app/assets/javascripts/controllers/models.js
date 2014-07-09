@@ -96,7 +96,7 @@ $( document ).ready(function() {
   });
   $(".findbar").click(function(e){
           e.preventDefault();
-          $('.showmodels, .cajabusqueda, .editControls, .edicionbar, .cajabusqueda, .botonmodelos, .cajaediciones, .cajaecolog, .ecologicas').hide('slow');
+          $('.showmodels, .cajabusqueda, .editControls, .edicionbar, .cajabusqueda, .botonmodelos, .cajaediciones, .cajaecolog, .ecologicas, .areaespecie').hide('slow');
           editButtonsOff();
           _mapVisorModule.deactivateEdition();
           _mapVisorModule.unloadModel();
