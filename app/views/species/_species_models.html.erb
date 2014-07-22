@@ -112,6 +112,11 @@
 
         </div>
         <p>Seleccionar modelo, calificar o comentar sobre los distintos modelos.</br>Para comentar sobre un modelo específico dar el nombre del corte.</br></p>
+        <% if user_signed_in? %>
+        <input type="checkbox" class="arealim"><label title="En casos en que se desee delimitar el area de conocimiento de la especie, podrá agregar tags geográficos por municipios o departamentos en un lenguaje controlado">Marque si su conocimiento en esta especie requiere area límitada <i>(agregar tags geográficos)</i></label></input>
+        <input class="tagbtn" type="submit" value=""></input>
+        <input type="text" class="commeinput borders" placeholder="Municipio o Departamento"></input>
+        <% end %>
         <div class="commentspace">
         <h3>Comentarios sobre esta especie y sus modelos</h3>
         <% if user_signed_in? %>
@@ -140,6 +145,12 @@
                     }); 
                 } 
     });
+
+    $('input[type=checkbox]').click(function(){
+          $('.borders').toggle();
+          $('.tagbtn').toggle();
+    });
+
     /* Tabs */
    $( "#tabs" ).tabs();
 

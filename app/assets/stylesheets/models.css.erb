@@ -370,7 +370,6 @@
 	padding-left: 10px;
 	letter-spacing: 1px;
 	color: #5D5D5D;
-	margin-bottom: 10px;
 }
 
 .cajaecolog {
@@ -517,6 +516,7 @@
 }
 
 .commentspace h3 {
+	margin-top: 10px;
 	margin-left: 10px;
 	color:#81e0e3;
 	text-transform: uppercase;
@@ -537,6 +537,42 @@
     font-style: italic;
     font-size: 12px;
     letter-spacing: 1px;
+}
+
+.borders {
+	margin: 5px 10px 0;
+	display: none;
+}
+
+.arealim {
+	margin-left: 10px;
+}
+
+.showmodels input[type="checkbox"] + label {
+	vertical-align: baseline;
+	font-size: 12px;
+	color: #e48413;
+	margin-left: 5px;
+	letter-spacing: 1px;
+	font-weight: normal;
+}
+
+.showmodels input[type="checkbox"] + label i {
+	font-size: 11px;
+	color: #333333;
+	margin: 3px;
+}
+
+.tagbtn {
+	margin-left: 5px;
+	border: none;
+	height: 23px;
+    margin-left: 84px;
+    margin-top: 27px;
+    position: absolute;
+    width: 20px;
+	background: url(<%= asset_path 'tagbtn.png' %>) no-repeat center #e48413;
+	display: none;
 }
 
 .cbton {
@@ -654,7 +690,7 @@
 
 .rankmod img {
 	float:left;
-	margin: 5px 0;
+	margin: 5px 1px;
 	padding: 0;
 	border:none;
 }
