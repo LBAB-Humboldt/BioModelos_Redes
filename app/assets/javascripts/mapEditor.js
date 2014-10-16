@@ -3,6 +3,7 @@ var _mapVisorModule = function() {
 	var map, drawnItems, layerControl, modelOverlay, currentLayer, drawControl, reviewLayer, csvLayer, cluster,
 		isEditOn = false,
 		commentForm = '<div class="commentForm">' +
+			'<input id="review_type" type="hidden">'+
            '<label><strong>Observación:</strong></label><br />' +
 	       '<textarea rows="4" cols="30" placeholder="Ingrese una observación" id="comment" class="cmtArea"></textarea>' +
 	       '<div class="row-fluid clearfix">' +
@@ -58,6 +59,7 @@ var _mapVisorModule = function() {
 	    	overlays = {};
 
     	
+    	//map = L.map('map', {crs: L.CRS.EPSG4326}).setView(latlng, zoom);
     	map = L.map('map').setView(latlng, zoom);
    		
 	    map.addLayer(googleTerrain);
@@ -87,7 +89,13 @@ var _mapVisorModule = function() {
 
 	var loadModel = function (modelUrl) {
 
-		var imageUrl = modelUrl,
+		var imageUrl = modelUrl;
+
+		if(modelUrl == "/modelos/Cardellina_canadensis_invernada.png" || modelUrl == "/modelos/Cardellina_canadensis_invernada_0.png" || modelUrl == "/modelos/Cardellina_canadensis_invernada_1.png" || modelUrl == "/modelos/Cardellina_canadensis_invernada_2.png" || modelUrl == "/modelos/Cardellina_canadensis_invernada_3.png")
+        	imageBounds = [[12.466957766, -59.864685059], [-13.841375567, -84.864685059]];
+        else if (modelUrl == "/modelos/Cardellina_canadensis_paso.png" || modelUrl == "/modelos/Cardellina_canadensis_paso_0.png" || modelUrl == "/modelos/Cardellina_canadensis_paso_1.png" || modelUrl == "/modelos/Cardellina_canadensis_paso_2.png" || modelUrl == "/modelos/Cardellina_canadensis_paso_3.png")
+       		imageBounds = [[29.352815756, -83.148901367], [9.344482423, -101.998901367]];
+       	else
         	imageBounds = [[12.675, -60.48333], [-13.84166, -82.94999]];
 
        /* Dispose older model if it exists */
@@ -143,12 +151,12 @@ var _mapVisorModule = function() {
 	};
 
 	var loadPoints = function (csvUrl) {
-		var csvTitles = ["id","EspecieOriginal","Localidad","Municipio","Departamento","Altitud","Fecha","Institucion","Colector","Evidencia"];
+		var csvTitles = ["ID","Nombre original","Localidad","Municipio","Departamento","Altitud","Fecha","Institucion","Colector","Evidencia"];
 
 		csvLayer = L.geoCsv(null, {		
 										onEachFeature: function (feature, layer) {
 												var popup = '<div class="cajita">';
-												popup += '<b><div id="point_lat">'+ feature.geometry.coordinates[0]+'</div>, <div id="point_lon"> '+ feature.geometry.coordinates[1] + '</div></b><br /><br />';
+												popup += '<b><div id="point_lon">'+ feature.geometry.coordinates[0]+'</div>, <div id="point_lat"> '+ feature.geometry.coordinates[1] + '</div></b><br /><br />';
 												for (var i=0; i < csvTitles.length; i++) {
 													popup += '<b>'+csvTitles[i]+'</b><br />'+ feature.properties[csvLayer.getPropertyName(csvTitles[i])]+'<br /><br />';
 												}
@@ -249,7 +257,9 @@ var _mapVisorModule = function() {
 		        	$('#lat').val(L.NumberFormatter.round(pLatLng.lat, 2, "."));
 		        	$('#lng').val(L.NumberFormatter.round(pLatLng.lng, 2, "."));
 		        	$('#review_type').val('point');
-		        } 
+		        }
+		        else if(type === 'polygon')
+		        	$('#review_type').val('polygon');
 		    });
 
 		    /* Updates lat lng points on popup when edited */
@@ -324,6 +334,8 @@ var _mapVisorModule = function() {
 	    						'<label>Observador</label><p id="puObservador">'+ $('#r_observador').val() +'</p>' +
 	    						'<label>Cita</label><p id="puCita">'+ $('#r_cita').val() +'</p>';
 	    	}
+	    	else if($('#review_type').val() === 'polygon')
+	    		popupHtml += '<label>Acción</label><p id="puAction">'+ $('input[name="EditType"]:checked').val() +'</p>';
 	    	popupHtml += '<label>Comentario: </label><p id="puComment">'+ $('#comment').val() +'</p></div>';
 
 	    	
@@ -402,7 +414,7 @@ var _mapVisorModule = function() {
 	        					', "Cita": "' + $('#puCita').text();
 	        }
 	        else
-	        	geoJSONLayer += '", "Accion": "' + $('input[name="EditType"]:checked').val();
+	        	geoJSONLayer += '", "Accion": "' + $('#puAction').text();
 
 	        geoJSONLayer += '"}}';
 

@@ -5,7 +5,7 @@ class Species < ActiveRecord::Base
 	acts_as_commentable
 
 	def self.search(query, classId)
-		where("sci_name like ? and class_id = ?", "%#{query}%", "#{classId}").limit(10)
+		where("sci_name like ? and class_id = ? and current = ?", "%#{query}%", "#{classId}", "t").limit(10)
 	end
 
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140613184940) do
+ActiveRecord::Schema.define(version: 20141014205011) do
 
   create_table "activities", force: true do |t|
     t.string "name",        null: false
@@ -120,6 +120,7 @@ ActiveRecord::Schema.define(version: 20140613184940) do
     t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "register_id"
   end
 
   create_table "ratings", force: true do |t|
@@ -129,6 +130,15 @@ ActiveRecord::Schema.define(version: 20140613184940) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "regions", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "region_id"
+  end
+
+  add_index "regions", ["name"], name: "index_regions_on_name", unique: true
 
   create_table "reviews", force: true do |t|
     t.integer  "user_id"
@@ -151,10 +161,20 @@ ActiveRecord::Schema.define(version: 20140613184940) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "ocurrence_records_url"
+    t.string   "iucn_id"
+    t.boolean  "current",               default: true
   end
 
   add_index "species", ["class_id"], name: "index_species_on_class_id"
   add_index "species", ["sci_name"], name: "index_species_on_sci_name", unique: true
+
+  create_table "user_species_regions", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "region_id"
+    t.integer  "species_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"

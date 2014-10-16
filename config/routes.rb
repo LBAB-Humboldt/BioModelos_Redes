@@ -22,6 +22,7 @@ Biomodis::Application.routes.draw do
   resources :models, :only => [:index, :new, :create]
   resources :species, :only => [:new, :create, :edit] do
     get :autocomplete, :on => :collection
+    get :regions_autocomplete, :on => :collection
   end 
   resources :faq, :only => [:index]
 

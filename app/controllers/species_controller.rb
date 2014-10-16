@@ -4,7 +4,7 @@ class SpeciesController < ApplicationController
     if params[:class_id].blank?
       @species = nil
     else
-      @species = Species.where(:class_id => params[:class_id]).order('sci_name ASC')
+      @species = Species.where(:class_id => params[:class_id], :current => true).order('sci_name ASC')
     end
     respond_to do |format|
       format.js
@@ -15,6 +15,15 @@ class SpeciesController < ApplicationController
     species = Species.search(params[:query], params[:classId])
     result = species.collect do |t|
       { value: t.sci_name, id: t.id }
+    end
+
+    render json: result
+  end
+
+  def regions_autocomplete
+    regions = Region.search(params[:query], params[:classId])
+    result = regions.collect do |t|
+      { value: t.name, id: t.region_id }
     end
 
     render json: result
