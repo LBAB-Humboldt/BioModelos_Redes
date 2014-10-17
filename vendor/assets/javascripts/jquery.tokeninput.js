@@ -11,7 +11,7 @@
 (function ($) {
 // Default settings
 var DEFAULT_SETTINGS = {
-	// Search settings
+    // Search settings
     method: "GET",
     contentType: "json",
     queryParam: "q",
@@ -20,33 +20,33 @@ var DEFAULT_SETTINGS = {
     propertyToSearch: "name",
     jsonContainer: null,
 
-	// Display settings
-    hintText: "Type in a search term",
-    noResultsText: "No results",
-    searchingText: "Searching...",
+    // Display settings
+    hintText: "Escriba un criterio de búsqueda",
+    noResultsText: "No hay resultados",
+    searchingText: "Buscando...",
     deleteText: "&times;",
     animateDropdown: true,
 
-	// Tokenization settings
+    // Tokenization settings
     tokenLimit: null,
     tokenDelimiter: ",",
     preventDuplicates: false,
 
-	// Output settings
+    // Output settings
     tokenValue: "id",
 
-	// Prepopulation settings
+    // Prepopulation settings
     prePopulate: null,
     processPrePopulate: false,
 
-	// Manipulation settings
+    // Manipulation settings
     idPrefix: "token-input-",
 
-	// Formatters
+    // Formatters
     resultsFormatter: function(item){ return "<li>" + item[this.propertyToSearch]+ "</li>" },
     tokenFormatter: function(item) { return "<li><p>" + item[this.propertyToSearch] + "</p></li>" },
 
-	// Callbacks
+    // Callbacks
     onResult: null,
     onAdd: null,
     onDelete: null,
@@ -115,8 +115,8 @@ var methods = {
         return this;
     },
     get: function() {
-    	return this.data("tokenInputObject").getTokens();
-   	}
+        return this.data("tokenInputObject").getTokens();
+    }
 }
 
 // Expose the .tokenInput function to jQuery as a plugin
@@ -414,8 +414,8 @@ $.TokenList = function (input, url_or_data, settings) {
     }
     
     this.getTokens = function() {
-   		return saved_tokens;
-   	}
+        return saved_tokens;
+    }
 
     //
     // Private functions
