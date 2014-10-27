@@ -176,3 +176,16 @@
 
 
 <div class="clearfix fixfooter"></div>
+<a href="#vermas" class="flechahome"></a>
+
+<script type="text/javascript">
+$(window).scroll(function() {
+    var pxFromBottom = 100;
+    if ($(window).scrollTop() + $(window).height() > $(document).height() - pxFromBottom) {
+        $('.flechahome').fadeOut('slow');
+    } else {
+        $('.flechahome').fadeIn('slow')
+    }
+});
+
+</script>
