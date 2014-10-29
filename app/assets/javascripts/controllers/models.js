@@ -20,11 +20,11 @@ $( document ).ready(function() {
   }
 
   var resetEcoVariables = function(){
-    $("div.slider").each(function(e) {
-            $(this).slider("values", 0, 0);
-            $(this).slider("values", 1, 0.5);
-            $(this).slider("values", 2, 1);
-     });
+    // $("div.slider").each(function(e) {
+    //         $(this).slider("values", 0, 0);
+    //         $(this).slider("values", 1, 0.5);
+    //         $(this).slider("values", 2, 1);
+    //  });
     $("#accordion .slider").each(function(e) {
             $(this).hide();
     });

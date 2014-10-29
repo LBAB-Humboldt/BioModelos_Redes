@@ -29,6 +29,15 @@ class SpeciesController < ApplicationController
     render json: result
   end  
 
+  def eco_variables_search
+    ecovar = EcoVariablesSpecies.search(params[:user_id], params[:species_id])
+    result = ecovar.collect do |t|
+      { eco_id: t.eco_variable_id, max: t.max, min: t.min, mean: t.mean}
+    end
+
+    render json: result
+  end
+
   def species_models
 
     if params[:species_id].blank?
