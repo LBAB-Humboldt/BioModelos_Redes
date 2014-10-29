@@ -11,7 +11,9 @@
 
 			<ul class="bjqs">
           		<li>
-					<aside class="activity2">
+          		<a class="twitter-timeline"  href="https://twitter.com/BioModelos" data-widget-id="527190072597049344" data-chrome="noheader nofooter">Tweets by @BioModelos</a>
+            	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+					<!-- <aside class="activity2">
 						<h5>Actividad biomodelos</h5>
 						<ul>
 					        <li class="actfeed">
@@ -79,7 +81,7 @@
 					            <p class="feedcontent">Primera versión Beta de BioModelos en línea</p>
 					        </li>
 					    </ul>
-					</aside>
+					</aside> -->
 				</li>
 				<li><%= image_tag("fotobogota.jpg") %></li>
 		        <li><%= image_tag("info.png") %></li>
@@ -137,9 +139,9 @@
 	<div class="homeline2">
 	</div>
 
-	<div class="contenedor" id="vermas">
+	<div class="contenedor padbtm clearfix" id="vermas">
 		<section class="introtext">
-			<h1>¿QUE HACE BIOMODELOS?</h1>
+			<h1>¿QUÉ HACE BIOMODELOS?</h1>
 			<h2>Mapas integrativos entre expertos y modelos de distribución.</h2>
 			<h5>BioModelos es una herramienta digital que permite la <strong>comunicación entre expertos</strong> en biodiversidad para el desarrollo de modelos de distribución de las especies existentes en Colombia de forma colaborativa y abierta.</br></br>
 			Esta iniciativa surge con el fin de acercar a investigadores, instituciones gubernamentales, ONGs y ciudadanos, a una <strong>información precisa y validada</strong> por expertos sobre la distribución de especies en Colombia, que sirva como referencia para estudios y la toma de decisiones sobre biodiversidad.</h5>
@@ -174,5 +176,39 @@
 		</div>
 	</div>
 
+	<div class="homeline3">
+	</div>
+
+	<div class="contenedor padbtm" id="vermas2">
+		<section class="introtext">
+			<h1>¿QUIÉNES NOS APOYAN?</h1>
+			<h2>Proyectos, colaboraciones y datos.</h2>
+			<h5>BioModelos parte del marco de los proyectos “Componente biótico del Mapa de Ecosistemas de Colombia” e “Insumos para la Delimitación de Ecosistemas Estratégicos: Páramos y Humedales” impulsados por el  <strong>Ministerio de Ambiente y Desarrollo Sostenible</strong> y el <strong>Fondo de Adaptación</strong> del Ministerio de Hacienda y Crédito Público.</h5>
+		</section>
+		<div class="patro">
+		<h4>PATROCINADORES</h4>
+			<a href="http://www.minambiente.gov.co" target="_blank"><%= image_tag("minamb.png") %></a>
+			<a href="http://sitio.fondoadaptacion.gov.co" target="_blank"><%= image_tag("fondologo.png") %></a></br>
+		<h4>COLABORADORES</h4>
+			<a href="http://www.sibcolombia.net" target="_blank" title="Sistema de información sobre biodiversidad de Colombia"><%= image_tag("logosib.png") %></a>
+			<a href="http://calidris.org.co" target="_blank" title="Asociación para el estudio y conservación de las aves acuáticas en Colombia"><%= image_tag("logocalidris.png") %></a>
+			<a title="Sociedad Colombiana de Mastozoología"><%= image_tag("logoscm.png") %></a>
+			<a href="http://www.acherpetologia.org" target="_blank" title="Asociación Colombiana de Herpetología"><%= image_tag("logoach.png") %></a>
+		</div>
+	</div>
+
 
 <div class="clearfix fixfooter"></div>
+<a href="#vermas2" class="flechahome"></a>
+
+<script type="text/javascript">
+$(window).scroll(function() {
+    var pxFromBottom = 100;
+    if ($(window).scrollTop() + $(window).height() > $(document).height() - pxFromBottom) {
+        $('.flechahome').fadeOut('slow');
+    } else {
+        $('.flechahome').fadeIn('slow')
+    }
+});
+
+</script>
