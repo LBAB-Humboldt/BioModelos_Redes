@@ -1,4 +1,6 @@
-if ('<%= @comment.parent_id %>') $('#comment-<%= @comment.parent_id %>').append('<%=j render partial: 'comments/show', :locals => { :comment => @comment }  %>');
+if ('<%= @comment.parent_id %>') {
+	$('#comment-<%= @comment.parent_id %>').append('<%=j render partial: 'comments/show', :locals => { :comment => @comment }  %>');
+}
 else $('.comments-list').prepend('<%=j render partial: 'comments/show', :locals => { :comment => @comment }  %>');
 
 $('#new_comment').trigger('reset');

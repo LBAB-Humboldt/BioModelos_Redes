@@ -151,7 +151,7 @@ var _mapVisorModule = function() {
 	};
 
 	var loadPoints = function (csvUrl) {
-		var csvTitles = ["ID","Nombre original","Localidad","Municipio","Departamento","Altitud","Fecha","Institucion","Colector","Evidencia"];
+		var csvTitles = ["ID","Nombre original","Localidad","Municipio","Departamento","Altitud","Fecha","Institución","Colector","Evidencia"];
 
 		csvLayer = L.geoCsv(null, {		
 										onEachFeature: function (feature, layer) {

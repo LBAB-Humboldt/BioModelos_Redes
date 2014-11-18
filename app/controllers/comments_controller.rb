@@ -18,19 +18,55 @@ class CommentsController < ApplicationController
         	format.js
         end
     else
-        render :js => "alert('error saving comment');"
+        render :js => "alert('Se ha producido un error guardando el comentario.');"
+    end
+  end
+
+  def edit
+    @comment = Comment.find(params[:id])
+
+    respond_to do |format|
+          format.js
+    end
+  end
+
+  def update
+    @comment = Comment.find(params[:id])
+
+    if @comment.update_attributes(comment_params)
+      respond_to do |format|
+          format.js
+      end
+    else
+      render :js => "alert('Se ha producido un error editando el comentario.');"
+    end
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+
+    if @comment.destroy
+        respond_to do |format|
+          format.js
+        end
+    else
+        render :js => "alert('Se ha producido un error eliminando el comentario.');"
     end
   end
 
   def child_comments
   	@id_parent = params[:parent_id]
-  	#@post = Post.find(params[:post_id])
-  	#@new_comment = Comment.build_from(@post, current_user, '')
 
   	respond_to do |format|
-  		format.html
+  		  format.html
         format.js
     end
   end
+
+  private
+
+    def comment_params
+        params.require(:comment).permit(:body)
+    end
 
 end

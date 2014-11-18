@@ -34,7 +34,14 @@ $( document ).ready(function() {
                 $("#review_model_id").val($(this).find('img').attr('id'));
                 $('.editControls').show('slow');
                 $('.showmodels, .cajabusqueda, .selectores').hide ('slow');
+                $(".botonmodelos").removeClass("w55");
                 event.preventDefault(); // Prevent link from following its href
+  });
+
+  $("body").on("click", ".xcierre2", function (e) {
+        $(".showmodels").hide();
+        $(".botonmodelos").removeClass("w55");
+        e.preventDefault();
   });
   
 });

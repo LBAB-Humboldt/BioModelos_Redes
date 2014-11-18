@@ -38,6 +38,7 @@ $( document ).ready(function() {
   }
 
   $('.searchcateg,.showmodels,.editControls,#cancBtn,.cajabusqueda,.showmodels,.cajaediciones,.edicionbar,.botonmodelos,.cajaecolog,.ecologicas').hide();
+  $(".findbar").addClass("w55");
   $("#anfsh").click(function(e){
     $('#cajasearch1').show('slow');
     $('#class_id').val(1);
@@ -104,14 +105,23 @@ $( document ).ready(function() {
           _mapVisorModule.unloadPoints();
           $('#species_id').val('');
           $('.selectores').show('slow');
+          $(".botonmodelos").removeClass("w55");
+          $(".ecologicas").removeClass("w55");
+          $(".edicionbar").removeClass("w55");
+          $(".findbar").addClass("w55");
           resetEcoVariables();
   });
   $(".edicionbar").click(function(e){
       if($(".cajaediciones").is(":visible")){
         $(".cajaediciones").hide();
+        $(".edicionbar").removeClass("w55");
       }
       else{
+        $('.cajaecolog, .cajabusqueda, .showmodels').hide('slow');
         $(".cajaediciones").show();
+        $(".botonmodelos").removeClass("w55");
+        $(".ecologicas").removeClass("w55");
+        $(".edicionbar").addClass("w55");
       }
       
       e.preventDefault();
@@ -130,9 +140,14 @@ $( document ).ready(function() {
   $(".botonmodelos").click(function(e){
       if($(".showmodels").is(":visible")){
         $(".showmodels").hide();
+        $(".botonmodelos").removeClass("w55");
       }
       else{
+        $('.cajaecolog, .cajabusqueda, .cajaediciones').hide('slow');
+        $(".ecologicas").removeClass("w55");
+        $(".edicionbar").removeClass("w55");
         $(".showmodels").show();
+        $(".botonmodelos").addClass("w55");
       }
       
       e.preventDefault();
@@ -141,18 +156,28 @@ $( document ).ready(function() {
   $(".ecologicas").click(function(e){
         if($(".cajaecolog").is(":visible")){
           $(".cajaecolog").hide();
+          $(".ecologicas").removeClass("w55");
         }
         else{
           $('.showmodels, .cajabusqueda, .cajaediciones').hide('slow');
           $(".cajaecolog").show();
+          $(".botonmodelos").removeClass("w55");
+          $(".edicionbar").removeClass("w55");
+          $(".ecologicas").addClass("w55");
       }
       e.preventDefault();
   });
 
+  $(".xcierre").click(function(e){
+     $(".cajaecolog").hide();
+     $(".ecologicas").removeClass("w55");
+     e.preventDefault();
+  });
   
   $('.searchcateg').click(function(e){
     $('.cajabusqueda').show('slow');
     $('.resultados').html("");
+    e.preventDefault();
   });
 
 });
