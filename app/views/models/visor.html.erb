@@ -82,6 +82,24 @@ function getEcoVariable(key){
 
 $( "#accordion" ).accordion({ heightStyle: "content", collapsible: true });
 
+$(".edicionbar").click(function(e) {
+
+    var sid = $('#species_id').val();
+
+    $.ajax({
+        'type': "POST",
+        'global': false,
+        url: "/reviews/reviews_by_species",
+        data: {id: sid},
+        error: function( jqXHR, textStatus ) {
+            isError = true;
+            alert( "Ha ocurrido un error: " + textStatus );
+        }
+    });
+
+    e.preventDefault();
+});
+
 $(".ecologicas").click(function(e) {
 
   if(!$(".cajaecolog").is(":visible")){

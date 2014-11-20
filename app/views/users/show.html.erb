@@ -36,14 +36,21 @@
 			<%= render 'reviews/reviews_by_user' %>
 			</section>
 	</div>
+	
 	<div class="perfilcol2 clearfix fixfooter" id="col2p">
 		<div class="cajas">
 			<h5>ranking mensual</h5>
 			<% @users_by_reviews.each_with_index do |user, i| %>
 				<section class="ranking">
 					<h1><%= i+1 %></h1>
-					<p><a href="/users/<%= user.id %>"><%= user.Name %></a> · <%= user.Ediciones %> aporte(s) </p>
-					<div class="medalla1"></div>
+					<p><a href="/users/<%= user.id %>"><%= user.Name %></a> · <%= user.Aportes %> aporte(s) </p>
+					<% if user.Aportes >= 100 %>
+						<div class="medalla1"></div><div class="medalla1"></div><div class="medalla1"></div>
+					<% elsif user.Aportes >= 50 %>
+						<div class="medalla1"></div><div class="medalla1"></div>
+					<% else %>
+						<div class="medalla1"></div>
+					<% end %>
 				</section>
 			<% end %>
 		</div>

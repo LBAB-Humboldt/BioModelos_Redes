@@ -59,8 +59,8 @@ var _mapVisorModule = function() {
 	    	overlays = {};
 
     	
-    	//map = L.map('map', {crs: L.CRS.EPSG4326}).setView(latlng, zoom);
-    	map = L.map('map').setView(latlng, zoom);
+    	map = L.map('map', {crs: L.CRS.EPSG4326}).setView(latlng, zoom);
+    	//map = L.map('map').setView(latlng, zoom);
    		
 	    map.addLayer(googleTerrain);
 

@@ -47,18 +47,14 @@ class SpeciesController < ApplicationController
       @models = Model.where(:species_id => params[:species_id], current: true).limit(10)
       @all_comments = @species.root_comments.order('created_at desc')
 
-      arr = []
       @ratings = Hash.new 
 
       @models.each do |m|
-        arr.push(m.id)
         if user_signed_in?
           @rating = Rating.where(model_id: m.id, user_id: current_user.id).first
           @ratings[m.id] = @rating.blank? ? 0 : @rating.score
         end
       end
-
-      @species_reviews = Review.where({ model_id: arr}).order("created_at DESC")
 
       if user_signed_in?
         @new_comment = Comment.build_from(@species, current_user.id, '')

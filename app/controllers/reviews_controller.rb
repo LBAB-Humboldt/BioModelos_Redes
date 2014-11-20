@@ -4,6 +4,7 @@ class ReviewsController < ApplicationController
   end
   
   def show
+
   end
 
   def create
@@ -31,8 +32,21 @@ class ReviewsController < ApplicationController
       end
   end
 
-  def show_reviews_by_species
-    
+  def reviews_by_species
+    @species = Species.find(params[:id])
+    @models = Model.where(:species_id => params[:id], current: true)
+
+    arr = []
+    @models.each do |m|
+        arr.push(m.id)
+    end
+
+    @species_reviews = Review.where({ model_id: arr}).order("created_at DESC")
+
+
+    respond_to do |format|
+        format.js
+    end
   end
 
   private
