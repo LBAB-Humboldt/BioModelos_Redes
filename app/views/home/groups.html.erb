@@ -1,0 +1,33 @@
+Grupos<br /><br />
+
+Grupo Expertos en Aves Acuáticas:<br /><br />
+
+<% @aves_experts.each do |expert| %>
+	<p><a href="/users/<%= expert.id %>"><%= expert.name %></a><br />
+<% end %>
+
+<br /><br />
+
+Grupo Expertos en Herpetos:<br /><br />
+
+<% @herpetos_experts.each do |expert| %>
+	<p><a href="/users/<%= expert.id %>"><%= expert.name %></a><br />
+<% end %>
+
+<br /><br />
+
+Grupo Expertos en Mamíferos:<br /><br />
+
+<% @mamiferos_experts.each do |expert| %>
+	<p><a href="/users/<%= expert.id %>"><%= expert.name %></a><br />
+<% end %>
+
+<br /><br />
+
+Grupo Expertos en Peces:<br /><br />
+
+<% @peces_experts.each do |expert| %>
+	<p><a href="/users/<%= expert.id %>"><%= expert.name %></a><br />
+<% end %>
+
+<br /><br />

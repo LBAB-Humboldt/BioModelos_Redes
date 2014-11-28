@@ -23,9 +23,8 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review = Review.find(params[:id])
-    @review.destroy
 
-    if @comment.destroy
+    if @review.destroy
         redirect_to user_path(@review.user_id)
       else
         render :js => "alert('Error eliminando edición');"

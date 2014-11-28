@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141014205011) do
+ActiveRecord::Schema.define(version: 20141127162230) do
 
   create_table "activities", force: true do |t|
     t.string "name",        null: false
@@ -27,6 +27,15 @@ ActiveRecord::Schema.define(version: 20141014205011) do
   end
 
   add_index "activity_users", ["user_id", "species_id"], name: "index_activity_users_on_user_id_and_species_id"
+
+  create_table "altitude_ranges", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "species_id"
+    t.integer  "alt_min",    default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "alt_max",    default: 0
+  end
 
   create_table "classes", force: true do |t|
     t.string   "class_name"

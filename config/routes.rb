@@ -9,12 +9,19 @@ Biomodis::Application.routes.draw do
   get "comments/child_comments"
   get "home/feedback"
   post "home/send_message"
+  get "home/groups"
   post "ratings/rate_model"
   post "species/comment_point"
   post "species/create_comment_point"
   post "species/species_by_class"
   post "species/add_ecological_variable"
+  post "species/add_altitude_range"
   post "reviews/reviews_by_species"
+  post "regions/save_region_user"
+  post "species/get_altitude_range"
+  resources :regions do
+    get :regions_by_user, :on => :collection
+  end
   resources :ratings, only: :update
   resources :comments, :only => [:create, :destroy, :edit, :update]
   resources :home, :only => [:show]

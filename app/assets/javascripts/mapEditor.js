@@ -424,7 +424,6 @@ var _mapVisorModule = function() {
 	    });
 	    geoJSONLayer += ']}';
 
-	    //console.log(geoJSONLayer);
 	    geoJSONLayer.replace();
 	    return geoJSONLayer;
 	};

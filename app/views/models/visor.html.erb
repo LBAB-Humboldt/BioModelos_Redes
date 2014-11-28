@@ -102,6 +102,8 @@ $(".edicionbar").click(function(e) {
 
 $(".ecologicas").click(function(e) {
 
+  var alt_range = "";
+
   if(!$(".cajaecolog").is(":visible")){
 
     var sid = $('#species_id').val(), 
@@ -123,11 +125,37 @@ $(".ecologicas").click(function(e) {
         }
     });
 
+
+    $.ajax({
+        'async': false,
+        'type': "POST",
+        'global': false,
+        'dataType': 'json',
+        url: "/species/get_altitude_range",
+        data: {sid: sid},
+        'success': function (data) {
+            alt_range = data;
+        },
+        error: function( jqXHR, textStatus ) {
+            isError = true;
+            alert( "Ha ocurrido un error: " + textStatus );
+        }
+    });
+
+    if(alt_range != null){
+      $("#ralt_min").val(alt_range.alt_min);
+      $("#ralt_max").val(alt_range.alt_max);
+    }
+    else{
+      $("#ralt_min").val("");
+      $("#ralt_max").val("");
+    }  
+
     //Initialize checkboxes
     $('input[type=checkbox]').each(function(e){
       var $this = $(this);
       $this.change(function(e){
-          console.log("Cambio");
+          //console.log("Cambio");
           $this.parent('div').find('div.slider').toggle('slow');
           $this.parent('div').find('h6').toggle('slow');
     });
@@ -159,9 +187,6 @@ $(".ecologicas").click(function(e) {
     });
 
   });
-
-  //getEcoVariable(ecoVars, 72);
-  console.log(ecoVars);
  
   }
   
@@ -170,7 +195,33 @@ $(".ecologicas").click(function(e) {
 /* Saves eco variables */
 $(".ecobtn").click(function(e) {
   var sp_id = $('#species_id').val(),
-      isError = false;
+      isError = false,
+      re = /^([0-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9])$/,
+      ralt_str_min = $("#ralt_min").val(),
+      ralt_str_max = $("#ralt_max").val();
+
+  if(ralt_str_min != "" && ralt_str_max != ""){
+
+    if (re.test(ralt_str_min) && re.test(ralt_str_max)){
+      if(ralt_str_min < ralt_str_max){
+        $.ajax({
+          type: "POST",
+          url: "/species/add_altitude_range",
+          data: { sid: sp_id, alt_min: ralt_str_min, alt_max: ralt_str_max},
+          error: function( jqXHR, textStatus ) {
+            isError = true;
+            alert( "Ha ocurrido un error: " + textStatus );
+          } 
+        });
+      }
+      else
+        alert("El valor mínimo debe ser menor que el valor máximo.");
+    }
+    else{
+       alert("Ingrese valores de Rango Altitudinal válidos.");
+    }
+
+  }
 
   $("#othervar div.slider").each(function(e) {
     

@@ -21,9 +21,9 @@ class SpeciesController < ApplicationController
   end
 
   def regions_autocomplete
-    regions = Region.search(params[:query], params[:classId])
+    regions = Region.search(params[:q])
     result = regions.collect do |t|
-      { value: t.name, id: t.region_id }
+      { id: t.id, name: t.name }
     end
 
     render json: result
@@ -36,6 +36,13 @@ class SpeciesController < ApplicationController
     end
 
     render json: result
+  end
+
+  def get_altitude_range
+    alt = AltitudeRange.where(:species_id => params[:sid], user_id: current_user.id).first
+
+    render json: alt
+
   end
 
   def species_models
@@ -128,6 +135,20 @@ class SpeciesController < ApplicationController
       EcoVariablesSpecies.create({:species_id => params[:species_id], :user_id => current_user.id, :eco_variable_id => params[:eco_variable_id], :min => params[:min], :max => params[:max], :mean => params[:mean]})
     else
       EcoVariablesSpecies.update(@eco_variable.id, {:min => params[:min], :max => params[:max], :mean => params[:mean]})
+    end
+
+    respond_to do |format|
+        format.js
+    end
+  end
+
+  def add_altitude_range
+    @alt_range = AltitudeRange.where(:species_id => params[:sid], :user_id => current_user.id).first
+
+    if @alt_range.blank?
+      AltitudeRange.create({:species_id => params[:sid], :user_id => current_user.id, :alt_min => params[:alt_min], :alt_max => params[:alt_max]})
+    else
+      AltitudeRange.update(@alt_range.id, {:alt_min => params[:alt_min], :alt_max => params[:alt_max]})
     end
 
     respond_to do |format|
