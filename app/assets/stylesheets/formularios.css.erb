@@ -115,9 +115,9 @@
 
 .fondo1 {
   width: 100%;
-  height: -moz-calc(100% - 131px);
-  height: -webkit-calc(100% - 131px);
-  height: calc(100% - 131px);
+  height: -moz-calc(100% - 130px);
+  height: -webkit-calc(100% - 130px);
+  height: calc(100% - 130px);
   background-image: url(<%= asset_path 'ranaf1.jpg' %>);
   background-repeat: no-repeat;
   background-size: cover;
@@ -125,9 +125,9 @@
 
 .fondo2 {
   width: 100%;
-  height: -moz-calc(100% - 131px);
-  height: -webkit-calc(100% - 131px);
-  height: calc(100% - 131px);
+  height: -moz-calc(100% - 130px);
+  height: -webkit-calc(100% - 130px);
+  height: calc(100% - 130px);
   background-image: url(<%= asset_path 'ranaf2.jpg' %>);
   background-repeat: no-repeat;
   background-size: cover;
@@ -135,9 +135,9 @@
 
 .fondo3, .bg4 {
   width: 100%;
-  height: -moz-calc(100% - 131px);
-  height: -webkit-calc(100% - 131px);
-  height: calc(100% - 131px);
+  height: -moz-calc(100% - 130px);
+  height: -webkit-calc(100% - 130px);
+  height: calc(100% - 130px);
   background-image: url(<%= asset_path 'plumas.jpg' %>);
   background-repeat: no-repeat;
   background-size: cover;
@@ -145,9 +145,9 @@
 
 .fondo4 {
   width: 100%;
-  height: -moz-calc(100% - 131px);
-  height: -webkit-calc(100% - 131px);
-  height: calc(100% - 131px);
+  height: -moz-calc(100% - 130px);
+  height: -webkit-calc(100% - 130px);
+  height: calc(100% - 130px);
   background-image: url(<%= asset_path 'ranaf3.jpg' %>);
   background-repeat: no-repeat;
   background-size: cover;
@@ -156,22 +156,6 @@
 
 .fondo5 {
   background-image: url(<%= asset_path 'grillo.jpg' %>);
-}
-
-.faqshow {
-  width: 415px;
-  height: -moz-calc(100% - 30px);
-  height: -webkit-calc(100% - 30px);
-  height: calc(100% - 30px);
-  float: right;
-  margin-right: 50px;
-  background-image: url(<%= asset_path 'fondobla.jpg' %>);
-  padding: 15px;
-  overflow: scroll;
-}
-
-.w600 {
-  width: 615px;
 }
 
 .ilb {
@@ -217,19 +201,7 @@
   font-weight: 700;
 }
 
-.contacto {
-  width: 700px;
-  height: -webkit-calc(100% - 171px);
-  height: -moz-calc(100% - 171px);
-  height: calc(100% - 171px);
-  position: absolute;
-  top: 86px;
-  right:50px;
-  z-index: 250;
-  background-image: url(<%= asset_path 'fondobla.jpg' %>);
-  padding: 20px;
-  overflow: auto;
-}
+
 
 .claverec {
   width: 600px;
@@ -261,38 +233,13 @@
   text-align: left;
   margin-bottom: 15px;
   text-transform: uppercase;
+  position: relative;
+  z-index: 30;
 }
 
 .forma {
   margin-bottom: 25px;
   border-bottom: 2px dotted #e73a00;
-}
-
-.forma input[type="text"],
-.forma input[type="email"],
-.forma input[type="tel"] ,
-.forma input[type="password"]  {
-  border:none;
-  border-bottom: 1px solid #e73a00;
-  padding: 3px;
-  width: 400px;
-  margin-bottom: 10px;
-  color: #fff;
-  font-weight: 300;
-  letter-spacing: 1px;
-  display: block;
-  background: url(<%= asset_path 'bg.jpg' %>);
-}
-
-.forma textarea {
-  border: 1px solid #e73a00;
-  padding: 3px;
-  width: 600px;
-  margin-bottom:10px;
-  color: #fff;
-  font-weight: 300;
-  letter-spacing: 1px;
-  background: url(<%= asset_path 'bg.jpg' %>);
 }
 
 .boton1 {
@@ -380,3 +327,128 @@
 #point_lat, #point_lon {
   display: inline-block;
 }
+
+
+@media only screen and (min-width : 300px) {
+
+.contacto{
+  width: 80%;
+  height: -webkit-calc(100% - 238px);
+  height: -moz-calc(100% - 238px);
+  height: calc(100% - 238px);
+  top: 113px;
+  z-index: 250;
+  background-image: url(<%= asset_path 'fondobla.jpg' %>);
+  padding: 20px;
+  overflow: auto;
+  position: absolute;
+  right: 15px;
+}
+
+.forma input[type="text"],
+.forma input[type="email"],
+.forma input[type="tel"] ,
+.forma input[type="password"]  {
+  border:none;
+  border-bottom: 1px solid #e73a00;
+  padding: 3px;
+  width: 90%;
+  margin-bottom: 10px;
+  color: #fff;
+  font-weight: 300;
+  letter-spacing: 1px;
+  display: block;
+  background: url(<%= asset_path 'bg.jpg' %>);
+}
+
+.forma textarea {
+  border: 1px solid #e73a00;
+  padding: 3px;
+  width: 97%;
+  margin-bottom:10px;
+  color: #fff;
+  font-weight: 300;
+  letter-spacing: 1px;
+  background: url(<%= asset_path 'bg.jpg' %>);
+}
+
+.faqshow {
+  width: 80%;
+  height: -moz-calc(100% - 98px);
+  height: -webkit-calc(100% - 98px);
+  height: calc(100% - 98px);
+  float: right;
+  margin-right: 15px;
+  background-image: url(<%= asset_path 'fondobla.jpg' %>);
+  padding: 15px;
+  overflow: scroll;
+}
+
+.w600 {
+  width: 80%;
+}
+
+}
+
+@media only screen and (min-width : 349px) {
+
+  .contacto {
+  height: -webkit-calc(100% - 225px);
+  height: -moz-calc(100% - 225px);
+  height: calc(100% - 225px);
+  }
+
+  .faqshow {
+  height: -moz-calc(100% - 85px);
+  height: -webkit-calc(100% - 85px);
+  height: calc(100% - 85px);
+}
+
+}
+@media only screen and (min-width : 600px) {
+  
+  .contacto {
+  height: -webkit-calc(100% - 197px);
+  height: -moz-calc(100% - 197px);
+  height: calc(100% - 197px);
+  right:50px;
+  }
+
+  .forma input[type="text"],
+  .forma input[type="email"],
+  .forma input[type="tel"] ,
+  .forma input[type="password"]  {
+    width: 400px;
+  }
+
+  .forma textarea {
+    width: 600px;
+  }
+
+  .faqshow {
+  width: 415px;
+  margin-right: 50px;
+  height: -moz-calc(100% - 30px);
+  height: -webkit-calc(100% - 30px);
+  height: calc(100% - 30px);
+}
+
+  .w600 {
+    width: 615px;
+  }
+
+}
+
+@media only screen and (min-width : 845px) {
+  
+.contacto {
+  width: 700px;
+  height: -webkit-calc(100% - 170px);
+  height: -moz-calc(100% - 170px);
+  height: calc(100% - 170px);
+  top: 86px;
+
+}
+
+}
+
