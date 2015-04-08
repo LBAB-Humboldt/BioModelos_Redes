@@ -7,7 +7,7 @@ $( document ).ready(function() {
   $("body").on("mouseleave",".cajadatosm",function(e){
         $(this).animate({scrollTop:$(".cajadatosm").position().top - '20px'},600).finish();
   });
-  
+
 
   /* Autocomplete */
 	$("#search_field").typeahead({
@@ -30,7 +30,7 @@ $( document ).ready(function() {
 
   /* Model selection */
   $("body").on("click",".model_link",function (event) {
-                _mapVisorModule.loadModel("/modelos/"+$(this).find('#imgsrc').val());
+                _mapVisorModule.loadModel("/modelos/"+$(this).find('#imgsrc').val(), $('#species_id').val());
                 $("#review_model_id").val($(this).find('img').attr('id'));
                 $('.editControls').show('slow');
                 $('.showmodels, .cajabusqueda, .selectores').hide ('slow');

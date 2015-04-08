@@ -15,13 +15,14 @@
 //= require jquery_ujs
 //= require jquery-ui-1.10.4.custom
 //= require jquery.tokeninput
-//= require lightbox-2.6.min
+//= require jquery.magnific-popup
 //= require bjqs-1.3.min
 //= require_tree ./controllers
 //= require typeahead.min
 //= require leaflet
 //= require leaflet/leaflet.coordinates-0.1.4.min
 //= require leaflet/leaflet.markercluster
+//= require leaflet/esri-leaflet
 //= require jquery-csv.min
 //= require leaflet/leaflet.geocsv.min
 //= require jquery.raty.min
