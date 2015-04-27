@@ -1,0 +1,73 @@
+<div class="editform"></div>
+<div class="botonesperfil clearfix">
+	<% if @user.id == get_current_user_id%>	
+		<%= link_to '', {:action => 'edit_profile'}, :remote => true, :class =>"editperfil" %>
+	<% end %>
+	<div class="funcperfil">
+		<a href="#"></a>
+		<a href="#"></a>
+	</div>
+</div>
+<div class="perfilline" id="lineap"></div>
+<div class="contenedor">
+	<div class="perfilcol1 clearfix fixfooter" id="col1p">
+		<article class="perfildata" id="alturap">
+			<div class="perfilimg">
+				<%= image_tag("fotoperfil.png") %>
+			</div>
+			<section class="perfilexp">
+				<h1><%= @user.name %></h1>
+				<% if !@user.interestGroups.blank? %>
+					<h2>Especialista en <%= @user.interestGroups %></h2>
+				<% end %>	
+				<h3><%= @user.organization %></h3>
+				<h4><%= @user.location %></h4>
+				<p><%= @user.bio %></p>
+			</section>
+		</article>
+			<div class="clearfix"></div>
+			<section class="aportes fixfooter">
+				<div class="medallas">
+					<div class="medalla1"></div>
+					<div class="medalla1"></div>
+				</div>
+				<h1>aportes</h1>
+				<a href="#" class="checkrev">revisar aportes</a>
+			<%= render 'reviews/reviews_by_user' %>
+			</section>
+	</div>
+	<div class="perfilcol2 clearfix fixfooter" id="col2p">
+		<div class="cajas">
+			<h5>ranking mensual</h5>
+			<% @users_by_reviews.each_with_index do |user, i| %>
+				<section class="ranking">
+					<h1><%= i+1 %></h1>
+					<p><a href="/users/<%= user.id %>"><%= user.Name %></a> · <%= user.Ediciones %> aporte(s) </p>
+					<div class="medalla1"></div>
+				</section>
+			<% end %>
+		</div>
+
+	</div>
+</div>
+
+
+<script>
+var ready;
+ready = function() {
+
+  	function recalcular (){
+		var altura = $('#alturap').height();
+		$('#lineap').height(altura);
+		$('#col1p').css( "margin-top", -altura);
+		$('#col2p').css( "margin-top", -altura);
+	}
+	recalcular();
+	$(window).resize(function() {
+		recalcular();
+	});
+};
+
+$(document).ready(ready);
+$(document).on('page:change', ready);
+</script>

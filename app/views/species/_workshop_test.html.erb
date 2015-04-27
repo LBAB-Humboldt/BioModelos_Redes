@@ -1,0 +1,12 @@
+<%= simple_form_for @workshop_test, :url => species_create_workshop_test_path, :method => :post, :remote => true, :html => {:class => "pointcomm" } do |f| %>
+	<%= f.input :user_id, :as => :hidden, :input_html => {:value => get_current_user_id} %>
+	<%= f.input :species_id, :as => :hidden %>
+	<%= f.input :lat, :as => :hidden %>
+	<%= f.input :lon, :as => :hidden %>
+	<%= f.input :min_ocurrence, :as => :string, :placeholder => "valores entre 0 y 1", :label => "1. Probabilidad de ocurrencia mínima" %>
+	<%= f.input :max_ocurrence, :as => :string, :placeholder => "valores entre 0 y 1", :label => "2. Probabilidad de ocurrencia máxima"  %>
+	<%= f.input :best_prob_ocurrence, :as => :string, :placeholder => "valores entre 0 y 1", :label => "3. Mejor estimativo de probabilidad de ocurrencia"  %>
+	<%= f.input :certainty_true_value, :as => :string, :placeholder => "valores entre 0.5 y 1", :label => "4. Certeza que el rango provisto contiene el valor verdadero"  %>
+	<%= f.button :submit, :value => "enviar", :class => 'cbton'%>
+	<%= link_to "X", '', {:id => 'cancel-point-cmt', :class => "cancterm"} %>
+<% end %>

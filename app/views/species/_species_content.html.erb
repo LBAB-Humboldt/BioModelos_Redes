@@ -1,0 +1,20 @@
+<% if @species.blank? %>
+	<p class="textsrch">No se encontraron resultados.</p>
+<% else %>
+	<div class="mbton">ver modelos</div>
+	<%= link_to 'ver modelos', species_species_models_path(:id => @species.id, :name => @species.sci_name), :remote => true, :class => "mbton"%>
+	<div class="resbusqueda">
+				<div class="especie"><%= @species.sci_name %></div>
+				<!-- <div class="comun">Nombre Común:<strong>Tucán</strong></div> -->
+	</div>
+	
+<% end %>
+
+
+<script>
+	// $(".mbton").click(function(e){
+ //          $('.selectores,.cajabusqueda').hide('slow');
+ //          $('.showmodels').show('slow');
+ //          e.preventDefault();
+ //  	});
+</script>

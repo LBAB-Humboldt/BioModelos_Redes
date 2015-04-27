@@ -1,0 +1,8 @@
+<%= form_tag({:controller => :species, :action => :species_models}, {:method => :get, :remote => true, :id => 'sp_search_form'})  do %>
+  <%= text_field_tag :query, '', :id => 'search_field', :placeholder => 'Ingrese nombre de la especie', :collection => 'get_species_name', :include_blank => false, :rel => 'autocomplete' %>
+  <%= hidden_field_tag 'species_id' %>
+  <%= submit_tag '', :name => nil, :class => 'searchbtn', :id => 'species_src_btn' %>
+<% end %>
+
+<p class="clearfix">Busqueda por nombre científico.</p>
+

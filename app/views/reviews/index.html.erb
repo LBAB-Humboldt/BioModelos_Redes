@@ -1,0 +1,17 @@
+<h1>Anotaciones</h1>
+
+<table>
+	<tr>
+	   	<th><strong><%= "User ID" %></strong></th>
+	    <th><strong><%= "Model ID" %></strong></th>
+	    <th><strong><%= "GeoJSON" %></strong></th>
+	</tr>
+	<%= @reviews.find_each do |review| %>
+		<tr>
+	      <td><%= User.find(review.user_id).email %></td>
+	      <td><%= Model.find(review.model_id) %></td>
+	      <td><%= review.geoJSON %></td>
+    	</tr>
+	<% end %>
+</table>
+

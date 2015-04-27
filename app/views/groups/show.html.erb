@@ -1,0 +1,47 @@
+<div width="80%">
+<h1>Pagina del Grupo: <%= @group.name %></h1>
+<br><br>
+<hr/>
+<div ng-app="Biomodelos" ng-controller="groupCtrl">
+    <div id="group_info">
+        <h3>Información General</h3>
+        <p><%= @message %></p>
+        <table>
+          <tr><td rowspan="4"><%= image_tag(@group.logo.url(:thumb250).to_s) %></td><td>Nombre de Grupo:<%= @group.name %></td></tr>
+          <tr><td>Descripción:<%= @group.description %></td></tr>
+          <tr><td>Email de Contacto: <a href="mailto:someone@example.com"><%= @group.email %></a></td></tr>
+          <tr><td>Link Externo: <a href="<%= @group.link %>"><%= @group.link %></a></td></tr>
+          <% if user_signed_in? && @is_member && @is_admin %>
+              <tr><td><button ng-click="toggle()">Editar Grupo</button></td></tr>
+          <% end %>
+        </table>
+    </div>
+    <hr/>
+
+    <% if user_signed_in? && @is_member && @is_admin %>
+    <%= render "group_form" %>
+    <hr/>
+    <% end %>
+
+
+    <div id="group_info">
+      <table>
+        <tr>
+          <th rowspan="9"><h3>Especies Relacionadas</h3></th>
+          <th>Especie</th>
+          <th>Familia</th>
+        </tr>
+          <% @species_groups.each do |species_group| %>
+              <tr>
+                <td><%= species_group.species.sci_name %></td>
+                <td><%= species_group.species.family %></td>
+              </tr>
+          <% end %>
+      </table>
+      <% if user_signed_in? && @is_member %>
+          <tr><td><button ng-click="toggle()">Sugerir Especie</button></td></tr>
+      <% end %>
+    </div>
+    <hr/>
+</div>
+</div>

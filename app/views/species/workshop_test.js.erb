@@ -1,0 +1,13 @@
+$(".pointBox").html(""); //Clear div before rendering again
+<% if user_signed_in? %>
+	$('.pointBox').html('<%=j render partial: 'species/workshop_test', locals: { :workshop_test => @workshop_test } %>');
+	$('#workshop_test_species_id').val($('#species_id').val());
+	$('#workshop_test_lat').val($('#point_lat').html());
+	$('#workshop_test_lon').val($('#point_lon').html());
+	$("#cancel-point-cmt").click(function(e){
+		e.preventDefault();
+		$(".pointBox").html("");
+	});
+<% else %>
+	alert("Debe estar registrado para poder participar");
+<% end %>

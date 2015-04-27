@@ -1,0 +1,64 @@
+<div class="minus1024"><%= image_tag("w1024.png")%></div>
+<div class="plus1024">
+<% if !params[:species_id].blank? && is_integer_num(params[:species_id]) %>
+    <script>
+        //Unique URL for each species
+        $.ajax({
+                        type: "GET",
+                        url: "/species/species_models",
+                        data: { species_id: <%=j params[:species_id]%>}
+        });
+    </script>
+<% end %>
+<a href="" class="findbar"></a>
+<div id="allsearchers">
+        <div class="cajabusqueda">
+                <div class="searchcateg srchanfibios" id="cajasearch1">Anfibios</div>
+                <div class="searchcateg srchaves" id="cajasearch2">Aves</div>
+                <div class="searchcateg srchinvertebrados" id="cajasearch3">Invertebrados</div>
+                <div class="searchcateg srchmamiferos" id="cajasearch4">Mamiferos</div>
+                <div class="searchcateg srchpeces" id="cajasearch5">Peces</div>
+                <div class="searchcateg srchreptiles" id="cajasearch6">Reptiles</div>
+                <div class="searchcateg srchplantas" id="cajasearch7">Plantas</div>
+                <%= render 'species/search_form' %>
+                <section class="resultados"></section>
+        </div>
+<% if user_signed_in? %>
+    <a href="" class="edicionbar"></a>
+        <div class="cajaediciones">
+                
+        </div>
+<% end %>
+        <a href="" class="botonmodelos"></a>    
+        <div class="selectores">
+                <p class="titulomapa">Selecciona una categoría</p>
+                <a href="#" id="anfsh"><%= image_tag("anfibiosg.png", :title => 'Anfibios') %></a>
+                <a href="#" id="avessh"><%= image_tag("avesg.png", :title => 'Aves') %></a>
+                <a href="#" id="invsh"><%= image_tag("invertebradosg.png", :title => 'Invertebrados') %></a>
+                <a href="#" id="mamsh"><%= image_tag("mamiferosg.png", :title => 'Mamiferos') %></a>
+                <a href="#" id="pecsh"><%= image_tag("pecesg.png", :title => 'Peces') %></a>
+                <a href="#" id="repsh"><%= image_tag("reptilesg.png", :title => 'Reptiles') %></a>
+                <a href="#" id="plash"><%= image_tag("plantasg.png", :title => 'Plantas') %></a>
+                <input type="hidden" id="class_id"/>
+        </div>
+</div>
+<div class="selecshowcase">
+</div>
+<div class="showmodels">
+</div>
+<div class="editControls">
+    <% if user_signed_in? %>
+        <a class="editbtn" id="editBtn">editar</a>
+        <a class="cbtn" id="cancBtn">terminar</a>
+        <%= simple_form_for @review, :remote => true do |f| %>
+           <%= f.hidden_field :model_id %>
+           <%= f.hidden_field :user_id, :value => get_current_user_id %>
+           <%= f.hidden_field :geoJSON %>
+       <% end %>  
+    <% end %>
+</div>
+</div>
+<div id="map"></div>
+<div class ="pointBox"></div>
+<%= javascript_include_tag 'leaflet/leaflet.draw.0.2.3dev.min' %>
+<%= javascript_include_tag 'mapEditor' %>

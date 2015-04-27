@@ -1,0 +1,20 @@
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
+<h2>Agregar un nuevo Modelo</h2>
+<%= simple_form_for @model, html: {class: 'form-horizontal' } do |f| %>
+    <%= f.input :species_id %>
+    <%= f.input :img_url %>
+    <%= f.input :model_date %>
+    <%= f.input :rating, collection: 0..5 %>
+    <%= f.input :author %>
+    <%= f.input :description %>
+    <% if @model.errors[:model].any? %>
+      <p class='error-messages'>
+        The given url <%= @model.errors[:model].to_sentence %>.
+      </p>
+    <% end %>
+    <%= f.submit "Agregar" %>
+<% end %>
+
+<%= link_to "Index", models_path %>
