@@ -1,4 +1,10 @@
 Biomodis::Application.routes.draw do
+  get 'species_groups/index'
+
+  get 'species_groups/update'
+
+  get 'species_groups/create'
+
   get 'groups/index'
 
   get 'groups/show'
@@ -29,6 +35,7 @@ Biomodis::Application.routes.draw do
   resources :users, :only => [:show, :edit, :update]
   resources :models, :only => [:index, :new, :create]
   resources :groups, :only => [:index, :show, :new, :create, :update]
+  resources :species_groups, :only => [:index, :create, :update]
   resources :species, :only => [:new, :create, :edit, :update] do
     get :autocomplete, :on => :collection
   end 

@@ -6,7 +6,8 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
     @species_groups = SpeciesGroup.where(:group_id => @group.id, :species_group_state_id => 1);
-    puts @species_groups.inspect
+    @species = Species.all
+    @species_group = SpeciesGroup.new
     @is_member = false
     @is_admin = false
     if user_signed_in?

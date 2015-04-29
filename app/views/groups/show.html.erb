@@ -1,4 +1,3 @@
-<div width="80%">
 <h1>Pagina del Grupo: <%= @group.name %></h1>
 <br><br>
 <hr/>
@@ -37,11 +36,16 @@
                 <td><%= species_group.species.family %></td>
               </tr>
           <% end %>
+          <% if user_signed_in? && @is_member %>
+            <tr><td><button ng-click="toggle()">Sugerir Especie</button></td></tr>
+          <% end %>
       </table>
-      <% if user_signed_in? && @is_member %>
-          <tr><td><button ng-click="toggle()">Sugerir Especie</button></td></tr>
-      <% end %>
+
+
     </div>
     <hr/>
-</div>
+    <% if user_signed_in? && @is_member && @is_admin %>
+        <%= render "species_form" %>
+        <hr/>
+    <% end %>
 </div>
