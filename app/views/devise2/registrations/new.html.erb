@@ -19,8 +19,8 @@ los siguientes datos para generar tu perfil.</p>
     <%= f.input :bio, :as => :text, label: false, :placeholder => "Biografía resumida (max 1000 caracteres)", :input_html => { :class => "inputforma inp2", :cols => 50, :rows => 7, :maxlength => 1000 } %>
     <p>Selecciona un grupo de interes</p>
     <%= f.select :group_id, options_from_collection_for_select(@groups, 'id', 'name'), :input_html => { :class => "inputforma inp2" }, include_blank: '- Selecciona un Grupo* '  %>
-    <a  href="" onclick="toggleVisibility(document.getElementById('new_group'))">Solicitar Nuevo</a>
-    <%= f.input :requested_group_name, :required => false, label: false, :placeholder => "Nombre del Nuevo Grupo *", :input_html => { :class => "inputforma inp2", :maxlength => 55 } %>
+    <a ng-click="new_group=!new_group">Solicitar Nuevo</a>
+    <%= f.input :requested_group_name, :required => false, label: false, :placeholder => "Nombre del Nuevo Grupo *", :input_html => { :class => "inputforma inp2", :maxlength => 55, :'ng-show' => 'new_group' } %>
     <!-- <a class="avatarlink" href="#">foto avatar en gravatar</a> -->
     <%= f.button :button, "registrar", :class => "bbton" %>
 	<%= render "devise/shared/links" %>

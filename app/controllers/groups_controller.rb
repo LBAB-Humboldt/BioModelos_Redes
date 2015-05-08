@@ -6,6 +6,8 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
     @species_groups = SpeciesGroup.where(:group_id => @group.id, :species_group_state_id => 1);
+    @members = GroupUser.where(:group_id =>  @group.id, :group_user_state_id => 1, :is_admin => false)
+    @group_admins = GroupUser.where(:group_id =>  @group.id, :group_user_state_id => 1, :is_admin => true)
     @species = Species.all
     @species_group = SpeciesGroup.new
     @is_member = false
@@ -36,6 +38,6 @@ class GroupsController < ApplicationController
     else
       @message = "Ocurrrió un error al guardar datos"
     end
-    redirect_to groups_show_path(params)
+    redirect_to group_path(id:params[:id])
   end
 end

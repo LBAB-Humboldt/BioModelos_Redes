@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require angular
 //= require lightbox-2.6.min
 //= require bjqs-1.3.min
 //= require_tree ./controllers
@@ -23,4 +24,6 @@
 //= require jquery-csv.min
 //= require leaflet/leaflet.geocsv.min
 //= require jquery.raty.min
-//= require turbolinks
+//= require app/app
+//= require_tree ./app/controllers
+// require turbolinks

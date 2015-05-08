@@ -1,29 +1,41 @@
 <h1>Pagina del Grupo: <%= @group.name %></h1>
 <br><br>
 <hr/>
-<div ng-app="Biomodelos" ng-controller="groupCtrl">
+<div ng-controller="group_users_ctrl" >
+  {{my_var}}
     <div id="group_info">
         <h3>Información General</h3>
         <p><%= @message %></p>
-        <table>
+        <table >
           <tr><td rowspan="4"><%= image_tag(@group.logo.url(:thumb250).to_s) %></td><td>Nombre de Grupo:<%= @group.name %></td></tr>
           <tr><td>Descripción:<%= @group.description %></td></tr>
           <tr><td>Email de Contacto: <a href="mailto:someone@example.com"><%= @group.email %></a></td></tr>
           <tr><td>Link Externo: <a href="<%= @group.link %>"><%= @group.link %></a></td></tr>
-          <% if user_signed_in? && @is_member && @is_admin %>
-              <tr><td><button ng-click="toggle()">Editar Grupo</button></td></tr>
+          <% if @is_member && @is_admin %>
+              <tr><td><button ng-click="edit_group=!edit_group">Editar Grupo</button></td></tr>
           <% end %>
+
+          <tr><td ng-init="is_member=<%= @is_member %>;text_is_member();"><button  ng-click="unirse(<%= @group.id %>)" ng-bind="msg_is_member" ></button></td></tr>
+
+          <% if !@is_member %>
+              <!--<tr><td><button  ng-click="unirse(<%= @group.id %>)">Unirse al Grupo</button></td></tr>-->
+          <% else %>
+              <!--<tr><td><button ng-click="unirse(<%= @group.id %>)">Abandonar el Grupo</button></td></tr>-->
+          <% end %>
+
         </table>
     </div>
     <hr/>
 
     <% if user_signed_in? && @is_member && @is_admin %>
-    <%= render "group_form" %>
+      <div ng-show="edit_group">
+        <%= render "group_form" %>
+      </div>
     <hr/>
     <% end %>
 
 
-    <div id="group_info">
+    <div>
       <table>
         <tr>
           <th rowspan="9"><h3>Especies Relacionadas</h3></th>
@@ -37,7 +49,7 @@
               </tr>
           <% end %>
           <% if user_signed_in? && @is_member %>
-            <tr><td><button ng-click="toggle()">Sugerir Especie</button></td></tr>
+            <tr><td><button ng-click="sugest_species=!sugest_species">Sugerir Especie</button></td></tr>
           <% end %>
       </table>
 
@@ -48,4 +60,34 @@
         <%= render "species_form" %>
         <hr/>
     <% end %>
+  <div>
+    <table>
+      <tr>
+        <th rowspan="3"><h3>Miembros del grupo</h3></th>
+        <th>Nombre</th>
+        <th>Biografía</th>
+      </tr>
+      <% @members.each do |member| %>
+          <tr>
+            <td><%= member.user.name %></td>
+            <td><%= member.user.bio %></td>
+          </tr>
+      <% end %>
+      <tr>
+        <th rowspan="2"><h3>Administradores del grupo</h3></th>
+        <th>Nombre</th>
+        <th>Biografía</th>
+      </tr>
+      <% @group_admins.each do |admin| %>
+          <tr>
+            <td><%= admin.user.name %></td>
+            <td><%= admin.user.bio %></td>
+          </tr>
+      <% end %>
+      <% if user_signed_in? && @is_member %>
+          <tr><td><button ng-click="sugest_species=!sugest_species">Sugerir Especie</button></td></tr>
+      <% end %>
+    </table>
+  </div>
+
 </div>
