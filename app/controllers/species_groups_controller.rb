@@ -17,4 +17,14 @@ class SpeciesGroupsController < ApplicationController
     #render plain: params[:species_group].inspect
   end
 
+  def set_state
+    @return=false
+    species_group = SpeciesGroup.find(params[:id])
+    species_group.species_group_state_id = params[:state]
+    if species_group.save
+      @return=true
+      return true
+    end
+  end
+
 end

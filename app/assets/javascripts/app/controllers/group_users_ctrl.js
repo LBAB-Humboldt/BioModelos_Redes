@@ -4,18 +4,29 @@ angular.module('biomodelos').controller('group_users_ctrl', ['$scope', '$http', 
     $scope.msg_is_member = '';
 
     $scope.text_is_member = function(){
-        if ($scope.is_member == true){
-            $scope.msg_is_member= "Abandonar Grupo";
-        }
-        else{
-            $scope.msg_is_member= "Unirse al Grupo";
+
+        switch ($scope.user_state){
+            case 1:
+                $scope.msg_is_member= "Abandonar Grupo";
+                break;
+            case 2:
+                $scope.msg_is_member= "Pendiente de Aprobación";
+                break;
+            case 3:
+                $scope.msg_is_member= "Solicitud Rechazada";
+                break;
+            case 4:
+                $scope.msg_is_member= "Unirse al grupo";
+                break;
+            default:
+                $scope.msg_is_member= "Unirse al grupo";
         }
     }
 
     $scope.unirse=function(group_id){
-        if( $scope.button_member) {
+        if( !$scope.button_member) {
             $scope.button_member = true
-            $html.post('/group_users', {group_id: group_id}).success(function (data) {
+            $http.post('/group_users', {group_id: group_id}).success(function (data) {
                 $scope.is_member = data
                 text_is_member();
                 $scope.button_member = false
@@ -23,6 +34,42 @@ angular.module('biomodelos').controller('group_users_ctrl', ['$scope', '$http', 
 
             });
         }
+    }
+
+    $scope.approve_member=function(id){
+        $http.post('/group_users/set_state', {id: id, state: 1}).success(function (data) {
+            $scope.is_member[id] = true;
+            $scope.was_rejected[id] = false;
+        }).error(function () {
+
+        });
+    }
+
+    $scope.reject_member=function(id){
+        $http.post('/group_users/set_state', {id: id, state: 3}).success(function (data) {
+        $scope.is_member[id] = false;
+        $scope.was_rejected[id] = true;
+        }).error(function () {
+
+        });
+    }
+
+    $scope.approve_species=function(id){
+        $http.post('/species_groups/set_state', {id: id, state: 1}).success(function (data) {
+        $scope.species_approved[id] = true;
+        $scope.species_rejected[id] = false;
+        }).error(function () {
+
+        });
+    }
+
+    $scope.reject_species=function(id){
+        $http.post('/species_groups/set_state', {id: id, state: 3}).success(function (data) {
+        $scope.species_approved[id] = false;
+        $scope.species_rejected[id] = true;
+        }).error(function () {
+
+        });
     }
 }
 ]);

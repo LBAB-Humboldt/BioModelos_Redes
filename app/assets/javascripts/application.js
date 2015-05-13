@@ -26,4 +26,5 @@
 //= require jquery.raty.min
 //= require app/app
 //= require_tree ./app/controllers
+//= require_tree ./app/config
 // require turbolinks

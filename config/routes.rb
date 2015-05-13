@@ -27,6 +27,8 @@ Biomodis::Application.routes.draw do
   post "home/send_message"
   post "ratings/rate_model"
   post "species/comment_point"
+  post "group_users/set_state"
+  post "species_groups/set_state"
   post "species/create_comment_point"
   #post "species/workshop_test"
   #post "species/create_workshop_test"
