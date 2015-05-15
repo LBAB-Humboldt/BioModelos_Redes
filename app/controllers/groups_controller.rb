@@ -8,7 +8,7 @@ class GroupsController < ApplicationController
     @species_groups = SpeciesGroup.where(:group_id => @group.id, :species_group_state_id => 1);
     @pending_species_groups = SpeciesGroup.where(:group_id => @group.id, :species_group_state_id => 2);
     @members = GroupUser.where(:group_id =>  @group.id, :group_user_state_id => 1, :is_admin => false)
-    @pending_members = GroupUser.where(:group_id =>  @group.id, :group_user_state_id => 2, :is_admin => false)
+    @pending_members = GroupUser.where(:group_id =>  @group.id, :group_user_state_id => 2)
     @group_admins = GroupUser.where(:group_id =>  @group.id, :group_user_state_id => 1, :is_admin => true)
     @species = Species.all
     @user = User.find(current_user.id)

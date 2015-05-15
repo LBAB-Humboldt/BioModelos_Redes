@@ -2,6 +2,7 @@ class GroupUsersController < ApplicationController
   def create
     group_params=params[:group_user]
     group_user1 = GroupUser.find_by_group_id_and_user_id(group_params[:group_id], current_user.id)
+    group_user1.is_admin=false
     if group_user1
       case group_user1.group_user_state_id
         when 1
@@ -40,8 +41,8 @@ class GroupUsersController < ApplicationController
     group_user = GroupUser.find(params[:id])
     group_user.group_user_state_id = params[:state]
     if group_user.save
-      @return=true
-      return true
+      @return=true      
     end
+    return @return
   end
 end
