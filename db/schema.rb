@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150419172400) do
+ActiveRecord::Schema.define(version: 20150515043253) do
 
   create_table "active_admin_comments", force: :cascade do |t|
-    t.string   "namespace"
+    t.string   "namespace",     limit: 255
     t.text     "body"
-    t.string   "resource_id",   null: false
-    t.string   "resource_type", null: false
+    t.string   "resource_id",   limit: 255, null: false
+    t.string   "resource_type", limit: 255, null: false
     t.integer  "author_id"
-    t.string   "author_type"
+    t.string   "author_type",   limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -44,16 +44,16 @@ ActiveRecord::Schema.define(version: 20150419172400) do
   add_index "activity_users", ["user_id", "species_id"], name: "index_activity_users_on_user_id_and_species_id"
 
   create_table "admin_users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
+    t.string   "email",                  limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",                      default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -112,13 +112,13 @@ ActiveRecord::Schema.define(version: 20150419172400) do
   end
 
   create_table "group_states", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "group_user_states", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -138,27 +138,11 @@ ActiveRecord::Schema.define(version: 20150419172400) do
     t.string   "img_url",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "email"
-    t.string   "link"
-    t.string   "logo"
+    t.string   "email",          limit: 255
+    t.string   "link",           limit: 255
+    t.string   "logo",           limit: 255
     t.integer  "group_state_id"
   end
-
-  create_table "groups_species", id: false, force: :cascade do |t|
-    t.integer "group_id"
-    t.integer "species_id"
-  end
-
-  add_index "groups_species", ["group_id", "species_id"], name: "index_groups_species_on_group_id_and_species_id", unique: true
-
-  create_table "groups_users", id: false, force: :cascade do |t|
-    t.integer  "group_id"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "groups_users", ["group_id", "user_id"], name: "index_groups_users_on_group_id_and_user_id", unique: true
 
   create_table "models", force: :cascade do |t|
     t.integer  "species_id"
@@ -257,10 +241,10 @@ ActiveRecord::Schema.define(version: 20150419172400) do
   end
 
   create_table "user_relationships", force: :cascade do |t|
-    t.integer  "id_follower"
-    t.integer  "id_user"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "follower_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "user_species_regions", force: :cascade do |t|
@@ -295,6 +279,7 @@ ActiveRecord::Schema.define(version: 20150419172400) do
     t.integer  "group_id"
     t.string   "requested_group_name"
     t.date     "last_email_send"
+    t.integer  "email_periodicity"
     t.integer  "periodicity_id"
   end
 

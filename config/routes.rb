@@ -37,6 +37,7 @@ Biomodis::Application.routes.draw do
   resources :home, :only => [:show]
   resources :reviews, :only => [:show, :create]
   resources :users, :only => [:show, :edit, :update]
+  resources :user_relationships, :only => [:create]
   resources :models, :only => [:index, :new, :create]
   resources :groups do #, :only => [:index, :show, :new, :create, :update]
 

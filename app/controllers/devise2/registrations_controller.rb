@@ -4,14 +4,14 @@ class Devise2::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
-    puts 'ESTOY AQUI'
-    @groups =Group.all
+    @groups =Group.where(:group_state_id => 1)
+    @periodicities = Periodicity.all
     super
   end
 
   # POST /resource
   def create
-    @groups =Group.all
+    @groups =Group.where(:group_state_id => 1)
     super
   end
 
