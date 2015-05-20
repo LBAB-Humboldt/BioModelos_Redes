@@ -85,12 +85,13 @@
     <div>
       <table>
         <tr>
-          <th rowspan="9"><h3>Especies Relacionadas</h3></th>
+          <th><h3>Especies Relacionadas</h3></th>
           <th>Especie</th>
           <th>Familia</th>
         </tr>
           <% @species_groups.each do |species_group| %>
               <tr>
+                <td>&nbsp;</td>
                 <td><%= species_group.species.sci_name %></td>
                 <td><%= species_group.species.family %></td>
               </tr>
@@ -153,6 +154,23 @@
 
   </div>
   <hr/>
+  <div>
+    <table>
+      <tr>
+        <th colspan="3"><h3>Notificaciones</h3></th>
+      </tr>
+      <% @group.notifications.each do |notification| %>
+          <tr>
+            <td>&nbsp;</td>
+            <% if notification.type == 'new_species' %>
+            <td>La especie <a href="/species/<%= notification.id %>"><%= notification.name %></a> fue añadida al grupo</td>
+            <% else %>
+            <td>El usuario <a href="/users/<%= notification.id %>"><%= notification.name %></a> se unió al grupo </td>
+            <% end %>
+          </tr>
+      <% end %>
+    </table>
+  </div>
 
 </div>
 <br/><br/>

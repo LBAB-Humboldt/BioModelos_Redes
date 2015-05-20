@@ -18,5 +18,30 @@ class User < ActiveRecord::Base
 						LIMIT 10")
   end
 
+  def own_notifications
+    User.find_by_sql("
+    SELECT * FROM (
+      SELECT
+      g.id,
+      g.name,
+      gu.updated_at,
+      'group_action' type,
+      gus.name state,
+      gu.group_user_state_id state_id
+      FROM groups g, group_users gu, group_user_states gus
+      WHERE g.id = gu.group_id AND gus.id = gu.group_user_state_id AND gu.user_id = " + self.id.to_s + "
+      UNION
+      SELECT
+      m.id,
+      s.sci_name name,
+      r.updated_at,
+      'review' type,
+      'none'   state,
+      20 state_id
+      FROM reviews r, models m, species s
+      WHERE m.id = r.model_id and s.id=m.species_id AND r.user_id = " + self.id.to_s + "
+    )ORDER BY updated_at LIMIT 35 ")
+  end
+
 
 end

@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       @reviews = nil
     else
       @reviews = Review.where(:user_id => @user.id).order("created_at DESC").limit(15)
-      @user_groups = GroupUser.where(:user_id => params[:id], :group_user_state_id => 1)
+      @user_groups = GroupUser.where(:user_id => params[:id], :group_user_state_id => 1).order("created_at DESC")
       if @user.id != current_user.id
         user_relationship = UserRelationship.find_by_user_id_and_follower_id(@user.id, current_user.id)
         if user_relationship

@@ -57,6 +57,7 @@
 		</div>
 
 	</div>
+    <hr/>
         <div class="clearfix">
           <h5>Grupos del usuario</h5>
           <table>
@@ -71,7 +72,89 @@
           </table>
 
         </div>
+    <hr/>
     <div>
+      <% if user_signed_in? %>
+        <% if @user.id != current_user.id%>
+              <div class="clearfix">
+                <h5>Acciones del Usuario</h5>
+                <table>
+
+                  <% @user.own_notifications.each do |notification| %>
+                    <%if notification.state_id==1 %>
+                      <tr>
+                        <td>&nbsp;</td>
+                        <td><%= notification.updated_at.strftime("%F %R") %></td>
+                        <td>El usuario se ha unido al grupo <a href="/groups/<%= notification.id %>"><%= notification.name %></a></td>
+                      </tr>
+                    <% end %>
+                    <%if notification.state_id==4 %>
+                      <tr>
+                        <td>&nbsp;</td>
+                        <td><%= notification.updated_at.strftime("%F %R") %></td>
+                        <td>El usuario se ha retirado del grupo <a href="/groups/<%= notification.id %>"><%= notification.name %></a></td>
+                      </tr>
+                    <% end %>
+                    <%if notification.state_id==20 %>
+                      <tr>
+                        <td>&nbsp;</td>
+                        <td><%= notification.updated_at.strftime("%F %R") %></td>
+                        <td>El usuario realizó el un aporte sobre la especie: <a href="/species/<%= notification.id %>"><%= notification.name %></a></td>
+                      </tr>
+                    <% end %>
+
+                  <% end %>
+                </table>
+
+              </div>
+        <% else %>
+              <div class="clearfix">
+                <h5>Acciones del Usuario</h5>
+                <table>
+
+                  <% @user.own_notifications.each do |notification| %>
+                      <%if notification.state_id==1 %>
+                          <tr>
+                            <td>&nbsp;</td>
+                            <td><%= notification.updated_at.strftime("%F %R") %></td>
+                            <td>Tu solucitud para unirte al grupo: <a href="/groups/<%= notification.id %>"><%= notification.name %></a> fue <b>Aprobada</b></td>
+                          </tr>
+                      <% end %>
+                      <%if notification.state_id==2 %>
+                          <tr>
+                            <td>&nbsp;</td>
+                            <td><%= notification.updated_at.strftime("%F %R") %></td>
+                            <td>Tu solucitud para unirte al grupo: <a href="/groups/<%= notification.id %>"><%= notification.name %></a> esta <b>Pendiente de aprobación</b></td>
+                          </tr>
+                      <% end %>
+                      <%if notification.state_id==3 %>
+                          <tr>
+                            <td>&nbsp;</td>
+                            <td><%= notification.updated_at.strftime("%F %R") %></td>
+                            <td>Tu solucitud para unirte al grupo: <a href="/groups/<%= notification.id %>"><%= notification.name %></a> fue <b>Rechazada</b></td>
+                          </tr>
+                      <% end %>
+                      <%if notification.state_id==4 %>
+                          <tr>
+                            <td>&nbsp;</td>
+                            <td><%= notification.updated_at.strftime("%F %R") %></td>
+                            <td>Te retiraste del grupo: <a href="/groups/<%= notification.id %>"><%= notification.name %></a></td>
+                          </tr>
+                      <% end %>
+                      <%if notification.state_id==20 %>
+                          <tr>
+                            <td>&nbsp;</td>
+                            <td><%= notification.updated_at.strftime("%F %R") %></td>
+                            <td>Realizaste un aporte sobre la especie: <a href="/species/<%= notification.id %>"><%= notification.name %></a></td>
+                          </tr>
+                      <% end %>
+
+                  <% end %>
+                </table>
+
+              </div>
+        <% end %>
+      <% end %>
 
     </div>
 </div>
