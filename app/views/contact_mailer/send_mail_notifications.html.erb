@@ -1,0 +1,39 @@
+<%
+case @periodicity
+  when 1
+  subj = "Notificaciones de actividad diaria de grupos y usuarios que sigues en Biomodelos"
+  when 2
+  subj = "Notificaciones de actividad semanal de grupos y usuarios que sigues en Biomodelos"
+  when 3
+  subj = "Notificaciones de actividad mensual de grupos y usuarios que sigues en Biomodelos"
+end
+%>
+<h1><%= subj %></h1><br/>
+<%= @name %><br/>
+email:<%= @email %><br/>
+
+<table>
+  <% @notifications.each do |notification| %>
+      <%if notification.type=='new_specie' %>
+          <tr>
+            <td>&nbsp;</td>
+            <td><%= notification.updated_at.strftime("%F %R") %></td>
+            <td>La especie <a href="/species/<%= notification.user_id %>"><%= notification.user_name %> </a> fue incluida en el grupo <a href="/groups/<%= notification.id %>"><%= notification.name %></td>
+          </tr>
+      <% end %>
+      <%if notification.type=='new_user' %>
+          <tr>
+            <td>&nbsp;</td>
+            <td><%= notification.updated_at.strftime("%F %R") %></td>
+            <td><a href="/users/<%= notification.user_id %>"><%= notification.user_name %> </a> fue aceptado en el grupo <a href="/groups/<%= notification.id %>"><%= notification.name %></td>
+          </tr>
+      <% end %>
+      <%if notification.type=='review' %>
+          <tr>
+            <td>&nbsp;</td>
+            <td><%= notification.updated_at.strftime("%F %R") %></td>
+            <td><a href="/users/<%= notification.user_id %>"><%= notification.user_name %> </a> realizó un aporte sobre la especie <a href="/species/<%= notification.id %>"><%= notification.name %></td>
+          </tr>
+      <% end %>
+  <% end %>
+</table>
