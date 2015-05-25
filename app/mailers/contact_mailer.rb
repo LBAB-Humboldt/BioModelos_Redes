@@ -30,7 +30,9 @@ class ContactMailer < ActionMailer::Base
       group_list += group_id
     end
 
-    last_email_send -= 30.day # Only for Quick Testing - Remove in production
+    # ---------------------------------------------------------------
+    last_email_send -= 300.day # Only for Quick Testing - Remove in production
+    # ---------------------------------------------------------------
 
     @notifications = User.find_by_sql("
       SELECT * FROM (
