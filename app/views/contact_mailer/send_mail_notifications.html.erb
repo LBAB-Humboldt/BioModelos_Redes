@@ -18,21 +18,21 @@ email:<%= @email %><br/>
           <tr>
             <td>&nbsp;</td>
             <td><%= notification.updated_at.strftime("%F %R") %></td>
-            <td>La especie <%= notification.user_name %> fue incluida e el grupo <%= notification.name %></td>
+            <td>La especie <b><%= notification.user_name %></b> fue incluida e el grupo <b><%= notification.name %></b></td>
           </tr>
       <% end %>
       <%if notification.type=='new_user' %>
           <tr>
             <td>&nbsp;</td>
             <td><%= notification.updated_at.strftime("%F %R") %></td>
-            <td><%= notification.user_name %> fue aceptado en el grupo <%= notification.name %></td>
+            <td><b><%= notification.user_name %></b> fue aceptado en el grupo <b><%= notification.name %></b></td>
           </tr>
       <% end %>
       <%if notification.type=='review' %>
           <tr>
             <td>&nbsp;</td>
             <td><%= notification.updated_at.strftime("%F %R") %></td>
-            <td><%= notification.user_name %> realizó un aporte sobre la especie <%= notification.name %></td>
+            <td><b><%= notification.user_name %></b> realizó un aporte sobre la especie <b><%= notification.name %></b></td>
           </tr>
       <% end %>
   <% end %>
