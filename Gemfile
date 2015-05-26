@@ -40,7 +40,7 @@ gem 'execjs'
 gem 'sass-rails', '~> 4.0.3'
 gem 'activeadmin', :github => 'gregbell/active_admin'
 gem 'carrierwave', '0.9.0'
-gem 'mini_magick', '3.6.0'
+gem 'mini_magick', '4.1.0'
 gem 'angularjs-rails', '1.2.20'#'1.0.8'#'1.2.14'# '1.0.8'#
 gem 'angular-ui-rails', '0.4.0.3'#'0.4.0.2'
 

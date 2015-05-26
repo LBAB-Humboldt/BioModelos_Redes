@@ -21,7 +21,7 @@ class GroupLogoUploader < CarrierWave::Uploader::Base
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
   def default_url
-    "/assets/brand_1700x221.jpg"
+    "/assets/logos.jpg"
   end
   # Process files as they are uploaded:
   # process :scale => [200, 300]
