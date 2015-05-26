@@ -20,13 +20,22 @@ Biomodis::Application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default :charset => "utf-8"
+  #config.action_mailer.smtp_settings = {
+  #    :authentication => :plain,
+  #    :address => "smtp.mailgun.org",
+  #    :port => 587,
+  #    :domain => ENV["MAILGUN_DOMAIN"],
+  #    :user_name => ENV["MAILGUN_USERNAME"],
+  #    :password => ENV["MAILGUN_PASSWORD"]
+  #}
   config.action_mailer.smtp_settings = {
-      :authentication => :plain,
-      :address => "smtp.mailgun.org",
+      :address => "smtp.gmail.com",
+      :enable_starttls_auto => true,
       :port => 587,
-      :domain => ENV["MAILGUN_DOMAIN"],
-      :user_name => ENV["MAILGUN_USERNAME"],
-      :password => ENV["MAILGUN_PASSWORD"]
+      :authentication => :plain,
+      :user_name => "dev-noreply@greencode.com.co",
+      :password => 'giftcode01012012',
+      :domain => 'greencode.com.co'
   }
 
   # Print deprecation notices to the Rails logger.

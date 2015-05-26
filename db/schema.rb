@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150419172400) do
+ActiveRecord::Schema.define(version: 20150515043253) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -257,10 +257,10 @@ ActiveRecord::Schema.define(version: 20150419172400) do
   end
 
   create_table "user_relationships", force: :cascade do |t|
-    t.integer  "id_follower"
-    t.integer  "id_user"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "follower_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "user_species_regions", force: :cascade do |t|

@@ -21,7 +21,7 @@ class GroupLogoUploader < CarrierWave::Uploader::Base
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
   def default_url
-    "/assets/logos.jpg"
+    "/assets/logo.jpg"
   end
   # Process files as they are uploaded:
   # process :scale => [200, 300]
@@ -36,7 +36,7 @@ class GroupLogoUploader < CarrierWave::Uploader::Base
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_white_list
-    %w(jpg jpeg)
+    %w(jpg jpeg png)
   end
 
   version :thumb250 do

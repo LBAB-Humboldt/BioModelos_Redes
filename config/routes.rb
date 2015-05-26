@@ -1,13 +1,21 @@
 Biomodis::Application.routes.draw do
-  get 'groups/index'
 
-  get 'groups/show'
+  get 'species_groups/index'
 
-  get 'groups/update'
+  get 'species_groups/update'
+
+  get 'species_groups/create'
+
+  # get 'groups/index'
+  #
+  # get 'groups/show'
+  #
+  # get 'groups/update'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  devise_for :users
+  # devise_for :users
+  devise_for :users, controllers: { registrations: "devise2/registrations" }
   #devise_for :users
   get "models/visor"
   get "models/download_model"
@@ -19,6 +27,8 @@ Biomodis::Application.routes.draw do
   post "home/send_message"
   post "ratings/rate_model"
   post "species/comment_point"
+  post "group_users/set_state"
+  post "species_groups/set_state"
   post "species/create_comment_point"
   #post "species/workshop_test"
   #post "species/create_workshop_test"
@@ -27,8 +37,15 @@ Biomodis::Application.routes.draw do
   resources :home, :only => [:show]
   resources :reviews, :only => [:show, :create]
   resources :users, :only => [:show, :edit, :update]
+  resources :user_relationships, :only => [:create]
   resources :models, :only => [:index, :new, :create]
-  resources :groups, :only => [:index, :show, :new, :create, :update]
+  resources :groups do #, :only => [:index, :show, :new, :create, :update]
+
+  end
+  resources :species_groups, :only => [:index, :create, :update]
+  resources :group_users do
+
+  end
   resources :species, :only => [:new, :create, :edit, :update] do
     get :autocomplete, :on => :collection
   end 
