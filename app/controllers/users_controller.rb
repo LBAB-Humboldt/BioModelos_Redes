@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   end
 
   def new
-	@groups = Groups.where(:group_state_id = >1)
+	@groups = Group.where(:group_state_id => 1)
   end
 
   def show
