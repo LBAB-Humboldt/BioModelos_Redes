@@ -34,4 +34,16 @@ class Group < ActiveRecord::Base
       ORDER BY updated_at DESC")
   end
 
+  def users_ranking
+    User.find_by_sql("SELECT U.id, U.name, COUNT(R.id) ediciones
+      FROM users U,  reviews R, species S, groups G, group_users GU, species_groups SG, models m
+      WHERE U.id = R.user_id AND U.id = GU.user_id AND GU.group_id = G.id
+            AND SG.group_id = G.id AND S.id=SG.species_id AND m.id =R.model_id
+            AND m.species_id = S.id AND SG.species_group_state_id=1 AND GU.group_user_state_id=1
+            AND G.id = "+self.id.to_s+"
+      GROUP BY U.name
+      ORDER BY COUNT(R.id) DESC
+      LIMIT 10")
+  end
+
 end
