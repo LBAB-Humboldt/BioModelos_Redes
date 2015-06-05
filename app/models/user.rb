@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :ratings
   has_and_belongs_to_many :groups
   has_many :user_relationships
+  belongs_to :periodicity
 
   def users_most_reviews
   	User.find_by_sql("SELECT U.id AS id, U.name AS Name, COUNT(R.id) AS Ediciones
