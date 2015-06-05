@@ -1,6 +1,10 @@
 class GroupsController < ApplicationController
   def index
-    @groups = Group.where(:group_state_id => 1)
+    if params[:q]
+      @groups = Group.where("group_state_id = 1 AND name like ?", "%"+params[:q]+"%")
+    else
+      @groups = Group.where(:group_state_id => 1)
+    end
   end
 
   def show
