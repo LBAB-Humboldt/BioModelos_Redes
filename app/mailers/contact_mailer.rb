@@ -71,7 +71,6 @@ class ContactMailer < ActionMailer::Base
       )ORDER BY updated_at DESC LIMIT 35
     ")
     @periodicity = periodicity
-    puts @notifications.inspect
 
     case periodicity
       when 1
@@ -82,9 +81,11 @@ class ContactMailer < ActionMailer::Base
         subj="Notificacion Mensual de Actividad en Biomodelos"
     end
     #mail to: mail,  subject: subj
-    mail from: "noreply@biomodelos.humboldt.org.co", to: "miguelstratoss@gmail.com",  subject: subj
-    user=User.find(id)
-    user.last_email_send=Date.today
-    user.save
+    if @notifications
+      mail from: "noreply@biomodelos.humboldt.org.co", to: "miguelstratoss@gmail.com",  subject: subj
+      user=User.find(id)
+      user.last_email_send=Date.today
+      user.save
+    end
   end
 end
