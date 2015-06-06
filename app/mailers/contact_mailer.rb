@@ -88,4 +88,18 @@ class ContactMailer < ActionMailer::Base
       user.save
     end
   end
+
+
+  # Función para Envío de mensajes de Administrador de grupo a mimbros de grupo
+  def bulk_email_group (message, subject, email, group_name, email_from)
+    @message = message
+    @group_name=group_name
+    @email = email
+    @subject = subject
+    @datetime = DateTime.now
+    @email_from = email_from
+    #mail to: mail,  subject: subject    # Descomentar en producción
+    mail to: "miguelstratoss@gmail.com",  subject: subject  # Comentar en producción
+  end
+
 end

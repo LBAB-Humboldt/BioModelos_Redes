@@ -58,4 +58,13 @@ class GroupsController < ApplicationController
     end
     redirect_to group_path(id:params[:id])
   end
+
+  def bulk_email
+    group = Group.find(params[:id])
+    group_users = GroupUser.where(:group_id => params[:id], :group_user_state_id => 1)
+    group_users.each do |f|
+      ContactMailer.bulk_email_group(params[:message], params[:subject], f.user.email, group.name, current_user.email).deliver_now
+    end
+    redirect_to group_path(id:params[:id])
+  end
 end

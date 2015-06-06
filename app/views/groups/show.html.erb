@@ -13,6 +13,7 @@
           <% if user_signed_in? && @is_member && @is_admin %>
               <tr><td><button ng-click="edit_group=!edit_group">Editar Grupo</button></td></tr>
               <tr><td><button ng-click="pending_approvals=!pending_approvals">Ver Solicitudes Pendientes</button></td></tr>
+              <tr><td><button ng-click="bulk_email=!bulk_email">Redactar Email al Grupo</button></td></tr>
           <% end %>
           <tr><td>
           <% if user_signed_in? %>
@@ -25,6 +26,9 @@
         </table>
     </div>
     <hr/>
+    <div ng-show="bulk_email" >
+      <%= render "bulk_email" %>
+    </div>
 
     <div ng-show="pending_approvals" >
       <div>
