@@ -1,4 +1,5 @@
 class GroupUsersController < ApplicationController
+  # Crea o actualiza la relación entre un usuario y un grupo
   def create
     group_params=params[:group_user]
     group_user1 = GroupUser.find_by_group_id_and_user_id(group_params[:group_id], current_user.id)
@@ -36,6 +37,7 @@ class GroupUsersController < ApplicationController
   def update
   end
 
+  # Establece el estado de la relaciòn entre un usuario y un grupo
   def set_state
     @return = false
     group_user = GroupUser.find(params[:id])

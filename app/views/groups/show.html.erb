@@ -17,6 +17,7 @@
           <% end %>
           <tr><td>
           <% if user_signed_in? %>
+              <tr><td><button ng-click="email_invitation=!email_invitation">Invitar un Amigo</button></td></tr>
               <%= simple_form_for @group_user do |f| %>
                     <%= f.hidden_field :group_id, :value =>  @group.id %>
                     <%= f.submit @text_join %>
@@ -28,6 +29,10 @@
     <hr/>
     <div ng-show="bulk_email" >
       <%= render "bulk_email" %>
+    </div>
+
+    <div ng-show="email_invitation" >
+      <%= render "email_invitation" %>
     </div>
 
     <div ng-show="pending_approvals" >

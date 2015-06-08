@@ -1,4 +1,6 @@
 class GroupsController < ApplicationController
+
+  # Listado de todos los grupos aprobados en biomodelos
   def index
     if params[:q]
       @groups = Group.where("group_state_id = 1 AND name like ?", "%"+params[:q]+"%")
@@ -7,6 +9,7 @@ class GroupsController < ApplicationController
     end
   end
 
+  # Pagina principal de Grupo
   def show
     @group = Group.find(params[:id])
     @species_groups = SpeciesGroup.where(:group_id => @group.id, :species_group_state_id => 1);
@@ -43,6 +46,7 @@ class GroupsController < ApplicationController
     end
   end
 
+  # Actualiza Información del Grupo
   def update
     group_params =params[:group]
     @group = Group.find(params[:id])
@@ -59,12 +63,20 @@ class GroupsController < ApplicationController
     redirect_to group_path(id:params[:id])
   end
 
+  # Envía un email Masivo a todos los Usuarios Activos del Grupo
   def bulk_email
     group = Group.find(params[:id])
     group_users = GroupUser.where(:group_id => params[:id], :group_user_state_id => 1)
     group_users.each do |f|
       ContactMailer.bulk_email_group(params[:message], params[:subject], f.user.email, group.name, current_user.email).deliver_now
     end
+    redirect_to group_path(id:params[:id])
+  end
+
+  # Envía un email para invitar a un usuario externo a un grupo de biomodelos
+  def email_invitation
+    group = Group.find(params[:id])
+    ContactMailer.email_invitation(params[:message], params[:name], params[:email], group.name, current_user.email, current_user.name).deliver_now
     redirect_to group_path(id:params[:id])
   end
 end

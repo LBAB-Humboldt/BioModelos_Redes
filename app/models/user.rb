@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
 						LIMIT 10")
   end
 
+  # Consulta la actividad del usuario en cuestión
   def own_notifications
     User.find_by_sql("
     SELECT * FROM (
@@ -44,6 +45,7 @@ class User < ActiveRecord::Base
     )ORDER BY updated_at LIMIT 35 ")
   end
 
+  # Muestra la actividad de los usuarios y grupos a los que sigue un usuario.
   def wall_notifications
     following = UserRelationship.where(:follower_id => self.id)
     my_groups = GroupUser.where(:user_id => self.id, :group_user_state_id =>  1)

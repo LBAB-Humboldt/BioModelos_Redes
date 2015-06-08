@@ -10,6 +10,7 @@ class Group < ActiveRecord::Base
 
   mount_uploader :logo, GroupLogoUploader
 
+  # Notificaciones en el muro de un grupo
   def notifications
     Group.find_by_sql("
       SELECT * FROM (
@@ -34,6 +35,7 @@ class Group < ActiveRecord::Base
       ORDER BY updated_at DESC")
   end
 
+  # Establece un ranking de usuarios por grupo, teniendo en cuenta los aportes relacionados con las especies del grupo
   def users_ranking
     User.find_by_sql("SELECT U.id, U.name, COUNT(R.id) ediciones
       FROM users U,  reviews R, species S, groups G, group_users GU, species_groups SG, models m

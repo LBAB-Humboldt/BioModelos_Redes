@@ -12,6 +12,8 @@ class ContactMailer < ActionMailer::Base
     mail to: "biomodelos@humboldt.org.co",  subject: "Feedback desde BioModelos"
   end
 
+  # Envío de notificaciones periodicas a usuarios.
+  # Contiene información relacionada con grupos y personas a las que siguen los usuarios
   def send_mail_notifications(id, name, email, last_email_send, periodicity)
     @name = name
     @email = email
@@ -100,6 +102,19 @@ class ContactMailer < ActionMailer::Base
     @email_from = email_from
     #mail to: mail,  subject: subject    # Descomentar en producción
     mail to: "miguelstratoss@gmail.com",  subject: subject  # Comentar en producción
+  end
+
+  # Función para el envío de Invitaciones a Amigos externos a Biomodelos
+  def email_invitation (message, name, email, group_name, email_from, name_from)
+    @message = message
+    @group_name=group_name
+    @email = email
+    @name = name
+    @datetime = DateTime.now
+    @email_from = email_from
+    @name_from = name_from
+    subject = "Has Recibido una invitación desde Biomodelos"
+    mail to: email,  subject: subject
   end
 
 end
