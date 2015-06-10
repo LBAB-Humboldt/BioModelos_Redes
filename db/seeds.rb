@@ -24,7 +24,7 @@ SpeciesGroupState.create(:id => 2, :name => "Pendiente Aprobación")
 SpeciesGroupState.create(:id => 3, :name => "Rechazado")
 SpeciesGroupState.create(:id => 4, :name => "Inactivo")
 
-Periodicity.create(:id => 1, :name => "Inmediata", :days => 0)
+Periodicity.create(:id => 1, :name => "Sin Notificaciones", :days => 0)
 Periodicity.create(:id => 2, :name => "Diario", :days => 1)
 Periodicity.create(:id => 3, :name => "Semanal", :days => 7)
 Periodicity.create(:id => 4, :name => "Mensual", :days => 30)

@@ -82,7 +82,7 @@ class ContactMailer < ActionMailer::Base
         subj="Notificacion Mensual de Actividad en Biomodelos"
     end
     #mail to: mail,  subject: subj
-    mail from: "noreply@biomodelos.humboldt.org.co", to: "miguelstratoss@gmail.com",  subject: subj
+    mail from: "noreply@biomodelos.humboldt.org.co", to: "dlopez@humboldt.org.co",  subject: subj
     user=User.find(id)
     user.last_email_send=Date.today
     user.save
