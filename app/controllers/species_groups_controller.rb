@@ -5,6 +5,7 @@ class SpeciesGroupsController < ApplicationController
   def update
   end
 
+  # Crea la relación entre una especie y un grupo
   def create
     @species_group = SpeciesGroup.new
     species_params=params[:species_group]
@@ -14,9 +15,9 @@ class SpeciesGroupsController < ApplicationController
     if @species_group.save
       redirect_to group_path(id:species_params[:group_id])
     end
-    #render plain: params[:species_group].inspect
   end
 
+  # Establece el estado de la relación entre una especie y un grupo
   def set_state
     @return=false
     species_group = SpeciesGroup.find(params[:id])

@@ -1,4 +1,6 @@
 class UserRelationshipsController < ApplicationController
+
+  # Crea o Elimina la relación entre usuarios
   def create
     relationship_params=params[:user_relationship]
     user_relationship = UserRelationship.find_by_user_id_and_follower_id(relationship_params[:user_id], current_user.id)
@@ -14,7 +16,5 @@ class UserRelationshipsController < ApplicationController
         redirect_to user_path(id:relationship_params[:user_id])
       end
     end
-
-
   end
 end

@@ -10,9 +10,14 @@
           <tr><td>Descripción:<%= @group.description %></td></tr>
           <tr><td>Email de Contacto: <a href="mailto:<%= @group.email %>"><%= @group.email %></a></td></tr>
           <tr><td>Link Externo: <a href="<%= @group.link %>"><%= @group.link %></a></td></tr>
+
           <% if user_signed_in? && @is_member && @is_admin %>
               <tr><td><button ng-click="edit_group=!edit_group">Editar Grupo</button></td></tr>
               <tr><td><button ng-click="pending_approvals=!pending_approvals">Ver Solicitudes Pendientes</button></td></tr>
+              <tr><td><button ng-click="bulk_email=!bulk_email">Redactar Email al Grupo</button></td></tr>
+          <% end %>
+          <% if user_signed_in? && @is_member %>
+            <tr><td><button ng-click="email_invitation=!email_invitation">Invitar un Amigo</button></td></tr>
           <% end %>
           <tr><td>
           <% if user_signed_in? %>
@@ -25,6 +30,13 @@
         </table>
     </div>
     <hr/>
+    <div ng-show="bulk_email" >
+      <%= render "bulk_email" %>
+    </div>
+
+    <div ng-show="email_invitation" >
+      <%= render "email_invitation" %>
+    </div>
 
     <div ng-show="pending_approvals" >
       <div>
@@ -142,11 +154,11 @@
   <hr/>
   <div class="" id="col2p">
     <div class="cajas">
-      <h5>ranking mensual</h5>
-      <% @users_by_reviews.each_with_index do |user, i| %>
+      <h5>ranking</h5>
+      <% @group.users_ranking.each_with_index do |user, i| %>
           <section class="ranking">
             <h1><%= i+1 %></h1>
-            <p><a href="/users/<%= user.id %>"><%= user.Name %></a> · <%= user.Ediciones %> aporte(s) </p>
+            <p><a href="/users/<%= user.id %>"><%= user.name %></a> · <%= user.ediciones %> aporte(s) </p>
             <div class="medalla1"></div>
           </section>
       <% end %>

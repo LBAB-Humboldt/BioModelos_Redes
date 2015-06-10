@@ -12,6 +12,8 @@ class ContactMailer < ActionMailer::Base
     mail to: "biomodelos@humboldt.org.co",  subject: "Feedback desde BioModelos"
   end
 
+  # Envío de notificaciones periodicas a usuarios.
+  # Contiene información relacionada con grupos y personas a las que siguen los usuarios
   def send_mail_notifications(id, name, email, last_email_send, periodicity)
     @name = name
     @email = email
@@ -71,7 +73,6 @@ class ContactMailer < ActionMailer::Base
       )ORDER BY updated_at DESC LIMIT 35
     ")
     @periodicity = periodicity
-    puts @notifications.inspect
 
     case periodicity
       when 1
@@ -82,9 +83,40 @@ class ContactMailer < ActionMailer::Base
         subj="Notificacion Mensual de Actividad en Biomodelos"
     end
     #mail to: mail,  subject: subj
-    mail from: "noreply@biomodelos.humboldt.org.co", to: "dlopez@humboldt.org.co",  subject: subj
-    user=User.find(id)
-    user.last_email_send=Date.today
-    user.save
+
+    if @notifications
+      mail from: "noreply@biomodelos.humboldt.org.co", to: "miguelstratoss@gmail.com",  subject: subj # Comentar en Producci
+      # mail from: "noreply@biomodelos.humboldt.org.co", to: email,  subject: subj # Descomentar en Producción
+      user=User.find(id)
+      user.last_email_send=Date.today
+      user.save
+    end
   end
+
+
+  # Función para Envío de mensajes de Administrador de grupo a mimbros de grupo
+  def bulk_email_group (message, subject, email, group_name, email_from)
+    @message = message
+    @group_name=group_name
+    @email = email
+    @subject = subject
+    @datetime = DateTime.now
+    @email_from = email_from
+    #mail to: mail,  subject: subject    # Descomentar en producción
+    mail to: email,  subject: subject  # Comentar en producción
+  end
+
+  # Función para el envío de Invitaciones a Amigos externos a Biomodelos
+  def email_invitation (message, name, email, group_name, email_from, name_from)
+    @message = message
+    @group_name=group_name
+    @email = email
+    @name = name
+    @datetime = DateTime.now
+    @email_from = email_from
+    @name_from = name_from
+    subject = "Has Recibido una invitación desde Biomodelos"
+    mail to: email,  subject: subject
+  end
+
 end

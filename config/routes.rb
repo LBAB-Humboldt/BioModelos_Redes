@@ -30,6 +30,8 @@ Biomodis::Application.routes.draw do
   post "group_users/set_state"
   post "species_groups/set_state"
   post "species/create_comment_point"
+  post "groups/bulk_email"
+  post "groups/email_invitation"
   #post "species/workshop_test"
   #post "species/create_workshop_test"
   resources :ratings, only: :update
