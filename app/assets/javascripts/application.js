@@ -22,8 +22,8 @@
 //= require leaflet
 //= require leaflet/leaflet.coordinates-0.1.4.min
 //= require leaflet/leaflet.markercluster
-//= require leaflet/esri-leaflet
 //= require jquery-csv.min
 //= require leaflet/leaflet.geocsv.min
 //= require jquery.raty.min
 //= require turbolinks
+

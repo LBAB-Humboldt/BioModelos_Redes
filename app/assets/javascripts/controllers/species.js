@@ -5,7 +5,7 @@ $( document ).ready(function() {
         $(this).animate({scrollTop:$(".cajadatosm").scrollTop() + $(this).find(".modeldata").position().top},600);
   });
   $("body").on("mouseleave",".cajadatosm",function(e){
-        $(this).animate({scrollTop:$(".cajadatosm").position().top - '20px'},600).finish();
+        $(this).animate({scrollTop:$(".cajadatosm").position().top - '20'},600).finish();
   });
 
 

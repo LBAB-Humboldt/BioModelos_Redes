@@ -60,6 +60,7 @@ var _mapVisorModule = function() {
 
     	
         map = L.map('map', {crs: L.CRS.EPSG4326}).setView(latlng, zoom);
+        //map = L.map('map', {crs: L.CRS.EPSG3857}).setView(latlng, zoom);
     	//map = L.map('map').setView(latlng, zoom);
    		
 	    map.addLayer(googleTerrain);
@@ -95,7 +96,8 @@ var _mapVisorModule = function() {
 			imageBounds = [[12.46667, -59.86666], [-13.84166, -84.86666]];
 			//imageBounds = [[12.466957766, -59.864685059], [-13.841375567, -84.864685059]];
 		else if (speciesID == 5091)
-			imageBounds = [[28.8, -83.14999],[9.34167, -102]];
+			//imageBounds = [[28.8, -83.14999],[9.34167, -102]];
+			imageBounds = [[29.35000466,-83.149994949],[9.341670283, -101.999995932]];
 			//imageBounds = [[29.352815756, -83.148901367], [9.344482423, -101.998901367]];
 		else
 			imageBounds = [[12.675, -60.48333], [-13.84166, -82.94999]];
