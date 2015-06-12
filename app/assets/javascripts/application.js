@@ -25,5 +25,8 @@
 //= require jquery-csv.min
 //= require leaflet/leaflet.geocsv.min
 //= require jquery.raty.min
-//= require turbolinks
+//= require app/app
+//= require_tree ./app/controllers
+//= require_tree ./app/config
+// require turbolinks
 
